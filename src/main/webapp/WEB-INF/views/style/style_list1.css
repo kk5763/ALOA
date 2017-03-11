@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+#container  { background-color:ffffff;  padding:10px; }
+#header   { background-color:#908886; height:150px; }
+#content  {  background-color:#ffffff; ; width:800px; height:800px; margin:0 auto; }
+#sideinfo  { background-color:#DCDAD9;  width:300px; height:400px; }
+#footer   { background-color:#908886; clear:both; height:100px; }
+
+/* 폰트 */
+.fon{color:#908886; font-size: 30px;  }
+.fon1{    font-weight: bold;}
+.non{text-decoration: none; }
+
+
+
+
+
+/* 내용들 */
+/*  padding top:20px, right:30px, bottom:40px, left:50p */
+
+
+
+.img{float: left;padding : 20px 20px 10px 1px ;} 
+/* 리스트 하나 */
+.list{float: left; padding:28px 20px 28px; border-bottom-style: solid; border-color: #908886; border-width: 1px;}
+.text1{padding:15px 20px 0px; width:506px; height:65px; color:#908886; }
+.text2{position: relative; left: 400px ; top:-50px; background-image:"img/a.jpg" }
+.text3{width:800px; height:135px; }
+.text_img{background-image:"2017.jpg";position: absolute;   height: 35px; width: 35px; border-radius: 35px;  left: 2px;}
+.text4{width: auto;
+    position: relative;
+    bottom: 0;
+    left: 450px;
+    margin-left: -52px;
+    font-size: 1.000rem;
+    line-height: 46px;
+    border-radius: 50px;
+    border: none;
+    font-weight: normal;
+    color: #888;}

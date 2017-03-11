@@ -67,4 +67,14 @@ public class MainController {
 		}
 		return inspectVO;
 	}
+	
+	@RequestMapping(value="/detailView",method=RequestMethod.GET)
+	public String detailView(){
+		
+		
+		return "detail/detailView";
+	}
+	
+	
+	
 }
