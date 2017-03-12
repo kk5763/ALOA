@@ -17,14 +17,6 @@
 		<version>1.5.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<!-- ojdbc6 추가 리파지토리. -->
-	<repositories>
-        <repository>
-            <id>oracle</id>
-            <name>ORACLE JDBC Repository</name>
-            <url>http://maven.jahia.org/maven2</url>
-        </repository>
-    </repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,12 +48,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-		<!-- 오라클 라이브러리 -->
-		<dependency>
-	        <groupId>com.oracle</groupId>
-	        <artifactId>ojdbc6</artifactId>
-	        <version>11.1.0.7.0</version>
-	    </dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
