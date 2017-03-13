@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel = "stylesheet" type = "text/css" href = "../style/writeFormStyle.css"/>
+<link rel = "stylesheet" type = "text/css" href = "/style/h_style/writeFormStyle.css"/>
 
 </head>
 <body onresize = "parent.resizeTo(800,750)" onload="parent.resizeTo(800,750)">
@@ -49,24 +49,7 @@
 			<input type = "radio" name = "gender" value = "Femal"/>Female
 		</td>
 	</tr>
-	<tr><td colspan = "2"><hr width = "100%" /></td></tr>
-	<tr>
-	<td id = "left"><b>통신사</b></td>
-	<td><input type = "radio" name = "agency" value = "SKT"/>SKT
-		<input type = "radio" name = "agency" value = "KT"/>KT
-		<input type = "radio" name = "agency" value = "LG"/>LG U+
-	</td>	
-</tr>
-<tr>
-	<td id = "left"><b>휴대폰번호</b></td>
-	<td><select name = "phone_num1" style = "width:120px;">
-		<option value = "010">010</option>
-		<option value = "011">011</option>
-		<option value = "016">016</option>
-		<option value = "017">017</option>
-	<input id ="num" type = "text" name = "phone_num2" placeholder = "1234">
-	<input id ="num" type = "text" name = "phone_num2" placeholder = "5678"></td>
-</tr>
+
 <tr><td colspan = "2"><hr width = "100%" /></td></tr>
 <br><br>
 <tr>

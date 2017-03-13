@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>개인 가입 약관 동의</title>
-<link rel="stylesheet" type="text/css" href="../style/agreeJoin.css">
+<link rel="stylesheet" type="text/css" href="/style/h_style/agreeJoin.css">
 </head>
 <body>
 	<div id="kakaoIndex">
@@ -36,7 +36,7 @@
 					서비스 약관 및 개인정보 수집, 이용에 <strong class="txt_emph">동의</strong>해 주세요.
 				</div>
 			</div>
-			<form id="joinTerms" name="joinTerms" action="/join/terms"
+			<form id="joinTerms" name="joinTerms" action="/writeForm"
 				method="post">
 				<fieldset class="fld_comm">
 					<legend class="screen_out">mango 서비스 약관 및 개인정보 수집, 이용에 대한
