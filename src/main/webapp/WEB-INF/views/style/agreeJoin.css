@@ -179,7 +179,7 @@ address, caption, cite, code, dfn, em, var {
 .ico_join {
 	display: inline-block;
 	background-image:
-		url("mango.png");
+		url("../image/mangoplate.PNG");
 	background-repeat: no-repeat
 }
 
@@ -352,7 +352,14 @@ address, caption, cite, code, dfn, em, var {
 	opacity: 0;
 	filter: alpha(opacity = 0)
 }
-
+.ico_back{
+	background-image:url("../image/backButton.png");
+	float: left;
+	width: 24px;
+	height:23px;
+	margin-right: 10px;
+	background-position: -90px -50px;
+}
 .ico_check {
 	width: 20px;
 	height: 20px;
@@ -558,7 +565,7 @@ address, caption, cite, code, dfn, em, var {
 	right: 20px
 }
 
-.wrap_check .ico_check {
+.wrap_check .ico_check1 {
 	display: block;
 	font-size: 0;
 	line-height: 0;

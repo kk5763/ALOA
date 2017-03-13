@@ -17,7 +17,7 @@
 		<div id="kakaoHead">
 			<div class="inner_head">
 				<h1>
-					<a href="http://www.mango.net" id="mangoServiceLogo" class="ico_join"><span
+					<a href="http://www.mangoplate.com/" id="mangoServiceLogo" class="ico_join"><span
 						class="ir_wa">Mango</span></a>
 				</h1>
 			</div>
@@ -465,7 +465,7 @@
 						<div class="wrap_check">
 							<input id="termsAgree" name="termsAgree" type="checkbox"
 								class="input_check"> <label for="termsAgree"
-								class="ico_join ico_check">mango 서비스 약관에 동의합니다.</label>
+								class="ico_join ico_check1">mango 서비스 약관에 동의합니다.</label>
 							<!-- focus 시 .focus 추가 -->
 						</div>
 					</div>
@@ -484,29 +484,28 @@
 							아이디, 비밀번호, 이름, 연락처(휴대폰번호 또는 이메일 주소 중 1개 선택) <br> <span
 								class="tit">3. 보유기간</span> 수집된 정보는 회원탈퇴 후 지체없이 파기됩니다.<br> <br>서비스
 							제공을 위해 필요한 최소한의 개인정보이므로 동의를 해 주셔야 서비스 이용이 가능합니다. <br>더 자세한
-							내용에 대해서는 <a
-								href="http://policy.mango.net/info_protection/info_protection"
-								target="_blank" class="link_privacy">개인정보처리방침</a>을 참고하시기 바랍니다.
+							내용에 대해서는 
+					개인정보처리방침을 참고하시기 바랍니다.
 						</div>
 						<div class="wrap_check">
 							<input id="policyAgree" name="policyAgree" type="checkbox"
 								class="input_check"> <label for="policyAgree"
-								class="ico_join ico_check">mango 개인정보 수집 및 이용 약관에 동의합니다.</label>
+								class="ico_join ico_check1">mango 개인정보 수집 및 이용 약관에 동의합니다.</label>
 							<!-- focus 시 .focus 추가 -->
 						</div>
 					</div>
 
 					<div class="wrap_btn">
 						<button type="button" class="link_back">
-							<span class="ico_join"></span>이전으로
+							<span class="ico_back"></span>이전으로
 						</button>
 						<button type="submit" id="nextBtn"
 							class="btn_comm btn_type1 disabled">동의하기</button>
 						<!-- 전체 동의 체크 후 .disabled 제거 -->
 						<a
-							href="https://logins.mango.net/accounts/loginform.do?url=http%3A%2F%2Fwww.mango.net"
+							href="#"
 							class="btn_type2">개인사용자 가입하기<span class="ico_join"></span></a>
-						<a href="https://member.mango.net/join/corp/intro"
+						<a href="#"
 							class="btn_type2">가맹점 가입하기<span class="ico_join"></span></a>
 					</div>
 				</fieldset>
