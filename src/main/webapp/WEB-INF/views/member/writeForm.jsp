@@ -12,21 +12,23 @@
 <form id = "my_reg_form" method = "GET" action = "">
 <center><h2>망고플레이트 회원가입</h2></center>
 <table id = "mytable">
-	<tr>
+	<!-- <tr>
 		<td id = "left"><b>아이디</b></b> <font color = "red"><b>*</b></font></td>
 		<td><input type = "text" id = "user_id" name = "user_id"/>
 			<input type = "button" id =user_id_check" value = "중복확인">
 		</td>
-	</tr>
+	</tr> -->
 	<tr>
 		<td id = "left"><b>이메일</b><font color = "red"><b>*</b></font></td>
-		<td><input type = "text" name = "user_email"/>@
+		<td><input type = "text" name = "user_email" size = "13"/>@
 			<select name = "email_address">
 				<option id = "naver" value = "naver.com">naver.com</option>
 				<option id = "daum" value = "daum.net">daum.net</option>
 				<option id = "gmail" value = "gmail.com">gmail.com</option>
 				<option id = "yahoo" value = "yahoo.com">yahoo.com</option>
 			</select>
+			<input type = "button" value = "중복확인" id = "user_email_check">
+		</td>
 	</tr>
 	<tr>
 		<td id = "left"><b>비밀번호</b><font color = "red"><b>*</b></font></td>
