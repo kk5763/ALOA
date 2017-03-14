@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/style_list1.css" />
+<link rel="stylesheet" type="text/css" href="/style/h_style/style_list1.css" />
 </head>
 <body>
 <div id="container">
@@ -21,13 +21,13 @@
 			 <!-- 리스트 -->
 			<div class="list">
 				<div >
-					<img class="img" src="../img/2017.jpg" width="300" height="300"onclick="" style="cursor: pointer;" > 
+					<img class="img" src="/resources/images/2017.jpg" width="300" height="300"onclick="" style="cursor: pointer;" > 
 				</div>			
 				<div class="text1" ><a  onclick="1" href="1"  class="non">
 				   					<span class="fon"><strong >1. 양미옥 4.5</strong></span>
 									</a>
 									<p>서울시 중구 을지로3가 161</p></div>
-				<div  class="text2" ><input type="image" src="img/a.jpg" onclick=""></input></div>
+				<div  class="text2" ><input type="image" src="/resources/images/a.jpg" onclick=""></input></div>
 				<div class="text3" >
 				<figure>	
 				<figcaption class="fon1" >KimYeon-su </figcaption>  <p>양대창이 진짜 맛난 곳이에요. 어린 조카들이랑 가서 조카들이 좀 떠들었는데 점원분들이 웃으면서 대해주시고 아이들을 잘 받아주셔서 진짜 감사했던  </p>

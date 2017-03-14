@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>이삐</title>
-<link rel="stylesheet" type="text/css" href="../style/style_list2.css
+<link rel="stylesheet" type="text/css" href="/style/h_style/style_list2.css
 " />
 </head>
 <body>
