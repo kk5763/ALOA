@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.aloa.dto.InspectVO;
 import com.aloa.service.MemberService;
@@ -73,6 +74,22 @@ public class MainController {
 		
 		
 		return "detail/detailView";
+	}
+	
+	@RequestMapping(value = "/agreeJoin", method = RequestMethod.GET)
+	public ModelAndView agreeJoin(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/agreeJoin");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/writeForm", method = RequestMethod.POST)
+	public ModelAndView writeForm(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/writeForm");
+		
+		return mav;
 	}
 	
 	
