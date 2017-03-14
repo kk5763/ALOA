@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel = "stylesheet" type = "text/css" href = "../style/detailViewStyle.css"/>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=RS_xGeGWx9dfFLe5r03g"></script>
 </head>
 <!-- 상단영역 -->
 <header>
@@ -177,13 +178,54 @@
 		 </section>
 		
 	</div>
+	<!-- 사이드영역 -->
+	<div class="side-wrap">
+		<div class="side-content">
+			<!-- 지도 -->
+			<div id="map"></div>
+			<script>
+				var mapOptions = {
+					center : new naver.maps.LatLng(37.3595704, 127.105399),
+					zoom : 10
+				};
 	
+				var map = new naver.maps.Map('map', mapOptions);
+				
+				var marker = new naver.maps.Marker({
+				    position: new naver.maps.LatLng(37.3595704, 127.105399),
+				    map: map
+				});
+			</script>
+		 <div class="inner">
+		  <div class="near-restaurant">
+		   <h1 class="near-title">주변 인기 식당</h1>
+		   <ul class="near-restaurant-list">
+		    <li class="near-item">
+		     <figure class="near-thumb">
+		      <div class="near-thumb-item">
+		       <img class="thumb-image" src="https://mp-seoul-image-production-s3.mangoplate.com/386/34440_1466003144545_1081557">
+		       <a href="#">더키친살바토레쿠오모</a>
+		      </div>
+		      <figcaption>
+		       <div class="near-info">
+		        <span class="near-mini-title">더키친살바토레쿠오모</span>
+		        <strong class="near-point">4.4</strong>
+		        <p class="near-etc">음식종류:이탈리안</p>
+		        <p class="near-etc">음식종류:이탈리안</p>
+		        <p class="near-etc">음식종류:이탈리안</p>
+		       </div>
+		      </figcaption>
+		     </figure>
+		    </li>
+		   </ul>
+		  </div>
+		 </div>
+		</div>
+	</div>
+
 </article>
 
-<!-- 사이드영역 -->
-<article>
 
-</article>
 
 </body>
 </html>
