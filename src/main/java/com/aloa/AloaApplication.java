@@ -14,6 +14,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @SpringBootApplication
 @MapperScan(value={"com.aloa.dao"}) //mapperscan
+
 public class AloaApplication {
 
 	public static void main(String[] args) {

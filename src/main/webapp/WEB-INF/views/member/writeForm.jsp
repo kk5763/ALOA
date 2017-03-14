@@ -20,8 +20,8 @@
 	</tr> -->
 	<tr>
 		<td id = "left"><b>이메일</b><font color = "red"><b>*</b></font></td>
-		<td><input type = "text" name = "user_email" size = "13"/>@
-			<select name = "email_address">
+		<td><input type = "text" name = "email1" size = "13"/>@
+			<select name = "email2">
 				<option id = "naver" value = "naver.com">naver.com</option>
 				<option id = "daum" value = "daum.net">daum.net</option>
 				<option id = "gmail" value = "gmail.com">gmail.com</option>

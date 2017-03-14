@@ -51,7 +51,7 @@ select{
 #my_reg_form #user_id{
 	width:270px;
 }
-#my_reg_from #user_email_check{
+#my_reg_from #email1_check{
 	border: 3px outset #E5E5E5;
 }
 #my_reg_form #user_retype_password{
