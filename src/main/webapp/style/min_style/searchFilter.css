@@ -1,0 +1,180 @@
+#filter{
+}
+.searchFilterText{
+	margin-top:10px;
+}
+.searchFilter{
+	border-bottom: 1px solid #CFCFCF;
+	text-align:center;
+	margin-top:20px;
+	padding-bottom:30px;
+}
+.grade{
+	margin:0 10px;
+	width: 260px;
+	height: 40px;
+	border-radius: 40px;
+	border: 2px solid #CFCFCF;
+	color: #CFCFCF;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	display:inline-block;
+}
+.popularity{
+	margin:0 10px;
+	width: 260px;
+	heigth: 40px;
+	border-radius: 40px;
+	border: 2px solid #CFCFCF;
+	color: #CFCFCF;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	display:inline-block;
+}
+.priceText{
+	display:inline-block;
+	margin-top:10px;
+}
+.overlapChoice{
+	float:right;
+	color: #CFCFCF;
+	font-size: 13px;
+	margin-top:10px;
+}
+.price{	
+	border-bottom: 1px solid #CFCFCF;
+	text-align:center;
+	margin-top:20px;
+	padding-bottom:30px;
+}
+.money{
+	width: 85px;
+	height: 85px;
+	border: 3px solid #CFCFCF;
+	line-height: 85px;
+	text-align:center;
+	color:#CFCFCF;
+	display:inline-block;
+	border-radius: 50px;
+	margin:0 30px;
+}
+.areaText{
+	display:inline-block;
+	margin-top:10px;	
+}
+.area{
+	border-bottom: 1px solid #ccc;
+	text-align:center;
+	padding-left:25px;
+	padding-right:25px;
+}
+.areaNameTitle{
+	width:122px;
+	border-bottom: 2px solid #ccc;
+	color:#CFCFCF;
+	padding-bottom:15px;
+	float:left;
+}
+.zoneName{
+	margin-top:20px;
+	border: 1px solid #ccc;
+	border-radius: 50px;
+	width:165px;
+	height:50px;
+	line-height:50px;
+	color:#CFCFCF;
+	display:inline-block;
+	font-size:16px;
+}
+#leftZone{
+	margin-right:12px;
+}
+#rightZone{
+	margin-left:12px;
+}
+.zoneBottom{
+	/* border:2px solid green;	 */
+	margin-bottom:50px;
+}
+.foodTypeText{
+	display:inline-block;
+	margin-top:10px;	
+}
+.foodType{
+	border-bottom: 1px solid #CFCFCF;
+	text-align:center;
+	margin-top:20px;
+	padding-left:30px;
+	padding-right:30px;
+	padding-bottom:30px;
+}
+.foodTypeName{
+	display:inline-block;
+	margin:0 30px;
+	color:#CFCFCF;	
+	padding-bottom:10px;
+}
+.foodTypeName img{
+	width:90px;
+	height:90px; 
+	display:block;
+	margin-bottom:5px;
+	cursor:pointer;
+}
+.parking{
+	margin-top:20px;
+	text-align:center;
+	margin-bottom:30px;
+}
+.parkingName{
+	margin-top:10px;
+}
+.absence{
+	margin:0 10px;
+	width: 260px;
+	height: 40px;
+	border-radius: 40px;
+	border: 2px solid #CFCFCF;
+	color: #CFCFCF;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	display:inline-block;
+}
+.distantPoints{
+	margin:0 10px;
+	width: 260px;
+	heigth: 40px;
+	border-radius: 40px;
+	border: 2px solid #CFCFCF;
+	color: #CFCFCF;
+	text-align: center;
+	line-height: 40px;
+	font-size: 15px;
+	display:inline-block;
+}
+.choiceButton{
+}
+#cancel{
+	width:400px;
+	height:100px;
+	line-height:100px;
+	background-color:#CFCFCF;
+	font-size:20px;
+	text-align:center;
+	color:#fff;
+	display:inline-block;
+	float:left;
+}
+#apply{
+	width:400px;
+	height:100px;
+	line-height:100px;
+	background-color:#FF792A;
+	font-size:20px;
+	text-align:center;
+	color:#fff;
+	display:inline-block;
+}

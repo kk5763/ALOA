@@ -92,6 +92,16 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/searchList", method = RequestMethod.GET)
+	public String searchList(){
+		
+		return "search/searchList";
+	}
 	
+	@RequestMapping(value = "/searchFilter", method = RequestMethod.GET)
+	public String searchFilter() {
+		
+		return "search/searchFilter";
+	}
 	
 }
