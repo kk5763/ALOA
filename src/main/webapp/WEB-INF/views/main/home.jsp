@@ -42,7 +42,7 @@
 
 <form class="container text-center" id="searchbar">
     <div class="input-group">
-        <input type="text" class="form-control input-lg" placeholder="search">
+        <input type="text" class="form-control input-lg" placeholder="지역, 식당 또는 음식">
         <div class="input-group-btn">
             <button type="submit" class="btn btn-lg btn-danger">검색</button>
         </div>
@@ -107,9 +107,9 @@
             }
         });
         $('.slider1').bxSlider({
-            slideWidth: 300,
+            slideWidth: 250,
             minSlides: 1,
-            maxSlides: 4,
+            maxSlides: 5,
             moveSlides: 1,
             slideMargin: 10
         });

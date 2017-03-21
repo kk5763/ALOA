@@ -64,7 +64,7 @@
 	            <div class="modal-body">
 	                <div class="container-fluid">
 	                    <div class="row">
-	                        <button class="btn btn-lg btn-danger btn-block" type="submit">이메일로 회원가입</button>
+	                        <a href="/agreeJoin" class="btn btn-lg btn-danger btn-block" type="button" id="signupByEmail">이메일로 회원가입</a>
 	                    </div>
 	                </div>
 	            </div>

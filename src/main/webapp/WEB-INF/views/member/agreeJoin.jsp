@@ -499,14 +499,14 @@
 						<button type="button" class="link_back">
 							<span class="ico_back"></span>이전으로
 						</button>
-						<button type="submit" id="nextBtn"
-							class="btn_comm btn_type1 disabled">동의하기</button>
+						<a href="/writeForm" id="nextBtn"
+							class="btn_comm btn_type1 disabled">동의하기</a>
 						<!-- 전체 동의 체크 후 .disabled 제거 -->
-						<a
+						<!-- <a
 							href="#"
 							class="btn_type2">개인사용자 가입하기<span class="ico_join"></span></a>
 						<a href="#"
-							class="btn_type2">가맹점 가입하기<span class="ico_join"></span></a>
+							class="btn_type2">가맹점 가입하기<span class="ico_join"></span></a> -->
 					</div>
 				</fieldset>
 			</form>

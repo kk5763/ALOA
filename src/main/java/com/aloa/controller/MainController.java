@@ -10,10 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.aloa.dto.InspectVO;
 import com.aloa.service.MemberService;
 
 @Controller
@@ -30,7 +28,7 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping("/")
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model, HttpSession session){
 		if(cr.findPrimaryConnection(Facebook.class)!=null){
 			String[] fields={"id","name","birthday","email","gender"};
@@ -55,19 +53,7 @@ public class MainController {
 		return "main/home";
 	}
 	
-	@ResponseBody
-	@RequestMapping(value="/inspect", method=RequestMethod.GET)
-	public InspectVO inspect(InspectVO inspectVO){
-		
-		try {
-			boolean inspect = memberService.inspectEmail(inspectVO.getData());
-			if(inspect) inspectVO.setResult(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-		return inspectVO;
-	}
+	
 	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
 	public String detailView(){
@@ -84,12 +70,9 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/writeForm", method = RequestMethod.POST)
-	public ModelAndView writeForm(){
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/writeForm");
-		
-		return mav;
+	@RequestMapping(value = "/writeForm", method = RequestMethod.GET)
+	public String writeForm(){
+		return "member/writeForm";
 	}
 	
 	@RequestMapping(value = "/searchList", method = RequestMethod.GET)
