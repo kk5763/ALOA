@@ -6,72 +6,13 @@
  <head>
   <title> 맛집 팝업창 </title>
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" /> 
-   
-<style>
-	#popupMain{
-		margin:0 auto;
-		width:400px;
-	}
-	#popup{
-		margin:0 auto;
+</head>
 
-		width:400px; height:430px;
-		overflow:auto;
-	}
-	#fixedMenu{
-		background-color:#ff792a;
-	}
-	table{
-		margin:0 auto;
-		border-collapse:collapse;
-	}
-	table tr th{
-		width:400px;
-		font-family:sans-serif;
-		color:#fff;
-		padding:5px 5px;
-		border-bottom:2px solid #cfcfcf;
-	}
-	table tr td{
-		font-family:sans-serif;
-		font-size:15px;
-		padding:5px 10px;
-		border-bottom:1px solid #cfcfcf;
-	}
-	table tr td span{
-		font-weight:bold;
-		text-align:top;
-		/* border:1px solid black; */
-	}
-	table tr td p{
-		/* border:1px solid black; */
-	}
-	#delete{
-		border-left:1px solid #cfcfcf;
-	}
-	#deleteButton{
-		border-left:1px solid #cfcfcf;
-		color:#cfcfcf;
-		background:none;
-		cursor:pointer;
-	}
-	#deleteButton:hover{
-		border-left:1px solid #cfcfcf;
-		color:#ff792a;
-		background:white;
-	}
-	#xButton{
-		text-align:right;
-		margin-bottom:10px;
-	}
-	#xButton img{
-		width:50px;
-	}
-</style>
+<link href="css/foodListPop.css" rel="stylesheet" type="text/css">
+
 <script>
 document.write('<a href="#" onclick="self.close()"></a>')
 </script>
-</head>
 
 <body>
 	<div id="popupMain">

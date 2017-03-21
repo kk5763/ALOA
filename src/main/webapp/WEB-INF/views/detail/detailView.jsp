@@ -8,6 +8,19 @@
 <link rel = "stylesheet" type = "text/css" href = "../style/detailViewStyle.css"/>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=RS_xGeGWx9dfFLe5r03g"></script>
+
+<link rel="stylesheet" type="text/css" href="/style/photobox.css">
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/jquery.photobox.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	
+	$(".image-slider-div").photobox();//플러그인 적용
+	
+	});
+</script>
+
 </head>
 <!-- 상단영역 -->
 <header>
@@ -17,13 +30,16 @@
 <!-- 메인영역 -->
 <article class="main-scope">
 	<!-- 상단 이미지 슬라이더 -->
-	<div class="image-slider">
-		<c:forEach var="i" begin="1" end="5" step="1">
+<!-- 	<div class="image-slider" > -->
+		
 			<div class="image-slider-div">
-			<img class="images" src="/resources/images/${i}.jpg">
+				<c:forEach var="i" begin="1" end="5" step="1">
+		        	<a href="/resources/images/${i }.jpg">
+		        		<img class="images" src="/resources/images/${i }.jpg" height="100px"/>
+		        	</a>
+	        	</c:forEach>
 			</div>
-		</c:forEach>
-	</div>
+	<!-- </div> -->
 	<!-- 본문 내용  -->
 	<div class="content-wrapper">
 		<div class="content">

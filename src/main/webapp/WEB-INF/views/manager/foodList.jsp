@@ -7,66 +7,7 @@
   <title> 맛집리스트 </title>
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" /> 
  </head>
-<style>
-	#foodList{	
-		margin:0 auto;
-		width:900px;
-		/* border:1px solid green; */
-	}
-	#buttonClass{
-		overflow:hidden;
-		/*border:1px solid red;*/
-		margin-bottom:10px;
-		width:100%;
-	}
-	#buttonClass input{
-		float:right;
-		margin-left:5px;
-		color:#B8B8B8;
-		background-color:#fff;
-		border:1px solid #cfcfcf;
-		cursor:pointer;
-	}
-
-	#buttonClass input:hover{
-		float:right;
-		margin-left:5px;
-		color:#ff792a;
-		background-color:#fff;
-		border:1px solid #ff792a;
-	}
-
-	table{
-		margin:0 auto;
-		border-collapse:collapse;
-	}
-	table tr th{
-		/*border:2px solid pink;*/
-		font-family:sans-serif;
-		color:#fff;
-		background-color:#ff792a;
-		padding:5px 5px;
-		border-bottom:2px solid #cfcfcf;
-	}
-	#foodName{
-		width:300px;
-		cursor:pointer;
-	}
-	table tr td{
-		font-family:sans-serif;
-		padding:5px 10px;
-		border-bottom:1px solid #cfcfcf;
-	}
-	table tr td select{
-		border:1px solid #ff792a;
-	}
-	table tr .number{
-		text-align:center;
-	}
-	#foodTableList{	
-		/*border:1px solid blue;*/
-	}
-</style>
+<link href="css/foodList.css" rel="stylesheet" type="text/css">
 
  <body>
 
