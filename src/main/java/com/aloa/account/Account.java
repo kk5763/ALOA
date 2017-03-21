@@ -1,6 +1,7 @@
 package com.aloa.account;
 
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -50,4 +51,6 @@ public class Account {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
+	
 }

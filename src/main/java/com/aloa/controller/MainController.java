@@ -53,15 +53,6 @@ public class MainController {
 		return "main/home";
 	}
 	
-	
-	
-	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(){
-		
-		
-		return "detail/detailView";
-	}
-	
 	@RequestMapping(value = "/agreeJoin", method = RequestMethod.GET)
 	public ModelAndView agreeJoin(){
 		ModelAndView mav = new ModelAndView();
