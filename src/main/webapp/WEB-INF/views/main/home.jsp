@@ -59,7 +59,7 @@
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
-                <li><a data-toggle="modal" data-target="#ModalLogin" style="cursor: pointer;">로그인</a></li>
+                <li><a href="/login" style="cursor: pointer;">로그인</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Separated link</a></li>

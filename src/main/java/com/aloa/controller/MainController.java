@@ -27,6 +27,11 @@ public class MainController {
 		this.cr = cr;
 	}
 	
+	@RequestMapping(value="/login")
+	public void login(){}
+	
+	@RequestMapping(value="/admin")
+	public void admin(){}
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model, HttpSession session){
