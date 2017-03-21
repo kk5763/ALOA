@@ -35,14 +35,15 @@
 
 </head>
 <body>
+	<br>
+	<div class="container-fluid text-center" id="code"></div><br>
 	<div class="container-fluid">
 		<div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
-		<form action = "/accounts" accept-charset="utf-8" 
-              name = "person_info" method = "POST" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+		<form class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
 	       <div class="form-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-	               <input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">
+	               <input type="email" class="form-control" id="username" name="username" placeholder="이메일 입력">
 	           </div>
 	       </div>
 	       <div class="form-group">
@@ -51,12 +52,12 @@
 	               <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 	           </div>
 	       </div>
-	       <div class="form-group">
+	       <!-- <div class="form-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
-	               <input type="password" class="form-control" id="password2" placeholder="비밀번호 확인">
+	               <input type="password" class="form-control" id="confirm" placeholder="비밀번호 확인">
 	           </div>
-	       </div>
+	       </div> -->
 	       <div class="form-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
@@ -64,9 +65,31 @@
 	           </div>
 	       </div>
 	       <div class="form-group">
-	           <button type="submit" class="btn btn-danger btn-block">회원 가입</button>
+	           <button type="button" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
 	       </div>
 	    </form>
 	</div>
+	<script>
+		$(document).ready(function(){
+			$('#person_info_submit').click(function(){
+				$.ajax({
+					type:'post',
+					url:'/accounts',
+					dataType:'json',
+					data:JSON.stringify({"username":$('#username').val(),"password":$('#password').val(),"fullName":$('#fullName').val()}),
+					processData : true,
+					contentType : "application/json; charset=UTF-8",
+					success:function(){
+						location="http://localhost:8000";
+					},
+					error:function(){
+						$('#code').css('color', 'red');
+						$('#code').html('<em>뭔가 잘못됨</em>');
+						$('.form-group').removeAttr('class').attr('class','form-group has-error');
+					}
+				})
+			})
+		})
+	</script>
 </body>
 </html>

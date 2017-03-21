@@ -36,7 +36,7 @@ public class AccountController {
 		}
 		return inspectVO;
 	}*/
-	@RequestMapping(value="accounts", method=RequestMethod.POST)
+	@RequestMapping(value="/accounts", method=RequestMethod.POST)
 	public ResponseEntity createAccounts(@RequestBody @Valid AccountDTO.Create dto,
 										BindingResult result){
 		if(result.hasErrors()){
@@ -48,7 +48,7 @@ public class AccountController {
 		
 		Account account = accountService.createAccount(dto);
 		
-		return new ResponseEntity<>(modelMapper.map(account, AccountDTO.Response.class), HttpStatus.OK);
+		return new ResponseEntity<>(modelMapper.map(account, AccountDTO.Response.class), HttpStatus.CREATED);
 	}
 	
 }
