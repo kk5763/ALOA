@@ -17,6 +17,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="/resources/jquery.bxslider.min.js"></script>
 	<link href="/resources/jquery.bxslider.min.css" rel="stylesheet">
+	<!-- 자동완성 -->
+	<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+	
+
 	<title>ALOA</title>
 	<style>
 		.container-fluid{
@@ -29,7 +35,14 @@
             width:100%;
             z-index: 9999999;
         }
+        .sui-autocomplete,ul.sui-autocomplete,.sui-autocomplete-loading{
+        	z-index:99999999;
+        }
+        .slider1{
+        	z-index: -1;
+        }
 	</style>
+	
 </head>
 <body>
 	<%@ include file="../include/top_menu.jsp" %>
@@ -43,15 +56,48 @@
 
 <form class="container text-center" id="searchbar">
     <div class="input-group">
-        <input type="text" class="form-control input-lg" placeholder="지역, 식당 또는 음식">
+        <input type="text" class="form-control input-lg" placeholder="search" id="search_record">	
         <div class="input-group-btn">
             <button type="submit" class="btn btn-lg btn-danger">검색</button>
         </div>
     </div>
 </form>
 
-
 <form id="nav_searchBar">
+<<<<<<< HEAD
+    <nav class="navbar navbar-default">
+	    <div class="container-fluid">
+	        <div class="navbar-header">
+	            <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
+	             <form id="nav_searchBar">
+				    <div class="input-group" >
+			             
+				        <input type="text" class="form-control input-lg" placeholder="search" id="search_record2">
+				        <div class="input-group-btn">
+				            <button type="submit" class="btn btn-lg btn-danger" style="height:100%;"><i class="fa fa-search" aria-hidden="true"></i></button>
+				        </div>
+				        
+				        <button type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target="#myNavbar2">
+			                <span class="icon-bar"></span>
+			                <span class="icon-bar"></span>
+			                <span class="icon-bar"></span>
+			            </button>    
+				        
+		        	</div>
+		        	
+		        	<div class="collapse navbar-collapse" id="myNavbar2">
+				            <ul class="nav navbar-nav navbar-right" >
+				            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">예약</a></li>
+				            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">맛집리스트</a></li>
+				                <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
+				                <li><a data-toggle="modal" data-target="#ModalLogin" style="cursor: pointer;">로그인</a></li>
+				            </ul>
+				        </div>
+				</form>
+	        </div>
+	    </div>
+	</nav>
+=======
     <div class="input-group">
         <div class="input-group-btn btn-group">
             <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -70,6 +116,7 @@
             <button type="submit" class="btn btn-lg btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
     </div>
+>>>>>>> b4913f0ca7b5d08e4fa2abc581051ac24c37b876
 </form>
 <br><br>
 <div class="container">
@@ -96,6 +143,33 @@
 		</div>
 	</div>
 </div>
+<div class="container">
+	<h3>실시간 추천 맛집 리스트</h3>
+	<div class="center-block slider1">
+		<div class="slide">
+			<a href="#">
+				<img src="https://source.unsplash.com/random" style="height: 300px;">
+				가게 이름 설명<br>
+				별점
+			</a>
+		</div>
+		<div class="slide">
+			<img src="https://source.unsplash.com/random" style="height: 300px;">
+		</div>
+		<div class="slide">
+			<img src="https://source.unsplash.com/random" style="height: 300px;">
+		</div>
+		<div class="slide">
+			<img src="https://source.unsplash.com/random" style="height: 300px;">
+		</div>
+		<div class="slide">
+			<img src="https://source.unsplash.com/random" style="height: 300px;">
+		</div>
+	</div>
+</div>
+
+<!-- 검색창 포커스(블러)시 배경화면 변경 -->
+<div id="search_div" style="background-color:rgba(0,0,0,0.90); position:absolute; top:0px; left:0px; width:100%; height:150%; display:none; z-index: 99"></div>
 <script>
     $(document).ready(function(){
         var jbOffset = $('#searchbar').offset();
@@ -104,17 +178,61 @@
                 $('#nav_searchBar').slideDown();
             }
             else {
-                $('#nav_searchBar').slideUp();
+                $('#nav_searchBar').slideUp("");
             }
+            $('.sui-autocomplete,ul.sui-autocomplete,.sui-autocomplete-loading').hide();//검색입력창 스크롤 변경시 사라짐
         });
         $('.slider1').bxSlider({
-            slideWidth: 250,
+            slideWidth: 300,
             minSlides: 1,
-            maxSlides: 5,
+            maxSlides: 4,
             moveSlides: 1,
             slideMargin: 10
         });
     });
+    
+</script>
+<script type="text/javascript">
+    var keywords = [
+        "홍대", "강남", "이태원", "신촌", "이대", "건대", "Blackberry",
+        "홍대입구", "강남 파스타", "강남 레스토랑", "홍대 돈가스", "Currant",
+        "Cherry", "Cherimoya", "Cloudberry", "Coconut", "Cranberry", "Cucumber",
+        "Damson", "Date", "Dragonfruit", "Durian", "Eggplant", "Elderberry",
+        "Feijoa", "Fig", "Goji berry", "Gooseberry", "Grape", "Grapefruit",
+        "Guava", "Huckleberry", "Honeydew", "Jackfruit", "Jambul", "Jujube",
+        "Kiwi fruit", "Kumquat", "Lemon", "Lime", "Loquat", "Lychee", "Mango",
+        "Melon", "Canary melon", "Cantaloupe", "Honeydew", "Watermelon",
+        "Rock melon", "Mulberry", "Nectarine", "Nut", "Olive", "Orange",
+        "Clementine", "Mandarine", "Tangerine", "Pamelo", "Papaya",
+        "Passionfruit", "Peach", "Pepper", "Chili Pepper", "Bell Pepper",
+        "Pear", "Persimmon", "Physalis", "Plum/prune", "Pineapple",
+        "Pomegranate", "Pomelo", "Purple Mangosteen", "Quince", "Raspberry",
+        "Western raspberry", "Rambutan", "Redcurrant", "Salal berry", "Satsuma",
+        "Star fruit", "Strawberry", "Tamarillo", "Watermelon"
+    ];
+    jQuery(function ($) {
+        $('#search_record').shieldAutoComplete({
+            dataSource: {
+                data: keywords
+            },
+            minLength: 1
+        });
+        $('#search_record2').shieldAutoComplete({
+            dataSource: {
+                data: keywords
+            },
+            minLength: 1
+        });
+    });
+    $('#search_record, #search_record2').focus(function(){
+    	$('#search_div').show();
+    });
+	$('#search_record, #search_record2').blur(function(){
+		$('#search_div').hide();
+    });
+	$('ul.sui-autocomplete').click(function(){
+		$('#search_div').show();
+	});
 </script>
 </body>
 </html>
