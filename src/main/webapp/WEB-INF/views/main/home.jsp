@@ -95,25 +95,7 @@
 				</form>
 	        </div>
 	    </div>
-	</nav><!-- 
-    <div class="input-group">
-        <div class="input-group-btn btn-group">
-            <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-home fa-1x" aria-hidden="true"></i> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
-                <li><a href="/login" style="cursor: pointer;">로그인</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
-        <input type="text" class="form-control input-lg" placeholder="search">
-        <div class="input-group-btn">
-            <button type="submit" class="btn btn-lg btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-    </div> -->
+	</nav>
 </form>
 <br><br>
 <div class="container">
