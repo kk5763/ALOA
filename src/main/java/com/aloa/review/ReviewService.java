@@ -16,10 +16,10 @@ public class ReviewService {
 	@Autowired
 	private ImageRepository iamgeRepository;
 	
-	public List<ReviewBoardDTO> reviewList(String resName){
+	public List<ReviewBoardDTO> reviewList(int resNo){
 		
 		List<ReviewBoard> list = 
-				repository.findByResNameLessThanOrderByResNameDesc(resName);
+				repository.findByResNoLessThanOrderByResNoDesc(resNo);
 		
 		List<ReviewBoardDTO> reviewList = new ArrayList<ReviewBoardDTO>();
 		

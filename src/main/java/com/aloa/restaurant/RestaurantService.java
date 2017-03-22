@@ -16,9 +16,9 @@ public class RestaurantService {
 	//create
 	
 	//findOne(상세페이지)
-	public Restaurant findOne(String resName){
+	public Restaurant findOne(int resNo){
 		
-		Restaurant restaurant = repository.findByResName(resName);
+		Restaurant restaurant = repository.findByResNo(resNo);
 		
 		if(restaurant==null){
 			throw new DuplicatedException();

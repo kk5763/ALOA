@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class ReviewBoard {
 	
 	@Id
-	private Long reviewNo;
+	private int reviewNo;
 	
 	@Column(unique = true)
-	private String username;
+	private String email;
 	
 	@Column(unique = true)
-	private String resName;
+	private Long resNo;
 	
 	private String content;
 	
@@ -22,28 +22,30 @@ public class ReviewBoard {
 	
 	private int grade;
 
-	public Long getReviewNo() {
+	
+
+	public int getReviewNo() {
 		return reviewNo;
 	}
 
-	public void setReviewNo(Long reviewNo) {
+	public void setReviewNo(int reviewNo) {
 		this.reviewNo = reviewNo;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getResName() {
-		return resName;
+	public Long getResNo() {
+		return resNo;
 	}
 
-	public void setResName(String resName) {
-		this.resName = resName;
+	public void setResNo(Long resNo) {
+		this.resNo = resNo;
 	}
 
 	public String getContent() {
@@ -69,6 +71,8 @@ public class ReviewBoard {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+
+	
 	
 	
 	
