@@ -11,7 +11,7 @@ public class Restaurant {
 	
 	@Id
 	@Column(unique = true)
-	private String username;
+	private String username; 
 	
 	@Column(unique = true)
 	private String resName;
@@ -24,7 +24,7 @@ public class Restaurant {
 	private String resRest;
 	private String resHoliday;
 	private Date createDate;
-
+	
 	public String getUsername() {
 		return username;
 	}

@@ -55,7 +55,6 @@
 
         // DOM structure
         overlay =   $('<div id="pbOverlay">').append(
-        				
                         thumbsToggler = $('<input type="checkbox" id="pbThumbsToggler" checked hidden>'),
                         pbLoader = $('<div class="pbLoader"><b></b><b></b><b></b></div>'),
                         prevBtn = $('<div id="pbPrevBtn" class="prevNext"><b></b></div>').on('click', next_prev),
@@ -65,7 +64,7 @@
                             video = $('<div>')
                         ),
                         closeBtn = $('<div id="pbCloseBtn">').on('click', close)[0],
-                        autoplayBtn = $('<div id="pbAutoplayBtn">').append(
+                        autoplayBtn = $('0').append(
                             $('<div class="pbProgress">')
                         ),
                         caption = $('<div id="pbCaption">').append(
@@ -73,7 +72,7 @@
                             captionText = $('<div class="pbCaptionText">').append('<div class="title"></div><div class="counter">'),
                             thumbs = $('<div>').addClass('pbThumbs')
                         ),
-                        reviewBoard = $('<div id="pbReviewBoard" style="border: 1px solid red; width: 300px; height: 300px;"></div>')
+                        reviewBoard = $('<div class="pbReviewBoard"></div>')
                     );
 
     ///////////////////////////////////////////////
