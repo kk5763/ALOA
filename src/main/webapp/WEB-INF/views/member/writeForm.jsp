@@ -3,64 +3,85 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel = "stylesheet" type = "text/css" href = "/style/h_style/writeFormStyle.css"/>
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<c:set var="path" value="${pageContext.request.contextPath }"/>
+	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/resources/jquery.bxslider.min.js"></script>
+	<link href="/resources/jquery.bxslider.min.css" rel="stylesheet">
+	<title>ALOA</title>
+	<style>
+	</style>
+<!-- <link rel = "stylesheet" type = "text/css" href = "/style/h_style/writeFormStyle.css"/> -->
 
 </head>
-<body onresize = "parent.resizeTo(800,750)" onload="parent.resizeTo(800,750)">
-<form id = "my_reg_form" method = "GET" action = "">
-<center><h2>망고플레이트 회원가입</h2></center>
-<table id = "mytable">
-	<!-- <tr>
-		<td id = "left"><b>아이디</b></b> <font color = "red"><b>*</b></font></td>
-		<td><input type = "text" id = "user_id" name = "user_id"/>
-			<input type = "button" id =user_id_check" value = "중복확인">
-		</td>
-	</tr> -->
-	<tr>
-		<td id = "left"><b>이메일</b><font color = "red"><b>*</b></font></td>
-		<td><input type = "text" name = "email1" size = "13"/>@
-			<select name = "email2">
-				<option id = "naver" value = "naver.com">naver.com</option>
-				<option id = "daum" value = "daum.net">daum.net</option>
-				<option id = "gmail" value = "gmail.com">gmail.com</option>
-				<option id = "yahoo" value = "yahoo.com">yahoo.com</option>
-			</select>
-			<input type = "button" value = "중복확인" id = "user_email_check">
-		</td>
-	</tr>
-	<tr>
-		<td id = "left"><b>비밀번호</b><font color = "red"><b>*</b></font></td>
-		<td><input type = "password" id = "user_password" name = "user_password"></td>
-	</tr>
-	<tr>
-		<td id = "left"><b>비밀번호 재확인</b><font color = "red"><b>*</b></font></td>
-		<td><input type = "password" id = "user_retype_password" name = "user_retype_password"/></td>
-	<tr>
-		<td colspan = "2"><hr width = "100%" /></td>
-	</tr>
-	</tr>
-	<tr>
-		<td id = "left"><b> 이름</b><font color = "red"><b>*</b></font></td>
-		<td><input type = "text" id = "name" name = "name" /></td>
-	</tr>
-	<tr>
-		<td id = "left"><b>성별</b> <font color = "red"><b>*</b></font></td>
-		<td><input type = "radio" name = "gender" value = "Male"/>Male
-			<input type = "radio" name = "gender" value = "Femal"/>Female
-		</td>
-	</tr>
-
-<tr><td colspan = "2"><hr width = "100%" /></td></tr>
-<br><br>
-<tr>
-	<td colspan = "2" align = "center">
-		<input id = "register" type = "submit" value = "회원가입">
-		<input id = "clear" type = "reset" value = "다시작성">
-	</td>
-</tr>
-</table>
-</form>
+<body>
+	<br>
+	<div class="container-fluid text-center" id="code"></div><br>
+	<div class="container-fluid">
+		<div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+		<form class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+	       <div class="form-group">
+	           <div class="input-group">
+	               <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+	               <input type="email" class="form-control" id="username" name="username" placeholder="이메일 입력">
+	           </div>
+	       </div>
+	       <div class="form-group">
+	           <div class="input-group">
+	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+	               <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
+	           </div>
+	       </div>
+	       <!-- <div class="form-group">
+	           <div class="input-group">
+	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+	               <input type="password" class="form-control" id="confirm" placeholder="비밀번호 확인">
+	           </div>
+	       </div> -->
+	       <div class="form-group">
+	           <div class="input-group">
+	               <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+	               <input type="text" class="form-control" id="fullName" name="fullName" placeholder="이름">
+	           </div>
+	       </div>
+	       <div class="form-group">
+	           <button type="button" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
+	       </div>
+	       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	    </form>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$('#person_info_submit').click(function(){
+				var params = {"username":$('#username').val(),"password":$('#password').val(),"fullName":$('#fullName').val()};  /* ,${_csrf.parameterName}:'${_csrf.token}' */
+				$.ajax({
+					type:'post',
+					url:'/accounts',
+					dataType:'json',
+					data:JSON.stringify(params),
+					processData : true,
+					contentType : "application/json; charset=UTF-8",
+					success:function(){
+						location="http://localhost:8000";
+					},
+					error:function(){
+						$('#code').css('color', 'red');
+						$('#code').html('<em>뭔가 잘못됨</em>');
+						$('.form-group').removeAttr('class').attr('class','form-group has-error');
+					}
+				})
+			})
+		})
+	</script>
 </body>
 </html>

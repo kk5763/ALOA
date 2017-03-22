@@ -16,43 +16,12 @@
 	            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">예약</a></li>
 	            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">맛집리스트</a></li>
 	                <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
-	                <li><a data-toggle="modal" data-target="#ModalLogin" style="cursor: pointer;">로그인</a></li>
+	                <li><a href="/login" style="cursor: pointer;">로그인</a></li>
 	            </ul>
 	        </div>
 	    </div>
 	</nav>
 	<!-- Modal -->
-	<div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-dialog">
-	        <div class="modal-content">
-	            <div class="modal-header text-center">
-	                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                <button type="button" class="btn btn-primary btn-block">Facebook 로그인</button>
-	                <button type="button" class="btn btn-info btn-block">Google 로그인</button>
-	            </div>
-	            <div class="modal-body">
-	                <form>
-	                    <div class="form-group">
-	                        <div class="input-group">
-	                            <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-	                            <input type="email" class="form-control" id="email" name="email" placeholder="email">
-	                        </div>
-	                    </div>
-	                    <div class="form-group">
-	                        <div class="input-group">
-	                            <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
-	                            <input type="password" class="form-control" id="password" name="password" placeholder="password">
-	                        </div>
-	                    </div>
-	                    <div class="form-group">
-	                        <button type="submit" class="btn btn-danger btn-block">로그인</button>
-	                    </div>
-	                </form>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-
 	<div class="modal fade" id="ModalSignUp" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
 	    <div class="modal-dialog modal-sm">
 	        <div class="modal-content">
@@ -64,7 +33,7 @@
 	            <div class="modal-body">
 	                <div class="container-fluid">
 	                    <div class="row">
-	                        <button class="btn btn-lg btn-danger btn-block" type="submit">이메일로 회원가입</button>
+	                        <a href="/agreeJoin" class="btn btn-lg btn-danger btn-block" type="button" id="signupByEmail">이메일로 회원가입</a>
 	                    </div>
 	                </div>
 	            </div>
