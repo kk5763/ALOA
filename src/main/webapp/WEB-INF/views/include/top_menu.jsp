@@ -62,7 +62,8 @@
             	<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><sec:authentication property="principal.fullName"/> <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">즐겨찾기</a></li>
+		            <li><a href="#">내가 본 맛집</a></li>
+		            <li><a href="#">내가 한 예약</a></li>
 		            <li class="divider"></li>
 		            <li><a href="#">회원정보수정</a></li>
 		            <li>
