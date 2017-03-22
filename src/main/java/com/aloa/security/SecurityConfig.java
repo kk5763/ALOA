@@ -5,26 +5,31 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.aloa.security.UserDetailsServiceImpl;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.inMemoryAuthentication()
-				.withUser("admin").password("1234").roles("ADMIN");
+	PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	UserDetailsServiceImpl userDetailsService;
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
 	
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()   
 			.antMatchers("/admin/**").hasRole("ADMIN")      
-			.antMatchers("/**").permitAll()                  
-			//.anyRequest().authenticated()                                                   
+			.antMatchers("/**").permitAll()
 			.and()
 		.formLogin()
-			.loginPage("/login") // 2.2 로그인 페이지로 이동시킴
-			.permitAll();  
+			.loginPage("/login").permitAll();  
 	}
 }

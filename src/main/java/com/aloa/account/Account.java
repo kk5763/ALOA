@@ -21,8 +21,6 @@ public class Account {
 		
 	private String fullName;
 	
-	private String role;
-	
 
 	public Long getId() {
 		return id;
@@ -30,14 +28,6 @@ public class Account {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	public String getUsername() {

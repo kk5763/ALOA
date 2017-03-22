@@ -38,15 +38,6 @@ public class AccountDTO {
 		@Size(max=20, message="20자 이내로 입력하십시오.")
 		private String fullName;
 		
-		@NotBlank
-		private String role;
-		
-		public String getRole() {
-			return role;
-		}
-		public void setRole(String role) {
-			this.role = role;
-		}
 		public String getUsername() {
 			return username;
 		}

@@ -57,16 +57,18 @@
 	       <div class="form-group">
 	           <button type="button" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
 	       </div>
+	       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    </form>
 	</div>
 	<script>
 		$(document).ready(function(){
 			$('#person_info_submit').click(function(){
+				var params = {"username":$('#username').val(),"password":$('#password').val(),"fullName":$('#fullName').val()};  /* ,${_csrf.parameterName}:'${_csrf.token}' */
 				$.ajax({
 					type:'post',
 					url:'/accounts',
 					dataType:'json',
-					data:JSON.stringify({"username":$('#username').val(),"password":$('#password').val(),"fullName":$('#fullName').val()}),
+					data:JSON.stringify(params),
 					processData : true,
 					contentType : "application/json; charset=UTF-8",
 					success:function(){
