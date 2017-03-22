@@ -54,7 +54,7 @@
 			value="${_csrf.token}"/> --%>
 		<sec:csrfInput />
 		<div class="form-group">
-	          <button type="submit" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
+	          <button type="submit" id="person_info_submit" class="btn btn-danger btn-block">로그인</button>
 		</div>
 	</form>
 </div>

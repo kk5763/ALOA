@@ -27,12 +27,6 @@ public class MainController {
 		this.cr = cr;
 	}
 	
-	@RequestMapping(value="/login")
-	public void login(){}
-	
-	@RequestMapping(value="/admin")
-	public void admin(){}
-	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model, HttpSession session){
 		if(cr.findPrimaryConnection(Facebook.class)!=null){
@@ -56,19 +50,6 @@ public class MainController {
 		}
 		
 		return "main/home";
-	}
-	
-	@RequestMapping(value = "/agreeJoin", method = RequestMethod.GET)
-	public ModelAndView agreeJoin(){
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/agreeJoin");
-		
-		return mav;
-	}
-	
-	@RequestMapping(value = "/writeForm", method = RequestMethod.GET)
-	public String writeForm(){
-		return "member/writeForm";
 	}
 	
 	@RequestMapping(value = "/searchList", method = RequestMethod.GET)
