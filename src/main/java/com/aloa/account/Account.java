@@ -3,6 +3,7 @@ package com.aloa.account;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +11,9 @@ import javax.persistence.Table;
 @Table(name = "aloa_user")
 public class Account {
 	@Id
+	@GeneratedValue
+	private Long id;
+	
 	@Column(unique = true)
 	private String username;
 	
@@ -17,14 +21,23 @@ public class Account {
 		
 	private String fullName;
 	
-	private int admin;
+	private String role;
 	
-	public int getAdmin() {
-		return admin;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setAdmin(int admin) {
-		this.admin = admin;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getUsername() {

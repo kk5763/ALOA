@@ -20,16 +20,6 @@
 	<link href="/resources/jquery.bxslider.min.css" rel="stylesheet">
 	<title>ALOA</title>
 	<style>
-		.container-fluid{
-            background-color: white;
-        }
-        #nav_searchBar{
-            display: none;
-            position: fixed;
-            top:0px;
-            width:100%;
-            z-index: 9999999;
-        }
 	</style>
 <!-- <link rel = "stylesheet" type = "text/css" href = "/style/h_style/writeFormStyle.css"/> -->
 
