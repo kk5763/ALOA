@@ -4,6 +4,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- // jQuery UI CSS파일  -->
+<link rel="stylesheet" href="/style/h_style/jquery-ui.css" type="text/css" /> 
+<src></src> 
+<link rel="" href="/style/h_style/jquery-ui.css" type="text/css" />  
+<!-- // jQuery 기본 js파일 --> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<!-- // jQuery UI 라이브러리 js파일 -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
+<script src="/style/h_style/angular.js"></script>
+<style>
+
+ 
+
+</style>
+
+<script type="text/javascript">
+
+$(function() {
+    $( "#Datepicker" ).datepicker({
+    	 changeMonth: true, 
+         dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+         dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], 
+         monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+         monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+       	 showButtonpANEL:false,
+       
+    	
+  })
+});
+
+</script> 
+
 <link rel="stylesheet" type="text/css" href="/style/h_style/reservation.css" />
 <title>Insert title here</title>
 </head>
@@ -12,10 +44,7 @@
 		ng-class="{ home : '/' === $ctrl.location.path(), adminbookinglogin : $ctrl.location.path().match('/booked/bind') }">
 	
 		<div id="container" class="container" ui-view="content">
-			<bk-old-restaurant resoc-info="$resolve.resocInfo"
-				copny-info="$resolve.copnyInfo" prev-state="$resolve.prevState">
 			<div>
-				<bk-breadcrumb lists="$ctrl.breadCrumb">
 				<div class="breadcrumbs">
 					<ul class="lst_breadcrumbs">
 						<!---->
@@ -32,7 +61,7 @@
 							aria-hidden="true"></span> <a ng-href="/#/4/booking/svc/17042"
 							ng-click="$ctrl.fItemClick($event,item)" class="lnk_page"
 							ng-class="{ active : $index >= $ctrl.lists.length - 1 }"
-							href="/#/4/booking/svc/17042"> <span ng-bind="item.text">루이쌍끄</span>
+							href="/#/4/booking/svc/17042"> <span ng-bind="item.text">메인페이지</span>
 						</a></li>
 						<!---->
 						<li class="item" ng-repeat="item in $ctrl.lists"><span
@@ -44,8 +73,7 @@
 						</a></li>
 						<!---->
 					</ul>
-				</div>
-				</bk-breadcrumb>
+				</div>		
 				<div class="wrap_inn">
 					<div class="wrap_left">
 				
@@ -56,704 +84,66 @@
 								booking-start-date="$ctrl.booking.bookingStartDate">
 							<div class="box_service_info box_service_info_s">
 								<div class="service_info service_info_s">
-									<h2 class="service_info_tit" ng-bind="$ctrl.previewTitle">루이쌍끄</h2>
+									<h2 class="service_info_tit" ng-bind="$ctrl.previewTitle">${maintitle}</h2>
 									<!---->
 									<!---->
 								</div>
 							</div>
 							</bk-content-header>
-							<bk-booking-calendar
-								calendar-change="$ctrl.onCalendarChange(calendarElement, calendarInfo)"
-								calendar-type="1" copny-info="$ctrl.copnyInfo"
-								booking-start-date="$ctrl.booking.bookingStartDate"
-								booking-end-date="$ctrl.booking.bookingEndDate"
-								calendar-data-draw="$ctrl.onCalendarDataDraw(elCalendar, calendarInfo, htCalendarData)"
-								calendar="$ctrl.calendar" resoc-info="$ctrl.resocInfo"
-								qty="$ctrl.qty"
-								calendar-click="$ctrl.onCalendarDateClick(e, calendarElement, targetElement, dateInfo)"><!---->
-							<bk-calendar ng-if="$ctrl.calendar.currentDate"
-								base-date="$ctrl.calendar.currentDate"
-								data="$ctrl.calendar.data" options="$ctrl.calendar.options"
-								on-click="$ctrl.onCalendarClick(e, elCalendar, elTarget, oDateInfo)"
-								on-change="$ctrl.onCalendarChange(calendarElement, calendarInfo)"
-								on-draw="$ctrl.calendarDraw"
-								on-data-draw="$ctrl.onCalendarDataDraw(elCalendar, calendarInfo, htCalendarData)"
-								class="">
-							<div id="calendar" class="calendar">
-								<!---->
-								<!---->
-								<div class="tit_calendar">
-									<a href="#" class="calendar-btn calendar-btn-prev-mon"
-										ng-class="{ 'off' : $ctrl.isOffPrevMonthBtn }"
-										ng-click="$ctrl.fClickPrevMonthBtnClick($event)" title="이전달">
-										<i class="fn fn-backward2" aria-hidden="true"></i>
-									</a> <strong class="calendar-title"> <span
-										ng-bind="$ctrl.year">2017</span>.<span ng-bind="$ctrl.month">3</span>
-									</strong> <a href="#" class="calendar-btn calendar-btn-next-mon"
-										ng-click="$ctrl.fClickNextMonthBtnClick($event)" title="다음달">
-										<i class="fn fn-forward2" aria-hidden="true"></i>
-									</a>
-								</div>
-								<table class="tb_calendar">
-									<caption>달력 테이블</caption>
-									<thead class="tb_header">
-										<tr>
-											<th>SUN</th>
-											<th>MON</th>
-											<th>TUE</th>
-											<th>WED</th>
-											<th>THU</th>
-											<th>FRI</th>
-											<th>SAT</th>
-										</tr>
-									</thead>
-									<!---->
-									<tbody class="tb_body" ng-if="!$ctrl.options.isHtmlAppend">
-										<!---->
-										<tr ng-repeat="aRow in $ctrl.aCalendarRowData">
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="0" data-cal-datetext="2017-02-26"
-												data-cal-year="2017" data-cal-month="2" data-cal-day="26"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sun calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">26</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="1" data-cal-datetext="2017-02-27"
-												data-cal-year="2017" data-cal-month="2" data-cal-day="27"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">27</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="2" data-cal-datetext="2017-02-28"
-												data-cal-year="2017" data-cal-month="2" data-cal-day="28"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">28</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="3" data-cal-datetext="2017-03-01"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="1"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable calendar-dayoff"
-												style=""><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">1</span> <span class="txt offday"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"
-													style="">삼일절</span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="4" data-cal-datetext="2017-03-02"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="2"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">2</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="5" data-cal-datetext="2017-03-03"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="3"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">3</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="6" data-cal-datetext="2017-03-04"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="4"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sat calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">4</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-										</tr>
-										<!---->
-										<tr ng-repeat="aRow in $ctrl.aCalendarRowData">
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="7" data-cal-datetext="2017-03-05"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="5"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sun calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">5</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="8" data-cal-datetext="2017-03-06"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="6"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">6</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="9" data-cal-datetext="2017-03-07"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="7"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">7</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="10" data-cal-datetext="2017-03-08"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="8"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">8</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="11" data-cal-datetext="2017-03-09"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="9"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">9</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="12" data-cal-datetext="2017-03-10"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="10"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">10</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="13" data-cal-datetext="2017-03-11"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="11"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sat calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">11</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-										</tr>
-										<!---->
-										<tr ng-repeat="aRow in $ctrl.aCalendarRowData">
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="14" data-cal-datetext="2017-03-12"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="12"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sun calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">12</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="15" data-cal-datetext="2017-03-13"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="13"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">13</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="16" data-cal-datetext="2017-03-14"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="14"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">14</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="17" data-cal-datetext="2017-03-15"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="15"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">15</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="18" data-cal-datetext="2017-03-16"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="16"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">16</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="19" data-cal-datetext="2017-03-17"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="17"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-unselectable"><a href="#"
-												class="calendar-date" ng-click="$event.preventDefault();">
-													<span class="num" ng-bind="oDate.day">17</span> <span
-													class="txt" ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="20" data-cal-datetext="2017-03-18"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="18"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sat calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">18</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-										</tr>
-										<!---->
-										<tr ng-repeat="aRow in $ctrl.aCalendarRowData">
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="21" data-cal-datetext="2017-03-19"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="19"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sun calendar-unselectable">
-												<a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">19</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a>
-											</td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="22" data-cal-datetext="2017-03-20"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="20"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-today calendar-unselectable"
-												style=""><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">20</span> <span class="txt today"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text">오늘</span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="23" data-cal-datetext="2017-03-21"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="21"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="start-day calendar-selected"><a
-												href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">21</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="24" data-cal-datetext="2017-03-22"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="22"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">22</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="25" data-cal-datetext="2017-03-23"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="23"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">23</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="26" data-cal-datetext="2017-03-24"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="24"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">24</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="27" data-cal-datetext="2017-03-25"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="25"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sat calendar-unselectable"
-												style=""><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">25</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-										</tr>
-										<!---->
-										<tr ng-repeat="aRow in $ctrl.aCalendarRowData">
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="28" data-cal-datetext="2017-03-26"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="26"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sun calendar-unselectable"
-												style=""><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">26</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="29" data-cal-datetext="2017-03-27"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="27"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">27</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="30" data-cal-datetext="2017-03-28"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="28"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">28</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="31" data-cal-datetext="2017-03-29"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="29"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">29</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="32" data-cal-datetext="2017-03-30"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="30"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">30</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="33" data-cal-datetext="2017-03-31"
-												data-cal-year="2017" data-cal-month="3" data-cal-day="31"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0"><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">31</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-											<td ng-repeat="oDate in aRow" ng-class="oDate.className"
-												data-cal-index="34" data-cal-datetext="2017-04-01"
-												data-cal-year="2017" data-cal-month="4" data-cal-day="1"
-												ng-click="$ctrl.fCalendarDateClick($event);" role="button"
-												tabindex="0" class="calendar-sat calendar-unselectable"
-												style=""><a href="#" class="calendar-date"
-												ng-click="$event.preventDefault();"> <span class="num"
-													ng-bind="oDate.day">1</span> <span class="txt"
-													ng-class="oDate.textClassName"
-													ng-bind="oDate.userText ? oDate.userText : oDate.text"></span>
-											</a></td>
-											<!---->
-										</tr>
-										<!---->
-									</tbody>
-									<!---->
-									<!---->
-								</table>
-							</div>
-							</bk-calendar><!----> </bk-booking-calendar>
+					
+						
+				
 							<div class="simple_time_selector large">
-								<div class="simple_time_row text_row">
+								<div class="simple_time_row">
 									<strong class="tit">날짜</strong>
-									<p class="simple_day"
-										ng-bind="$ctrl.booking.bookingStartDate ? $ctrl.booking.bookingStartDate.format('YYYY.M.D.(ddd)') : '날짜를 선택해 주세요'">2017.3.21.(화)</p>
-								</div>
+									
+										
+									<div class="select_simple_time">
+										<div class="wrap_select" >
+											<input type="text" class="sc"  name="Datepicker" id="Datepicker" placeholder="날짜를 선택해주세요."> 
+											
+										</div>
+									</div>
+									
+								</div><!-- 날짜 -->
+								
+								
 								<div class="simple_time_row">
 									<strong class="tit">시간</strong>
-									<bk-simple-selector
-										selected-index="$ctrl.booking.timeSelect.index" type="time"
-										name="시간을 선택해 주세요" copny-info="$ctrl.copnyInfo"
-										booking-start-date="$ctrl.booking.bookingStartDate"
-										data="$ctrl.booking.timeSelect.data"
-										on-select="$ctrl.onSelectTime(index)">
+
 									<div class="select_simple_time">
-										<div class="wrap_select" ng-class="{'open' : $ctrl.isOpen}">
-											<select title="시간을 선택해 주세요" name="시간을 선택해 주세요"
-												class="select ng-pristine ng-untouched ng-valid ng-empty"
-												ng-model="$ctrl.selectedIndex" aria-invalid="false"><option
-													value="? undefined:undefined ?" selected="selected"></option>
-												<!---->
-												<option value="0" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													06:00</option>
-												<!---->
-												<option value="1" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													06:15</option>
-												<!---->
-												<option value="2" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													06:30</option>
-												<!---->
-												<option value="3" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													06:45</option>
-												<!---->
-												<option value="4" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													07:00</option>
-												<!---->
-												<option value="5" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													07:15</option>
-												<!---->
-												<option value="6" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													07:30</option>
-												<!---->
-												<option value="7" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													07:45</option>
-												<!---->
-												<option value="8" ng-repeat="token in $ctrl.data"
-													ng-bind="token.name"
-													ng-selected="$ctrl.selectedIndex == $index" class="">오후
-													08:00</option>
-												<!---->
-											</select>
-											<div class="select_label" aria-hidden="true"
-												ng-click="$ctrl.open($event);"
-												ng-class="{ active : $ctrl.selectedIndex !== $index}"
-												data-tst_select_box_click="0" role="button" tabindex="0">
-												<span
-													ng-bind="$ctrl.data[$ctrl.selectedIndex] ? $ctrl.data[$ctrl.selectedIndex].name : $ctrl.name">시간을
-													선택해 주세요</span> <i class="fn fn-down2" aria-hidden="true"></i>
-											</div>
-											<div class="select_layer" aria-hidden="true">
-												<div class="wrap_lst_select">
-													<ul class="lst_select">
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 06:00</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 06:15</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 06:30</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 06:45</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 07:00</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 07:15</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 07:30</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 07:45</span>
-														</li>
-														<!---->
-														<li class="item" unselectable="on"
-															ng-class="{ over : token.isMouseOver, selected : $ctrl.selectedIndex == $index}"
-															ng-repeat="token in $ctrl.data"
-															ng-click="$ctrl.onItemClick($event, $index)"
-															ng-mouseover="token.isMouseOver = true;"
-															ng-mouseleave="token.isMouseOver = false;"
-															data-tst_select_list_click="0" role="button" tabindex="0">
-															<span ng-bind="token.name">오후 08:00</span>
-														</li>
-														<!---->
-													</ul>
-												</div>
-											</div>
+										<div class="wrap_select" >
+										<select class="sc" class="sc"  name="reservtime" id="reservtime">
+											  <option value="">시간을 선택해주세요.</option>
+											  <option value="1">06:00 ~ 06:30</option>
+											  <option value="2">06:30 ~ 07:00</option>
+											  <option value="3">07:00 ~ 07:30</option>
+											  <option value="4">07:30 ~ 08:00</option>
+											  <option value="5">08:00 ~ 08:30</option>
+											  <option value="6">08:30 ~ 09:00</option>  							  
+											 </select>	
 										</div>
 									</div>
-									</bk-simple-selector>
-								</div>
+									
+								</div><!-- 시간 -->
+								
 								<div class="simple_time_row">
 									<strong class="tit">인원</strong>
-									<bk-simple-selector
-										selected-index="$ctrl.booking.cntSelect.index" type="person"
-										name="인원을 선택해 주세요" copny-info="$ctrl.copnyInfo"
-										booking-start-date="$ctrl.booking.bookingStartDate"
-										time-index="$ctrl.booking.timeSelect.index"
-										data="$ctrl.booking.cntSelect.data"
-										on-select="$ctrl.onSelectCnt(index)">
+
 									<div class="select_simple_time">
-										<div class="wrap_select" ng-class="{'open' : $ctrl.isOpen}">
-											<select title="인원을 선택해 주세요" name="인원을 선택해 주세요"
-												class="select ng-pristine ng-untouched ng-valid ng-empty"
-												ng-model="$ctrl.selectedIndex" aria-invalid="false"><option
-													value="? undefined:undefined ?" selected="selected"></option>
-												<!---->
-											</select>
-											<div class="select_label" aria-hidden="true"
-												ng-click="$ctrl.open($event);"
-												ng-class="{ active : $ctrl.selectedIndex !== $index}"
-												data-tst_select_box_click="0" role="button" tabindex="0">
-												<span
-													ng-bind="$ctrl.data[$ctrl.selectedIndex] ? $ctrl.data[$ctrl.selectedIndex].name : $ctrl.name">인원을
-													선택해 주세요</span> <i class="fn fn-down2" aria-hidden="true"></i>
-											</div>
-											<div class="select_layer" aria-hidden="true">
-												<div class="wrap_lst_select">
-													<ul class="lst_select">
-														<!---->
-													</ul>
-												</div>
-											</div>
+										<div class="wrap_select" >
+										<select class="sc" class="sc"  name="reservnumber" id="reservnumber">
+											  <option value="">인원을 선택해주세요.</option>
+											  <option value="1">2명</option>
+											  <option value="2">3명</option>
+											  <option value="3">4명</option>
+											  <option value="4">5명 이상</option>							  
+											 </select>	
 										</div>
 									</div>
-									</bk-simple-selector>
-								</div>
+									
+								</div><!-- 시간 -->
+							
 							</div>
 							<bk-option copny-info="$ctrl.copnyInfo" option="$ctrl.option"
 								booking-start-date="$ctrl.booking.bookingStartDate"
@@ -785,6 +175,8 @@
 							<!---->
 						</div>
 					</div>
+					
+					
 					<div class="wrap_right">
 						<div class="section_booking_form">
 							<bk-extra-input copny-info="$ctrl.copnyInfo"> <!---->
@@ -1236,47 +628,9 @@
 					</div>
 				</div>
 			</div>
-			</bk-old-restaurant>
+			
 		</div>
-		<bk-footer ng-hide="isHideFooter" aria-hidden="false" class="">
-		<div id="footer" class="footer">
-			<div class="footer_box">
-				<ul class="info_site_list">
-					<li class="info_site_item first"><a ui-sref="policy"
-						target="_blank" class="lin_info" title="새창" href="/policy"> <span>이용약관</span>
-					</a></li>
-					<li class="info_site_item"><a
-						href="http://www.naver.com/rules/privacy.html" target="_blank"
-						class="lin_info" title="새창"> <strong>개인정보 처리방침</strong>
-					</a></li>
-					<li class="info_site_item last"><a
-						href="https://help.naver.com/support/service/main.nhn?serviceNo=12270"
-						target="_blank" class="lin_info" title="새창"> <span>네이버예약
-								고객센터</span>
-					</a></li>
-				</ul>
-				<p class="dsc">네이버(주)는 통신판매의 당사자가 아니며, 상품의정보, 거래조건, 이용 및 환불 등과
-					관련한 의무와 책임은 각 회원에게 있습니다.</p>
-				<address class="address_box">
-					<span>사업자등록번호</span> : 220-81-62517 <span class="co_bar">|</span> <span>통신판매업신고번호</span>
-					: 제2006-경기성남-692호 <span class="co_bar">|</span> <span>대표이사</span> :
-					<span>한성숙</span> <span class="co_bar">|</span> <a
-						href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp"
-						class="lin_info" target="_blank" title="새창"> <span>사업자등록정보확인</span>
-					</a><br> <span>주소</span> : <span>경기도 성남시 분당구 불정로 6 네이버
-						그린팩토리 463-867</span> <span class="co_bar">|</span> <span>고객센터</span> :
-					1644-5690 &nbsp; <span>운영시간</span> : 09:00~18:00 (<span>연중무휴</span>)
-				</address>
-				<p class="copyright_box">
-					<a href="http://www.navercorp.com" class="spr_bi lin_info txt_logo"
-						target="_blank" title="새창">NAVER</a>Copyright © <strong>
-						<a href="http://www.navercorp.com" class="lin_info lin_info_corp"
-						target="_blank" title="새창">NAVER Corp.</a>
-					</strong> All Rights Reserved.
-				</p>
-			</div>
-		</div>
-		</bk-footer>
+
 	</div>
 
 </body>

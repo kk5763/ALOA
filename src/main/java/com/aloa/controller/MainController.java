@@ -83,4 +83,12 @@ public class MainController {
 		return "search/searchFilter";
 	}
 	
+	@RequestMapping(value="/storejoin",method=RequestMethod.GET)
+	public ModelAndView storejoin(){
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("list/storejoin");
+		return mav;
+	}
+	
 }

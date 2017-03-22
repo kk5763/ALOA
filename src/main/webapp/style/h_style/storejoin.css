@@ -6,17 +6,14 @@ body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input,
 	legend, li, ol, p, select, table, table caption, td, textarea, th, ul {
 	margin: 0;
 	padding: 0
+	
 }
-.sc {
-
-	width:100%;
-	height: 100%;
-	overflow: hidden;
-	color: #b3b3b3;
-	background: url(img_selct_arrow.gif) no-repeat right;
-	border: 1px solid #ccc;
+h1{
+	
+	font-size: 40px;
+	
 }
-
+#header   { background-color:tomato; height:140px; }
 .u_skip, .u_skip a:focus {
 	position: absolute;
 	right: 0
@@ -76,8 +73,8 @@ body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input,
 .popup_booking .info_para .strong .number_txt, .talk .wrap_booking_history .bk_cont .bk_lst .bk_lst_box .tbl .btn_bk_lnk .tbl_gt
 	{
 	ffont-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, 'NanumGothicWebB', '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, 'NanumGothicWebB', 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 html {
@@ -86,14 +83,14 @@ html {
 
 body, button, input, select, table, textarea {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400;
 	font-size: 13px
 }
 
 body {
-	background-color: #f5f5f5;
+	background-color: tomato;
 	color: #000;
 	word-wrap: break-word;
 	word-break: break-all;
@@ -115,8 +112,8 @@ address, em, i {
 h1, h2, h3, h4, h5, h6, strong {
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 table caption {
@@ -220,7 +217,7 @@ hr {
 	display: inline-block;
 	float: left;
 	margin-left: 10px;
-	width: 440px
+	width: 440px;
 }
 
 .blind, .sr_only {
@@ -405,8 +402,8 @@ hr {
 	line-height: 16px;
 	color: #999;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -414,8 +411,8 @@ hr {
 	position: relative;
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -448,8 +445,8 @@ hr {
 
 .in_tit_sub, .tit {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .dsc, .tit {
@@ -483,8 +480,8 @@ hr {
 
 .dsc {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-size: 13px
 }
 
@@ -526,8 +523,8 @@ hr {
 	font-size: 16px;
 	line-height: 22px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	color: #0abe16
 }
@@ -629,16 +626,16 @@ hr {
 
 .sale_price .numb {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .banner_tit, input[type=checkbox].chk_agree+.label {
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .banner_tit {
@@ -1568,7 +1565,7 @@ hr {
 	}
 }
 .bb{position: relative;
-	width: 370px;
+	width: 381px;
 	height: 100%;
 	-webkit-box-sizing: border-box;
 	moz-box-sizing: border-box;
@@ -1815,7 +1812,7 @@ input[type=search], input[type=text], input[type=password], input[type=email],
 	-ms-appearance: none;
 	-o-appearance: none;
 	appearance: none;
-
+	padding-left: 15px;
 	border: 1px solid #ececec;
 	border-radius: 0
 }
@@ -1830,8 +1827,8 @@ input[type=search].text_bold, input[type=text].text_bold, input[type=password].t
 	input[type=email].text_bold, input[type=tel].text_bold {
 	color: #000;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -1879,8 +1876,8 @@ textarea.textarea.text {
 textarea.textarea.text_bold {
 	color: #000;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -1888,8 +1885,8 @@ textarea.textarea.text_bold {
 	display: block;
 	height: 100%;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-size: 16px;
 	color: #fff;
 	text-shadow: 0 0 1px rgba(0, 0, 0, .2);
@@ -1901,8 +1898,8 @@ textarea.textarea.text_bold {
 	text-align: center;
 	moz-box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .btn .ico_book_n {
@@ -2188,8 +2185,8 @@ textarea.textarea.text_bold {
 	padding-bottom: 16px;
 	height: 100%;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	font-size: 16px;
 	color: #bbb;
@@ -2269,7 +2266,7 @@ textarea.textarea.text_bold {
 	position: absolute;
 	top: 0;
 	right: 3px;
-	padding-left: 0px;
+	padding-left: 10px;
 	width: 95px;
 	height: 30px;
 	background-color: #fff;
@@ -2440,9 +2437,9 @@ textarea.textarea.text_bold {
 
 .simple_time_selector.large .select_simple_time .wrap_select {
 	margin-bottom: 7px;
-	width:370px;
+	width: 365px;
 	height: 44px;
-	
+	padding-left: 14px
 }
 
 .simple_time_selector.large .select_simple_time .wrap_select .fn {
@@ -2491,8 +2488,8 @@ textarea.textarea.text_bold {
 .simple_time_selector.large .select_simple_time .wrap_select .select_label.active>span
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	color: #0abe16
 }
@@ -2604,8 +2601,8 @@ textarea.textarea.text_bold {
 .select_in_form.cnt_select .wrap_select.open .select_label {
 	color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -2641,8 +2638,8 @@ textarea.textarea.text_bold {
 	{
 	color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -2669,8 +2666,8 @@ textarea.textarea.text_bold {
 	padding: 13px 0;
 	border-bottom: solid 1px #9c9ca9;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	font-size: 16px
 }
@@ -2738,8 +2735,8 @@ textarea.textarea.text_bold {
 	border-bottom: solid 1px #cee0d3;
 	color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -2749,16 +2746,16 @@ textarea.textarea.text_bold {
 	outline: 0;
 	color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
 .header .header_box .booking_gnb_wrap .gnb_my_li .gnb_btn_login, .header .header_box .booking_gnb_wrap .gnb_my_li .gnb_name,
 	.header .header_box .gnb_my_book .lnk_my {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .ly_seat_select .seat_select_footer {
@@ -2927,8 +2924,8 @@ textarea.textarea.text_bold {
 	.calendar .tit_calendar .calendar-title, .footer .footer_box .info_site_list .info_site_item .info_site_item_strong,
 	.top_info .invisible {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .header .header_box .gnb_my_book .lnk_my .fn-nbooking-calender2 {
@@ -3714,8 +3711,8 @@ textarea.textarea.text_bold {
 	.calendar .tb_calendar .tb_body td.calendar-selected .txt.stock {
 	color: #a5defe !important;
 	font-weight: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, 'NanumGothicWebR', '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, 'NanumGothicWebR', 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -3725,8 +3722,8 @@ textarea.textarea.text_bold {
 
 .calendar .tb_calendar .tb_body td.calendar-selected .txt {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -3748,22 +3745,22 @@ textarea.textarea.text_bold {
 	{
 	color: #a5defe;
 	font-weight: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, 'NanumGothicWebR', '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, 'NanumGothicWebR', 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .calendar .tb_calendar .tb_body td.calendar-gap .num {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
 .calendar .tb_calendar .tb_body td.calendar-gap .txt {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -3869,8 +3866,8 @@ textarea.textarea.text_bold {
 	.pop_bottom_btnarea .btn_bottom, .rating_point_b, .rating_point_m,
 	.rating_txt_b {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -4682,8 +4679,8 @@ textarea.textarea.text_bold {
 
 .bar_tit .option_label, .contents_txt .contents_txt_tit {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .item_preview_thumbs .lst_thumb .item {
@@ -4790,7 +4787,7 @@ textarea.textarea.text_bold {
 }
 
 .middot:before {
-	content: "•";
+	content: "â€¢";
 	position: absolute;
 	left: 0;
 	top: 0
@@ -4859,8 +4856,8 @@ textarea.textarea.text_bold {
 
 .bar_tit .option_value, .form_horizontal .inline_form>.label {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -4942,8 +4939,8 @@ textarea.textarea.text_bold {
 
 .form-vertical .label, .summary_total_style .summary_total_price {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -5134,8 +5131,8 @@ textarea.textarea.text_bold {
 .summary_total_style .summary_total_price .summary_total_price_type {
 	margin-left: -4px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -5168,8 +5165,8 @@ textarea.textarea.text_bold {
 	{
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .group_visual .visual_img .item {
@@ -5480,8 +5477,8 @@ textarea.textarea.text_bold {
 .ly_time_booking .ly_header .sub_tit .dsc {
 	color: #999;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -5502,8 +5499,8 @@ textarea.textarea.text_bold {
 	vertical-align: top;
 	color: #666;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .ly_time_booking .ly_body .am .lst_time, .ly_time_booking .ly_body .pm .lst_time
@@ -5712,8 +5709,8 @@ textarea.textarea.text_bold {
 
 .ly_time_booking_sm .ly_header .sub_tit {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	font-size: 14px
 }
@@ -5721,8 +5718,8 @@ textarea.textarea.text_bold {
 .ly_time_booking_sm .ly_header .sub_tit .dsc {
 	color: #989898;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -5992,16 +5989,16 @@ textarea.textarea.text_bold {
 	font-size: 18px;
 	line-height: 24px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
 .policy_contents .policy_list .title, .txt_hotdeal_b .deal_txt_strong {
 	font-weight: 400;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .wrap_photo .photo_info .photo_tit .count_num {
@@ -6090,8 +6087,8 @@ textarea.textarea.text_bold {
 .item_hotdeal .dsc_hotdeal .amount, .lst_store_info_box .lst_store_info .item_rt .title_tel
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -6306,8 +6303,8 @@ textarea.textarea.text_bold {
 	{
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .lst_store_info_box .lst_store_info .item_rt .lnk_store {
@@ -6873,8 +6870,8 @@ textarea.textarea.text_bold {
 .soldout_tit {
 	margin-bottom: 8px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 1;
@@ -6888,8 +6885,8 @@ textarea.textarea.text_bold {
 
 .soldout_txt {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	line-height: 18px
 }
 
@@ -6897,8 +6894,8 @@ textarea.textarea.text_bold {
 	.price_selectgroup_wrap .price_selectgroup .price_selectgroup_item,
 	.price_selectgroup_wrap .price_summary .summary_total_price {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -7191,8 +7188,8 @@ textarea.textarea.text_bold {
 	{
 	margin-left: -3px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -7226,8 +7223,8 @@ textarea.textarea.text_bold {
 	border-bottom: 1px solid #e1e1e1;
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -7241,8 +7238,8 @@ textarea.textarea.text_bold {
 .price_selectgroup_wrap.sub_price .price_selectgroup .price_selectgroup_title.performance .green
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -7251,8 +7248,8 @@ textarea.textarea.text_bold {
 	.wrap_price_select .select_layer .wrap_lst_select .lst_select .item.selected
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -7440,8 +7437,8 @@ textarea.textarea.text_bold {
 	background-color: #f84459;
 	font-size: 12px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400;
 	line-height: 12px;
 	color: #fff
@@ -7669,8 +7666,8 @@ textarea.textarea.text_bold {
 	background-color: #fff;
 	color: #F82222;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	text-align: center;
 	line-height: 38px;
@@ -7681,8 +7678,8 @@ textarea.textarea.text_bold {
 .qty_control .qty_input.disabled {
 	color: #999;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -7692,8 +7689,8 @@ textarea.textarea.text_bold {
 	.section_booking_further .group_option_further .option_further .details_switch .in_tit
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .count_control {
@@ -8630,8 +8627,8 @@ textarea.textarea.text_bold {
 .deposit_wrap .deposit_info, .deposit_wrap .deposit_price,
 	.dtail_top_tab .lst_tab .item .lst_anchor {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -8817,8 +8814,8 @@ textarea.textarea.text_bold {
 .deposit_wrap .deposit_price .price_type {
 	margin-left: -4px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -8849,8 +8846,8 @@ textarea.textarea.text_bold {
 	padding: 21px 0 17px 30px;
 	border-bottom: 1px solid #dbdde0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .group_banners .business_board .list_business {
@@ -9005,7 +9002,7 @@ textarea.textarea.text_bold {
 .section_booking_form .out_tit {
 	padding: 16px 20px 12px 19px;
 	background-color: #fff;
-	border: 1px solid #e5e5e5
+	border: 1px solid #e5e5e5;
 }
 
 .section_booking_agreement, .section_booking_form .booking_form_wrap {
@@ -9027,8 +9024,8 @@ textarea.textarea.text_bold {
 	color: #a0a0a0;
 	font-weight: 400;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .section_booking_form .out_tit .help_txt .ico_nessasary {
@@ -9095,8 +9092,8 @@ textarea.textarea.text_bold {
 	margin: 0;
 	padding: 12px 19px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	border-top: none;
 	border-bottom: 1px solid #ededed
@@ -9106,8 +9103,8 @@ textarea.textarea.text_bold {
 	.section_booking_agreement .agreement .useragreement_details .policy_contents .policy_list .title
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -9265,8 +9262,8 @@ textarea.textarea.text_bold {
 	.section_booking_deposit .deposit_details .txt {
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -9400,8 +9397,8 @@ textarea.textarea.text_bold {
 	word-break: keep-all;
 	color: #666;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -9443,8 +9440,8 @@ textarea.textarea.text_bold {
 
 .section_booking_info .info_detail .chk_txt {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -9455,8 +9452,8 @@ textarea.textarea.text_bold {
 	font-size: 12px;
 	color: #989898;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -9586,8 +9583,8 @@ textarea.textarea.text_bold {
 	font-size: 14px;
 	color: #333;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	text-align: right
 }
@@ -9595,8 +9592,8 @@ textarea.textarea.text_bold {
 .section_booking_summary .summary .summary_price .summary_price_type {
 	margin-left: -4px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -9682,8 +9679,8 @@ textarea.textarea.text_bold {
 	font-size: 15px;
 	text-align: right;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	color: #000
 }
@@ -9692,16 +9689,16 @@ textarea.textarea.text_bold {
 	{
 	margin-left: -4px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .item_noresults .tit, .item_noresults .waiting, .section_booking_summary .list_menu_option .item .item_price .option_price
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -9855,15 +9852,15 @@ textarea.textarea.text_bold {
 	text-align: center;
 	color: #fff;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .wrap.home #container .wrap_inn .home_slogan .strong {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -9872,8 +9869,8 @@ textarea.textarea.text_bold {
 	line-height: 69px;
 	letter-spacing: -1px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -9890,8 +9887,8 @@ textarea.textarea.text_bold {
 	font-size: 18px;
 	line-height: 70px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400;
 	text-decoration: none;
 	text-align: left
@@ -9944,16 +9941,16 @@ textarea.textarea.text_bold {
 	font-size: 18px;
 	line-height: 26px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .wrap.home #container .wrap_inn .home_features .features .title_features .title_b
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -9962,8 +9959,8 @@ textarea.textarea.text_bold {
 	font-size: 14px;
 	line-height: 22px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -9971,8 +9968,8 @@ textarea.textarea.text_bold {
 	{
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .wrap.home #container .wrap_inn .home_features .features .feature01,
@@ -10325,8 +10322,8 @@ textarea.textarea.text_bold {
 .wrap_item_lst .section_item_lst .lst_item_box .item .lnk_item_book .item_preview .price
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .wrap_item_lst .section_item_lst .lst_item_box .item .lnk_item_info {
@@ -10362,8 +10359,8 @@ textarea.textarea.text_bold {
 	display: table-cell;
 	vertical-align: middle;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 700
 }
 
@@ -10371,8 +10368,8 @@ textarea.textarea.text_bold {
 	.wrap_main_info.srch_info.beauty_srch .section_right .section_right_beauty .select_day,
 	.wrap_store_info .section_store_location .store_info .store_name {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -10737,8 +10734,8 @@ textarea.textarea.text_bold {
 	{
 	color: #989898;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -10887,8 +10884,8 @@ textarea.textarea.text_bold {
 	color: #000;
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	text-decoration: none;
 	border-bottom: 1px solid #e5e5e5
@@ -10920,16 +10917,16 @@ textarea.textarea.text_bold {
 .customer_selector .select_anchor .gray {
 	color: #989898;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .people_select .total_people .item_desc, .people_select .total_people .item_title,
 	.time_select .am .time_title, .time_select .pm .time_title {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -11131,8 +11128,8 @@ textarea.textarea.text_bold {
 	color: #989898;
 	font-size: 14px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -11216,8 +11213,8 @@ textarea.textarea.text_bold {
 	border-bottom: solid 1px #e5e5e5;
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -11225,8 +11222,8 @@ textarea.textarea.text_bold {
 	margin-left: 5px;
 	color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -11235,8 +11232,8 @@ textarea.textarea.text_bold {
 	.section_booking_ticket .ticket_body .qty .qty_control .qty_input {
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .section_booking_price .price_form .price_body {
@@ -11366,8 +11363,8 @@ textarea.textarea.text_bold {
 	{
 	font-weight: 400;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .section_booking_ticket .ticket_body .qty .qty_control .qty_input .figure
@@ -11375,16 +11372,16 @@ textarea.textarea.text_bold {
 	display: inline-block;
 	font-size: 14px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .section_booking_ticket .ticket_body .qty .qty_price .price_amount,
 	.simple_time_selector .tit, .simple_time_selector.large .simple_day {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -11582,8 +11579,8 @@ textarea.textarea.text_bold {
 	.section_confirm .confirm_item_body .confirm_item_inside .tit .tit_sub,
 	.section_confirm .confirm_item_top .confirm_title {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -11807,8 +11804,8 @@ textarea.textarea.text_bold {
 	{
 	color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -11818,8 +11815,8 @@ textarea.textarea.text_bold {
 	.section_confirm .confirm_item_body .confirm_item_inside .tit_confirm_item
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -12354,8 +12351,8 @@ textarea.textarea.text_bold {
 	.section_confirm .confirm_item_body.top_detail .detail.inform .item_tit
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -12662,8 +12659,8 @@ textarea.textarea.text_bold {
 .popup_booking .cancel_pop .cancel_text .text_tit, .popup_booking .user_list .item .user_dsc
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -12948,8 +12945,8 @@ textarea.textarea.text_bold {
 
 .popup_booking .user_list .item.detail_item .user_dsc {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400;
 	line-height: 22px
 }
@@ -12973,8 +12970,8 @@ textarea.textarea.text_bold {
 
 .popup_booking .user_list .item.pay_all .user_dsc .numb {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	font-size: 15px;
 	vertical-align: -2px
@@ -12990,8 +12987,8 @@ textarea.textarea.text_bold {
 	font-size: 22px;
 	line-height: 28px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	letter-spacing: -1px;
 	color: #333
@@ -13000,8 +12997,8 @@ textarea.textarea.text_bold {
 .popup_booking .pop_tit .sm, .popup_booking .pop_tit2 {
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -13026,8 +13023,8 @@ textarea.textarea.text_bold {
 .grade_area .text_value, .popup_booking .pop_state .item_left .normal_txt
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .popup_booking .pop_state {
@@ -13081,8 +13078,8 @@ textarea.textarea.text_bold {
 .popup_booking .pay_list .item.all .block_right .number_txt,
 	.popup_booking .pop_tit_sub {
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .popup_booking .pop_state .item_left .numb {
@@ -13300,8 +13297,8 @@ textarea.textarea.text_bold {
 	{
 	font-weight: 600;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .popup_booking .pop_tit_sub .btn_toggle_pay .fn {
@@ -13925,8 +13922,8 @@ textarea.textarea.text_bold {
 .grade_area .join_count, .grade_area .text_value .total {
 	color: #888;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -14020,8 +14017,8 @@ textarea.textarea.text_bold {
 	margin-bottom: 3px;
 	font-size: 14px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 700
 }
 
@@ -14035,8 +14032,8 @@ textarea.textarea.text_bold {
 	.wrap_my .my_summary .summary_board .item .lnk_summary_board .board_txt .my_txt
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -14301,8 +14298,8 @@ textarea.textarea.text_bold {
 	color: #fff;
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	line-height: 18px
 }
@@ -14568,8 +14565,8 @@ textarea.textarea.text_bold {
 	color: #000;
 	line-height: 28px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .wrap_my .my_list_box .wrap_mylst .cards_wrap .card .card_body .detail {
@@ -14964,8 +14961,8 @@ textarea.textarea.text_bold {
 	background-color: #0abe16;
 	color: #fff;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	border-bottom: 1px solid #00b235;
 	border-right: 0
@@ -14975,8 +14972,8 @@ textarea.textarea.text_bold {
 	.wrap_event .event_info .wrap_event_box .event_box_inn .lst_event_box>.item .item_txt .event_txt_tit
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	color: #000
 }
@@ -15113,8 +15110,8 @@ textarea.textarea.text_bold {
 	.wrap_event .event_info .wrap_event_box .event_box_inn .lst_event_box>.item .item_txt .event_txt_tit .location
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -15122,8 +15119,8 @@ textarea.textarea.text_bold {
 	{
 	display: block;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-style: normal
 }
 
@@ -15366,8 +15363,8 @@ textarea.textarea.text_bold {
 	.seat_inn .srch_info.detail_info .section_right .box_map_info .summary_total .summary_total_price
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -15567,8 +15564,8 @@ textarea.textarea.text_bold {
 	.wrap.adminbookinglogin .wrap_inn .login_form .login_group.group2 .input_box
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .booking_login .login_dsc.foot {
@@ -15593,8 +15590,8 @@ textarea.textarea.text_bold {
 	border: 1px solid #1eb701;
 	background-color: #0abe16;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600;
 	line-height: 50px;
 	font-size: 14px;
@@ -15740,8 +15737,8 @@ textarea.textarea.text_bold {
 	.wrap.adminbookinglogin .wrap_inn .login_form .login_group.group2 .input_box.notplaceholder
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
@@ -16071,8 +16068,8 @@ body.hide_scroll {
 	color: #222;
 	line-height: 24px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
@@ -16083,8 +16080,8 @@ body.hide_scroll {
 	.talk .wrap_booking_product_recmd .bk_result_area .bk_result_txt, .talk .wrap_booking_product_recmd .bk_result_area .btn_bk_result
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif
 }
 
 .talk .wrap_booking_history {
@@ -16534,16 +16531,16 @@ body.hide_scroll {
 	{
 	margin-top: 3px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 400
 }
 
 .talk .wrap_booking_product_recmd .bk_btn_area .btn_submit, .talk .wrap_booking_product_recmd .bk_prd_lst .lst_bk_prd .item .bk_thumb_box .bk_price
 	{
 	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '나눔고딕',
-		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
 	font-weight: 600
 }
 
