@@ -60,27 +60,27 @@
 		<div class="foodType">
 			<div class="foodTypeName" id="koreanFood">
 				<img src="/resources/images/min_image/koreanFood_off.PNG" 
-				onclick="src='/resources/images/min_image/buffet_on.PNG'">
+				onclick="src='/resources/images/min_image/koreanFood_on.PNG'">
 				한식	
 			</div>
 			<div class="foodTypeName" id="japanFood">
 				<img src="/resources/images/min_image/japanFood_off.PNG" 
-				onclick="src='/resources/images/min_image/buffet_on.PNG'">
+				onclick="src='/resources/images/min_image/japanFood_on.PNG'">
 				일식
 			</div>
 			<div class="foodTypeName" id="chinaFood">
 				<img src="/resources/images/min_image/chinaFood_off.PNG" 
-				onclick="src='/resources/images/min_image/buffet_on.PNG'">
+				onclick="src='/resources/images/min_image/chinaFood_on.PNG'">
 				중식
 			</div>
 			<div class="foodTypeName" id="westernFood">
 				<img src="/resources/images/min_image/westernFood_off.PNG" 
-				onclick="src='/resources/images/min_image/buffet_on.PNG'">
+				onclick="src='/resources/images/min_image/westernFood_on.PNG'">
 				양식
 			</div>
 			<div class="foodTypeName" id="grobalFood">
 				<img src="/resources/images/min_image/grobalFood_off.PNG" 
-				onclick="src='/resources/images/min_image/buffet_on.PNG'">
+				onclick="src='/resources/images/min_image/grobalFood_on.PNG'">
 				세계음식
 			</div>
 			<div class="foodTypeName" id="buffet">

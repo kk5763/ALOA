@@ -167,6 +167,7 @@
 	color:#fff;
 	display:inline-block;
 	float:left;
+	cursor:pointer;
 }
 #apply{
 	width:400px;
@@ -177,4 +178,5 @@
 	text-align:center;
 	color:#fff;
 	display:inline-block;
+	cursor:pointer;
 }

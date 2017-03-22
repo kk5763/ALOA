@@ -1,6 +1,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+
 <sec:authorize access="isAnonymous()">
 <nav class="navbar navbar-default">
     <div class="container-fluid">

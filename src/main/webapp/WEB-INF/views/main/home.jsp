@@ -21,8 +21,6 @@
 	<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
-	
-
 	<title>ALOA</title>
 	<style>
 		.container-fluid{
@@ -167,6 +165,7 @@
             maxSlides: 4,
             moveSlides: 1,
             slideMargin: 10
+            
         });
         $('#a_logout').click(function(){
         	$('#logout').submit();
