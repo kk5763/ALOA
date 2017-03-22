@@ -21,8 +21,6 @@
 	<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
-	
-
 	<title>ALOA</title>
 	<style>
 		.container-fluid{
@@ -64,7 +62,6 @@
 </form>
 
 <form id="nav_searchBar">
-<<<<<<< HEAD
     <nav class="navbar navbar-default">
 	    <div class="container-fluid">
 	        <div class="navbar-header">
@@ -97,26 +94,6 @@
 	        </div>
 	    </div>
 	</nav>
-=======
-    <div class="input-group">
-        <div class="input-group-btn btn-group">
-            <button type="button" class="btn btn-lg btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-home fa-1x" aria-hidden="true"></i> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
-                <li><a href="/login" style="cursor: pointer;">로그인</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
-        <input type="text" class="form-control input-lg" placeholder="search">
-        <div class="input-group-btn">
-            <button type="submit" class="btn btn-lg btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-    </div>
->>>>>>> b4913f0ca7b5d08e4fa2abc581051ac24c37b876
 </form>
 <br><br>
 <div class="container">
@@ -169,7 +146,7 @@
 </div>
 
 <!-- 검색창 포커스(블러)시 배경화면 변경 -->
-<div id="search_div" style="background-color:rgba(0,0,0,0.90); position:absolute; top:0px; left:0px; width:100%; height:150%; display:none; z-index: 99"></div>
+<div id="search_div" style="background-color:rgba(0,0,0,0.90); position:absolute; top:0px; left:0px; width:100%; height:150%; display:none;"></div>
 <script>
     $(document).ready(function(){
         var jbOffset = $('#searchbar').offset();
@@ -188,6 +165,7 @@
             maxSlides: 4,
             moveSlides: 1,
             slideMargin: 10
+            
         });
     });
     

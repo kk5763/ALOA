@@ -22,7 +22,6 @@
 	    </div>
 	</nav>
 	<!-- Modal -->
-<<<<<<< HEAD
 	<div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:80px; z-index: 9999999;">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
@@ -55,9 +54,6 @@
 	</div>
 
 	<div class="modal fade" id="ModalSignUp" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true" style="top:80px; z-index: 9999999;">
-=======
-	<div class="modal fade" id="ModalSignUp" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
->>>>>>> b4913f0ca7b5d08e4fa2abc581051ac24c37b876
 	    <div class="modal-dialog modal-sm">
 	        <div class="modal-content">
 	            <div class="modal-header text-center">
