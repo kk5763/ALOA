@@ -4,7 +4,6 @@ package com.aloa.account;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,24 +11,13 @@ import javax.persistence.Table;
 @Table(name = "aloa_user")
 public class Account {
 	@Id
-	@GeneratedValue
-	private Long id;
-	
 	@Column(unique = true)
 	private String username;
 	
 	private String password;
-		
+	
 	private String fullName;
 	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;

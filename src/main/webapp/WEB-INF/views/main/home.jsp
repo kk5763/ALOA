@@ -167,6 +167,9 @@
             slideMargin: 10
             
         });
+        $('#a_logout').click(function(){
+        	$('#logout').submit();
+        })
     });
     
 </script>
