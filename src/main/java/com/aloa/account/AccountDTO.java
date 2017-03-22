@@ -1,11 +1,6 @@
 package com.aloa.account;
 
 
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
-
 public class AccountDTO {
 	public static class Response {
 		private String username;
@@ -24,7 +19,7 @@ public class AccountDTO {
 		}
 	}
 
-	public static class Create{
+	/*public static class Create{
 		@NotBlank(message="email을 입력하십시오")
 		@Size(min = 10, max=35)
 		@Email(message="올바른 email 형식이 아닙니다")
@@ -56,5 +51,5 @@ public class AccountDTO {
 		public void setFullName(String fullName) {
 			this.fullName = fullName;
 		}
-	}
+	}*/
 }

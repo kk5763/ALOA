@@ -29,7 +29,7 @@
 	<div class="container-fluid text-center" id="code"></div><br>
 	<div class="container-fluid">
 		<div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
-		<form class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+		<form method="post" action="/accounts" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
 	       <div class="form-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
@@ -55,15 +55,15 @@
 	           </div>
 	       </div>
 	       <div class="form-group">
-	           <button type="button" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
+	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
 	       </div>
 	       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    </form>
 	</div>
 	<script>
-		$(document).ready(function(){
-			$('#person_info_submit').click(function(){
-				var params = {"username":$('#username').val(),"password":$('#password').val(),"fullName":$('#fullName').val()};  /* ,${_csrf.parameterName}:'${_csrf.token}' */
+		/* $(document).ready(function(){
+			$('#person_info_submit').submit(function(){
+				var params = {"username":$('#username').val(),"password":$('#password').val(),"fullName":$('#fullName').val()};   ,${_csrf.parameterName}:'${_csrf.token}' 
 				$.ajax({
 					type:'post',
 					url:'/accounts',
@@ -81,7 +81,7 @@
 					}
 				})
 			})
-		})
+		}) */
 	</script>
 </body>
 </html>
