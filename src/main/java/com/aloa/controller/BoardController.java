@@ -53,5 +53,5 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("reserve/reservation2");
 		return mav;
-	}
+	}  
 }

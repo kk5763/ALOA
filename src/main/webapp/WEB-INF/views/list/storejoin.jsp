@@ -4,7 +4,7 @@
 <html>
 <script type="text/javascript">
 function reserve(){
-	 alert(" 님아 예약됬음");
+	 alert(" 님아 예약됬음");  
 
 	
 /* 	if(document.storejoin.subject.value=="")

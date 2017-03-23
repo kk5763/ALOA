@@ -37,7 +37,7 @@ public class MainController {
 			String birthday = user.getBirthday();
 			String email = user.getEmail();
 			String gender = user.getGender();
-			
+	  		
 			
 			model.addAttribute("name", name);
 			model.addAttribute("id", id);
