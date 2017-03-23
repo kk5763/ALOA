@@ -64,12 +64,23 @@ public class MainController {
 		return "search/searchFilter";
 	}
 	
-	@RequestMapping(value="/storejoin",method=RequestMethod.GET)
-	public ModelAndView storejoin(){
+	@RequestMapping(value="/storejoinForm",method=RequestMethod.GET)
+	public ModelAndView storejoinForm(){
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("list/storejoin");
 		return mav;
 	}
+	
+	@RequestMapping(value="/storejoin",method=RequestMethod.POST)
+	public String storejoin(){
+		
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
 	
 }
