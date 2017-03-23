@@ -16,8 +16,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="/resources/jquery.bxslider.min.js"></script>
-	<link href="/resources/jquery.bxslider.min.css" rel="stylesheet">
 	<title>ALOA</title>
 	<style>
 	</style>
@@ -37,7 +35,7 @@
 		<form method="post" action="/accounts" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
 	       <div class="form-group" id="email-group">
 	           <div class="input-group">
-	               <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+	               <label for="email" class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></label>
 	               <input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">
 	           </div>
 	       </div>
@@ -45,7 +43,7 @@
 	       </div>
 	       <div class="form-group" id="password-group">
 	           <div class="input-group">
-	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+	               <label for="password" class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></label>
 	               <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 	           </div>
 	       </div>
@@ -53,7 +51,7 @@
 	       </div>
 	       <div class="form-group" id="confirm-group">
 	           <div class="input-group">
-	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+	               <label for="confirm" class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></label>
 	               <input type="password" class="form-control" id="confirm" placeholder="비밀번호 확인">
 	           </div>
 	       </div>
@@ -61,7 +59,7 @@
 	       </div>
 	       <div class="form-group" id="name-group">
 	           <div class="input-group">
-	               <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+	               <label for="username" class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></label>
 	               <input type="text" class="form-control" id="username" name="username" placeholder="이름">
 	           </div>
 	       </div>
@@ -118,58 +116,63 @@
 			
 			var submit_button = $('#person_info_submit');
 			
+						
 			email.keyup(function(){
 				var value = $(this).val();
-				$.ajax({
-					url:'/inspect',
-					dataType:'json',
-					type:'POST',
-					data:{'data':value,'type':'id'},
-					beforeSend: function(xhr){
-						xhr.setRequestHeader(header, token);
-					},
-					success: function(result){
-						console.log(result.data);
-						if(result.result===true){
-							email_result.css('color', 'blue');
-							email_result.html('사용 가능한 이메일 주소 입니다.');
-							email_group.removeAttr('class').attr('class', 'form-group has-success');
-							email_hidden.removeAttr('value').attr('value', 'true');
-							check_permit()
-						}else if(result.result==false){
-							email_result.css('color', 'red');
-							email_result.html('이미 등록된 이메일 주소 입니다.');
-							email_group.removeAttr('class').attr('class', 'form-group has-error');
-							email_hidden.removeAttr('value').attr('value', 'false');
-							check_cutout()
+				if(value.length==0){
+					email_result.css('color', 'red').html('이메일은 필수 입력사항입니다.');
+					inspectEffect(email_group,'has-error', 'remove', '(error)', 'email_effect');
+					email_hidden.removeAttr('value').attr('value', 'false');
+					check_cutout()
+				}else{
+					$.ajax({
+						url:'/inspect',
+						dataType:'json',
+						type:'POST',
+						data:{'data':value,'type':'id'},
+						beforeSend: function(xhr){
+							xhr.setRequestHeader(header, token);
+						},
+						success: function(result){
+							console.log(result.data);
+							if(result.result===true){
+								email_result.css('color', 'blue').html('사용 가능한 이메일 주소 입니다.');
+								inspectEffect(email_group,'has-success','ok', '(success)', 'email_effect');
+								email_hidden.removeAttr('value').attr('value', 'true');
+								check_permit()
+							}else if(result.result==false){
+								email_result.css('color', 'red').html('이미 등록된 이메일 주소 입니다.');
+								inspectEffect(email_group,'has-error', 'remove', '(error)', 'email_effect');
+								email_hidden.removeAttr('value').attr('value', 'false');
+								check_cutout()
+							}
 						}
-					}
-				})
+					})
+				}
 			})
+			
 			password.keyup(function(){
 				var value = password.val();
 				if(value.length<=7){
-					password_result.css('color', 'red');
-					password_result.html('비밀번호는 8자 이상 적어주세요.');
-					password_group.removeAttr('class').attr('class', 'form-group has-error');
+					password_result.css('color', 'red').html('비밀번호는 8자 이상 적어주세요.');
+					inspectEffect(password_group,'has-error','remove', '(error)', 'password_effect');
 					password_hidden.removeAttr('value').attr('value', 'false');
 					check_cutout();
 				}else{
-					password_result.css('color', 'blue');
-					password_result.html('사용 가능한 비밀번호 입니다.');
-					password_group.removeAttr('class').attr('class', 'form-group has-success');
+					password_result.css('color', 'blue').html('사용 가능한 비밀번호 입니다.');
+					inspectEffect(password_group,'has-success','ok', '(success)', 'password_effect');
 					password_hidden.removeAttr('value').attr('value', 'true');
 					check_permit();
 				}
 				if(confirm.val()!=''){
 					if(confirm.val()!=value){
 						confirm_result.css('color', 'red').html('비밀번호가 일치하지 않습니다.');
-						confirm_group.removeAttr('class').attr('class', 'form-group has-error');
+						inspectEffect(confirm_group,'has-error','remove', '(error)', 'confirm_effect');
 						confirm_hidden.removeAttr('value').attr('value', 'false');
 						check_cutout()
 					}else{
 						confirm_result.css('color', 'blue').html('비밀번호가 일치합니다.');
-						confirm_group.removeAttr('class').attr('class', 'form-group has-success');
+						inspectEffect(confirm_group,'has-success','ok', '(success)', 'confirm_effect');
 						confirm_hidden.removeAttr('value').attr('value', 'true');
 						check_permit();
 					}
@@ -178,29 +181,39 @@
 			name.keyup(function(){
 				var value = name.val();
 				if(value.length >= 2){
-					name_group.removeAttr('class').attr('class', 'form-group has-success');
+					inspectEffect(name_group,'has-success','ok', '(success)');
 					name_hidden.removeAttr('value').attr('value', 'true');
 					check_permit();
 				}else{
-					name_group.removeAttr('class').attr('class', 'form-group has-error');
+					inspectEffect(name_group,'has-error','remove', '(error)');
 					name_hidden.removeAttr('value').attr('value', 'false');
 					check_cutout();
 				}
 			})
 			confirm.keyup(function(){
 				var value = $(this).val();
-				if(password.val()!=value){
+				if(password.val()!=value || value.length ==0){
 					confirm_result.css('color', 'red').html('비밀번호가 일치하지 않습니다.');
-					confirm_group.removeAttr('class').attr('class', 'form-group has-error');
+					inspectEffect(confirm_group,'has-error','remove', '(error)', 'confirm_effect');
 					confirm_hidden.removeAttr('value').attr('value', 'false');
 					check_cutout();
 				}else{
 					confirm_result.css('color', 'blue').html('비밀번호가 일치합니다.');
-					confirm_group.removeAttr('class').attr('class', 'form-group has-success');
+					inspectEffect(confirm_group,'has-success','ok', '(success)', 'confirm_effect');
 					confirm_hidden.removeAttr('value').attr('value', 'true');
 					check_permit();
 				}
-			})
+			})			
+			
+			
+			function inspectEffect(check, attribute, attribute1, attribute2, name){
+				$('#'+name).remove();
+				$('#'+name+name).remove();
+				check.removeAttr('class')
+				.attr('class', 'form-group '+attribute+' has-feedback')
+				.append('<span id="'+name+'" class="glyphicon glyphicon-'+attribute1+' form-control-feedback" aria-hidden="true"></span>')
+				.append('<span id="'+name+name+'" class="sr-only">'+attribute2+'</span>');
+			}
 			function check_permit(){
 				if(email_hidden.val()=='true' && password_hidden.val()=='true' && confirm_hidden.val()=='true' && name_hidden.val()){
 					submit_button.removeAttr('disabled');
