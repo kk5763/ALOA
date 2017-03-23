@@ -5,5 +5,22 @@
     <select id="inspectEmail" parameterType="java.lang.String" resultType="com.aloa.dto.MemberVO">
         SELECT * FROM aloa_user WHERE email=#{email}
     </select>
+    
+    <insert id="resInsert" parameterType="com.aloa.restaurant.Restaurant" >
+    	insert into restaurant values(seq_restaurant.nextval,
+    		#{resname},
+    		#{bossemail},
+    		#{resaddress},
+    		#{restel},
+    		#{reskind},
+    		#{resprice},
+    		#{resparking},
+    		#{ressaletime},
+    		#{resreset},
+    		#{resholiday},
+    		#{request},
+    		sysdate,
+    	)
+    </insert>
  
 </mapper>

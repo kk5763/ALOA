@@ -12,7 +12,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "aloa_user")
 public class Account {
 	@Id
 	@Column(unique = true)

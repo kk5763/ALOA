@@ -5,6 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant,Integer>{
-	Restaurant findByResNo(int resNo);
+	Restaurant findByResno(int resno);
 	List<Restaurant> findAll();
 }
