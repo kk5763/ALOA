@@ -25,6 +25,7 @@ public class Restaurant {
 	private String resrest;
 	private String resholiday;
 	private Date createdate;
+	private String request;
 	
 	public int getResno() {
 		return resno;
@@ -97,6 +98,12 @@ public class Restaurant {
 	}
 	public void setCreatedate(Date createdate) {
 		this.createdate = createdate;
+	}
+	public String getRequest() {
+		return request;
+	}
+	public void setRequest(String request) {
+		this.request = request;
 	}
 		
 }

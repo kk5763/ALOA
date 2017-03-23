@@ -38,6 +38,8 @@ function check(){
 </head>
 <body>
 <form name="storejoin" method="post" action="/storejoin"  class="form_horizontal ng-pristine ng-valid ng-valid-maxlength ng-valid-email" >
+<input type="hidden" name="bossemail" value="<sec:authentication property='principal.email'/>">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
 <div id="container">
 
@@ -169,8 +171,6 @@ function check(){
 
 </div><!-- content -->
 
-<input type="hidden" id="bossemail" value="<sec:authentication property='principal.email'/>">
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
 
 
