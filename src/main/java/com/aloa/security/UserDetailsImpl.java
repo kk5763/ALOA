@@ -13,6 +13,7 @@ import com.aloa.account.Account;
 public class UserDetailsImpl extends User{
 	
 	private String fullName;
+	
 	public String getFullName(){
 		return fullName;
 	}
@@ -22,7 +23,7 @@ public class UserDetailsImpl extends User{
 	
 	
 	public UserDetailsImpl(Account account) {
-		super(account.getUsername(), account.getPassword(), authorities(account));
+		super(account.getEmail(), account.getPassword(), authorities(account));
 		this.fullName = account.getFullName();
 	}
 	

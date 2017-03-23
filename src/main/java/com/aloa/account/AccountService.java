@@ -14,8 +14,8 @@ public class AccountService {
 	private PasswordEncoder passwordEncoder;
 	
 	public Account createAccount(Account dto){
-		String username = dto.getUsername();
-		if(accountRepository.findByUsername(username)!=null){
+		String username = dto.getEmail();
+		if(accountRepository.findByEmail(username)!=null){
 			throw new UserDuplicatedException(username);
 		}
 		System.out.println("accountRepository");
@@ -23,5 +23,4 @@ public class AccountService {
 		
 		return accountRepository.save(dto);		
 	}
-	
 }

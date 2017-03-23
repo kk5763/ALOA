@@ -33,7 +33,7 @@
 	       <div class="form-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-	               <input type="email" class="form-control" id="username" name="username" placeholder="이메일 입력">
+	               <input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">
 	           </div>
 	       </div>
 	       <div class="form-group">

@@ -5,7 +5,9 @@ create table account(
   tel number not null,
   joinDate date default sysdate,
   status varchar(50) default 'plain',
-  reportCount number default 0);
+  reportCount number default 0,
+  auth number not null,
+  emailauth number not null);
   
 create table restaurant(
   resNo number primary key,

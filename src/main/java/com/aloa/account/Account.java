@@ -1,28 +1,46 @@
 package com.aloa.account;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "aloa_user")
 public class Account {
 	@Id
 	@Column(unique = true)
-	private String username;
+	private String email;
 	
 	private String password;
 	
-	private String fullName;
+	private String username;
 	
+	private Long tel;
+	
+	@Temporal(TemporalType.TIMESTAMP)	
+	private Date joinDate;
+	
+	private String status;
+	
+	private int reportCount;
+	
+	private int server;
+	
+	private int admin;
+	
+	private int emailauth;
 
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -33,13 +51,67 @@ public class Account {
 		this.password = password;
 	}
 
-	public String getFullName() {
-		return fullName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	
+	public Long getTel() {
+		return tel;
+	}
+
+	public void setTel(Long tel) {
+		this.tel = tel;
+	}
+
+	public Date getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public int getReportCount() {
+		return reportCount;
+	}
+
+	public void setReportCount(int reportCount) {
+		this.reportCount = reportCount;
+	}
+
+	public int getServer() {
+		return server;
+	}
+
+	public void setServer(int server) {
+		this.server = server;
+	}
+
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
+
+	public int getEmailauth() {
+		return emailauth;
+	}
+
+	public void setEmailauth(int emailauth) {
+		this.emailauth = emailauth;
+	}
 }

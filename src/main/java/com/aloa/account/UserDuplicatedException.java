@@ -7,11 +7,11 @@ public class UserDuplicatedException extends RuntimeException {
 		this.username = username;
 	}
 
-	public String getUsername() {
+	public String getEmail() {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setEmail(String username) {
 		this.username = username;
 	}
 
