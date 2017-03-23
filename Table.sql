@@ -6,7 +6,8 @@ create table account(
   joinDate date default sysdate,
   status varchar(50) default 'plain',
   reportCount number default 0,
-  auth number not null,
+  server number not null,
+  admin number not null,
   emailauth number not null);
   
 create table restaurant(
