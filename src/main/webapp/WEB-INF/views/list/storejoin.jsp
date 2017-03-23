@@ -123,9 +123,9 @@ function reserve(){
 									
 									
 									<div class="inline_form" >
-										<label class="label" for="message">요청 사항</label>
+										<label class="label" for="request">요청 사항</label>
 										<div class="inline_control">
-											<textarea name="textarea" id="message" cols="30" rows="10" class="textarea text ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="500" placeholder="업체에 요청하실 내용을 적어주세요." ng-model="$ctrl.booker.reqMsg" ng-class="{'text_bold': isFocusReqMsg }" ng-focus="isFocusReqMsg = true;" data-tst_req_msg_input_textarea="0" aria-invalid="false"></textarea>
+											<textarea name="request" id="request" cols="30" rows="10" class="textarea text ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="300" placeholder="업체에 요청하실 내용을 적어주세요." ></textarea>
 										</div>
 									</div>
 									<!---->

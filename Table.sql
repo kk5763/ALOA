@@ -14,14 +14,15 @@ create table restaurant(
   resNo number primary key,
   resName varchar(50) not null ,
   bossEmail varchar(50) not null,
-  resAddress varchar(50) not null,
+  resAddress varchar(1000) not null, 
   resTel number not null,
   resKind varchar(50) not null,
   resPrice varchar(50) not null,
   resParking varchar(50) not null,
-  resSaletime number not null,
-  resRest number not null,
+  resSaletime varchar(50) not null, 
+  resRest varchar(50) not null, 
   resHoliday varchar(20) not null,
+  request varchar(1000) , 
   createDate date default sysdate,
   CONSTRAINT reference_id foreign key(bossEmail) references account(email)
   );
@@ -68,13 +69,9 @@ create table ReportRes(
   CONSTRAINT reference_deId1 foreign key(deEmail) references account(email)
   );
   
-  create table authorities(
-  email varchar2(50) not null,
-  authority varchar2(50) not null,
-  constraint fk_authorities_users foreign key(email) references account(email));
   
   create table imageBoard(
-                image varchar(50),
+                image varchar(200),
                 reviewNo number not null,
                 constraint reference_reviewNo1 foreign key(reviewNo) references reviewBoard(reviewNo));
               
