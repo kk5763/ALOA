@@ -22,36 +22,47 @@
 	<style>
 	</style>
 <!-- <link rel = "stylesheet" type = "text/css" href = "/style/h_style/writeFormStyle.css"/> -->
-
+	<meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
 </head>
 <body>
-	<br>
-	<div class="container-fluid text-center" id="code"></div><br>
+	<br><br>
+	<input type="hidden" id="email_hidden"/>
+	<input type="hidden" id="password_hidden"/>
+	<input type="hidden" id="confirm_hidden"/>
+	<input type="hidden" id="name_hidden"/>
 	<div class="container-fluid">
 		<div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
 		<form method="post" action="/accounts" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-	       <div class="form-group">
+	       <div class="form-group" id="email-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
 	               <input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">
 	           </div>
 	       </div>
-	       <div class="form-group">
+	       <div class="form-group text-center" id="email_result">
+	       </div>
+	       <div class="form-group" id="password-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
 	               <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 	           </div>
 	       </div>
-	       <!-- <div class="form-group">
+	       <div class="form-group text-center" id="password_result">
+	       </div>
+	       <div class="form-group" id="confirm-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
 	               <input type="password" class="form-control" id="confirm" placeholder="비밀번호 확인">
 	           </div>
-	       </div> -->
-	       <div class="form-group">
+	       </div>
+	       <div class="form-group text-center" id="confirm_result">
+	       </div>
+	       <div class="form-group" id="name-group">
 	           <div class="input-group">
 	               <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-	               <input type="text" class="form-control" id="fullName" name="fullName" placeholder="이름">
+	               <input type="text" class="form-control" id="username" name="username" placeholder="이름">
 	           </div>
 	       </div>
 	       <div class="form-group">
@@ -82,6 +93,80 @@
 				})
 			})
 		}) */
+		$(document).ready(function(){
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			$('#email').keyup(function(){
+				var value = $(this).val();
+				$.ajax({
+					url:'/inspect',
+					dataType:'json',
+					type:'POST',
+					data:{'data':value,'type':'id'},
+					beforeSend: function(xhr){
+						xhr.setRequestHeader(header, token);
+					},
+					success: function(result){
+						console.log(result.data);
+						if(result.result===true){
+							$('#email_result').css('color', 'blue');
+							$('#email_result').html('사용 가능한 이메일 주소 입니다.');
+							$('#email-group').removeAttr('class').attr('class', 'form-group has-success');						
+						}else if(result.result==false){
+							$('#email_result').css('color', 'red');
+							$('#email_result').html('이미 등록된 이메일 주소 입니다.');
+							$('#email-group').removeAttr('class').attr('class', 'form-group has-error');
+						}
+					}
+				})
+			})
+			$('#password').keyup(function(){
+				var value = $(this).val();
+				if(value.length<=7){
+					$('#password_result').css('color', 'red');
+					$('#password_result').html('비밀번호는 8자 이상 적어주세요.');
+					$('#password-group').removeAttr('class').attr('class', 'form-group has-error');
+				}else{
+					$('#password_result').css('color', 'blue');
+					$('#password_result').html('사용 가능한 비밀번호 입니다.');
+					$('#password-group').removeAttr('class').attr('class', 'form-group has-success');
+				}
+				if($('#confirm').val()!=''){
+					if($('#confirm').val()!=value){
+						$('#confirm_result').css('color', 'red');
+						$('#confirm_result').html('비밀번호가 일치하지 않습니다.');
+						$('#confirm-group').removeAttr('class').attr('class', 'form-group has-error');
+					}else{
+						$('#confirm_result').css('color', 'blue');
+						$('#confirm_result').html('비밀번호가 일치합니다.');
+						$('#confirm-group').removeAttr('class').attr('class', 'form-group has-success');
+					}
+				}
+			})
+			$('#confirm').keyup(function(){
+				var value = $(this).val();
+				if($('#password').val()!=value){
+					$('#confirm_result').css('color', 'red');
+					$('#confirm_result').html('비밀번호가 일치하지 않습니다.');
+					$('#confirm-group').removeAttr('class').attr('class', 'form-group has-error');
+				}else{
+					$('#confirm_result').css('color', 'blue');
+					$('#confirm_result').html('비밀번호가 일치합니다.');
+					$('#confirm-group').removeAttr('class').attr('class', 'form-group has-success');
+				}
+			})
+		})
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

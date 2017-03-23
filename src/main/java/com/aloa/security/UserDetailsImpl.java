@@ -13,7 +13,15 @@ import com.aloa.account.Account;
 public class UserDetailsImpl extends User{
 	
 	private String fullName;
+	private String email;
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getFullName(){
 		return fullName;
 	}
@@ -24,7 +32,8 @@ public class UserDetailsImpl extends User{
 	
 	public UserDetailsImpl(Account account) {
 		super(account.getEmail(), account.getPassword(), authorities(account));
-		this.fullName = account.getFullName();
+		this.fullName = account.getUsername();
+		this.email = account.getEmail();
 	}
 	
 	private static Collection<? extends GrantedAuthority> authorities(Account account) {

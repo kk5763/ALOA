@@ -129,9 +129,9 @@
 		        <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 		    </div>
 		</div>
-		<%-- <input type="hidden"                        
+		<input type="hidden"     
 			name="${_csrf.parameterName}"
-			value="${_csrf.token}"/> --%>
+			value="${_csrf.token}"/>
 		<sec:csrfInput />
 		<div class="form-group">
 	          <button type="submit" id="person_info_submit" class="btn btn-danger btn-block">로그인</button>

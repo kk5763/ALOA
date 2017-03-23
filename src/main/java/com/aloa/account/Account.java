@@ -9,6 +9,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "aloa_user")
 public class Account {
@@ -16,11 +18,13 @@ public class Account {
 	@Column(unique = true)
 	private String email;
 	
+	@NotBlank
 	private String password;
 	
+	@NotBlank
 	private String username;
 	
-	private Long tel;
+	private String tel;
 	
 	@Temporal(TemporalType.TIMESTAMP)	
 	private Date joinDate;
@@ -59,11 +63,11 @@ public class Account {
 		this.username = username;
 	}
 
-	public Long getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(Long tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 

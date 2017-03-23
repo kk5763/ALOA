@@ -3,7 +3,7 @@
 <mapper namespace="com.aloa.dao.MemberMapper">
 
     <select id="inspectEmail" parameterType="java.lang.String" resultType="com.aloa.dto.MemberVO">
-        SELECT * FROM aloa_member WHERE email=#{email}
+        SELECT * FROM aloa_user WHERE email=#{email}
     </select>
  
 </mapper>
