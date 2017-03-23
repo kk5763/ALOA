@@ -2,7 +2,7 @@ create table account(
   username varchar(50) not null ,
   email varchar(50) primary key,
   password varchar(50) not null,
-  tel number not null,
+  tel varchar(50) not null,
   joinDate date default sysdate,
   status varchar(50) default 'plain',
   reportCount number default 0,
