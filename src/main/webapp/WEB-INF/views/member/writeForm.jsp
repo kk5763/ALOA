@@ -33,6 +33,11 @@
 	<div class="container-fluid">
 		<div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
 		<form method="post" action="/accounts" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+		<input type="hidden" name="tel" value="454545">
+	<input type="hidden" name="server" value="000">
+	<input type="hidden" name="admin" value="00">
+	<input type="hidden" name="emailautho" value="00">
+	
 	       <div class="form-group" id="email-group">
 	           <div class="input-group">
 	               <label for="email" class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></label>
@@ -64,7 +69,7 @@
 	           </div>
 	       </div>
 	       <div class="form-group">
-	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block" disabled="disabled">회원 가입</button>
+	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block" >회원 가입</button>
 	       </div>
 	       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    </form>
@@ -224,6 +229,8 @@
 			}
 		})
 	</script>
+	
+	
 </body>
 </html>
 

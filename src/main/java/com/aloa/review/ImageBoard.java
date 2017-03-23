@@ -9,53 +9,30 @@ public class ImageBoard {
 	
 	private String image;
 	
-	private String username;
-	
-	private String resName;
-	
-	private Date createDate;
 	
 	@Id
-	private Long reviewNo;
+	private int reviewno;
+
 
 	public String getImage() {
 		return image;
 	}
 
+
 	public void setImage(String image) {
 		this.image = image;
 	}
 
-	public String getUsername() {
-		return username;
+
+	public int getReviewno() {
+		return reviewno;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setReviewno(int reviewno) {
+		this.reviewno = reviewno;
 	}
 
-	public String getResName() {
-		return resName;
-	}
 
-	public void setResName(String resName) {
-		this.resName = resName;
-	}
-
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public Long getReviewNo() {
-		return reviewNo;
-	}
-
-	public void setReviewNo(Long reviewNo) {
-		this.reviewNo = reviewNo;
-	}
 	
 }

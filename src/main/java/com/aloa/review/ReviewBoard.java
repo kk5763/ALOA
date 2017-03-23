@@ -8,28 +8,26 @@ import javax.persistence.*;
 public class ReviewBoard {
 	
 	@Id
-	private int reviewNo;
+	private int reviewno;
 	
 	@Column(unique = true)
 	private String email;
 	
 	@Column(unique = true)
-	private Long resNo;
+	private Long resno;
 	
 	private String content;
 	
-	private Date createDate;
+	private Date createdate;
 	
 	private int grade;
 
-	
-
-	public int getReviewNo() {
-		return reviewNo;
+	public int getReviewno() {
+		return reviewno;
 	}
 
-	public void setReviewNo(int reviewNo) {
-		this.reviewNo = reviewNo;
+	public void setReviewno(int reviewno) {
+		this.reviewno = reviewno;
 	}
 
 	public String getEmail() {
@@ -40,12 +38,12 @@ public class ReviewBoard {
 		this.email = email;
 	}
 
-	public Long getResNo() {
-		return resNo;
+	public Long getResno() {
+		return resno;
 	}
 
-	public void setResNo(Long resNo) {
-		this.resNo = resNo;
+	public void setResno(Long resno) {
+		this.resno = resno;
 	}
 
 	public String getContent() {
@@ -56,12 +54,12 @@ public class ReviewBoard {
 		this.content = content;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
+	public Date getCreatedate() {
+		return createdate;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
 	}
 
 	public int getGrade() {
@@ -72,8 +70,6 @@ public class ReviewBoard {
 		this.grade = grade;
 	}
 
-	
-	
 	
 	
 	
