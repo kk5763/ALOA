@@ -27,11 +27,11 @@ public class Account {
 	private String tel;
 	
 	@Temporal(TemporalType.TIMESTAMP)	
-	private Date joinDate;
+	private Date joindate;
 	
 	private String status;
 	
-	private int reportCount;
+	private int reportcount;
 	
 	private int server;
 	
@@ -71,12 +71,12 @@ public class Account {
 		this.tel = tel;
 	}
 
-	public Date getJoinDate() {
-		return joinDate;
+	public Date getJoindate() {
+		return joindate;
 	}
 
-	public void setJoinDate(Date joinDate) {
-		this.joinDate = joinDate;
+	public void setJoindate(Date joindate) {
+		this.joindate = joindate;
 	}
 
 	public String getStatus() {
@@ -87,12 +87,12 @@ public class Account {
 		this.status = status;
 	}
 
-	public int getReportCount() {
-		return reportCount;
+	public int getReportcount() {
+		return reportcount;
 	}
 
-	public void setReportCount(int reportCount) {
-		this.reportCount = reportCount;
+	public void setReportcount(int reportcount) {
+		this.reportcount = reportcount;
 	}
 
 	public int getServer() {

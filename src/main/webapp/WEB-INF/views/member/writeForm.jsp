@@ -66,7 +66,7 @@
 	           </div>
 	       </div>
 	       <div class="form-group">
-	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block">회원 가입</button>
+	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block" disabled="disabled">회원 가입</button>
 	       </div>
 	       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    </form>
@@ -111,11 +111,13 @@
 						if(result.result===true){
 							$('#email_result').css('color', 'blue');
 							$('#email_result').html('사용 가능한 이메일 주소 입니다.');
-							$('#email-group').removeAttr('class').attr('class', 'form-group has-success');						
+							$('#email-group').removeAttr('class').attr('class', 'form-group has-success');
+							$('#email_hidden').removeAttr('value').attr('value', 'true');
 						}else if(result.result==false){
 							$('#email_result').css('color', 'red');
 							$('#email_result').html('이미 등록된 이메일 주소 입니다.');
 							$('#email-group').removeAttr('class').attr('class', 'form-group has-error');
+							$('#email_hidden').removeAttr('value').attr('value', 'false');
 						}
 					}
 				})
@@ -126,20 +128,25 @@
 					$('#password_result').css('color', 'red');
 					$('#password_result').html('비밀번호는 8자 이상 적어주세요.');
 					$('#password-group').removeAttr('class').attr('class', 'form-group has-error');
+					$('#password_hidden').removeAttr('value').attr('value', 'false');
 				}else{
 					$('#password_result').css('color', 'blue');
 					$('#password_result').html('사용 가능한 비밀번호 입니다.');
 					$('#password-group').removeAttr('class').attr('class', 'form-group has-success');
+					$('#password_hidden').removeAttr('value').attr('value', 'true');
+					check();
 				}
 				if($('#confirm').val()!=''){
 					if($('#confirm').val()!=value){
 						$('#confirm_result').css('color', 'red');
 						$('#confirm_result').html('비밀번호가 일치하지 않습니다.');
 						$('#confirm-group').removeAttr('class').attr('class', 'form-group has-error');
+						$('#confirm_hidden').removeAttr('value').attr('value', 'false');
 					}else{
 						$('#confirm_result').css('color', 'blue');
 						$('#confirm_result').html('비밀번호가 일치합니다.');
 						$('#confirm-group').removeAttr('class').attr('class', 'form-group has-success');
+						$('#confirm_hidden').removeAttr('value').attr('value', 'true');
 					}
 				}
 			})
@@ -149,12 +156,19 @@
 					$('#confirm_result').css('color', 'red');
 					$('#confirm_result').html('비밀번호가 일치하지 않습니다.');
 					$('#confirm-group').removeAttr('class').attr('class', 'form-group has-error');
+					$('#name_hidden').removeAttr('value').attr('value', 'false');
 				}else{
 					$('#confirm_result').css('color', 'blue');
 					$('#confirm_result').html('비밀번호가 일치합니다.');
 					$('#confirm-group').removeAttr('class').attr('class', 'form-group has-success');
+					$('#name_hidden').removeAttr('value').attr('value', 'true');
 				}
 			})
+			function check(){
+				if($('#email_hidden').val()=='true' && $('#password_hidden').val()=='true' && $('#confirm_hidden').val()=='true' && $('#name_hidden').val()=='true'){
+					$('#person_info_submit').removeAttr('disabled');
+				}
+			}
 		})
 	</script>
 </body>
