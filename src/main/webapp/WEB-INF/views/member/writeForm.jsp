@@ -96,7 +96,29 @@
 		$(document).ready(function(){
 			var token = $("meta[name='_csrf']").attr("content");
 			var header = $("meta[name='_csrf_header']").attr("content");
-			$('#email').keyup(function(){
+			
+			var email = $('#email');
+			var email_result = $('#email_result');
+			var email_group = $('#email-group');
+			var email_hidden = $('#email_hidden');
+			
+			var password = $('#password');
+			var password_result = $('#password_result');
+			var password_group = $('#password-group');
+			var password_hidden = $('#password_hidden');
+			
+			var confirm = $('#confirm');
+			var confirm_result = $('#confirm_result');
+			var confirm_group = $('#confirm-group');
+			var confirm_hidden = $('#confirm_hidden');
+			
+			var name = $('#username');
+			var name_group = $('#name-group');
+			var name_hidden = $('#name_hidden');
+			
+			var submit_button = $('#person_info_submit');
+			
+			email.keyup(function(){
 				var value = $(this).val();
 				$.ajax({
 					url:'/inspect',
@@ -109,65 +131,83 @@
 					success: function(result){
 						console.log(result.data);
 						if(result.result===true){
-							$('#email_result').css('color', 'blue');
-							$('#email_result').html('사용 가능한 이메일 주소 입니다.');
-							$('#email-group').removeAttr('class').attr('class', 'form-group has-success');
-							$('#email_hidden').removeAttr('value').attr('value', 'true');
+							email_result.css('color', 'blue');
+							email_result.html('사용 가능한 이메일 주소 입니다.');
+							email_group.removeAttr('class').attr('class', 'form-group has-success');
+							email_hidden.removeAttr('value').attr('value', 'true');
+							check_permit()
 						}else if(result.result==false){
-							$('#email_result').css('color', 'red');
-							$('#email_result').html('이미 등록된 이메일 주소 입니다.');
-							$('#email-group').removeAttr('class').attr('class', 'form-group has-error');
-							$('#email_hidden').removeAttr('value').attr('value', 'false');
+							email_result.css('color', 'red');
+							email_result.html('이미 등록된 이메일 주소 입니다.');
+							email_group.removeAttr('class').attr('class', 'form-group has-error');
+							email_hidden.removeAttr('value').attr('value', 'false');
+							check_cutout()
 						}
 					}
 				})
 			})
-			$('#password').keyup(function(){
-				var value = $(this).val();
+			password.keyup(function(){
+				var value = password.val();
 				if(value.length<=7){
-					$('#password_result').css('color', 'red');
-					$('#password_result').html('비밀번호는 8자 이상 적어주세요.');
-					$('#password-group').removeAttr('class').attr('class', 'form-group has-error');
-					$('#password_hidden').removeAttr('value').attr('value', 'false');
+					password_result.css('color', 'red');
+					password_result.html('비밀번호는 8자 이상 적어주세요.');
+					password_group.removeAttr('class').attr('class', 'form-group has-error');
+					password_hidden.removeAttr('value').attr('value', 'false');
+					check_cutout();
 				}else{
-					$('#password_result').css('color', 'blue');
-					$('#password_result').html('사용 가능한 비밀번호 입니다.');
-					$('#password-group').removeAttr('class').attr('class', 'form-group has-success');
-					$('#password_hidden').removeAttr('value').attr('value', 'true');
-					check();
+					password_result.css('color', 'blue');
+					password_result.html('사용 가능한 비밀번호 입니다.');
+					password_group.removeAttr('class').attr('class', 'form-group has-success');
+					password_hidden.removeAttr('value').attr('value', 'true');
+					check_permit();
 				}
-				if($('#confirm').val()!=''){
-					if($('#confirm').val()!=value){
-						$('#confirm_result').css('color', 'red');
-						$('#confirm_result').html('비밀번호가 일치하지 않습니다.');
-						$('#confirm-group').removeAttr('class').attr('class', 'form-group has-error');
-						$('#confirm_hidden').removeAttr('value').attr('value', 'false');
+				if(confirm.val()!=''){
+					if(confirm.val()!=value){
+						confirm_result.css('color', 'red').html('비밀번호가 일치하지 않습니다.');
+						confirm_group.removeAttr('class').attr('class', 'form-group has-error');
+						confirm_hidden.removeAttr('value').attr('value', 'false');
+						check_cutout()
 					}else{
-						$('#confirm_result').css('color', 'blue');
-						$('#confirm_result').html('비밀번호가 일치합니다.');
-						$('#confirm-group').removeAttr('class').attr('class', 'form-group has-success');
-						$('#confirm_hidden').removeAttr('value').attr('value', 'true');
+						confirm_result.css('color', 'blue').html('비밀번호가 일치합니다.');
+						confirm_group.removeAttr('class').attr('class', 'form-group has-success');
+						confirm_hidden.removeAttr('value').attr('value', 'true');
+						check_permit();
 					}
 				}
 			})
-			$('#confirm').keyup(function(){
-				var value = $(this).val();
-				if($('#password').val()!=value){
-					$('#confirm_result').css('color', 'red');
-					$('#confirm_result').html('비밀번호가 일치하지 않습니다.');
-					$('#confirm-group').removeAttr('class').attr('class', 'form-group has-error');
-					$('#name_hidden').removeAttr('value').attr('value', 'false');
+			name.keyup(function(){
+				var value = name.val();
+				if(value.length >= 2){
+					name_group.removeAttr('class').attr('class', 'form-group has-success');
+					name_hidden.removeAttr('value').attr('value', 'true');
+					check_permit();
 				}else{
-					$('#confirm_result').css('color', 'blue');
-					$('#confirm_result').html('비밀번호가 일치합니다.');
-					$('#confirm-group').removeAttr('class').attr('class', 'form-group has-success');
-					$('#name_hidden').removeAttr('value').attr('value', 'true');
+					name_group.removeAttr('class').attr('class', 'form-group has-error');
+					name_hidden.removeAttr('value').attr('value', 'false');
+					check_cutout();
 				}
 			})
-			function check(){
-				if($('#email_hidden').val()=='true' && $('#password_hidden').val()=='true' && $('#confirm_hidden').val()=='true' && $('#name_hidden').val()=='true'){
-					$('#person_info_submit').removeAttr('disabled');
+			confirm.keyup(function(){
+				var value = $(this).val();
+				if(password.val()!=value){
+					confirm_result.css('color', 'red').html('비밀번호가 일치하지 않습니다.');
+					confirm_group.removeAttr('class').attr('class', 'form-group has-error');
+					confirm_hidden.removeAttr('value').attr('value', 'false');
+					check_cutout();
+				}else{
+					confirm_result.css('color', 'blue').html('비밀번호가 일치합니다.');
+					confirm_group.removeAttr('class').attr('class', 'form-group has-success');
+					confirm_hidden.removeAttr('value').attr('value', 'true');
+					check_permit();
 				}
+			})
+			function check_permit(){
+				if(email_hidden.val()=='true' && password_hidden.val()=='true' && confirm_hidden.val()=='true' && name_hidden.val()){
+					submit_button.removeAttr('disabled');
+				}
+			}
+			function check_cutout(){
+				submit_button.attr('disabled', 'disabled');
 			}
 		})
 	</script>
