@@ -81,12 +81,23 @@ body{
 	margin-top:12px;
 }
 
-.report-button{
+.reportRes-button{
 	display:inline-block;
 	float:right;
 }
 
-.report-button img{
+.reportRev-button{
+	display:inline-block;
+	text-align: center;
+}
+
+.reportRes-button img{
+	width:15px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.reportRev-button img{
 	width:15px;
 	height: 20px;
 	cursor: pointer;
