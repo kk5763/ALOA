@@ -278,7 +278,7 @@ $(function(){
 			    });
 			}// function
 			
-			naver.maps.onJSContentLoaded = searchAddressToCoordinate('서울시 강남구 신사동 646-23');
+			naver.maps.onJSContentLoaded = searchAddressToCoordinate('경기도 부천시 원미구');
 			
 			function getClickHandler(seq) { // 마커를 클릭 했을 때
 			    return function(e) {
