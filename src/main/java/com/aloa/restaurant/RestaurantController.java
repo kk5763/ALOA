@@ -46,7 +46,6 @@ public class RestaurantController {
 		return "detail/detailView";
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping(value="/reviewWrite", method=RequestMethod.GET)
 	public String reviewWrite() {
 		
@@ -57,7 +56,3 @@ public class RestaurantController {
 	public String reportRes() {
 		return "detail/reportRes";
 	}
-	
-=======
->>>>>>> 9636656e319c8df7271c576dc4fe492aeab7797a
-}
