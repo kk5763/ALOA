@@ -212,9 +212,7 @@
 					confirm_hidden.removeAttr('value').attr('value', 'true');
 					check_permit();
 				}
-			})			
-			
-			
+			})
 			function inspectEffect(check, attribute, attribute1, attribute2, name){
 				$('#'+name).remove();
 				$('#'+name+name).remove();

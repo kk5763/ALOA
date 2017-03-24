@@ -1,7 +1,9 @@
 package com.aloa.account;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,9 @@ public class AccountRestController {
 	@Autowired
 	AccountRepository accountRepository;
 	
+	@Autowired
+	ModelMapper modelMapper;
+	
 	@RequestMapping(value="/inspect", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	public boolean inspect(@RequestParam String email){
@@ -26,5 +31,11 @@ public class AccountRestController {
 			return false;
 		}
 		return true;
+	}
+
+	@RequestMapping(value="/accounts/{email}", method=RequestMethod.GET)
+	public AccountDTO.GetAccount getAccount(@PathVariable String email){
+		Account account = accountRepository.findOne(email);
+		return modelMapper.map(account, AccountDTO.GetAccount.class);
 	}
 }

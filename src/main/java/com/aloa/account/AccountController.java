@@ -6,6 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +21,8 @@ public class AccountController {
 	AccountService accountService;
 	
 	@Autowired
-	ModelMapper modelMapper;
+	AccountRepository accountRepository;
+	
 	
 	@RequestMapping(value = "/agreeJoin", method = RequestMethod.GET)
 	public ModelAndView agreeJoin(){
@@ -53,4 +55,8 @@ public class AccountController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value="/accounts/editUserInfo", method=RequestMethod.GET)
+	public String editAccount(){
+		return "member/editUserInfo";
+	}
 }

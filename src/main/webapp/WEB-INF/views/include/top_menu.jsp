@@ -64,7 +64,7 @@
 		            <li><a href="#">내가 본 맛집</a></li>
 		            <li><a href="#">내가 한 예약</a></li>
 		            <li class="divider"></li>
-		            <li><a href="#">회원정보수정</a></li>
+		            <li><a href="/accounts/editUserInfo">회원정보수정</a></li>
 		            <li>
 		            <a href="#" id="a_logout">로그아웃</a>
 		            <form action="/logout" method="post" id="logout">
