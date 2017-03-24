@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aloa.review.ReviewBoardDTO;
 import com.aloa.review.ReviewService;
@@ -30,13 +31,14 @@ public class RestaurantController {
 	private RestaurantRepository repository;
 	
 	
+	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(String resName
+	public String detailView(int resno
 							,Model model ){
 		
-		/*Restaurant restaurant = service.findOne(resName);
+		/*Restaurant restaurant = service.findOne(resno);
 		List<ReviewBoardDTO> reviewList = 
-				reviewService.reviewList(resName);
+				reviewService.reviewList(resno);
 		
 		model.addAttribute("restaurant",restaurant);
 		model.addAttribute("reviewList",reviewList);*/
@@ -44,6 +46,7 @@ public class RestaurantController {
 		return "detail/detailView";
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value="/reviewWrite", method=RequestMethod.GET)
 	public String reviewWrite() {
 		
@@ -55,4 +58,6 @@ public class RestaurantController {
 		return "detail/reportRes";
 	}
 	
+=======
+>>>>>>> 9636656e319c8df7271c576dc4fe492aeab7797a
 }

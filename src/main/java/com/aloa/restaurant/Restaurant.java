@@ -6,111 +6,104 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Restaurant {
 	
 	@Id
-	@Column(unique = true)
-	private String username; 
+	private int resno;
 	
-	@Column(unique = true)
-	private String resName;
-	private String resAddress;
-	private String resTel;
-	private String resKind;
-	private String resPrice;
-	private String resParking;
-	private String resSaletime;
-	private String resRest;
-	private String resHoliday;
-	private Date createDate;
+	private String resname;
+	private String bossemail;
+	private String resaddress;
+	private String restel;
+	private String reskind;
+	private String resprice;
+	private String resparking;
+	private String ressaletime;
+	private String resrest;
+	private String resholiday;
+	private Date createdate;
+	private String request;
 	
-	public String getUsername() {
-		return username;
+	public int getResno() {
+		return resno;
 	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setResno(int resno) {
+		this.resno = resno;
 	}
-
-	public String getResName() {
-		return resName;
+	public String getResname() {
+		return resname;
 	}
-
-	public void setResName(String resName) {
-		this.resName = resName;
+	public void setResname(String resname) {
+		this.resname = resname;
 	}
-
-	public String getResAddress() {
-		return resAddress;
+	public String getBossemail() {
+		return bossemail;
 	}
-
-	public void setResAddress(String resAddress) {
-		this.resAddress = resAddress;
+	public void setBossemail(String bossemail) {
+		this.bossemail = bossemail;
 	}
-
-	public String getResTel() {
-		return resTel;
+	public String getResaddress() {
+		return resaddress;
 	}
-
-	public void setResTel(String resTel) {
-		this.resTel = resTel;
+	public void setResaddress(String resaddress) {
+		this.resaddress = resaddress;
 	}
-
-	public String getResKind() {
-		return resKind;
+	public String getRestel() {
+		return restel;
 	}
-
-	public void setResKind(String resKind) {
-		this.resKind = resKind;
+	public void setRestel(String restel) {
+		this.restel = restel;
 	}
-
-	public String getResPrice() {
-		return resPrice;
+	public String getReskind() {
+		return reskind;
 	}
-
-	public void setResPrice(String resPrice) {
-		this.resPrice = resPrice;
+	public void setReskind(String reskind) {
+		this.reskind = reskind;
 	}
-
-	public String getResParking() {
-		return resParking;
+	public String getResprice() {
+		return resprice;
 	}
-
-	public void setResParking(String resParking) {
-		this.resParking = resParking;
+	public void setResprice(String resprice) {
+		this.resprice = resprice;
 	}
-
-	public String getResSaletime() {
-		return resSaletime;
+	public String getResparking() {
+		return resparking;
 	}
-
-	public void setResSaletime(String resSaletime) {
-		this.resSaletime = resSaletime;
+	public void setResparking(String resparking) {
+		this.resparking = resparking;
 	}
-
-	public String getResRest() {
-		return resRest;
+	public String getRessaletime() {
+		return ressaletime;
 	}
-
-	public void setResRest(String resRest) {
-		this.resRest = resRest;
+	public void setRessaletime(String ressaletime) {
+		this.ressaletime = ressaletime;
 	}
-
-	public String getResHoliday() {
-		return resHoliday;
+	public String getResrest() {
+		return resrest;
 	}
-
-	public void setResHoliday(String resHoliday) {
-		this.resHoliday = resHoliday;
+	public void setResrest(String resrest) {
+		this.resrest = resrest;
 	}
-
-	public Date getCreateDate() {
-		return createDate;
+	public String getResholiday() {
+		return resholiday;
 	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setResholiday(String resholiday) {
+		this.resholiday = resholiday;
 	}
-	
+	public Date getCreatedate() {
+		return createdate;
+	}
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
+	public String getRequest() {
+		return request;
+	}
+	public void setRequest(String request) {
+		this.request = request;
+	}
+		
 }

@@ -6,39 +6,104 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>리뷰 작성</title>
 <link rel="stylesheet" href="/style/min_style/reviewWrite.css">
-<script type="text/javascript">
+<<<<<<< HEAD
+<script>
+/* 평점 */
+function clickImg(mode){
+	var gg = document.getElementById('good');
+	var ss = document.getElementById('soso');
+	var bb = document.getElementById('bad');
+	if(mode==1){
+		gg.style['background-image'] = "url('/resources/images/min_image/good_on.png')";
+		ss.style['background-image'] = "url('/resources/images/min_image/soso_off.png')";
+		bb.style['background-image'] = "url('/resources/images/min_image/bad_off.png')";
+	}else if(mode==2){
+		gg.style['background-image'] = "url('/resources/images/min_image/good_off.png')";
+		ss.style['background-image'] = "url('/resources/images/min_image/soso_on.png')";
+		bb.style['background-image'] = "url('/resources/images/min_image/bad_off.png')";
+	}else if(mode==3){
+		gg.style['background-image'] = "url('/resources/images/min_image/good_off.png')";
+		ss.style['background-image'] = "url('/resources/images/min_image/soso_off.png')";
+		bb.style['background-image'] = "url('/resources/images/min_image/bad_on.png')";
+	}	
+}
 
+/* 파일추가*/
+var count = 0;
+function addFile(){
+	//count++;
+	var newFile = document.createElement("div");
+	
+	newFile.setAttribute("id","fileItem"+count);
+	//alert(newFile);
+	 
+	var html = '<input type="file" name="" id="itemList"/>'
+	+'<input type="button" value="-" onclick="removeFile('+count+')"/>';
+	
+	newFile.innerHTML = html;
+	
+	var newFileList = document.getElementById('file_section');
+	
+	newFileList.appendChild(newFile); 
+	
+	
+}
+function removeFile(idCount){
+	var fileItem = document.getElementById("fileItem"+idCount);
+	
+	if(fileItem !=null){
+		fileItem.parentNode.removeChild(fileItem); 
+	}
+	
+}
+
+=======
+<script type="text/javascript">
+function checkReviewWrite(){
+	if(document.reviewWriteForm.content_section.value == ""){
+		alert("내용을 입력하세요")
+	}else{
+		alert("등록되었습니다")
+		document.reviewWriteForm.submit();
+	}
+}
 $(function() {
 	  $('.good').click(function() {
 	    $(this).css('background-image', 'url(/resources/images/min_image/good_on.png)');
 	  });
 });
+>>>>>>> 664d495929e843e6cba79e189630b4d7175ddafb
 </script>
 </head>
 <body>
-	<form name="" method="post" enctype="multipart/form-data" action="">
+	<form name="reviewWriteForm" method="post" enctype="multipart/form-data" action="/reviewWrite">
 		<div id="main_section">
 		
 			<div id="name">파씨오네에 대한 리뷰를 작성해주세요 !</div>
 			<div id="grade">
 				<div id="grade_text">파씨오네를 다녀온 당신의 점수는 ?</div>
 				<div id="grade_img">
-					<div class="good" onclick="function()"></div>
-					<div id="soso"></div>
-					<div id="bad"></div>
+					<div id="good" onclick="clickImg(1)"></div>
+					<div id="soso" onclick="clickImg(2)"></div>
+					<div id="bad" onclick="clickImg(3)"></div>
 				</div>
 			</div>
 			
 			<div id="content_section">
-				<textarea rows="25" cols="90" placeholder="이곳에 내용을 입력하세요."></textarea>
+				<textarea rows="10" placeholder="300자 내외로 작성해주세요." maxlength="300" ></textarea>
 			</div>
 		
-			<div id="file_section">
-				<input type="file" name=""><input type="button" value="+" />
+			<div id="file_section">		
+				<input type="file" id="itemList" /><input type="button" value="+" onclick="addFile()" />
 			</div>
 			
-			<div id="button_section">
+<<<<<<< HEAD
+			<div id="button_section"> 
 				<div id="write">작성</div>
+=======
+			<div id="button_section">
+				<div id="write" onclick = "checkReviewWrite()">작성</div>
+>>>>>>> 664d495929e843e6cba79e189630b4d7175ddafb
 				<div id="cancel">취소</div>
 			</div>
 			

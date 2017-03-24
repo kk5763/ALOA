@@ -1,8 +1,11 @@
 package com.aloa.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
@@ -10,8 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.aloa.restaurant.Restaurant;
+import com.aloa.restaurant.RestaurantService;
 import com.aloa.service.MemberService;
 
 @Controller
@@ -19,6 +25,8 @@ public class MainController {
 	@Autowired
 	MemberService memberService;
 	
+	@Autowired
+	RestaurantService resService;
 	
 	private Facebook facebook; //페이스북 api 객체
 	private ConnectionRepository cr; //페이스북 연결 정보
@@ -29,6 +37,7 @@ public class MainController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model, HttpSession session){
+		
 		if(cr.findPrimaryConnection(Facebook.class)!=null){
 			String[] fields={"id","name","birthday","email","gender"};
 			User user = facebook.fetchObject("me", User.class,fields);  //me 는 로그인한 사용자의 정보. me/friends 하면 친구정보가 나옴
@@ -37,7 +46,7 @@ public class MainController {
 			String birthday = user.getBirthday();
 			String email = user.getEmail();
 			String gender = user.getGender();
-			
+	  		
 			
 			model.addAttribute("name", name);
 			model.addAttribute("id", id);
@@ -48,6 +57,9 @@ public class MainController {
 			
 			session.setAttribute("username", name);
 		}
+		
+		List<Restaurant> reslist =resService.findList();
+		model.addAttribute("reslist",reslist);
 		
 		return "main/home";
 	}
@@ -63,5 +75,32 @@ public class MainController {
 		
 		return "search/searchFilter";
 	}
+	
+	@RequestMapping(value="/storejoinForm",method=RequestMethod.GET)
+	public ModelAndView storejoinForm(){
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("list/storejoin");
+		return mav;
+	}
+	
+	@RequestMapping(value="/storejoin",method=RequestMethod.POST)
+	public String storejoin(Restaurant restaurant,@RequestParam String bossemail){
+		
+		
+		System.out.println(restaurant.getBossemail()+
+				restaurant.getResaddress()
+				+bossemail
+				);
+		restaurant.setBossemail(bossemail);
+		
+		resService.createRes(restaurant);
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
 	
 }
