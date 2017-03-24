@@ -7,7 +7,14 @@
 <title>리뷰 작성</title>
 <link rel="stylesheet" href="/style/min_style/reviewWrite.css">
 <script type="text/javascript">
-
+function checkReviewWrite(){
+	if(document.reviewWriteForm.content_section.value == ""){
+		alert("내용을 입력하세요")
+	}else{
+		alert("등록되었습니다")
+		document.reviewWriteForm.submit();
+	}
+}
 $(function() {
 	  $('.good').click(function() {
 	    $(this).css('background-image', 'url(/resources/images/min_image/good_on.png)');
@@ -16,7 +23,7 @@ $(function() {
 </script>
 </head>
 <body>
-	<form name="" method="post" enctype="multipart/form-data" action="">
+	<form name="reviewWriteForm" method="post" enctype="multipart/form-data" action="/reviewWrite">
 		<div id="main_section">
 		
 			<div id="name">파씨오네에 대한 리뷰를 작성해주세요 !</div>
@@ -38,7 +45,7 @@ $(function() {
 			</div>
 			
 			<div id="button_section">
-				<div id="write">작성</div>
+				<div id="write" onclick = "checkReviewWrite()">작성</div>
 				<div id="cancel">취소</div>
 			</div>
 			

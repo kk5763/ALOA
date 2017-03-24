@@ -14,6 +14,9 @@ public class ReviewService {
 	private ReviewRepository repository;
 	
 	@Autowired
+	private ReviewDAO reviewDAO;
+	
+	@Autowired
 	private ImageRepository iamgeRepository;
 	
 	public List<ReviewBoardDTO> reviewList(int resNo){
@@ -38,6 +41,10 @@ public class ReviewService {
 		
 		
 		return reviewList;
+	}
+	
+	public void reviewWrite(ReviewBoard dto){
+		reviewDAO.reviewInsert(dto);
 	}
 	
 }
