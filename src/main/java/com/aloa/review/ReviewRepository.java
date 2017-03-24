@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ReviewRepository extends JpaRepository<ReviewBoard,Integer>{
 	
 	
-	List<ReviewBoard> findByResNoLessThanOrderByResNoDesc(int resNo);
+	List<ReviewBoard> findByResnoLessThanOrderByResnoDesc(int resno);
 }

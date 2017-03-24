@@ -14,20 +14,23 @@ public class ReviewService {
 	private ReviewRepository repository;
 	
 	@Autowired
+	private ReviewDAO reviewDAO;
+	
+	@Autowired
 	private ImageRepository iamgeRepository;
 	
 	public List<ReviewBoardDTO> reviewList(int resNo){
 		
 		List<ReviewBoard> list = 
-				repository.findByResNoLessThanOrderByResNoDesc(resNo);
+				repository.findByResnoLessThanOrderByResnoDesc(resNo);
 		
 		List<ReviewBoardDTO> reviewList = new ArrayList<ReviewBoardDTO>();
 		
 		for(int i=0;i<list.size();i++){
 			
 			List<ImageBoard> imageList = 
-					iamgeRepository.findByReviewNoLessThanOrderByCreateDateDesc(
-							list.get(i).getReviewNo());
+					iamgeRepository.findByReviewno(
+							list.get(i).getReviewno());
 			
 			ReviewBoardDTO reviewBoardDTO = new ReviewBoardDTO();
 			reviewBoardDTO.setReviewBoard(list.get(i));
@@ -38,6 +41,10 @@ public class ReviewService {
 		
 		
 		return reviewList;
+	}
+	
+	public void reviewWrite(ReviewBoard dto){
+		reviewDAO.reviewInsert(dto);
 	}
 	
 }

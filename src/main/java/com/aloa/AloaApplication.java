@@ -29,7 +29,7 @@ public class AloaApplication {
 		bean.setDataSource(dataSource);
 		
 		Resource[] res = new PathMatchingResourcePatternResolver()
-				.getResources("classpath:/mapper/mybatis-config.xml");
+				.getResources("classpath:/mapper/*.xml");
 		bean.setMapperLocations(res);
 		return bean.getObject();
 	}

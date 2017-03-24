@@ -1,12 +1,10 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-
 <sec:authorize access="isAnonymous()">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
+            <a id="nav_mainImg" class="navbar-brand" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -48,7 +46,7 @@
  	<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
+            <a id="nav_mainImg" class="navbar-brand" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
