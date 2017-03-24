@@ -22,18 +22,6 @@ public class AccountController {
 	@Autowired
 	ModelMapper modelMapper;
 	
-	/*@RequestMapping(value="/inspect", method=RequestMethod.GET)
-	public InspectVO inspect(InspectVO inspectVO){
-		
-		try {
-			boolean inspect = memberService.inspectEmail(inspectVO.getData());
-			if(inspect) inspectVO.setResult(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-		return inspectVO;
-	}*/
 	@RequestMapping(value = "/agreeJoin", method = RequestMethod.GET)
 	public ModelAndView agreeJoin(){
 		ModelAndView mav = new ModelAndView();

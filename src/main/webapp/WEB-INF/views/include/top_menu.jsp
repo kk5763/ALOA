@@ -1,12 +1,10 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-
 <sec:authorize access="isAnonymous()">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
+            <a id="nav_mainImg" class="navbar-brand" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -48,7 +46,7 @@
  	<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
+            <a id="nav_mainImg" class="navbar-brand" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -63,7 +61,8 @@
             	<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><sec:authentication property="principal.fullName"/> <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">즐겨찾기</a></li>
+		            <li><a href="#">내가 본 맛집</a></li>
+		            <li><a href="#">내가 한 예약</a></li>
 		            <li class="divider"></li>
 		            <li><a href="#">회원정보수정</a></li>
 		            <li>

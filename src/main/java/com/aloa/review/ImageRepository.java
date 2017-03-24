@@ -4,6 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ImageRepository extends JpaRepository<ImageBoard,Long>{
-	List<ImageBoard> findByReviewNoLessThanOrderByCreateDateDesc(Long reviewNo);
+public interface ImageRepository extends JpaRepository<Imageboard,Integer>{
+	List<Imageboard> findByReviewno(int reviewno);
 }

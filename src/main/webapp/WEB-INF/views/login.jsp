@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
@@ -22,16 +23,19 @@
 	<title>ALOA</title>
 </head>
 <body>
-
+<%@ include file="./include/top_menu.jsp" %>
 <c:url value="/login" var="loginUrl"/>
 <div class="container-fluid">
 	<div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
 	<form class="col-xs-12 col-sm-8 col-md-6 col-lg-4" action="${loginUrl}" method="post">       
 		<c:if test="${param.error != null}">        
 			<p>
-				Invalid username and password.
+				<mark style="color:red;">아이디 혹은 비밀번호가 틀렸습니다.</mark>
 			</p>
 		</c:if>
+		<p id="errorMsg">
+		
+		</p>
 		<c:if test="${param.logout != null}">       
 			<p>
 				You have been logged out.
@@ -49,9 +53,9 @@
 		        <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 		    </div>
 		</div>
-		<%-- <input type="hidden"                        
+		<input type="hidden"     
 			name="${_csrf.parameterName}"
-			value="${_csrf.token}"/> --%>
+			value="${_csrf.token}"/>
 		<sec:csrfInput />
 		<div class="form-group">
 	          <button type="submit" id="person_info_submit" class="btn btn-danger btn-block">로그인</button>
@@ -59,7 +63,19 @@
 	</form>
 </div>
 <hr>
-<a href="/">홈으로 이동</a>
-
+<script>
+	$(document).ready(function(){
+		<c:if test="${param.error !=null}">
+			$('.form-group').removeAttr('class').attr('class','form-group has-error');
+		</c:if>
+		$('form').submit(function(e){
+			if( $('#username').val()=='' || $('#password').val()=='' ){
+				$('#errorMsg').html('<mark style="color:red;">아이디 혹은 비밀번호를 입력하지 않았습니다.</mark>');
+				$('.form-group').removeAttr('class').attr('class','form-group has-warning');
+				e.preventDefault();
+			}
+		})
+	})
+</script>
 </body>
 </html>
