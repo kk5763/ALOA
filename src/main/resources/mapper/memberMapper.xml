@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+
+    <select id="inspectEmail" parameterType="java.lang.String" resultType="com.aloa.account.Account">
+        SELECT * FROM account WHERE email=#{email}
+    </select>
+    
+    <insert id="resInsert" parameterType="com.aloa.restaurant.Restaurant" >
+    	insert into restaurant(resno
+    		,resname
+    		,bossemail
+    		,resaddress
+    		,restel
+    		,reskind
+    		,resprice
+    		,resparking
+    		,ressaletime
+    		,resrest
+    		,resholiday
+    		,request
+    		,createdate)values(seq_restaurant.nextval
+    		,#{resname}
+    		,#{bossemail}
+    		,#{resaddress}
+    		,#{restel}
+    		,#{reskind}
+    		,#{resprice}
+    		,#{resparking}
+    		,#{ressaletime}
+    		,#{resrest}
+    		,#{resholiday}
+    		,#{request}
+    		,sysdate
+    	)
+    </insert>
+ 
+</mapper>

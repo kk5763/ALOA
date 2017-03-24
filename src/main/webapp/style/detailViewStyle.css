@@ -3,13 +3,11 @@
 body{
 	margin:0 0;
 	font-family:"SpoqaHanSans-Regular", sans-serif;
-	
 }
 
 .main-scope{
 	padding-top:61px;
 	padding-left:0px;
-	
 	margin:0;
 	padding:0;
 	width:100%;
@@ -26,20 +24,8 @@ body{
 	overflow:hidden;
 	left:0px;
 	border-bottom:6px solid #fff;
-	
 }
-/*	
-.image-slider-div{
-	margin-top:10%; 
-	float:left;
-	height:340px;
-	width:20%;
-	overflow:hidden;
-	
-}
-.image-slider-div img{
-	border: 2px solid #fff;
-}*/
+
 .images{
 	width:20%;
 	height:340px;
@@ -54,7 +40,6 @@ body{
 	flex:1;
 	float:left;
 	height:100%;
-	
 }
 
 .content{
@@ -62,13 +47,13 @@ body{
 	margin:0 auto;
 	margin-top:40px;
 	padding-top:10px;
-	
 }
 .content-header{
 	position:relative;
 	padding-bottom:10px;
 	border-bottom:1px solid #dbdbdb;
 	min-height:74px;
+	overflow:hidden;
 }
 .wannago-wrapper{
 	display:inline-block;
@@ -85,7 +70,6 @@ body{
 	position:relative;
 	text-overflow:ellipsis;
 	box-sizing:border-box;
-	
 }
 .wannago-bt{
 	margin-bottom:2px;
@@ -96,8 +80,21 @@ body{
 	font-size:0.8rem;
 	margin-top:12px;
 }
+
+.report-button{
+	display:inline-block;
+	float:right;
+}
+
+.report-button img{
+	width:15px;
+	height: 20px;
+	cursor: pointer;
+}
+
 .restaurant-status{
-	margin:5px 0 10px;
+	position:absolute;
+	max-width:75%;
 	font-size:0.8rem;
 }
 .hidden{

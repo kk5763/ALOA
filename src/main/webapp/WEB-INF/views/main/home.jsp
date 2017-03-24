@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,7 +45,6 @@
 </head>
 <body>
 	<%@ include file="../include/top_menu.jsp" %>
-
 
 <div class="jumbotron text-center" style="background-color: white">
     <h1 style="color:paleturquoise">kgitbank pj</h1>
@@ -97,7 +97,7 @@
 </form>
 <br><br>
 <div class="container">
-	<h3>실시간 추천 맛집 리스트</h3>
+	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].resno!=null}">reslist</c:if></h3>
 	<div class="center-block slider1">
 		<div class="slide">
 			<a href="#">
@@ -215,5 +215,6 @@
 		$('#search_div').show();
 	});
 </script>
+
 </body>
 </html>

@@ -9,25 +9,28 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
-@Table(name = "aloa_user")
 public class Account {
 	@Id
 	@Column(unique = true)
 	private String email;
 	
+	@NotBlank
 	private String password;
 	
+	@NotBlank
 	private String username;
 	
-	private Long tel;
+	private String tel;
 	
 	@Temporal(TemporalType.TIMESTAMP)	
-	private Date joinDate;
+	private Date joindate;
 	
 	private String status;
 	
-	private int reportCount;
+	private int reportcount;
 	
 	private int server;
 	
@@ -59,20 +62,20 @@ public class Account {
 		this.username = username;
 	}
 
-	public Long getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(Long tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
-	public Date getJoinDate() {
-		return joinDate;
+	public Date getJoindate() {
+		return joindate;
 	}
 
-	public void setJoinDate(Date joinDate) {
-		this.joinDate = joinDate;
+	public void setJoindate(Date joindate) {
+		this.joindate = joindate;
 	}
 
 	public String getStatus() {
@@ -83,12 +86,12 @@ public class Account {
 		this.status = status;
 	}
 
-	public int getReportCount() {
-		return reportCount;
+	public int getReportcount() {
+		return reportcount;
 	}
 
-	public void setReportCount(int reportCount) {
-		this.reportCount = reportCount;
+	public void setReportcount(int reportcount) {
+		this.reportcount = reportcount;
 	}
 
 	public int getServer() {

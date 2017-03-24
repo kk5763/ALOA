@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "reviewMapper">
+
+	<insert id = "reviewInsert" parameterType = "com.aloa.review.Reviewboard">
+		insert into reviewboard(
+				reviewno,
+                email,
+                resNo,
+                content,
+                createDate,
+                grade) 
+       	 values(
+       	 		seq_reviewno.nextval,
+       	 		#{email},
+       	 		#{resNo},
+       	 		#{content},
+       	 		sysdate,
+       	 		#{grade}
+       	 		)
+	</insert>
+</mapper>
