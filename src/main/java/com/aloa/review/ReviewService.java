@@ -18,20 +18,20 @@ public class ReviewService {
 	
 	public List<ReviewBoardDTO> reviewList(int resNo){
 		
-		List<ReviewBoard> list = 
+		List<Reviewboard> list = 
 				repository.findByResnoLessThanOrderByResnoDesc(resNo);
 		
 		List<ReviewBoardDTO> reviewList = new ArrayList<ReviewBoardDTO>();
 		
 		for(int i=0;i<list.size();i++){
 			
-			List<ImageBoard> imageList = 
+			List<Imageboard> imageList = 
 					iamgeRepository.findByReviewno(
 							list.get(i).getReviewno());
 			
 			ReviewBoardDTO reviewBoardDTO = new ReviewBoardDTO();
-			reviewBoardDTO.setReviewBoard(list.get(i));
-			reviewBoardDTO.setImageBoard(imageList);
+			reviewBoardDTO.setReviewboard(list.get(i));
+			reviewBoardDTO.setImageboard(imageList);
 			
 			reviewList.add(reviewBoardDTO);
 		}

@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-public class ReviewBoard {
+public class Reviewboard {
 	
 	@Id
 	private int reviewno;

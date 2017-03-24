@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-public class ImageBoard {
+public class Imageboard {
 	
 	private String image;
 	
