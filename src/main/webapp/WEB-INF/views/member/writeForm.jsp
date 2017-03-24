@@ -129,18 +129,18 @@
 						url:'/inspect',
 						dataType:'json',
 						type:'POST',
-						data:{'data':value,'type':'id'},
+						data:{'email':value},
 						beforeSend: function(xhr){
 							xhr.setRequestHeader(header, token);
 						},
 						success: function(result){
-							console.log(result.data);
-							if(result.result===true){
+							console.log(result);
+							if(result===true){
 								email_result.css('color', 'blue').html('사용 가능한 이메일 주소 입니다.');
 								inspectEffect(email_group,'has-success','ok', '(success)', 'email_effect');
 								email_hidden.removeAttr('value').attr('value', 'true');
 								check_permit()
-							}else if(result.result==false){
+							}else{
 								email_result.css('color', 'red').html('이미 등록된 이메일 주소 입니다.');
 								inspectEffect(email_group,'has-error', 'remove', '(error)', 'email_effect');
 								email_hidden.removeAttr('value').attr('value', 'false');

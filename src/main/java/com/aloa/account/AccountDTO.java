@@ -2,6 +2,10 @@ package com.aloa.account;
 
 
 public class AccountDTO {
+	public static class Inspect {
+		private String email;
+	}
+
 	public static class Response {
 		private String username;
 		private String fullName;
