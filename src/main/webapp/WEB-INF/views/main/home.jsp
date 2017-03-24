@@ -97,7 +97,7 @@
 </form>
 <br><br>
 <div class="container">
-	<h3>실시간 추천 맛집 리스트<c:if test="${reslist!=null}">${reslist.resno }</c:if></h3>
+	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].resno!=null}">reslist</c:if></h3>
 	<div class="center-block slider1">
 		<div class="slide">
 			<a href="#">
