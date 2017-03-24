@@ -7,6 +7,20 @@ body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input,
 	margin: 0;
 	padding: 0
 }
+
+.reservemap{width:100%;
+	height: 100%;}
+.mapp{
+	
+	width:488px;
+	height: 280px;
+	    background-color: #fff;
+    border-top: 2px solid #05c840;
+    border-right: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    border-left: 1px solid #ededed;
+}
+
 .sc {
 
 	width:100%;
@@ -5137,6 +5151,12 @@ textarea.textarea.text_bold {
 		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '나눔고딕',
 		'맑은고딕', MalgunGothic, Dotum, '돋움', Sans-serif;
 	font-weight: 400
+}
+
+.map {
+	width: 300px;
+	height: 300px;
+	border:1px solid red;
 }
 
 .group_visual {
@@ -11515,6 +11535,7 @@ textarea.textarea.text_bold {
 	padding-top: 5px;
 	width: 136px
 }
+
 
 .simple_time_selector.large {
 	padding: 30px 30px 18px 26px
