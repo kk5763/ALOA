@@ -45,6 +45,7 @@ public class RestaurantController {
 		return "detail/detailView";
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
 	public String detailViewImage(Model model ){
 		
@@ -53,3 +54,15 @@ public class RestaurantController {
 	}
 	
 }
+=======
+	@RequestMapping(value="/reviewWrite", method=RequestMethod.GET)
+	public String reviewWrite() {
+		
+		return "review/reviewWrite";
+	}
+	
+	@RequestMapping(value="/reportRes", method=RequestMethod.GET)
+	public String reportRes() {
+		return "detail/reportRes";
+	}
+>>>>>>> 6ebd5ec1a49871cae3f0e8d4c94b6e396e40c49f

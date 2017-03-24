@@ -5,20 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel = "stylesheet" type = "text/css" href = "../style/detailViewStyle.css"/>
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<link rel = "stylesheet" type = "text/css" href = "/style/detailViewStyle.css"/>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
-
-<link rel="stylesheet" type="text/css" href="/style/photobox.css">
-<script src="/js/jquery-1.7.2.js"></script>
-<script src="/js/jquery.photobox.js"></script>
-
 <script type="text/javascript">
-$(function(){
-	
-	$(".image-slider-div").photobox();//플러그인 적용
-	
-	});
+	function reportRes() {
+		window.open("http://localhost:8000/reportRes", "reportRes", 
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=150, top=150, width=500, height=200");		
+	}
 </script>
 </head>
 <!-- 상단영역 -->
@@ -29,20 +22,18 @@ $(function(){
 <!-- 메인영역 -->
 <article class="main-scope">
 	<!-- 상단 이미지 슬라이더 -->
-<!-- 	<div class="image-slider" > -->
-		
-			<div class="image-slider-div">
-				<c:forEach var="i" begin="1" end="5" step="1">
-		        	<a href="/resources/images/${i }.jpg">
-		        		<img class="images" src="/resources/images/${i }.jpg" height="100px"/>
-		        	</a>
-	        	</c:forEach>
-			</div>
-	<!-- </div> -->
+	<div class="image-slider-div">
+		<c:forEach var="i" begin="1" end="5" step="1">
+        	<a href="/resources/images/${i }.jpg">
+        		<img class="images" src="/resources/images/${i }.jpg" height="100px"/>
+        	</a>
+       	</c:forEach>
+	</div>
 	<!-- 본문 내용  -->
 	<div class="content-wrapper">
 		<div class="content">
 			<div class="content-header">
+			
 				<div class="restaurant-title">
 					<div class="wannago-wrapper">
 						<button class="wannago-bt"></button>
@@ -53,6 +44,7 @@ $(function(){
 						<span class="rate-point">4.6</span>
 					</h1>
 				</div>
+				
 				<div class="restaurant-status">
 					<span class="hit">
 						<span class="hidden">조회수:</span>
@@ -66,6 +58,10 @@ $(function(){
 						<span class="hidden">가고싶다수 : </span>
 						1,477
 					</span>
+				</div>
+				
+				<div class="report-button">
+					<img src="/resources/images/min_image/report.PNG" onclick="reportRes()" />
 				</div>
 			</div>
 			<table class="content-detail">
