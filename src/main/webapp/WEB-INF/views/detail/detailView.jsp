@@ -20,7 +20,6 @@ $(function(){
 	
 	});
 </script>
-
 </head>
 <!-- 상단영역 -->
 <header>
