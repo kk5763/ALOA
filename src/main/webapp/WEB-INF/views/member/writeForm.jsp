@@ -119,12 +119,18 @@
 						
 			email.keyup(function(){
 				var value = $(this).val();
+				var regExp = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 				if(value.length==0){
 					email_result.css('color', 'red').html('이메일은 필수 입력사항입니다.');
 					inspectEffect(email_group,'has-error', 'remove', '(error)', 'email_effect');
 					email_hidden.removeAttr('value').attr('value', 'false');
 					check_cutout()
-				}else{
+				}else if(value.length>5 && value.match(regExp) == null){
+					email_result.css('color', 'red').html('올바른 형식의 이메일주소가 아닙니다.');
+					inspectEffect(email_group,'has-error', 'remove', '(error)', 'email_effect');
+					email_hidden.removeAttr('value').attr('value', 'false');
+					check_cutout()
+				}else if(value.length>5 && value.match(regExp) != null){
 					$.ajax({
 						url:'/inspect',
 						dataType:'json',
