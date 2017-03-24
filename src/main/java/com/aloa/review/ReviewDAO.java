@@ -1,5 +1,7 @@
 package com.aloa.review;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,5 +16,11 @@ public class ReviewDAO {
 	
 	public void reviewInsert(Reviewboard dto){
 		sqlSession.insert("reviewMapper.reviewInsert",dto);
+	}
+	
+	public List<Reviewboard> reviewlist(int resno){
+		
+		List<Reviewboard> list = sqlSession.selectList("reviewMapper.reviewList", resno);
+		return list;
 	}
 }

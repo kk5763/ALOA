@@ -25,7 +25,7 @@ create table restaurant(
   request varchar(1000) , 
   createDate date default sysdate,
   CONSTRAINT reference_id foreign key(bossEmail) references account(email)
-  );
+);
   
   create sequence seq_restaurant nocache nocycle;
   
