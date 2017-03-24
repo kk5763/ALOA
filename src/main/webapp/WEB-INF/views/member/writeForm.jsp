@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 	<c:set var="path" value="${pageContext.request.contextPath }"/>
 	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -25,6 +26,7 @@
 	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
 </head>
 <body>
+	<%@ include file="../include/top_menu.jsp" %>
 	<br><br>
 	<input type="hidden" id="email_hidden"/>
 	<input type="hidden" id="password_hidden"/>
@@ -36,7 +38,7 @@
 	       <div class="form-group" id="email-group">
 	           <div class="input-group">
 	               <label for="email" class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></label>
-	               <input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">
+	               <input type="email" class="form-control" id="email" autocomplete="off" name="email" placeholder="이메일 입력">
 	           </div>
 	       </div>
 	       <div class="form-group text-center" id="email_result">
@@ -44,7 +46,7 @@
 	       <div class="form-group" id="password-group">
 	           <div class="input-group">
 	               <label for="password" class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></label>
-	               <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
+	               <input type="password" class="form-control" id="password" autocomplete="off" name="password" placeholder="비밀번호 입력">
 	           </div>
 	       </div>
 	       <div class="form-group text-center" id="password_result">
@@ -52,7 +54,7 @@
 	       <div class="form-group" id="confirm-group">
 	           <div class="input-group">
 	               <label for="confirm" class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></label>
-	               <input type="password" class="form-control" id="confirm" placeholder="비밀번호 확인">
+	               <input type="password" class="form-control" autocomplete="off" id="confirm" placeholder="비밀번호 확인">
 	           </div>
 	       </div>
 	       <div class="form-group text-center" id="confirm_result">
@@ -60,7 +62,7 @@
 	       <div class="form-group" id="name-group">
 	           <div class="input-group">
 	               <label for="username" class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></label>
-	               <input type="text" class="form-control" id="username" name="username" placeholder="이름">
+	               <input type="text" class="form-control" id="username" autocomplete="off" name="username" placeholder="이름">
 	           </div>
 	       </div>
 	       <div class="form-group">
