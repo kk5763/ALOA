@@ -73,6 +73,8 @@ create table ReportRes(
   create table imageBoard(
                 image varchar(200),
                 reviewNo number not null,
+                resno number not null,
+                constraint reference_resno1 foreign key(resno) references Restaurant(resno),
                 constraint reference_reviewNo1 foreign key(reviewNo) references reviewBoard(reviewNo));
               
 create table bookMark(

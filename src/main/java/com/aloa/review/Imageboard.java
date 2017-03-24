@@ -1,6 +1,5 @@
 package com.aloa.review;
 
-import java.util.Date;
 
 import javax.persistence.*;
 
@@ -12,6 +11,8 @@ public class Imageboard {
 	
 	@Id
 	private int reviewno;
+	
+	private int resno;
 
 
 	public String getImage() {
@@ -31,6 +32,16 @@ public class Imageboard {
 
 	public void setReviewno(int reviewno) {
 		this.reviewno = reviewno;
+	}
+
+
+	public int getResno() {
+		return resno;
+	}
+
+
+	public void setResno(int resno) {
+		this.resno = resno;
 	}
 
 
