@@ -50,4 +50,9 @@ public class RestaurantController {
 		return "review/reviewWrite";
 	}
 	
+	@RequestMapping(value="/reportRes", method=RequestMethod.GET)
+	public String reportRes() {
+		return "detail/reportRes";
+	}
+	
 }
