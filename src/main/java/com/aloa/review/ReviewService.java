@@ -19,11 +19,10 @@ public class ReviewService {
 	@Autowired
 	private ImageRepository iamgeRepository;
 	
-	public List<ReviewBoardDTO> reviewList(int resNo){
+	public List<ReviewBoardDTO> reviewList(int resno){
 		
 		List<Reviewboard> list = 
-				repository.findByResnoLessThanOrderByResnoDesc(resNo);
-		
+				reviewDAO.reviewlist(resno);		
 		List<ReviewBoardDTO> reviewList = new ArrayList<ReviewBoardDTO>();
 		
 		for(int i=0;i<list.size();i++){

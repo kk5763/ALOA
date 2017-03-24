@@ -42,6 +42,13 @@
         }
 	</style>
 	
+<script type="text/javascript">
+function godetail(){
+	document.detailList.submit();
+	
+}
+</script>
+
 </head>
 <body>
 	<%@ include file="../include/top_menu.jsp" %>
@@ -96,8 +103,9 @@
 	</nav>
 </form>
 <br><br>
+<form name="detailList" action="/detailView" method="GET">
 <div class="container">
-	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].resno!=null}">reslist</c:if></h3>
+	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].restaurant.resno!=null}"><a href="#" onclick ="godetail()">reslist</a></c:if><input type="hidden" name="resno" value="${reslist[0].restaurant.resno}"/></h3>
 	<div class="center-block slider1">
 		<div class="slide">
 			<a href="#">
@@ -120,6 +128,7 @@
 		</div>
 	</div>
 </div>
+</form>
 <div class="container">
 	<h3>실시간 추천 맛집 리스트</h3>
 	<div class="center-block slider1">

@@ -18,7 +18,6 @@ public class AccountService {
 		if(accountRepository.findByEmail(username)!=null){
 			throw new UserDuplicatedException(username);
 		}
-		System.out.println("accountRepository");
 		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
 		
 		return accountRepository.save(dto);		

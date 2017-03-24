@@ -65,6 +65,7 @@
 	               <input type="text" class="form-control" id="username" autocomplete="off" name="username" placeholder="이름">
 	           </div>
 	       </div>
+	       <div class="alert alert-danger" role="alert">필수 입력사항을 모두 입력하셔야 합니다.</div>
 	       <div class="form-group">
 	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block" disabled="disabled">회원 가입</button>
 	       </div>
@@ -211,9 +212,7 @@
 					confirm_hidden.removeAttr('value').attr('value', 'true');
 					check_permit();
 				}
-			})			
-			
-			
+			})
 			function inspectEffect(check, attribute, attribute1, attribute2, name){
 				$('#'+name).remove();
 				$('#'+name+name).remove();

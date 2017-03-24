@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>리뷰 작성</title>
 <link rel="stylesheet" href="/style/min_style/reviewWrite.css">
-<<<<<<< HEAD
 <script>
 /* 평점 */
 function clickImg(mode){
@@ -56,23 +55,6 @@ function removeFile(idCount){
 	}
 	
 }
-
-=======
-<script type="text/javascript">
-function checkReviewWrite(){
-	if(document.reviewWriteForm.content_section.value == ""){
-		alert("내용을 입력하세요")
-	}else{
-		alert("등록되었습니다")
-		document.reviewWriteForm.submit();
-	}
-}
-$(function() {
-	  $('.good').click(function() {
-	    $(this).css('background-image', 'url(/resources/images/min_image/good_on.png)');
-	  });
-});
->>>>>>> 664d495929e843e6cba79e189630b4d7175ddafb
 </script>
 </head>
 <body>
@@ -94,16 +76,13 @@ $(function() {
 			</div>
 		
 			<div id="file_section">		
-				<input type="file" id="itemList" /><input type="button" value="+" onclick="addFile()" />
+				<input type="file" name = "imagelist" id="itemList" /><input type="button" value="+" onclick="addFile()" />
 			</div>
 			
-<<<<<<< HEAD
 			<div id="button_section"> 
 				<div id="write">작성</div>
-=======
 			<div id="button_section">
 				<div id="write" onclick = "checkReviewWrite()">작성</div>
->>>>>>> 664d495929e843e6cba79e189630b4d7175ddafb
 				<div id="cancel">취소</div>
 			</div>
 			

@@ -1,5 +1,6 @@
 package com.aloa.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aloa.restaurant.Restaurant;
+import com.aloa.restaurant.RestaurantDTO;
 import com.aloa.restaurant.RestaurantService;
+import com.aloa.review.ImageRepository;
+import com.aloa.review.Imageboard;
 import com.aloa.service.MemberService;
 
 @Controller
@@ -27,6 +31,9 @@ public class MainController {
 	
 	@Autowired
 	RestaurantService resService;
+	
+	@Autowired
+	ImageRepository imageRepository;
 	
 	private Facebook facebook; //페이스북 api 객체
 	private ConnectionRepository cr; //페이스북 연결 정보
@@ -58,8 +65,28 @@ public class MainController {
 			session.setAttribute("username", name);
 		}
 		
-		List<Restaurant> reslist =resService.findList();
+		List<Restaurant> restaurantlist =resService.findList();
+		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
+		
+		if(restaurantlist!=null){
+			for(int i=0;i<restaurantlist.size();i++){
+				//맛집의 이미지 가져오기
+				List<Imageboard> imagelist = imageRepository.findByResno(restaurantlist.get(i).getResno());
+				
+				//레스토랑DTO에 넣기
+				RestaurantDTO res = new RestaurantDTO();
+				res.setImagelist(imagelist);
+				res.setRestaurant(restaurantlist.get(i));
+				
+				reslist.add(res);
+				
+			}
+		}
+		
 		model.addAttribute("reslist",reslist);
+		
+		
+		
 		
 		return "main/home";
 	}

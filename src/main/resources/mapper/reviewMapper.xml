@@ -19,4 +19,8 @@
        	 		#{grade}
        	 		)
 	</insert>
+	
+	<select id="reviewList" parameterType="java.lang.Integer" resultType="com.aloa.review.Reviewboard">
+		select * from reviewboard where resno=#{resno}
+	</select>
 </mapper>
