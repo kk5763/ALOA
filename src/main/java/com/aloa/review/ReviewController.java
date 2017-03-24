@@ -17,7 +17,7 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.POST)
-	public String reviewWrite(ReviewBoard dto){
+	public String reviewWrite(Reviewboard dto){
 		reviewService.reviewWrite(dto);
 		
 		return "redirect:/reviewWriteForm";

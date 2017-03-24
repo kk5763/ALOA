@@ -43,7 +43,7 @@ public class ReviewService {
 		return reviewList;
 	}
 	
-	public void reviewWrite(ReviewBoard dto){
+	public void reviewWrite(Reviewboard dto){
 		reviewDAO.reviewInsert(dto);
 	}
 	

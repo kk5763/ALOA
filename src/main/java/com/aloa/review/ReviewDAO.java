@@ -12,7 +12,7 @@ public class ReviewDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	public void reviewInsert(ReviewBoard dto){
+	public void reviewInsert(Reviewboard dto){
 		sqlSession.insert("reviewMapper.reviewInsert",dto);
 	}
 }
