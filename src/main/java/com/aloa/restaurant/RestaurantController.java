@@ -31,18 +31,46 @@ public class RestaurantController {
 	private RestaurantRepository repository;
 	
 	
+	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(String resNo
-							,Model model ){
+	public String detailView(int resno,Model model){
 		
-		/*Restaurant restaurant = service.findOne(Integer.parseInt(resNo));
-		List<ReviewBoardDTO> reviewList = 
-				reviewService.reviewList(Integer.parseInt(resNo));
+		Restaurant restaurant = service.findOne(resno);
+		List<ReviewBoardDTO> reviewlist = 
+				reviewService.reviewList(resno);
 		
-		model.addAttribute("restaurant",restaurant);
-		model.addAttribute("reviewList",reviewList);*/
+		RestaurantDTO resDTO = new RestaurantDTO();
+		resDTO.setReviewlist(reviewlist);
+		resDTO.setRestaurant(restaurant);
+		
+		model.addAttribute("resDTO",resDTO);
 		
 		return "detail/detailView";
 	}
 	
+
+	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
+	public String detailViewImage(Model model ){
+		
+		
+		return "detail/detailViewImage";
+	}
+	
+
+
+	@RequestMapping(value="/reviewWrite", method=RequestMethod.GET)
+	public String reviewWrite() {
+		
+		return "review/reviewWrite";
+	}
+	
+	@RequestMapping(value="/reportRes", method=RequestMethod.GET)
+	public String reportRes() {
+		return "detail/reportRes";
+	}
+	
+	@RequestMapping(value="/reportRev", method=RequestMethod.GET)
+	public String reportRev() {
+		return "detail/reportRev";
+	}
 }
