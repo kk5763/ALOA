@@ -33,8 +33,7 @@ public class RestaurantController {
 	
 	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(int resno
-							,Model model ){
+	public String detailView(Model model ){
 		
 		/*Restaurant restaurant = service.findOne(resno);
 		List<ReviewBoardDTO> reviewList = 
@@ -44,6 +43,13 @@ public class RestaurantController {
 		model.addAttribute("reviewList",reviewList);*/
 		
 		return "detail/detailView";
+	}
+	
+	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
+	public String detailViewImage(Model model ){
+		
+		
+		return "detail/detailViewImage";
 	}
 	
 }
