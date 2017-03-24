@@ -1,5 +1,7 @@
 package com.aloa.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,7 @@ public class MainController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model, HttpSession session){
+		
 		if(cr.findPrimaryConnection(Facebook.class)!=null){
 			String[] fields={"id","name","birthday","email","gender"};
 			User user = facebook.fetchObject("me", User.class,fields);  //me 는 로그인한 사용자의 정보. me/friends 하면 친구정보가 나옴
@@ -54,6 +57,9 @@ public class MainController {
 			
 			session.setAttribute("username", name);
 		}
+		
+		List<Restaurant> reslist =resService.findList();
+		model.addAttribute("reslist",reslist);
 		
 		return "main/home";
 	}

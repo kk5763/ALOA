@@ -31,13 +31,14 @@ public class RestaurantController {
 	private RestaurantRepository repository;
 	
 	
+	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(String resNo
+	public String detailView(int resno
 							,Model model ){
 		
-		/*Restaurant restaurant = service.findOne(Integer.parseInt(resNo));
+		/*Restaurant restaurant = service.findOne(resno);
 		List<ReviewBoardDTO> reviewList = 
-				reviewService.reviewList(Integer.parseInt(resNo));
+				reviewService.reviewList(resno);
 		
 		model.addAttribute("restaurant",restaurant);
 		model.addAttribute("reviewList",reviewList);*/

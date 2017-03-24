@@ -46,7 +46,6 @@
 <body>
 	<%@ include file="../include/top_menu.jsp" %>
 
-
 <div class="jumbotron text-center" style="background-color: white">
     <h1 style="color:paleturquoise">kgitbank pj</h1>
     <p style="color:tomato">뭐 이미지나 잡다한거 들어갈 자리</p>
@@ -216,5 +215,6 @@
 		$('#search_div').show();
 	});
 </script>
+
 </body>
 </html>

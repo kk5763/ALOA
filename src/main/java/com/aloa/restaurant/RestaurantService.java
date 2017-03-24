@@ -1,5 +1,7 @@
 package com.aloa.restaurant;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,13 @@ public class RestaurantService {
 	
 	public void createRes(Restaurant restaurant){
 		resDAO.resInsert(restaurant);
+	}
+	
+	public List<Restaurant> findList(){
+		
+		List<Restaurant> reslist = repository.findAll();
+		
+		return  reslist;
 	}
 	
 	
