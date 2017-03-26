@@ -63,6 +63,18 @@
 	</form>
 </div>
 <hr>
+<a class="btn btn-block btn-social btn-twitter">
+  <span class="fa fa-twitter"></span>
+  Sign in with Twitter
+</a>
+<a class="btn btn-block btn-social btn-twitter">
+  <span class="fa fa-facebook-square"></span>
+  Sign in with facebook
+</a>
+<a class="btn btn-block btn-social btn-twitter">
+  <span class="fa fa-google"></span>
+  Sign in with google
+</a>
 <script>
 	$(document).ready(function(){
 		<c:if test="${param.error !=null}">
