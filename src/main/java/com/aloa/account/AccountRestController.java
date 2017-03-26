@@ -59,4 +59,17 @@ public class AccountRestController {
 		account = accountService.passwordUpdate(id, dto);
 		return new ResponseEntity<Account>(HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/accounts/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Account> deleteAccount(@PathVariable Long id,
+												 @RequestBody String widthpassword){
+		Account account = accountRepository.findOne(id);
+		System.out.println(account.getPassword());
+		System.out.println(passwordEncoder.matches(widthpassword, account.getPassword()));
+		if(!passwordEncoder.matches(widthpassword, account.getPassword())){
+			return new ResponseEntity<Account>(HttpStatus.BAD_REQUEST);
+		}
+		accountRepository.delete(id);
+		return new ResponseEntity<Account>(HttpStatus.NO_CONTENT);
+	}
 }

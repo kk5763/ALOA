@@ -23,20 +23,16 @@
 	<meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
 	<!-- default header name is X-CSRF-TOKEN -->
 	<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
-	<style>
-		.jumbotron div form #gender a{
-			cursor:pointer;
-		}
-	</style>
 </head>
 <body>
 <%@ include file="../include/top_menu.jsp" %>
-<ul class="nav nav-tabs nav-justified">
-  <li role="presentation" class="active"><a href="#">프로필 / 계정관리</a></li>
-  <li role="presentation"><a href="#">예약목록</a></li>
+<ul class="nav nav-tabs nav-justified" id="nav_profile_withdrawal">
+  <li role="presentation" id="presen_pro" class="active"><a id="profile_a" style="cursor:pointer;">프로필 / 계정관리</a></li>
+  <li role="presentation" id="presen_width"><a id="widthdrawal_a" style="cursor:pointer;">회원탈퇴</a></li>
 </ul>
 <br>
-<div class="container">
+<div id="profile_container">
+	<div class="container">
 		<form class="form-horizontal col-sm-offset-2 col-sm-8">
 			<div style="border-bottom: 1px solid gray;">
 			<h4>프로필 관리</h4>
@@ -100,18 +96,16 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10 text-right">
-					<button type="submit" class="btn btn-default">변경사항 저장</button>
+					<button type="submit"  class="btn" style="background-color:tomato; color:white;">변경사항 저장</button>
 				</div>
 			</div>
 		</form>
-</div>
-<hr>
-<div class="container">
+	</div><br>
+	<div class="container">
 		<form class="form-horizontal col-sm-offset-2 col-sm-8" id="passwordUpdate">
-			<div style="border-bottom: 1px solid gray;">
+			<div id="alertDiv" style="border-bottom: 1px solid gray;">
 			<h4>비밀번호 변경</h4>
 			</div><br>
-			<div id="alertDiv"></div>
 			<div class="form-group">
 				<label for="inputPassword" class="col-sm-2 control-label">이전 비밀번호</label>
 				<div class="col-sm-10">
@@ -132,22 +126,107 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10 text-right">
-					<button type="button" id="password_change_button" class="btn btn-danger">비밀번호 변경</button>
+					<button type="button" id="password_change_button" class="btn" style="background-color:tomato; color:white;">비밀번호 변경</button>
 				</div>
 			</div>
 		</form>
+	</div>
 </div>
-
+<div class="container" id="widthdrawal_container" style="display:none;">
+	<form class="form-horizontal col-sm-offset-2 col-sm-8" id="withdrawal">
+		<div id="withdrawalDiv" style="border-bottom: 1px solid gray;">
+		<h4>회원 탈퇴</h4>
+		</div><br>
+		
+		<div class="form-group text-left">
+			<h4 class="col-sm-offset-2"><strong>왜 떠나는지 알고싶어요.</strong></h4>
+			<div class="text-left">
+				<div class="radio col-sm-offset-2">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+						개인정보에 대한 우려가 있어서요.
+					</label>
+				</div>
+				<div class="radio col-sm-offset-2">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+						이 어플리케이션의 기능은 쓸모 없어요.
+					</label>
+				</div>
+				<div class="radio col-sm-offset-2">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+						이용 방법을 모르겠어요.
+					</label>
+				</div>
+				<div class="radio col-sm-offset-2">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+						기타
+					</label>
+				</div>
+			</div>
+		</div>
+		<br><br>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">더 자세히 알려줄 수 있나요?</label>
+			<div class="col-sm-10">
+				<textarea class="form-control" rows="5"></textarea>
+			</div>
+		</div><br>
+		<div id="widthdrawal_alert_div">
+			<h4 class="text-right">탈퇴하시려면 비밀번호를 입력 후 회원탈퇴버튼을 눌러주세요.</h4>
+		</div>
+		<div class="form-group">
+			<label for="widthdrawalPassword" class="col-sm-2 control-label">비밀번호</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="widthdrawalPassword">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10 text-right">
+				<button type="button" id="withdrawal_button" class="btn" style="background-color:tomato; color:white;">회원 탈퇴</button>
+			</div>
+		</div>
+	</form>
+</div>
 <script>
 	$(document).ready(function(){
 		var token = $("meta[name='_csrf']").attr("content");
 		var header = $("meta[name='_csrf_header']").attr("content");
+		$('body').on('click', '#nav_profile_withdrawal li a', function(e){
+			var tg = e.target.id;
+			var profile = $('#profile_container');
+			var widthdrawal = $('#widthdrawal_container');
+			var pre_pro = $('#presen_pro');
+			var pre_wid = $('#presen_width');
+			if(tg === 'profile_a'){
+				profile.removeAttr('style');
+				pre_wid.removeAttr('class');
+				pre_pro.attr('class', 'active');
+				widthdrawal.css('display','none');
+			}else if(tg === 'widthdrawal_a'){
+				widthdrawal.removeAttr('style');
+				pre_pro.removeAttr('class');
+				pre_wid.attr('class', 'active');
+				profile.css('display', 'none');
+			}
+		})
 		$('#password_change_button').click(function(){
 			var password = $('#inputPassword').val();
 			var newPassword = $('#inputNewPassword').val();
 			var confirmPassword = $('#inputConfirm').val();
-			if(newPassword != confirmPassword){
-				$('#alertDiv').html('<div class="alert alert-danger" id="alertDiv_div" role="alert">새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>');
+			if(password == '' || newPassword == '' || confirmPassword == ''){
+				$('#alertDiv').html('<h4 style="color:red;">빈칸 없이 모두 입력해 주세요.</h4>');
+				setTimeout(function(){
+					$('#alertDiv').html('<h4>비밀번호 변경</h4>');
+				}, 2000)
+			}
+			else if(newPassword != confirmPassword){
+				$('#alertDiv').html('<h4 style="color:red;">새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</h4>');
+				setTimeout(function(){
+					$('#alertDiv').html('<h4>비밀번호 변경</h4>');
+				}, 2000)
 			}else{
 				$.ajax({
 					url:'/accounts/'+<sec:authentication property='principal.id'/>,
@@ -160,12 +239,48 @@
 					},
 					error: function(xhr, status, err){
 						if(xhr.status == 400){
-							$('#alertDiv').html('<div class="alert alert-danger" id="alertDiv_div" role="alert">비밀번호가 틀렸습니다.</div>');
+							$('#alertDiv').html('<h4 style="color:red;">비밀번호가 틀렸습니다.</h4>');
+							setTimeout(function(){
+								$('#alertDiv').html('<h4>비밀번호 변경</h4>');
+							}, 2000)
 						}else if(xhr.status == 200){
 							$('#inputPassword').val('');
 							$('#inputNewPassword').val('');
 							$('#inputConfirm').val('');
-							$('#alertDiv').html('<div class="alert alert-success" role="alert">비밀번호가 성공적으로 변경되었습니다!!</div>');
+							$('#alertDiv').html('<h4 style="color:green;">비밀번호가 성공적으로 변경되었습니다!!</h4>');
+							setTimeout(function(){
+								$('#alertDiv').html('<h4>비밀번호 변경</h4>');
+							}, 4000)
+						}
+					}
+				})
+			}
+		})
+		$('#withdrawal_button').click(function(){
+			var widthpassword = $('#widthdrawalPassword').val();
+			console.log(widthpassword);
+			if($('#widthdrawalPassword').val() == ''){
+				$('#widthdrawal_alert_div').html('<h4 class="text-right" style="color:red;">비밀번호를 입력해주세요.</h4>')
+				setTimeout(function(){
+					$('#widthdrawal_alert_div').html('<h4 class="text-right">탈퇴하시려면 비밀번호를 입력 후 회원탈퇴버튼을 눌러주세요.</h4>');
+				}, 2000)
+			}else{
+				$.ajax({
+					url:'/accounts/'+<sec:authentication property='principal.id'/>,
+					type: 'delete',
+					dataType: 'json',
+					data: {'widthpassword':widthpassword},
+					beforeSend: function(xhr){
+						xhr.setRequestHeader(header, token);
+					},
+					error: function(xhr, status, err){
+						if(xhr.status == 400){
+							$('#widthdrawal_alert_div').html('<h4 class="text-right" style="color:red;">비밀번호가 틀렸습니다.</h4>')
+							setTimeout(function(){
+								$('#widthdrawal_alert_div').html('<h4 class="text-right">탈퇴하시려면 비밀번호를 입력 후 회원탈퇴버튼을 눌러주세요.</h4>');
+							}, 2000)
+						}else{
+							alert('회원탈퇴 성공');
 						}
 					}
 				})
