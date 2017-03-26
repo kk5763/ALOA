@@ -267,11 +267,14 @@
 			}else{
 				$.ajax({
 					url:'/accounts/'+<sec:authentication property='principal.id'/>,
-					type: 'delete',
+					type: 'GET',
 					dataType: 'json',
 					data: {'widthpassword':widthpassword},
 					beforeSend: function(xhr){
 						xhr.setRequestHeader(header, token);
+					},
+					success: function(data, status, xhr){
+						$('#logout').submit();
 					},
 					error: function(xhr, status, err){
 						if(xhr.status == 400){
@@ -280,7 +283,10 @@
 								$('#widthdrawal_alert_div').html('<h4 class="text-right">탈퇴하시려면 비밀번호를 입력 후 회원탈퇴버튼을 눌러주세요.</h4>');
 							}, 2000)
 						}else{
-							alert('회원탈퇴 성공');
+							$('#widthdrawal_alert_div').html('<h4 class="text-right" style="color:red;">예상하지 못한 에러</h4>');
+							setTimeout(function(){
+								$('#widthdrawal_alert_div').html('<h4 class="text-right">탈퇴하시려면 비밀번호를 입력 후 회원탈퇴버튼을 눌러주세요.</h4>');
+							}, 2000)
 						}
 					}
 				})

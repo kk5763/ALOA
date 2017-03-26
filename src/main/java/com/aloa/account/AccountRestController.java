@@ -53,6 +53,7 @@ public class AccountRestController {
 								  @RequestBody AccountDTO.PasswordUpdate dto){
 		Account account = accountRepository.findOne(id);
 		String password = dto.getPassword();
+		System.out.println("PATCH"+password);
 		if(!passwordEncoder.matches(password, account.getPassword())){
 			return new ResponseEntity<Account>(HttpStatus.BAD_REQUEST);
 		}
@@ -60,12 +61,10 @@ public class AccountRestController {
 		return new ResponseEntity<Account>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/accounts/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Account> deleteAccount(@PathVariable Long id,
-												 @RequestBody String widthpassword){
+	@RequestMapping(value="/accounts/{id}", method=RequestMethod.GET)
+	public ResponseEntity<Account> deleteGetAccount(@PathVariable Long id,
+												 @RequestParam String widthpassword){
 		Account account = accountRepository.findOne(id);
-		System.out.println(account.getPassword());
-		System.out.println(passwordEncoder.matches(widthpassword, account.getPassword()));
 		if(!passwordEncoder.matches(widthpassword, account.getPassword())){
 			return new ResponseEntity<Account>(HttpStatus.BAD_REQUEST);
 		}
