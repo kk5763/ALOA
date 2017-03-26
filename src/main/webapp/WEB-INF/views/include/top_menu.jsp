@@ -66,7 +66,7 @@
 		            <li class="divider"></li>
 		            <li><a href="/accounts/editUserInfo">회원정보수정</a></li>
 		            <li>
-		            <a href="#" id="a_logout">로그아웃</a>
+		            <a href="#" id="a_logout" onclick="document.getElementById('logout').submit();">로그아웃</a>
 		            <form action="/logout" method="post" id="logout">
 		            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<input type="submit" value="로그아웃" style="display:none;">

@@ -2,6 +2,7 @@ package com.aloa.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -28,7 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf();
 		http
 		.authorizeRequests()   
-			.antMatchers("/admin/**").hasRole("ADMIN")      
+			.antMatchers(HttpMethod.GET, "/accounts/**").hasRole("USER")
+			.antMatchers(HttpMethod.PUT, "/accounts/**").hasRole("USER")
+			.antMatchers(HttpMethod.DELETE, "/accounts/**").hasRole("USER")  
 			.antMatchers("/**").permitAll()
 			.and()
 		.formLogin()

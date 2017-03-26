@@ -32,17 +32,19 @@
 <body>
 <%@ include file="../include/top_menu.jsp" %>
 <ul class="nav nav-tabs nav-justified">
-  <li role="presentation" class="active"><a href="#">프로필</a></li>
-  <li role="presentation"><a href="#">계정관리</a></li>
+  <li role="presentation" class="active"><a href="#">프로필 / 계정관리</a></li>
   <li role="presentation"><a href="#">예약목록</a></li>
 </ul>
-<div class="jumbotron">
-	<div class="container text-center">
-		<form class="form-horizontal">
+<br>
+<div class="container">
+		<form class="form-horizontal col-sm-offset-2 col-sm-8">
+			<div style="border-bottom: 1px solid gray;">
+			<h4>프로필 관리</h4>
+			</div><br>
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">이름</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" id="inputEmail3">
+					<input type="email" class="form-control" id="inputEmail3" value="<sec:authentication property='principal.fullName'/>">
 				</div>
 			</div>
 			<div class="form-group" id="gender">
@@ -97,36 +99,78 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">Sign in</button>
+				<div class="col-sm-offset-2 col-sm-10 text-right">
+					<button type="submit" class="btn btn-default">변경사항 저장</button>
 				</div>
 			</div>
 		</form>
-	</div>
 </div>
-
+<hr>
+<div class="container">
+		<form class="form-horizontal col-sm-offset-2 col-sm-8" id="passwordUpdate">
+			<div style="border-bottom: 1px solid gray;">
+			<h4>비밀번호 변경</h4>
+			</div><br>
+			<div id="alertDiv"></div>
+			<div class="form-group">
+				<label for="inputPassword" class="col-sm-2 control-label">이전 비밀번호</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="inputPassword">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputNewPassword" class="col-sm-2 control-label">새 비밀번호</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="inputNewPassword">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputConfirm" class="col-sm-2 control-label">비밀번호 확인</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="inputConfirm">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10 text-right">
+					<button type="button" id="password_change_button" class="btn btn-danger">비밀번호 변경</button>
+				</div>
+			</div>
+		</form>
+</div>
 
 <script>
 	$(document).ready(function(){
-		$('#man_a').click(function(){
-			$('#man').removeAttr('class').attr('class', 'active');
-			$('#woman').removeAttr('class');
-			$('#etc').removeAttr('class');
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$('#password_change_button').click(function(){
+			var password = $('#inputPassword').val();
+			var newPassword = $('#inputNewPassword').val();
+			var confirmPassword = $('#inputConfirm').val();
+			if(newPassword != confirmPassword){
+				$('#alertDiv').html('<div class="alert alert-danger" id="alertDiv_div" role="alert">새 비밀번호와 비밀번호 확인이 일치하지 않습니다.</div>');
+			}else{
+				$.ajax({
+					url:'/accounts/'+<sec:authentication property='principal.id'/>,
+					type: 'patch',
+					dataType:'json',
+					data: JSON.stringify({'password':password, 'newPassword':newPassword}),
+					contentType: "application/json; charset=UTF-8",
+					beforeSend: function(xhr){
+						xhr.setRequestHeader(header, token);
+					},
+					error: function(xhr, status, err){
+						if(xhr.status == 400){
+							$('#alertDiv').html('<div class="alert alert-danger" id="alertDiv_div" role="alert">비밀번호가 틀렸습니다.</div>');
+						}else if(xhr.status == 200){
+							$('#inputPassword').val('');
+							$('#inputNewPassword').val('');
+							$('#inputConfirm').val('');
+							$('#alertDiv').html('<div class="alert alert-success" role="alert">비밀번호가 성공적으로 변경되었습니다!!</div>');
+						}
+					}
+				})
+			}
 		})
-		$('#woman_a').click(function(){
-			$('#woman').removeAttr('class').attr('class', 'active');
-			$('#man').removeAttr('class');
-			$('#etc').removeAttr('class');
-		})
-		$('#etc_a').click(function(){
-			$('#etc').removeAttr('class').attr('class', 'active');
-			$('#man').removeAttr('class');
-			$('#woman').removeAttr('class');
-		})
-		$( "#datepicker" ).datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
 	})
 </script>
 
