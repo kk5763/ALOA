@@ -267,7 +267,7 @@
 			}else{
 				$.ajax({
 					url:'/accounts/'+<sec:authentication property='principal.id'/>,
-					type: 'GET',
+					type: 'DELETE',
 					dataType: 'json',
 					data: {'widthpassword':widthpassword},
 					beforeSend: function(xhr){
