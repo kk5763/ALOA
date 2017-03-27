@@ -47,31 +47,40 @@
 		float:right;
 		cursor:pointer;
 	}
-	#imageCenter{
-		background-image:url('imageCenter_01.jpg');
+	
+	#imageCenter{/*
+		background-image:url('/resources/images/detailView_Image/imageCenter_1.jpg');
 		background-repeat: no-repeat;
 		background-size:auto 100%;
-		background-position:center center;
+		background-position:center center;*/
 		width:85%;
 		height:80%;
 		margin: -15px auto 40px auto;
 		transition-property: opacity;
 		transition-timing-function: linear;
 		transition-duration: 0.3s;
+		overflow:hidden;
+	}
+	
+	#imageCenter #imageCenter_img{
+		display:block;
+		margin:0 auto;
+		height:100%;
 	}
 	#imageBottom{
 		border:1px solid blue;
 		height:66px;
 		width:1500px;
-		
-
-	}/*
+		overflow:hidden;
+	}
 	.smallImage{
-		background-image:url('imageCenter_01.jpg');
+		background-image:url('/resources/images/detailView_Image/imageCenter_1.jpg');
 		background-size:100% auto;
 		background-position:center center;
 		width:66px;
 		height:66px;
 		float:left;
 		cursor:pointer;
-	}*/
+		background:#000;
+		opacity:0.5;
+	}
