@@ -91,14 +91,12 @@ create table reservation(
 				reservetel varchar(50) not null,
 				reserveemail varchar(100) not null,
 				reserverequest varchar(1000) not null,
-				reserverno number not null,
+	
 
 				reservedate varchar(50) not null,
 				reservetime varchar(10) not null, 
 				reservenumber varchar(10) not null,
-				reserveaddress varchar(200) not null,
-				constraint reference_resNo_reservation foreign key(reserverno) references restaurant(resNo),
-				constraint reference_member_reservation foreign key(reserveemail) references account(email)
-
+				reserveaddress varchar(200) not null;
+			
 );
                 
