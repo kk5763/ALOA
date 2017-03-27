@@ -9,26 +9,16 @@
 <src></src> 
 <link rel="" href="/style/h_style/jquery-ui.css" type="text/css" />  
 <!-- // jQuery 기본 js파일 --> 
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <!-- // jQuery UI 라이브러리 js파일 -->
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
 <script src="/style/h_style/angular.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
-<style>
-  
- 
-
-</style>
 
 <script type="text/javascript">
 
 
-
-function(click){
-	if(document.reservation.resName.value=="")
-	alert();
-	
-}
 
 $(function() {
     $( "#Datepicker" ).datepicker({
@@ -59,7 +49,7 @@ $(function() {
 					
 						
 						<!---->
-						<li class="item" ><span></span> <a href="/"> <span >메인페이지</span>
+						<li class="item" ><span></span> <a href="/" > <span onclick="aw" >메인페이지</span>
 						</a></li>
 						<!---->
 						<li class="item" ng-repeat="item in $ctrl.lists"><span
@@ -137,7 +127,8 @@ $(function() {
 									
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-										<input type="text" name="reservemap" id="reservemap" class="sc"  onchange="click()" >
+										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  placeholder="주소 입력 후 Enter를 눌러주세요!!">
+										<input type="hidden" id="reserveaddress_hidden"/>
 										 
 										
 										</div>
@@ -151,10 +142,10 @@ $(function() {
 							
 							</div>
 
-								<div class="mapp" id="map">
-									<!-- 지도 -->
-									<!-- 네이버 지도 API -->
-									<script>
+							<div class="mapp" id="map">
+									지도
+									네이버 지도 API
+		<script>
 			var MARKER_SPRITE_POSITION = {
 				"A0": [0, 0]
 			};
@@ -180,7 +171,7 @@ $(function() {
 			        address: address
 			    }, function(status, response) {
 			        if (status === naver.maps.Service.Status.ERROR) {
-			            return alert('Something Wrong!');
+			            return alert('주소를 더 자세히 입력해주세요.');
 			        }// if
 			        var item = response.result.items[0],
 			        	point = new naver.maps.Point(item.point.x, item.point.y);
@@ -232,7 +223,16 @@ $(function() {
 			    });
 			}// function
 			
-			naver.maps.onJSContentLoaded = searchAddressToCoordinate('경기도 부천시 원미구 소사동');
+			$(document).ready(function(){
+				$('#reserveaddress').keypress(function(e){
+					if(e.which === 13) {
+						var ds = $('#reserveaddress').val();
+						searchAddressToCoordinate(ds);
+					}
+				});
+			})
+			
+			naver.maps.onJSContentLoaded = searchAddressToCoordinate('서울특별시 중구 태평로1가 31');
 			
 			function getClickHandler(seq) { // 마커를 클릭 했을 때
 			    return function(e) {
@@ -247,7 +247,7 @@ $(function() {
 			    }// return function
 			}// getClickHandler
 			</script>
-								</div>
+								</div> 
 
 							</div>
 					</div>
