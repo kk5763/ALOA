@@ -46,12 +46,5 @@ public class BoardController {
 		mav.setViewName("reserve/reservation");
 		return mav;
 	}
-	
-	@RequestMapping(value="/reservation2",method=RequestMethod.GET)
-	public ModelAndView reserve2(){
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("reserve/reservation2");
-		return mav;
-	}  
+	  
 }
