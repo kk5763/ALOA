@@ -90,11 +90,11 @@ create table reservation(
 				reservename varchar(50) not null,
 				reservetel varchar(50) not null,
 				reserveemail varchar(100) not null,
-				reserverequest varchar(1000) not null,
+				reserverequest varchar(1000),
 	
 
 				reservedate varchar(50) not null,
-				reservetime varchar(10) not null, 
+				reservetime varchar(50) not null, 
 				reservenumber varchar(10) not null,
 				reserveaddress varchar(200) not null;
 			

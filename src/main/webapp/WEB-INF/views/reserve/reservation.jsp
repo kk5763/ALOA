@@ -33,13 +33,18 @@ $(function() {
   })
 });
 
+function request(){
+	 reservationForm.submit();
+}
+
 </script> 
 
 <link rel="stylesheet" type="text/css" href="/style/h_style/reservation.css" />
 <title>Insert title here</title>
 </head>
 <body>
-<form class="form_horizontal ng-pristine ng-valid ng-valid-maxlength ng-valid-email">
+<form id="reservationForm" method="post" action="/restaurantReserve" class="form_horizontal ng-pristine ng-valid ng-valid-maxlength ng-valid-email">
+<input name="reservestore" type="hidden" value="파씨오네">
 	<div id="wrap" class="wrap">
 	
 		<div id="container" class="container" >
@@ -76,7 +81,7 @@ $(function() {
 										
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-											<input type="text" class="sc"  name="Datepicker" id="Datepicker" placeholder="날짜를 선택해주세요."> 
+											<input type="text" class="sc"  name="reservedate" id="Datepicker" placeholder="날짜를 선택해주세요."> 
 											
 										</div>
 									</div>
@@ -89,14 +94,14 @@ $(function() {
 
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-										<select class="sc" class="sc"  name="reservtime" id="reservtime">
+										<select class="sc" class="sc"  name="reservetime" id="reservetime">
 											  <option value="">시간을 선택해주세요.</option>
-											  <option value="1">06:00 ~ 06:30</option>
-											  <option value="2">06:30 ~ 07:00</option>
-											  <option value="3">07:00 ~ 07:30</option>
-											  <option value="4">07:30 ~ 08:00</option>
-											  <option value="5">08:00 ~ 08:30</option>
-											  <option value="6">08:30 ~ 09:00</option>  							  
+											  <option value="06:00 ~ 06:30">06:00 ~ 06:30</option>
+											  <option value="06:30 ~ 07:00">06:30 ~ 07:00</option>
+											  <option value="07:00 ~ 07:30">07:00 ~ 07:30</option>
+											  <option value="07:30 ~ 08:00">07:30 ~ 08:00</option>
+											  <option value="08:00 ~ 08:30">08:00 ~ 08:30</option>
+											  <option value="08:30 ~ 09:00">08:30 ~ 09:00</option>  							  
 											 </select>	
 										</div>
 									</div>
@@ -108,12 +113,12 @@ $(function() {
 
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-										<select class="sc"  name="reservnumber" id="reservnumber">
+										<select class="sc"  name="reservenumber" id="reservenumber">
 											  <option value="">인원을 선택해주세요.</option>
-											  <option value="1">2명</option>
-											  <option value="2">3명</option>
-											  <option value="3">4명</option>
-											  <option value="4">5명 이상</option>							  
+											  <option value="2명">2명</option>
+											  <option value="3명">3명</option>
+											  <option value="4명">4명</option>
+											  <option value="5명 이상">5명 이상</option>							  
 											 </select>	
 										</div>
 									</div>
@@ -127,7 +132,7 @@ $(function() {
 									
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  placeholder="주소 입력 후 Enter를 눌러주세요!!">
+										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  value="서울시특별시 종로구 돈화문로 26" readonly>
 										<input type="hidden" id="reserveaddress_hidden"/>
 										 
 										
@@ -285,7 +290,12 @@ $(function() {
 										
 										
 										<div class="inline_control">
-											<input type="text" name="resName" id="resName" class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"  maxlength="10"  >
+											<c:if test="${!empty name}">
+												<input type="text" name="reservename" id="reservename" class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"  maxlength="10"  value="${name }">
+											</c:if>
+											<%-- <c:if test="${empty name}">
+												<input type="text" name="reservename" id="reservename" class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"  maxlength="10"  >
+											</c:if> --%>
 										</div>
 									</div> <!-- resName -->
 									
@@ -293,7 +303,7 @@ $(function() {
 									<div class="inline_form" ng-show="$ctrl.isShowEmailForm" >
 										<label class="label" > <span>연락처</span> <!----></label>
 										<div class="inline_control">
-											<input type="text" name="resTel" id="resTel" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
+											<input type="text" name="reservetel" id="reservetel" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
 										</div>
 									</div><!-- resTel -->
 									
@@ -302,7 +312,12 @@ $(function() {
 									<div class="inline_form" ng-show="$ctrl.isShowEmailForm" >
 										<label class="label" > <span>이메일</span> <!----></label>
 										<div class="inline_control">
-											<input type="text" name="resHoliday" id="resHoliday" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
+											<c:if test="${!empty email}">
+												<input type="text" name="reserveemail" id="reserveemail" value="${email}" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
+											</c:if>
+											<%-- <c:if test="${empty email}">
+												<input type="text" name="reserveemail" id="reserveemail" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
+											</c:if> --%>
 										</div>
 									</div><!-- resRest -->
 									<!---->
@@ -310,7 +325,7 @@ $(function() {
 									<div class="inline_form" >
 										<label class="label" for="message">요청사항</label>
 										<div class="inline_control">
-											<textarea name="textarea" id="message" cols="30" rows="10"
+											<textarea name="reserverequest" id="reserverequest" cols="30" rows="10"
 												class="textarea text ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
 												maxlength="500" placeholder="업체에 요청하실 내용을 적어주세요."></textarea>
 										</div>
@@ -576,7 +591,7 @@ $(function() {
 						<bk-submit >
 						<!----> <!---->
 							<div class="bottom_btn disable">
-								<button type="button" class="btn">
+								<button type="button" class="btn" onclick="request()">
 									<!---->
 									<!---->
 									<i class="fn fn-nbooking-calender2"></i>
@@ -595,6 +610,7 @@ $(function() {
 		</div>
 
 	</div>
+	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
 </body>
 </html>
