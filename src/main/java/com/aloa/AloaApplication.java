@@ -1,5 +1,6 @@
 package com.aloa;
 
+import javax.servlet.MultipartConfigElement;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,7 +16,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 @SpringBootApplication
 @MapperScan(value={"com.aloa.dao"}) //mapperscan
@@ -51,6 +54,29 @@ public class AloaApplication {
 		return new BCryptPasswordEncoder();
 	}
 	
+	/*@Bean
+	public MultipartConfigElement multipartConfigElement(){
+		
+		
+		return new MultipartConfigElement();
+	}*/
+	
+	@Bean
+	public MultipartConfigElement multipartConfigElement() {
+		 MultipartConfigFactory factory = new MultipartConfigFactory();
+
+		 factory.setMaxFileSize(1000000);
+		 factory.setMaxRequestSize(-1);
+
+		 return factory.createMultipartConfig();
+	 }
+	
+
+	@Bean
+	public MultipartResolver multipartResolver() {
+	    return new StandardServletMultipartResolver();
+	}
+
 
 
 

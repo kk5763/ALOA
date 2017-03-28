@@ -32,24 +32,21 @@ public class ReviewController {
 							,@RequestParam int grade
 							,@RequestParam String email){
 		String filePath = "C:/Project/ALOA/src/main/webapp/WEB-INF/views/storage/";
-		System.out.println("d");
-		System.out.println(imagelist.length);
 		
+		System.out.println(imagelist.length);
 		for(int i=0;i<imagelist.length;i++){
 			String uuid = UUID.randomUUID().toString();
 			String fileName = imagelist[i].getOriginalFilename();
 			String realName = uuid+"."+fileName;
-			System.out.println("d");
 			
+			System.out.println(i);
 			try {
+				System.out.println(i);
 				File file = new File(filePath,realName);
 				FileCopyUtils.copy(imagelist[i].getInputStream(), new FileOutputStream(file));
-				System.out.println("d");
 				
 			} catch (IOException e) {
-				
-				// TODO Auto-generated catch block
-				System.out.println("내에러다");
+				e.printStackTrace();
 			}
 			Reviewboard dto = new Reviewboard();
 			dto.setContent(content);
@@ -57,10 +54,8 @@ public class ReviewController {
 			dto.setGrade(grade);
 			dto.setImage(realName);
 			dto.setResno(resno);
-			System.out.println("d");
 			
 			reviewService.reviewWrite(dto);
-			System.out.println("d");
 			
 		}
 		

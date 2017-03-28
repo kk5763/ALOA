@@ -48,11 +48,6 @@ public class RestaurantController {
 	
 
 
-	@RequestMapping(value="/reviewWrite", method=RequestMethod.GET)
-	public String reviewWrite() {
-		
-		return "review/reviewWrite";
-	}
 	
 	@RequestMapping(value="/reportRes", method=RequestMethod.GET)
 	public String reportRes() {

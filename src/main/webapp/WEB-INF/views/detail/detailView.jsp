@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,21 +22,10 @@
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
 	}
-	function reviewWrite(var i){
-		var form = document.dataForm;
-		var url = "/reviewWriteForm";
-		
-		window.open("",
+	function reviewWrite(){
+			window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
 				"dataForm",
 				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
-		
-		writeForm.action = url;
-		writeForm.method="post";
-		writeForm.target="dataForm";
-		writeForm.resno=i;
-		wirteForm.submit();
-		
-		
 		
 	}
 </script>
@@ -121,10 +111,10 @@
 	<div class="review-bt-div">
 		<div class="review-bt-wrap">
 		<c:if test="${resDTO.restaurant.resno!=null }">
-			<a href="#" class="review-bt" onclick="reviewWrite('${resDTO.restaurant.resno}')">리뷰작성</a>
+			<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
 		</c:if>
 		<c:if test="${resDTO.restaurant.resno==null }">
-			<a href="#" class="review-bt" onclick="reviewWrite('0')">리뷰작성</a>
+			<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
 		</c:if>
 		
 		
@@ -362,11 +352,5 @@
 </div>
 
 </article>
-<form name="dataForm">
-	<input type="hidden" name="resno" >
-</form>
-
-
-
 </body>
 </html>
