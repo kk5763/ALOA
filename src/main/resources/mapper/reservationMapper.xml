@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservationMapper">
+
+	<insert id="insertResevation" parameterType="com.aloa.reservation.ReservationDTO">
+    		
+    	insert into reservation(reservestore, 
+									reservename ,
+									reservetel ,
+									reserveemail, 
+									reserverequest ,
+									reservedate ,
+									reservetime ,
+									reservenumber ,
+									reserveaddress)values(#{reservestore}
+					    									,#{reservename}
+					    									,#{reservetel}
+					    									,#{reserveemail}
+					    									,#{reserverequest}
+					    									,#{reservedate}
+					    									,#{reservetime}
+					    									,#{reservenumber}
+					    									,#{reserveaddress})
+    </insert>
+
+ 	<select id="showReservation" parameterType="String">
+    	select * from reservation where reserveemail = #{email}
+    </select>
+
+	<select id="showStoreReservation" parameterType="String">
+    	select * from reservation where reservename = #{storeName}
+    </select>
+</mapper>
