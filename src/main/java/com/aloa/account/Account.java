@@ -26,6 +26,9 @@ public class Account {
 	@NotBlank
 	private String username;
 		
+	@NotBlank
+	private String tel;
+	
 	@Temporal(TemporalType.TIMESTAMP)	
 	private Date joindate;
 	
@@ -118,5 +121,13 @@ public class Account {
 
 	public void setEmailauth(int emailauth) {
 		this.emailauth = emailauth;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 }

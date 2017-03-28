@@ -10,6 +10,7 @@
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
 	function reportRes() {
+		
 		window.open("http://localhost:8000/reportRes",
 					"reportRes",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
@@ -20,10 +21,21 @@
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
 	}
-	function reviewWrite(){
-		window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
-				"reviewWrite",
+	function reviewWrite(var i){
+		var form = document.dataForm;
+		var url = "/reviewWriteForm";
+		
+		window.open("",
+				"dataForm",
 				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
+		
+		writeForm.action = url;
+		writeForm.method="post";
+		writeForm.target="dataForm";
+		writeForm.resno=i;
+		wirteForm.submit();
+		
+		
 		
 	}
 </script>
@@ -108,7 +120,14 @@
 	</div>
 	<div class="review-bt-div">
 		<div class="review-bt-wrap">
-		<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+		<c:if test="${resDTO.restaurant.resno!=null }">
+			<a href="#" class="review-bt" onclick="reviewWrite('${resDTO.restaurant.resno}')">리뷰작성</a>
+		</c:if>
+		<c:if test="${resDTO.restaurant.resno==null }">
+			<a href="#" class="review-bt" onclick="reviewWrite('0')">리뷰작성</a>
+		</c:if>
+		
+		
 		</div>
 	</div>
 	<!-- 리뷰 -->
@@ -343,6 +362,9 @@
 </div>
 
 </article>
+<form name="dataForm">
+	<input type="hidden" name="resno" >
+</form>
 
 
 
