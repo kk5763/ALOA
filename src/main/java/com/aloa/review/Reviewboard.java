@@ -14,13 +14,23 @@ public class Reviewboard {
 	private String email;
 	
 	@Column(unique = true)
-	private Long resno;
+	private int resno;
 	
 	private String content;
 	
 	private Date createdate;
 	
 	private int grade;
+
+	private String image;
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public int getReviewno() {
 		return reviewno;
@@ -38,12 +48,12 @@ public class Reviewboard {
 		this.email = email;
 	}
 
-	public Long getResno() {
+	public int getResno() {
 		return resno;
 	}
 
-	public void setResno(Long resno) {
-		this.resno = resno;
+	public void setResno(int resno2) {
+		this.resno = resno2;
 	}
 
 	public String getContent() {

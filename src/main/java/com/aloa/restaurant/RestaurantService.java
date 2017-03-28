@@ -38,10 +38,9 @@ public class RestaurantService {
 	public List<Restaurant> findList(){
 		
 		List<Restaurant> reslist = repository.findAll();
-		
+			
 		return  reslist;
 	}
-	
 	
 	
 	//findList(목록보여줄거)

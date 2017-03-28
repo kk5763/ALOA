@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -51,10 +52,11 @@
 		<div class="content">
 		
 			<div class=both_div>
-		
+		<c:if test="${list!=null }">
+			<c:forEach var="RestaurantDTO" items="${list }">
 				<div class="left_div">
 					<img class="main_img" src="/resources/images/min_image/bubbleAndCockles.PNG" />
-					<p class="title">버블앤코클스&nbsp;&nbsp;<span class="point">4.8</span></p>
+					<p class="title">$(RestaurantDTO.resname)&nbsp;&nbsp;<span class="point">4.8</span></p>
 					<p class="info">이태원/한남동 - <span class="keywords">시푸드 요리</span></p>
 					<p class="view_review">
 						<img src="/resources/images/min_image/view.PNG" /><span class="view">12,011</span>&nbsp;&nbsp;
@@ -72,7 +74,9 @@
 					</p>
 				</div>
 			
-			</div>
+				</div>
+			</c:forEach>
+		</c:if>
 			
 			<div class=both_div>
 			

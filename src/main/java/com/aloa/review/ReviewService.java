@@ -16,30 +16,13 @@ public class ReviewService {
 	@Autowired
 	private ReviewDAO reviewDAO;
 	
-	@Autowired
-	private ImageRepository iamgeRepository;
 	
-	public List<ReviewBoardDTO> reviewList(int resno){
+	public List<Reviewboard> reviewList(int resno){
 		
 		List<Reviewboard> list = 
 				reviewDAO.reviewlist(resno);		
-		List<ReviewBoardDTO> reviewList = new ArrayList<ReviewBoardDTO>();
 		
-		for(int i=0;i<list.size();i++){
-			
-			List<Imageboard> imageList = 
-					iamgeRepository.findByReviewno(
-							list.get(i).getReviewno());
-			
-			ReviewBoardDTO reviewBoardDTO = new ReviewBoardDTO();
-			reviewBoardDTO.setReviewboard(list.get(i));
-			reviewBoardDTO.setImageboard(imageList);
-			
-			reviewList.add(reviewBoardDTO);
-		}
-		
-		
-		return reviewList;
+		return list;
 	}
 	
 	public void reviewWrite(Reviewboard dto){
