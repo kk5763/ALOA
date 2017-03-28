@@ -33,8 +33,8 @@ public class RestaurantController {
 	
 	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(int resno,Model model){
-		
+	public String detailView(Model model){
+		/*
 		Restaurant restaurant = service.findOne(resno);
 		List<ReviewBoardDTO> reviewlist = 
 				reviewService.reviewList(resno);
@@ -44,7 +44,7 @@ public class RestaurantController {
 		resDTO.setRestaurant(restaurant);
 		
 		model.addAttribute("resDTO",resDTO);
-		
+		*/
 		return "detail/detailView";
 	}
 	
