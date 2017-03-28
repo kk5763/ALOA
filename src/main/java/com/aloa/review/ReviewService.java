@@ -16,16 +16,11 @@ public class ReviewService {
 	@Autowired
 	private ReviewDAO reviewDAO;
 	
-	@Autowired
-	private ImageRepository iamgeRepository;
 	
 	public List<Reviewboard> reviewList(int resno){
 		
 		List<Reviewboard> list = 
 				reviewDAO.reviewlist(resno);		
-		
-		
-		
 		
 		return list;
 	}

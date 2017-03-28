@@ -51,17 +51,6 @@ public class AloaApplication {
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Bean
-	javax.servlet.MultipartConfigElement MultipartConfigElement() {
-	    MultipartConfigFactory factory = new MultipartConfigFactory();
-	    return factory.createMultipartConfig();
-	}
-
-	
-	@Bean
-	public CommonsMultipartResolver multipartResolver() {
-	    return new CommonsMultipartResolver();
-	}
 
 
 

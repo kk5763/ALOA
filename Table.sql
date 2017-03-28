@@ -90,8 +90,6 @@ create table reservation(
 				reservedate varchar(50) not null,
 				reservetime varchar(10) not null, 
 				reservenumber varchar(10) not null,
-				reserveaddress varchar(200) not null,
-				constraint reference_resNo foreign key(reserverno) references restaurant(resNo),
-				constraint reference_member foreign key(reserveemail) references account(email)
+				reserveaddress varchar(200) not null
 
 );

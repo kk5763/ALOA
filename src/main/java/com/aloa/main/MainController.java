@@ -22,8 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.aloa.restaurant.Restaurant;
 import com.aloa.restaurant.RestaurantDTO;
 import com.aloa.restaurant.RestaurantService;
-import com.aloa.review.ImageRepository;
-import com.aloa.review.Imageboard;
+import com.aloa.review.ReviewService;
+import com.aloa.review.Reviewboard;
 import com.aloa.service.MemberService;
 @SessionAttributes("listBoard")
 @Controller
@@ -34,8 +34,10 @@ public class MainController {
 	@Autowired
 	RestaurantService resService;
 	
+	
 	@Autowired
-	ImageRepository imageRepository;
+	ReviewService revService;
+	
 	
 	private Facebook facebook; //페이스북 api 객체
 	private ConnectionRepository cr; //페이스북 연결 정보
@@ -47,7 +49,7 @@ public class MainController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model, HttpSession session){
 		
-		if(cr.findPrimaryConnection(Facebook.class)!=null){
+		/*if(cr.findPrimaryConnection(Facebook.class)!=null){
 			String[] fields={"id","name","birthday","email","gender"};
 			User user = facebook.fetchObject("me", User.class,fields);  //me 는 로그인한 사용자의 정보. me/friends 하면 친구정보가 나옴
 			String name = user.getName();
@@ -65,30 +67,26 @@ public class MainController {
 			
 			
 			session.setAttribute("username", name);
-		}
+		}*/
 		
 		List<Restaurant> restaurantlist =resService.findList();
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
 		
-		if(restaurantlist!=null){
 			for(int i=0;i<restaurantlist.size();i++){
 				//맛집의 이미지 가져오기
-				List<Imageboard> imagelist = imageRepository.findByResno(restaurantlist.get(i).getResno());
+				List<Reviewboard> reviewlist=revService.reviewList(restaurantlist.get(i).getResno());
 				
 				//레스토랑DTO에 넣기
 				RestaurantDTO res = new RestaurantDTO();
-				res.setImagelist(imagelist);
+				
+				res.setReviewlist(reviewlist);
 				res.setRestaurant(restaurantlist.get(i));
 				
 				reslist.add(res);
 				
 			}
-		}
 		
 		model.addAttribute("reslist",reslist);
-		
-		
-		
 		
 		return "main/home";
 	}

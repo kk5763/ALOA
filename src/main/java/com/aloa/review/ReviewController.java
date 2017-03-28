@@ -47,7 +47,6 @@ public class ReviewController {
 				System.out.println("d");
 				
 			} catch (IOException e) {
-				System.out.println("d");
 				
 				// TODO Auto-generated catch block
 				System.out.println("내에러다");
