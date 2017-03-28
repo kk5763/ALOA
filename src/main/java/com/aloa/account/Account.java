@@ -4,8 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -14,6 +14,9 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Account {
 	@Id
+	@GeneratedValue
+	private Long id;
+	
 	@Column(unique = true)
 	private String email;
 	
@@ -22,9 +25,7 @@ public class Account {
 	
 	@NotBlank
 	private String username;
-	
-	private String tel;
-	
+		
 	@Temporal(TemporalType.TIMESTAMP)	
 	private Date joindate;
 	
@@ -37,6 +38,15 @@ public class Account {
 	private int admin;
 	
 	private int emailauth;
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getEmail() {
 		return email;
@@ -60,14 +70,6 @@ public class Account {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
 	}
 
 	public Date getJoindate() {
