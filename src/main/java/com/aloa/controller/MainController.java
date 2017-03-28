@@ -107,7 +107,7 @@ public class MainController {
 	public ModelAndView storejoinForm(){
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("list/storejoin");
+		mav.setViewName("main/storejoinForm");
 		return mav;
 	}
 	

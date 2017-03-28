@@ -9,11 +9,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @SpringBootApplication
 @MapperScan(value={"com.aloa.dao"}) //mapperscan
@@ -48,4 +50,23 @@ public class AloaApplication {
 	public PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
+	
+	@Bean
+	javax.servlet.MultipartConfigElement MultipartConfigElement() {
+	    MultipartConfigFactory factory = new MultipartConfigFactory();
+	    return factory.createMultipartConfig();
+	}
+
+	
+	@Bean
+	public CommonsMultipartResolver multipartResolver() {
+	    return new CommonsMultipartResolver();
+	}
+
+
+
+	
+	
+	
+	
 }

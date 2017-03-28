@@ -536,8 +536,31 @@ h1,h2,h3,h4,h5,h6,strong,th{
 	text-overflow:ellipsis;
 }
 
+.review-bt-div{
+	width:800px;
+	margin:0 auto;
+	margin-top:10px;
+	padding-top:10px;
+	position:relatve;
+	
+}
+.review-bt-wrap{
+	background-color:#ff792a;
+	position:absolute;
+	width:200px;
+	height:40px;
+	float:left;
+}
 
-
+.review-bt{
+	display:inline-block;
+	width:100%;
+	font-size:18px;
+	line-height:40px;
+	text-align:center;
+	color:white;
+	text-decoration:none;
+}
 
 
 

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.aloa.review.ReviewBoardDTO;
 import com.aloa.review.ReviewService;
+import com.aloa.review.Reviewboard;
 
 @Controller
 public class RestaurantController {
@@ -36,7 +36,7 @@ public class RestaurantController {
 	public String detailView(int resno,Model model){
 		
 		Restaurant restaurant = service.findOne(resno);
-		List<ReviewBoardDTO> reviewlist = 
+		List<Reviewboard> reviewlist = 
 				reviewService.reviewList(resno);
 		
 		RestaurantDTO resDTO = new RestaurantDTO();

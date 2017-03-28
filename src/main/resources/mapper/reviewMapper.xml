@@ -3,21 +3,20 @@
 <mapper namespace = "reviewMapper">
 
 	<insert id = "reviewInsert" parameterType = "com.aloa.review.Reviewboard">
-		insert into reviewboard(
-				reviewno,
-                email,
-                resNo,
-                content,
-                createDate,
-                grade) 
-       	 values(
-       	 		seq_reviewno.nextval,
-       	 		#{email},
-       	 		#{resNo},
-       	 		#{content},
-       	 		sysdate,
-       	 		#{grade}
-       	 		)
+		insert into reviewboard(reviewno
+                ,email
+                ,resNo
+                ,content
+                ,createDate
+                ,grade
+                ,image) 
+       	 values(seq_reviewno.nextval
+       	 		,#{email}
+       	 		,#{resno}
+       	 		,#{content}
+       	 		,sysdate
+       	 		,#{grade}
+       	 		,#{image})
 	</insert>
 	
 	<select id="reviewList" parameterType="java.lang.Integer" resultType="com.aloa.review.Reviewboard">

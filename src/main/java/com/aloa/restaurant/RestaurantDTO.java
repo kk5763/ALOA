@@ -3,14 +3,13 @@ package com.aloa.restaurant;
 import java.util.List;
 
 import com.aloa.review.Imageboard;
-import com.aloa.review.ReviewBoardDTO;
 import com.aloa.review.Reviewboard;
 
 public class RestaurantDTO {
 	
 	private List<Imageboard> imagelist;
 	private Restaurant restaurant;
-	private List<ReviewBoardDTO> reviewlist;
+	private List<Reviewboard> reviewlist;
 	
 	public List<Imageboard> getImagelist() {
 		return imagelist;
@@ -24,10 +23,10 @@ public class RestaurantDTO {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	public List<ReviewBoardDTO> getReviewlist() {
+	public List<Reviewboard> getReviewlist() {
 		return reviewlist;
 	}
-	public void setReviewlist(List<ReviewBoardDTO> reviewlist) {
+	public void setReviewlist(List<Reviewboard> reviewlist) {
 		this.reviewlist = reviewlist;
 	}
 	

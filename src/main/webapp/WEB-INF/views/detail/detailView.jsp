@@ -20,6 +20,12 @@
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
 	}
+	function reviewWrite(){
+		window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+				"reviewWrite",
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
+		
+	}
 </script>
 </head>
 <!-- 상단영역 -->
@@ -99,6 +105,11 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
+	<div class="review-bt-div">
+		<div class="review-bt-wrap">
+		<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+		</div>
 	</div>
 	<!-- 리뷰 -->
 	<c:forEach var="i" begin="1" end="5" step="1">
