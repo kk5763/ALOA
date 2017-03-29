@@ -28,7 +28,7 @@ public class MessageRestController {
 	@RequestMapping(value="/sendEmail/{id}", method=RequestMethod.POST)
 	public ResponseEntity sendEmail(@PathVariable Long id,
 									Message dto){
-		Account account = accountRepository.findOne(id);
+		Account account = accountRepository.findOne(dto.getReceiver());
 		if(account == null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

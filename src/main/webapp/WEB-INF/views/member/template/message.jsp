@@ -3,6 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <ul class="nav nav-tabs nav-justified" id="nav_profile_withdrawal">
   <li role="presentation" class="active"><a style="cursor:pointer;">메세지</a></li>
+  <li role="presentation"><a href="/accounts/reservation" style="cursor:pointer;">예약 정보</a></li>
   <li role="presentation" id="presen_pro"><a href="/accounts/userInfo" id="profile_a" style="cursor:pointer;">프로필 / 계정관리</a></li>
   <li role="presentation" id="presen_width"><a href="/accounts/widthdrawalUser" id="widthdrawal_a" style="cursor:pointer;">회원탈퇴</a></li>
 </ul>
@@ -46,19 +47,17 @@
 					alert('success');
 					alert(data[0].receiver);
 					alert(data.length)
+					$('#message_tbody').html('');
 					var i = 1;
 					for(var i=0; i<data.length; i++){
 						$('#message_tbody').append('<tr><td>'+(i+1)+'</td><td>'+data[i].sender+'</td><td>'+data[i].contents+'</td></tr>');
 					}
 				}else if(xhr.status==204){
-					alert('204');
 					$('#message_tbody').html('<tr><td>도착한 메시지가 없습니다.</td></tr>');
 				}
 			},
 			error: function(xhr, status, err){
-				if(xhr.status==204){
-					alert('err 204');
-				}
+				alert('err 204');
 			}
 		})
 	})

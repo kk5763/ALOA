@@ -1,12 +1,14 @@
 package com.aloa.message;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Message {
 	
 	@Id
+	@GeneratedValue
 	private Long messageNo;
 	
 	private Long receiver;
