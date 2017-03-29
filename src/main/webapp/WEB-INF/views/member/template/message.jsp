@@ -8,7 +8,7 @@
 </ul>
 <br><br><br>
 <div class="container">
-	<div class="col-sm-offset-1 col-sm-3">
+	<div class="col-sm-3">
 	<select class="form-control"> 
 		<option>전체 메세지</option> 
 		<option>예약 확인</option> 
@@ -16,3 +16,50 @@
 	</select>
 	</div>
 </div>
+<br>
+<div class="container">
+<table class="table table-hover"> 
+<thead> 
+<tr>
+<th>#</th> 
+<th>보낸이</th> 
+<th>제목</th> 
+</tr> 
+</thead> 
+<tbody id="message_tbody"> 
+</tbody> 
+</table> 
+</div>
+<script>
+	$(document).ready(function(){
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$.ajax({
+			url:'/listEmail/'+<sec:authentication property='principal.id'/>,
+			type: 'get',
+			dataType: 'json',
+			beforeSend: function(xhr){
+				xhr.setRequestHeader(header, token);
+			},
+			success: function(data, status, xhr){
+				if(xhr.status==200){
+					alert('success');
+					alert(data[0].receiver);
+					alert(data.length)
+					var i = 1;
+					for(var i=0; i<data.length; i++){
+						$('#message_tbody').append('<tr><td>'+(i+1)+'</td><td>'+data[i].sender+'</td><td>'+data[i].contents+'</td></tr>');
+					}
+				}else if(xhr.status==204){
+					alert('204');
+					$('#message_tbody').html('<tr><td>도착한 메시지가 없습니다.</td></tr>');
+				}
+			},
+			error: function(xhr, status, err){
+				if(xhr.status==204){
+					alert('err 204');
+				}
+			}
+		})
+	})
+</script>
