@@ -24,12 +24,7 @@
 <link rel="stylesheet" href="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.css" />
 <script src="//code.jquery.com/jquery-1.6.3.min.js"></script>
 <script src="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.js"></script>
-<style type="text/css">
-.toast{
-	top: 130px;
-	left: 1430px;
-}
-</style>
+
 <script type="text/javascript">
 
 
@@ -64,10 +59,7 @@ function gogo(mode){
 	if(mode=='name'){
 		var name = /^[가-힣]{2,4}$/;
 		
-		if(name.test($('#reservename').val())){
-			alert("성공");
-		}
-		else{
+		if(!name.test($('#reservename').val())){
 			createToast('name');
 		}
 	}
@@ -75,10 +67,7 @@ function gogo(mode){
 	if(mode=='tel'){
 		var tel = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 		   
-		if(tel.test($('#reservetel').val())){
-			alert("성공");
-		}
-		else{
+		if(!tel.test($('#reservetel').val())){
 			createToast('tel');
 		}
 	}
@@ -86,16 +75,17 @@ function gogo(mode){
 	if(mode=='email'){
 		var email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 		
-		if(email.test($('#reserveemail').val())){
-			alert("성공");
-		}
-		else{
+		if(!email.test($('#reserveemail').val())){
 			createToast('email');
 		}
 	}
 }
 
 function createToast(t) {
+	var toastOffset = $('#reservename').offset();
+    
+    $('.toast').css({"top": toastOffset.top, "left": toastOffset.left+330});
+    
 	$.toast.config.align = 'right';
     $.toast.config.width = 400;
     $.toast.options = {
@@ -104,7 +94,8 @@ function createToast(t) {
             showMethod: 'slideDown',
             timeOut: 2000
         };
-	
+    
+
     switch (t) {
       case 'name':
         $.toast('<h4>알림!</h4> 이름을 정확히 입력해주세요.', {
@@ -348,17 +339,7 @@ function createToast(t) {
 
 							</div>
 					</div>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+						
 					<div class="wrap_right">
 						<div class="section_booking_form">
 						
