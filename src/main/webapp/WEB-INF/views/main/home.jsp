@@ -103,9 +103,11 @@ function godetail(){
 	</nav>
 </form>
 <br><br>
-<form name="detailList" action="/detailView" method="GET">
+<form name="detailList" action="/detailView" method="POST">
 <div class="container">
-	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].restaurant.resno!=null}"><a href="#" onclick ="godetail()">reslist</a></c:if><input type="hidden" name="resno" value="${reslist[0].restaurant.resno}"/></h3>
+	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].restaurant.resno!=null}">
+		<a href="#" onclick ="godetail()">reslist</a><input type="hidden" name="resno" value="${reslist[0].restaurant.resno}"/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></c:if></h3>
 	<div class="center-block slider1">
 		<div class="slide">
 			<a href="#">

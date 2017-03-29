@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +11,7 @@
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
 	function reportRes() {
+		
 		window.open("http://localhost:8000/reportRes",
 					"reportRes",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
@@ -19,6 +21,12 @@
 		window.open("http://localhost:8000/reportRev",
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+	}
+	function reviewWrite(){
+			window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+				"dataForm",
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
+		
 	}
 </script>
 </head>
@@ -99,6 +107,18 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
+	<div class="review-bt-div">
+		<div class="review-bt-wrap">
+		<c:if test="${resDTO.restaurant.resno!=null }">
+			<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+		</c:if>
+		<c:if test="${resDTO.restaurant.resno==null }">
+			<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
+		</c:if>
+		
+		
+		</div>
 	</div>
 	<!-- 리뷰 -->
 	<c:forEach var="i" begin="1" end="5" step="1">
@@ -291,15 +311,9 @@
 									map.setCenter(point);
 								});
 			}// function
-<<<<<<< HEAD
-
-			naver.maps.onJSContentLoaded = searchAddressToCoordinate('서울시 강남구 신사동 646-23');
-
-=======
 			
 			naver.maps.onJSContentLoaded = searchAddressToCoordinate('경기도 부천시 원미구');
 			
->>>>>>> 2227596ee7c0b50473357dc2cf0dfabee4618b06
 			function getClickHandler(seq) { // 마커를 클릭 했을 때
 				return function(e) {
 					var marker = markers[seq], infoWindow = infoWindows[seq];
@@ -338,8 +352,5 @@
 </div>
 
 </article>
-
-
-
 </body>
 </html>

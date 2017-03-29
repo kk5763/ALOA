@@ -26,7 +26,8 @@ function check(){
 		alert("휴일을 입력하세요");
 
 	else {
-		 document.storejoin.submit();
+		alert("가맹점 신청이 완료되었습니다.");
+		document.storejoin.submit();
 			 
 	}
 }
