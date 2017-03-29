@@ -65,9 +65,9 @@ public class AloaApplication {
 	public MultipartConfigElement multipartConfigElement() {
 		 MultipartConfigFactory factory = new MultipartConfigFactory();
 
-		 factory.setMaxFileSize(1000000);
-		 factory.setMaxRequestSize(-1);
-
+		 factory.setMaxFileSize(10000000);
+/*		 factory.setMaxRequestSize(-1);
+*/
 		 return factory.createMultipartConfig();
 	 }
 	

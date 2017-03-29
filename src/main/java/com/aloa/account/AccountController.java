@@ -74,6 +74,12 @@ public class AccountController {
 		model.addAttribute("display", "./template/message.jsp");
 		return "member/userInfo";
 	}
+	
+	@RequestMapping(value="/accounts/reservation", method=RequestMethod.GET)
+	public String reservation(Model model){
+		model.addAttribute("display", "./template/reservation.jsp");
+		return "member/userInfo";
+	}
 }
 
 

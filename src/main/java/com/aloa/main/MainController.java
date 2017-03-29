@@ -34,10 +34,8 @@ public class MainController {
 	@Autowired
 	RestaurantService resService;
 	
-	
 	@Autowired
 	ReviewService revService;
-	
 	
 	private Facebook facebook; //페이스북 api 객체
 	private ConnectionRepository cr; //페이스북 연결 정보
@@ -69,6 +67,23 @@ public class MainController {
 			session.setAttribute("username", name);
 		}*/
 		
+<<<<<<< HEAD
+		List<Restaurant> restaurantlist = resService.findList();
+		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
+		
+		for(int i=0;i<restaurantlist.size();i++){
+			//맛집의 이미지 가져오기
+			List<Reviewboard> reviewlist=revService.reviewList(restaurantlist.get(i).getResno());
+			
+			//레스토랑DTO에 넣기
+			RestaurantDTO res = new RestaurantDTO();
+			
+			res.setReviewlist(reviewlist);
+			res.setRestaurant(restaurantlist.get(i));
+			
+			reslist.add(res);
+		}
+=======
 		List<Restaurant> restaurantlist =resService.findList();
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
 		
@@ -87,6 +102,7 @@ public class MainController {
 				reslist.add(res);
 				
 			}
+<<<<<<< HEAD
             /*
             1.레스토랑 정보에대한 리스트 가져왓어요.
             2.레스토랑DTO에 대한 리스트형태 생성(내용비엇어요),리뷰리스트랑,레스토랑.
@@ -99,20 +115,49 @@ public class MainController {
             
             */
 
+=======
+>>>>>>> b69b2aab6346bfbc90ae60859fcd74940dfb1f9d
+		
+>>>>>>> 3347a8f2087626f7763eae7ea24f2913c1a133c3
 		model.addAttribute("reslist",reslist);
 		
 		return "main/home";
 	}
 	
 	@RequestMapping(value = "/searchList", method = RequestMethod.GET)
-	public String searchList(){
+	public String searchList(@RequestParam String searchName, Model model){
+		
+		// 식당명에 검색어가 포함된 식당들의 정보를 List로 가져옴
+		List<Restaurant> resSearchList = resService.findSearchList(searchName);
+		// 식당의 정보와 리뷰 이미지를 세트로 묶을 List 생성
+		List<RestaurantDTO> resList = new ArrayList<RestaurantDTO>();
+		// 리뷰 개수
+		int resReviewCount = 0;
+		
+		for(int i = 0; i < resSearchList.size(); i++){ // 가져온 식당의 수 만큼 반복
+			// 가져온 식당의 번호를 이용해 모든 리뷰를 가져옴
+			List<Reviewboard> reviewImage = revService.reviewList(resSearchList.get(i).getResno());
+			resReviewCount = reviewImage.size();
+			
+			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
+			RestaurantDTO resDTO = new RestaurantDTO();
+			// 가져온 0~n번째 식당의 정보와 이미지를 저장
+			resDTO.setRestaurant(resSearchList.get(i));
+			resDTO.setReviewlist(reviewImage);
+			
+			// 세팅된 resDTO를 resList에 추가하여 searchList.jsp로 넘김
+			resList.add(resDTO);
+		}// for
+		
+		model.addAttribute("searchName", searchName);
+		model.addAttribute("resList", resList);
+		model.addAttribute("resReviewCount", resReviewCount);
 		
 		return "search/searchList";
-	}
+	}// searchList
 	
 	@RequestMapping(value = "/searchFilter", method = RequestMethod.GET)
 	public String searchFilter() {
-		
 		return "search/searchFilter";
 	}
 	
@@ -143,14 +188,10 @@ public class MainController {
 	@RequestMapping(value="search",method=RequestMethod.POST)
 	public ModelAndView search(){
 		
-		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("search/searchList");
 		
 		return mav;
-	
 	}
-	
-	
 	
 }
