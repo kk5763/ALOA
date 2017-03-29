@@ -28,7 +28,7 @@ function clickImg(mode){
 		gg.style['background-image'] = "url('/resources/images/min_image/good_off.png')";
 		ss.style['background-image'] = "url('/resources/images/min_image/soso_off.png')";
 		bb.style['background-image'] = "url('/resources/images/min_image/bad_on.png')";
-	}	
+	}
 }
 
 /* 파일추가*/
@@ -60,7 +60,6 @@ function removeFile(){
 	if(fileItem !=null){
 		fileItem.parentNode.removeChild(fileItem); 
 	}
-	
 }
 
 function checkReviewWrite(){
@@ -79,7 +78,7 @@ function checkReviewWrite(){
 	<form name="reviewWriteForm" method="post" enctype="multipart/form-data" action="/reviewWrite">
 		<div id="main_section">
 			<input type="hidden" name="resno" value="${resno}">
-			<input type="hidden" name="email" value="<sec:authentication property="principal.fullName"/>">
+			<input type="hidden" name="email" value="<sec:authentication property="principal.email"/>">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<input type="hidden" id="grade-score" name="grade" value="0">
 			

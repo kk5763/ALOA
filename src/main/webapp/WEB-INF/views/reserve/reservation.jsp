@@ -1,24 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- // jQuery UI CSS파일  -->
-<link rel="stylesheet" href="/style/h_style/jquery-ui.css" type="text/css" /> 
-<src></src> 
-<link rel="" href="/style/h_style/jquery-ui.css" type="text/css" />  
+
+
+
+ 
 <!-- // jQuery 기본 js파일 --> 
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<!-- // jQuery UI CSS파일  -->
+<link rel="stylesheet" href="/style/h_style/jquery-ui.css" type="text/css" /> 
+<link rel="" href="/style/h_style/jquery-ui.css" type="text/css" /> 
 <!-- // jQuery UI 라이브러리 js파일 -->
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
 <script src="/style/h_style/angular.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 
+<!-- toast 알림창 -->
+<link rel="stylesheet" href="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.css" />
+<script src="//code.jquery.com/jquery-1.6.3.min.js"></script>
+<script src="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.js"></script>
+<style type="text/css">
+.toast{
+	top: 130px;
+	left: 1430px;
+}
+</style>
 <script type="text/javascript">
 
 
+
+</script>
+<script type="text/javascript">
 
 $(function() {
     $( "#Datepicker" ).datepicker({
@@ -37,7 +54,82 @@ function request(){
 	 reservationForm.submit();
 }
 
+
 </script> 
+
+<script type="text/javascript">
+
+function gogo(mode){
+	
+	if(mode=='name'){
+		var name = /^[가-힣]{2,4}$/;
+		
+		if(name.test($('#reservename').val())){
+			alert("성공");
+		}
+		else{
+			createToast('name');
+		}
+	}
+	
+	if(mode=='tel'){
+		var tel = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+		   
+		if(tel.test($('#reservetel').val())){
+			alert("성공");
+		}
+		else{
+			createToast('tel');
+		}
+	}
+	
+	if(mode=='email'){
+		var email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		
+		if(email.test($('#reserveemail').val())){
+			alert("성공");
+		}
+		else{
+			createToast('email');
+		}
+	}
+}
+
+function createToast(t) {
+	$.toast.config.align = 'right';
+    $.toast.config.width = 400;
+    $.toast.options = {
+            closeButton: false,
+            progressBar: true,
+            showMethod: 'slideDown',
+            timeOut: 2000
+        };
+	
+    switch (t) {
+      case 'name':
+        $.toast('<h4>알림!</h4> 이름을 정확히 입력해주세요.', {
+          duration: 2000,
+          type: 'danger'
+        });
+        return;
+      case 'tel':
+        $.toast('<h4>알림!</h4> 휴대폰 번호(000-0000-0000)를 정확히 입력해주세요.', {
+          duration: 2000,
+          type: 'info'
+        });
+        return;
+      case 'email':
+        $.toast('<h4>알림!</h4> 이메일을 정확히 입력해주세요.', {
+       	  duration: 2000,
+          type: 'success'
+        });
+        return;
+    }
+  }
+
+
+</script>
+
 
 <link rel="stylesheet" type="text/css" href="/style/h_style/reservation.css" />
 <title>Insert title here</title>
@@ -125,9 +217,9 @@ function request(){
 									
 								</div><!-- 시간 -->
 								
-								
 								<div class="simple_time_row">
-									<strong class="tit">주소</strong>
+									<strong class="tit">주소
+									</strong>
 									
 									
 									<div class="select_simple_time">
@@ -290,39 +382,32 @@ function request(){
 										
 										
 										<div class="inline_control">
-											<c:if test="${!empty name}">
-												<input type="text" name="reservename" id="reservename" class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"  maxlength="10"  value="${name }">
-											</c:if>
-											<%-- <c:if test="${empty name}">
-												<input type="text" name="reservename" id="reservename" class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"  maxlength="10"  >
-											</c:if> --%>
+											<sec:authorize access="isAuthenticated()">
+												<input type="text" name="reservename" id="reservename" class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"  maxlength="10"  value="<sec:authentication property="principal.fullName"/>" onchange="gogo('name')">
+											</sec:authorize>
 										</div>
 									</div> <!-- resName -->
-									
 									
 									<div class="inline_form" ng-show="$ctrl.isShowEmailForm" >
 										<label class="label" > <span>연락처</span> <!----></label>
 										<div class="inline_control">
-											<input type="text" name="reservetel" id="reservetel" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
+											<input type="text" name="reservetel" id="reservetel" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50" onchange="gogo('tel')">
 										</div>
 									</div><!-- resTel -->
-									
-									
 									
 									<div class="inline_form" ng-show="$ctrl.isShowEmailForm" >
 										<label class="label" > <span>이메일</span> <!----></label>
 										<div class="inline_control">
-											<c:if test="${!empty email}">
-												<input type="text" name="reserveemail" id="reserveemail" value="${email}" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
-											</c:if>
-											<%-- <c:if test="${empty email}">
-												<input type="text" name="reserveemail" id="reserveemail" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50">
-											</c:if> --%>
+											<sec:authorize access="isAuthenticated()">
+												<input type="text" name="reserveemail" id="reserveemail" value="<sec:authentication property="principal.email"/>" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"  maxlength="50" onchange="gogo('email')">
+											</sec:authorize>
 										</div>
 									</div><!-- resRest -->
+									
+									
 									<!---->
 									<!---->
-									<div class="inline_form" >
+									<div class="inline_form" style="border:1px solid red;">
 										<label class="label" for="message">요청사항</label>
 										<div class="inline_control">
 											<textarea name="reserverequest" id="reserverequest" cols="30" rows="10"
@@ -612,5 +697,11 @@ function request(){
 	</div>
 	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
+	
+
+
+
+
+	
 </body>
 </html>

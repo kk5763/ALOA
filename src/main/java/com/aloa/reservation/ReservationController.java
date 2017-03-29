@@ -17,35 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ReservationController {
 	
-	private Facebook facebook; //페이스북 api 객체
-	private ConnectionRepository cr; //페이스북 연결 정보
-	public ReservationController(Facebook facebook, ConnectionRepository cr){
-		this.facebook = facebook;
-		this.cr = cr;
-	}
-	
 	@Autowired
 	ReservationDAO reservationDAO;
 
 	@RequestMapping(value="/reservation",method=RequestMethod.GET)
 	public String reserveView(HttpSession session, Model model){
-		
-		if(cr.findPrimaryConnection(Facebook.class)!=null){
-			String[] fields={"id","name","birthday","email","gender"};
-			User user = facebook.fetchObject("me", User.class,fields);  //me 는 로그인한 사용자의 정보. me/friends 하면 친구정보가 나옴
-			String name = user.getName();
-			String email = user.getEmail();
-			
-			System.out.println("name="+name);
-			System.out.println("email="+email);
-			
-			model.addAttribute("name", name);
-			model.addAttribute("email", email);
-		}
-		
-		model.addAttribute("name", "홍길동");
-		model.addAttribute("email", "asd");
-		
 		
 		return "reserve/reservation";
 	}
