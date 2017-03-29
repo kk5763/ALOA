@@ -8,7 +8,8 @@ create table account(
   reportCount number default 0,
   server number not null,
   admin number not null,
-  emailauth number not null);
+  emailauth number not null
+  );
   
 create table restaurant(
   resNo number primary key,

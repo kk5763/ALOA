@@ -36,16 +36,27 @@ public class RestaurantService {
 	}
 	
 	public List<Restaurant> findList(){
-		
 		List<Restaurant> reslist = repository.findAll();
 		
 		return  reslist;
+	} //findList(목록보여줄거)
+	
+	public List<Restaurant> findSearchList(String searchName) {
+		List<Restaurant> reslist = resDAO.resSearch(searchName);
+		
+		return reslist;
 	}
 	
-	
-	
-	//findList(목록보여줄거)
-	
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+

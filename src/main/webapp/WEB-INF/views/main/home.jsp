@@ -59,9 +59,9 @@ function godetail(){
     <p style="color:black">.....</p>
 </div>
 
-<form class="container text-center" id="searchbar">
+<form class="container text-center" id="searchbar" method="get" action="http://localhost:8000/searchList">
     <div class="input-group">
-        <input type="text" class="form-control input-lg" placeholder="search" id="search_record">	
+        <input type="text" class="form-control input-lg" placeholder="search" id="search_record" name="searchName">	
         <div class="input-group-btn">
             <button type="submit" class="btn btn-lg btn-danger">검색</button>
         </div>

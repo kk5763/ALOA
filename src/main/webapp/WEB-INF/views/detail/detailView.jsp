@@ -33,6 +33,7 @@
 
 <!-- 메인영역 -->
 <article class="main-scope"> <!-- 상단 이미지 슬라이더 -->
+${reslist.get(0).reviewlist.image }
 <div class="image-slider-div">
 	<c:forEach var="i" begin="1" end="5" step="1">
 		<a href="/resources/images/${i }.jpg"> <img class="images"
