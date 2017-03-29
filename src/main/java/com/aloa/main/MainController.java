@@ -1,7 +1,7 @@
 package com.aloa.main;
 
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -70,10 +70,9 @@ public class MainController {
 		}*/
 		
 		List<Restaurant> restaurantlist =resService.findList();
-		
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
 		
-		
+	
 		
 			for(int i=0;i<restaurantlist.size();i++){
 				//맛집의 이미지 가져오기
@@ -81,17 +80,6 @@ public class MainController {
 				
 				//레스토랑DTO에 넣기
 				RestaurantDTO res = new RestaurantDTO();
-				/*
-				1.레스토랑 정보에대한 리스트 가져왓어요.
-				2.레스토랑DTO에 대한 리스트형태 생성(내용비엇어요),리뷰리스트랑,레스토랑.
-				3.레스토랑리스트에대한 만큼 for문도렷음
-					3.1(
-							DTO.가맹점정보(restaurant,)
-							DTO.리뷰리스트(restaurant.reviewlist)
-						)
-					
-				
-				*/
 				
 				res.setReviewlist(reviewlist);
 				res.setRestaurant(restaurantlist.get(i));
@@ -99,7 +87,18 @@ public class MainController {
 				reslist.add(res);
 				
 			}
-		
+            /*
+            1.레스토랑 정보에대한 리스트 가져왓어요.
+            2.레스토랑DTO에 대한 리스트형태 생성(내용비엇어요),리뷰리스트랑,레스토랑.
+            3.레스토랑리스트에대한 만큼 for문도렷음
+                3.1(
+                        DTO.가맹점정보(restaurant,)
+                        DTO.리뷰리스트(restaurant.reviewlist)
+                    )
+                
+            
+            */
+
 		model.addAttribute("reslist",reslist);
 		
 		return "main/home";
@@ -107,9 +106,6 @@ public class MainController {
 	
 	@RequestMapping(value = "/searchList", method = RequestMethod.GET)
 	public String searchList(){
-		
-		
-		
 		
 		return "search/searchList";
 	}

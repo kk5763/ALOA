@@ -29,7 +29,7 @@ create table restaurant(
   
   create sequence seq_restaurant nocache nocycle;
   
-    create table reviewBoard(
+    create table reviewBoard(  
                 reviewNo number primary key,
                 email varchar(500),
                 resNo number not null,
