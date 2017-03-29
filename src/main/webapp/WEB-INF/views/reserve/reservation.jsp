@@ -20,8 +20,21 @@
 <script src="/style/h_style/angular.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 
+<!-- toast 알림창 -->
+<link rel="stylesheet" href="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.css" />
+<script src="//code.jquery.com/jquery-1.6.3.min.js"></script>
+<script src="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.js"></script>
+<style type="text/css">
+.toast{
+	top: 130px;
+	left: 1430px;
+}
+</style>
+<script type="text/javascript">
 
 
+
+</script>
 <script type="text/javascript">
 
 $(function() {
@@ -49,13 +62,13 @@ function request(){
 function gogo(mode){
 	
 	if(mode=='name'){
-		var name = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+		var name = /^[가-힣]{2,4}$/;
 		
 		if(name.test($('#reservename').val())){
 			alert("성공");
 		}
 		else{
-			alert("실패");
+			createToast('name');
 		}
 	}
 	
@@ -66,7 +79,7 @@ function gogo(mode){
 			alert("성공");
 		}
 		else{
-			alert("실패");
+			createToast('tel');
 		}
 	}
 	
@@ -77,10 +90,43 @@ function gogo(mode){
 			alert("성공");
 		}
 		else{
-			alert("실패");
+			createToast('email');
 		}
 	}
 }
+
+function createToast(t) {
+	$.toast.config.align = 'right';
+    $.toast.config.width = 400;
+    $.toast.options = {
+            closeButton: false,
+            progressBar: true,
+            showMethod: 'slideDown',
+            timeOut: 2000
+        };
+	
+    switch (t) {
+      case 'name':
+        $.toast('<h4>알림!</h4> 이름을 정확히 입력해주세요.', {
+          duration: 2000,
+          type: 'danger'
+        });
+        return;
+      case 'tel':
+        $.toast('<h4>알림!</h4> 휴대폰 번호(000-0000-0000)를 정확히 입력해주세요.', {
+          duration: 2000,
+          type: 'info'
+        });
+        return;
+      case 'email':
+        $.toast('<h4>알림!</h4> 이메일을 정확히 입력해주세요.', {
+       	  duration: 2000,
+          type: 'success'
+        });
+        return;
+    }
+  }
+
 
 </script>
 
