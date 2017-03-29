@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ReviewController {
@@ -20,6 +21,6 @@ public class ReviewController {
 	public String reviewWrite(Reviewboard dto){
 		reviewService.reviewWrite(dto);
 		
-		return "redirect:/reviewWriteForm";
+		return "redirect:/detailView";
 	}
 }

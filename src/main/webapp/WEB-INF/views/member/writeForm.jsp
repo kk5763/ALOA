@@ -136,7 +136,7 @@
 					$.ajax({
 						url:'/inspect',
 						dataType:'json',
-						type:'POST',
+						type:'GET',
 						data:{'email':value},
 						beforeSend: function(xhr){
 							xhr.setRequestHeader(header, token);
@@ -211,9 +211,7 @@
 					confirm_hidden.removeAttr('value').attr('value', 'true');
 					check_permit();
 				}
-			})			
-			
-			
+			})
 			function inspectEffect(check, attribute, attribute1, attribute2, name){
 				$('#'+name).remove();
 				$('#'+name+name).remove();

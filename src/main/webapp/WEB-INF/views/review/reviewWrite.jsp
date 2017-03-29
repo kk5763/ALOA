@@ -86,7 +86,7 @@ function checkReviewWrite(){
 			</div>
 		
 			<div id="file_section">		
-				<input type="file" id="itemList" /><input type="button" value="+" onclick="addFile()" />
+				<input type="file" name = "imagelist" id="itemList" /><input type="button" value="+" onclick="addFile()" />
 			</div>
 			
 			<div id="button_section"> 

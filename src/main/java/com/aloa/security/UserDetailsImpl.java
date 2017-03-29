@@ -12,10 +12,17 @@ import com.aloa.account.Account;
 
 public class UserDetailsImpl extends User{
 	
+	private Long id;
 	private String fullName;
 	private String email;
 	
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -32,6 +39,7 @@ public class UserDetailsImpl extends User{
 	
 	public UserDetailsImpl(Account account) {
 		super(account.getEmail(), account.getPassword(), authorities(account));
+		this.id = account.getId();
 		this.fullName = account.getUsername();
 		this.email = account.getEmail();
 	}

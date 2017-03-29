@@ -4,25 +4,66 @@
 		overflow:hidden;
 		margin:50px auto;
 		width:90%;
-		height:850px;
-		background:pink;
+		height:700px;
+		background:#fff;
+		border:1px solid #ccc;
 	}
 	#imageMoveMain{
 		overflow:hidden;
 		width:80%;
-		height:850px;
+		height:700px;
 		background:#000;
-		border:1px solid red;
 		box-sizing:border-box;
 		display:inline-block;
 	}
 	#ReviewMain{
+		overflow:hidden;
 		width:19%;
-		height:850px;
+		height:700px;
 		background:#fff;
-		border:1px solid red;
 		box-sizing:border-box;
 		display:inline-block;
+	}
+	#ReviewName{
+		text-align:center;
+		display:block;
+		padding:5px 0;
+		border-bottom:1px solid #ccc;
+		font-family: sans-serif;
+		font-size:0.8rem;
+	}
+	#ReviewId{
+		display:block;
+		height:50px;
+		padding:5px 0px 0px 15px;
+    	border:1px solid blue;
+	}
+	#ReviewIdName{
+		font-family: sans-serif;
+		font-size:0.8rem;
+		display:inline-block;
+		border:1px solid red;
+	}
+	#ReviewNum{
+		background: url('https://mp-seoul-image-production-s3.mangoplate.com/web/resources/201610207…esktop.png?fit=around|*:*&crop=*:*;*,*&output-format=png&output-quality=80');
+   		background-position: -954px -561px;
+   		width: 9px;
+    	height: 8px;
+	}
+	#ReviewIdImage{
+		width:40px;
+		height:40px;
+		border-radius:50%;
+	}
+	#ReviewContent{
+		display:block;
+		height:500px;
+		padding:0 15px;
+	}
+	#ReviewDate{
+		display:block;
+		padding:0 15px;
+		height:10px;
 	}
 	#imageReviewButtonleft{
 		position:relative;
@@ -68,7 +109,6 @@
 		height:100%;
 	}
 	#imageBottom{
-		border:1px solid blue;
 		height:66px;
 		width:1500px;
 		overflow:hidden;

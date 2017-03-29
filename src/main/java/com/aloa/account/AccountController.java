@@ -1,11 +1,12 @@
 package com.aloa.account;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +21,10 @@ public class AccountController {
 	AccountService accountService;
 	
 	@Autowired
-	ModelMapper modelMapper;
+	AccountRepository accountRepository;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	@RequestMapping(value = "/agreeJoin", method = RequestMethod.GET)
 	public ModelAndView agreeJoin(){
@@ -53,4 +57,33 @@ public class AccountController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value="/accounts/userInfo", method=RequestMethod.GET)
+	public String editAccount(Model model){
+		model.addAttribute("display", "./template/editUserInfo.jsp");
+		return "member/userInfo";
+	}
+	
+	@RequestMapping(value="/accounts/widthdrawalUser", method=RequestMethod.GET)
+	public String widthdrawalUser(Model model){
+		model.addAttribute("display", "./template/widthdrawalUser.jsp");
+		return "member/userInfo";
+	}
+	
+	@RequestMapping(value="/accounts/message", method=RequestMethod.GET)
+	public String message(Model model){
+		model.addAttribute("display", "./template/message.jsp");
+		return "member/userInfo";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

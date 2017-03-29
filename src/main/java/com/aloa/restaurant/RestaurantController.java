@@ -33,14 +33,17 @@ public class RestaurantController {
 	
 	
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(Model model ){
+	public String detailView(Model model){
 		
 		/*Restaurant restaurant = service.findOne(resno);
-		List<ReviewBoardDTO> reviewList = 
+		List<ReviewBoardDTO> reviewlist = 
 				reviewService.reviewList(resno);
 		
-		model.addAttribute("restaurant",restaurant);
-		model.addAttribute("reviewList",reviewList);*/
+		RestaurantDTO resDTO = new RestaurantDTO();
+		resDTO.setReviewlist(reviewlist);
+		resDTO.setRestaurant(restaurant);
+		
+		model.addAttribute("resDTO",resDTO);*/
 		
 		return "detail/detailView";
 	}
@@ -64,5 +67,10 @@ public class RestaurantController {
 	@RequestMapping(value="/reportRes", method=RequestMethod.GET)
 	public String reportRes() {
 		return "detail/reportRes";
+	}
+	
+	@RequestMapping(value="/reportRev", method=RequestMethod.GET)
+	public String reportRev() {
+		return "detail/reportRev";
 	}
 }
