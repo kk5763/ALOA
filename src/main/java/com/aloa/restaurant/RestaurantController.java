@@ -21,8 +21,7 @@ public class RestaurantController {
 	
 	@Autowired
 	private ReviewService reviewService;
-	
-<<<<<<< HEAD
+
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
 	public String detailView(Model model){
 		
@@ -48,10 +47,10 @@ public class RestaurantController {
 <<<<<<< HEAD
 		model.addAttribute("resDTO",resDTO);*/
 		
-=======
+
 		
-		model.addAttribute("resDTO",resDTO);
->>>>>>> d09220f79cf5c2c83de2d047290c3bcf074023bd
+
+
 		return "detail/detailView";
 	}
 	
