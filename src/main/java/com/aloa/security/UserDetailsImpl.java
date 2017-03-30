@@ -16,7 +16,6 @@ public class UserDetailsImpl extends User{
 	private String fullName;
 	private String email;
 	
-	
 	public Long getId() {
 		return id;
 	}

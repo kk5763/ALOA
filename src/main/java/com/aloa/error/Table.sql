@@ -8,7 +8,8 @@ create table account(
   reportCount number default 0,
   server number not null,
   admin number not null,
-  emailauth number not null);
+  emailauth number not null
+  );
   
 create table restaurant(
   resNo number primary key,
@@ -29,7 +30,7 @@ create table restaurant(
   
   create sequence seq_restaurant nocache nocycle;
   
-    create table reviewBoard(
+    create table reviewBoard(  
                 reviewNo number primary key,
                 email varchar(500),
                 resNo number not null,

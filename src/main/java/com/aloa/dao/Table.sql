@@ -25,7 +25,7 @@ create table restaurant(
   request varchar(1000) , 
   createDate date default sysdate,
   CONSTRAINT reference_id foreign key(bossEmail) references account(email)
-);
+);모든 보고서/Data Modeler Reports
   
   create sequence seq_restaurant nocache nocycle;
   
@@ -91,6 +91,7 @@ create table reservation(
 				reservetel varchar(50) not null,
 				reserveemail varchar(100) not null,
 				reserverequest varchar(1000),
+	            reserverno number not null,
 	
 
 				reservedate varchar(50) not null,
