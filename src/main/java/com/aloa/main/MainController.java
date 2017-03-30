@@ -45,6 +45,7 @@ public class MainController {
 		this.facebook = facebook;
 		this.cr = cr;
 	}
+<<<<<<< HEAD
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpSession session) {
@@ -64,6 +65,32 @@ public class MainController {
 		 * session.setAttribute("username", name); }
 		 */
 
+=======
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String home(Model model, HttpSession session){
+		
+		/*if(cr.findPrimaryConnection(Facebook.class)!=null){
+			String[] fields={"id","name","birthday","email","gender"};
+			User user = facebook.fetchObject("me", User.class,fields);  //me 는 로그인한 사용자의 정보. me/friends 하면 친구정보가 나옴
+			String name = user.getName();
+			String id = user.getId();
+			String birthday = user.getBirthday();
+			String email = user.getEmail();
+			String gender = user.getGender();
+	  		
+			
+			model.addAttribute("name", name);
+			model.addAttribute("id", id);
+			model.addAttribute("birthday", birthday);
+			model.addAttribute("email", email);
+			model.addAttribute("gender", gender);
+			
+			
+			session.setAttribute("username", name);
+		}*/
+		
+>>>>>>> 6c9bcb284b5ed401e65d82742b92bf54b9e94d69
 		List<Restaurant> restaurantlist = resService.findList();
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
 
@@ -79,9 +106,27 @@ public class MainController {
 
 			reslist.add(res);
 		}
+<<<<<<< HEAD
 
 		model.addAttribute("reslist", reslist);
 
+=======
+	
+            /*
+            1.레스토랑 정보에대한 리스트 가져왓어요.
+            2.레스토랑DTO에 대한 리스트형태 생성(내용비엇어요),리뷰리스트랑,레스토랑.
+            3.레스토랑리스트에대한 만큼 for문도렷음
+                3.1(
+                        DTO.가맹점정보(restaurant,)
+                        DTO.리뷰리스트(restaurant.reviewlist)
+                    )
+                
+            
+            */
+
+		model.addAttribute("reslist",reslist);
+		
+>>>>>>> 6c9bcb284b5ed401e65d82742b92bf54b9e94d69
 		return "main/home";
 	}
 
