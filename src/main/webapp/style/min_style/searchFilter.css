@@ -9,7 +9,7 @@
 	margin-top:20px;
 	padding-bottom:30px;
 }
-.grade{
+#grade{
 	margin:0 10px;
 	width: 260px;
 	height: 40px;
@@ -21,7 +21,7 @@
 	font-size: 15px;
 	display:inline-block;
 }
-.popularity{
+#popularity{
 	margin:0 10px;
 	width: 260px;
 	heigth: 40px;
@@ -35,12 +35,6 @@
 }
 .priceText{
 	display:inline-block;
-	margin-top:10px;
-}
-.overlapChoice{
-	float:right;
-	color: #CFCFCF;
-	font-size: 13px;
 	margin-top:10px;
 }
 .price{	

@@ -50,7 +50,7 @@ function addFile(){
 		
 		newFileList.appendChild(newFile); 
 	}else{
-		alert("이미지를 5개이상 등록하실수 업습니다.");
+		alert("이미지를 5개 이상 등록하실 수 없습니다.");
 	}
 	
 }
@@ -66,16 +66,26 @@ function checkReviewWrite(){
 	if(document.getElementById("grade-score").value=="0"){
 		alert("점수를 등록하세요");
 	}else{
-		alert("리뷰가 등록되엇습니다.");
+		alert("리뷰가 등록되었습니다.");
 		document.reviewWriteForm.submit();
 		window.close();
 	}
 	
 }
+
+function checkReviewWrite(){
+	if(document.reviewWriteForm.content_section.value == ""){
+		alert("내용을 입력하세요")
+	}else{
+		alert("등록되었습니다")
+		document.reviewWriteForm.submit();
+	}
+}
+
 </script>
 </head>
 <body>
-	<form name="reviewWriteForm" method="post" enctype="multipart/form-data" action="/reviewWrite">
+	<form name="reviewWriteForm" method="POST" enctype="multipart/form-data" action="/reviewWrite">
 		<div id="main_section">
 			<input type="hidden" name="resno" value="${resno}">
 			<input type="hidden" name="email" value="<sec:authentication property="principal.email"/>">

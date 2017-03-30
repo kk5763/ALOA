@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,11 +22,9 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	
-	
-	
-	@RequestMapping(value="/detailView",method=RequestMethod.POST)
+	@RequestMapping(value="/detailView",method=RequestMethod.GET)
 	public String detailView(int resno,Model model){
+		
 		Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewlist = 
 				reviewService.reviewList(resno);
@@ -41,7 +40,6 @@ public class RestaurantController {
 
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
 	public String detailViewImage(Model model ){
-		
 		
 		return "detail/detailViewImage";
 	}

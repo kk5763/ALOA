@@ -1,4 +1,4 @@
-create table account(
+﻿create table account(
   username varchar(500) not null ,
   email varchar(500) primary key,
   password varchar(500) not null,
@@ -25,21 +25,20 @@ create table restaurant(
   request varchar(1000) , 
   createDate date default sysdate,
   CONSTRAINT reference_id foreign key(bossEmail) references account(email)
-);
+);모든 보고서/Data Modeler Reports
   
   create sequence seq_restaurant nocache nocycle;
   
-    create table reviewBoard(
-                reviewNo number primary key,
-                email varchar(500),
-                resNo number not null,
-                content varchar(100),
-                createDate date default sysdate,
-                grade number not null,
-                image varchar(500) not null,
-                constraint reference_resNo foreign key(resNo) references restaurant(resNo),
-                constraint reference_id2 foreign key(email) references account(email)
-                );
+create table reviewBoard(
+    reviewNo number primary key,
+    email varchar(500),
+    resNo number not null,
+    content varchar(100),
+    createDate date default sysdate,
+    grade number not null,
+    constraint reference_resNo foreign key(resNo) references restaurant(resNo),
+    constraint reference_id2 foreign key(email) references account(email)
+);
  
 create sequence seq_reviewNo nocache nocycle;
 
@@ -71,6 +70,13 @@ create table ReportRes(
   );
   
   
+  create table imageBoard(
+                image varchar(200),
+                reviewNo number not null,
+                resno number not null,
+                constraint reference_resno1 foreign key(resno) references Restaurant(resno),
+                constraint reference_reviewNo1 foreign key(reviewNo) references reviewBoard(reviewNo));
+              
 create table bookMark(
                 resNo number,
                 member varchar(50),
@@ -84,12 +90,12 @@ create table reservation(
 				reservename varchar(50) not null,
 				reservetel varchar(50) not null,
 				reserveemail varchar(100) not null,
-				reserverequest varchar(1000) not null,
-				reserverno number not null,
-				reserveid number not null,
+				reserverequest varchar(1000),
+	            		reserverno number not null,
 				reservedate varchar(50) not null,
-				reservetime varchar(10) not null, 
+				reservetime varchar(50) not null, 
 				reservenumber varchar(10) not null,
-				reserveaddress varchar(200) not null
-
+				reserveaddress varchar(200) not null;
+			
 );
+ 

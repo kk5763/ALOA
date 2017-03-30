@@ -6,8 +6,9 @@ import com.aloa.review.Reviewboard;
 
 public class RestaurantDTO {
 	
-	private Restaurant restaurant;
-	private List<Reviewboard> reviewlist;
+	private Restaurant restaurant; // Restaurant - DTO
+	private List<Reviewboard> reviewlist; // Restaurant - Image
+	
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
