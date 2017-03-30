@@ -50,6 +50,11 @@ public class ReservationController {
 		return "main/home";//예약현황 가져옴(메시지)
 	}*/
 	
+	@RequestMapping(value="/reservationView", method=RequestMethod.GET)
+	public String reservationView(Model model){
+
+		return "member/template/reservationView";
+	}
 	
 	
 }
