@@ -30,4 +30,8 @@
 	<select id="showStoreReservation" parameterType="String">
     	select * from reservation where reservename = #{storeName}
     </select>
+    
+    <select id="showReservationList" parameterType="String">
+    	select * from reservation where reserveid = #{id}
+    </select>
 </mapper>
