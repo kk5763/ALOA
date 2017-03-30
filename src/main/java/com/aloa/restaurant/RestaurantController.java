@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,8 +25,8 @@ public class RestaurantController {
 	
 	
 	
-	@RequestMapping(value="/detailView",method=RequestMethod.POST)
-	public String detailView(int resno,Model model){
+	@RequestMapping(value="/detailView/{resno}")
+	public String detailView(@PathVariable int resno,Model model){
 		Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewlist = 
 				reviewService.reviewList(resno);
@@ -33,6 +34,7 @@ public class RestaurantController {
 		RestaurantDTO resDTO = new RestaurantDTO();
 		resDTO.setReviewlist(reviewlist);
 		resDTO.setRestaurant(restaurant);
+		
 		
 		model.addAttribute("resDTO",resDTO);
 		return "detail/detailView";

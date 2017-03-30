@@ -22,6 +22,7 @@
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
 	}
+	
 	function reviewWrite(){
 			window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
 				"dataForm",
@@ -54,7 +55,7 @@ ${reslist.get(0).reviewlist.image }
 					<p class="wannago-txt">가고싶다</p>
 				</div>
 				<h1 class="title">
-					<span class="name">파씨오네</span> <span class="rate-point">4.6</span>
+					<span class="name" >${resDTO.restaurant.resname}</span> <span class="rate-point">4.6</span>
 				</h1>
 			</div>
 
@@ -76,35 +77,35 @@ ${reslist.get(0).reviewlist.image }
 			<tbody>
 				<tr>
 					<th class="show">주소:</th>
-					<td>서울시 강남구 신사동 646-23</td>
+					<td>${resDTO.restaurant.resaddress}</td>
 				</tr>
 				<tr>
 					<th class="show">전화번호:</th>
-					<td>02-546-7719</td>
+					<td>${resDTO.restaurant.restel}</td>
 				</tr>
 				<tr>
 					<th class="show">음식 종류:</th>
-					<td>프랑스 음식</td>
+					<td>${resDTO.restaurant.reskind}</td>
 				</tr>
 				<tr>
 					<th class="show">가격대:</th>
-					<td>4만원 이상</td>
+					<td>${resDTO.restaurant.resprice}</td>
 				</tr>
 				<tr>
 					<th class="show">주차:</th>
-					<td>발렛</td>
+					<td>${resDTO.restaurant.resparking}</td>
 				</tr>
 				<tr>
 					<th class="show">영업시간:</th>
-					<td>12:00~22:00</td>
+					<td>${resDTO.restaurant.ressaletime}</td>
 				</tr>
 				<tr>
 					<th class="show">쉬는시간:</th>
-					<td>15:00~18:00</td>
+					<td>${resDTO.restaurant.resrest}</td>
 				</tr>
 				<tr>
 					<th class="show">휴일:</th>
-					<td>일</td>
+					<td>${resDTO.restaurant.resholiday}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -228,6 +229,8 @@ ${reslist.get(0).reviewlist.image }
 		<div id="map"></div>
 		<!-- 네이버 지도 API -->
 		<script>
+			var address = '${resDTO.restaurant.resaddress}';
+							
 			var MARKER_SPRITE_POSITION = {
 				"A0" : [ 0, 0 ]
 			};
@@ -313,7 +316,7 @@ ${reslist.get(0).reviewlist.image }
 								});
 			}// function
 			
-			naver.maps.onJSContentLoaded = searchAddressToCoordinate('경기도 부천시 원미구');
+			naver.maps.onJSContentLoaded = searchAddressToCoordinate(address);
 			
 			function getClickHandler(seq) { // 마커를 클릭 했을 때
 				return function(e) {

@@ -43,10 +43,16 @@
 	</style>
 	
 <script type="text/javascript">
-function godetail(){
-	document.detailList.submit();
-	
-}
+
+$(document).ready(function(e){
+	$('body').on('click', '#img_div img', function(e){
+		var tg = e.target.id;
+		
+		$('#detailList_form').attr('action', '/detailView/'+tg);
+		
+		$('#detailList_form').submit();
+	})
+})
 </script>
 
 </head>
@@ -103,58 +109,46 @@ function godetail(){
 	</nav>
 </form>
 <br><br>
-<form name="detailList" action="/detailView" method="POST">
+<form id="detailList_form" method="GET" name="detailList"><!--  action="/detailView" method="GET" -->
 <div class="container">
 	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].restaurant.resno!=null}">
-		<a href="#" onclick ="godetail()">reslist</a><input type="hidden" name="resno" value="${reslist[0].restaurant.resno}"/>
+	
+		<%-- 
+		 <c:forEach var="i" begin="1" end="${reslist.size()}" step="1">
+				<input type="hidden" name="resno" value="${reslist[i].restaurant.resno}"/>
+				<input type="hidden" name="resname" value="${reslist[i].restaurant.resname}"/>
+				<input type="hidden" name="resaddress" value="${reslist[i].restaurant.resaddress}"/>
+				<input type="hidden" name="restel" value="${reslist[i].restaurant.restel}"/>
+				<input type="hidden" name="reskind" value="${reslist[i].restaurant.reskind}"/>
+				<input type="hidden" name="resprice" value="${reslist[i].restaurant.resprice}"/>
+				<input type="hidden" name="resparking" value="${reslist[i].restaurant.resparking}"/>
+				<input type="hidden" name="ressaletime" value="${reslist[i].restaurant.ressaletime}"/>
+				<input type="hidden" name="resrest" value="${reslist[i].restaurant.resrest}"/>
+				<input type="hidden" name="resholiday" value="${reslist[i].restaurant.resholiday}"/>
+													
+			</c:forEach>							
+												 --%>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></c:if></h3>
-	<div class="center-block slider1">
-		<div class="slide">
-			<a href="#">
-				<img src="https://source.unsplash.com/random" style="height: 300px;">
-				가게 이름 설명<br>
-				별점
-			</a>
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
+	
+	
+	<div id="img_div" class="center-block slider1">
+	<c:forEach var="i" begin="1" end="${reslist.size()}" step="1">
+		
+			<div class="slide">
+				<a href="#">
+				
+					<img id="${reslist[i-1].restaurant.resno}" src="<%-- ${reslist[0].reviewlist.image} --%>" style="height: 300px; ">
+					<h4>${reslist[i-1].restaurant.resname}<br></h4>
+					별점
+				</a>
+				
+			</div>
+	</c:forEach>
+	
 	</div>
+
 </div>
 </form>
-<div class="container">
-	<h3>실시간 추천 맛집 리스트</h3>
-	<div class="center-block slider1">
-		<div class="slide">
-			<a href="#">
-				<img src="https://source.unsplash.com/random" style="height: 300px;">
-				가게 이름 설명<br>
-				별점
-			</a>
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;">
-		</div>
-	</div>
-</div>
 
 <!-- 검색창 포커스(블러)시 배경화면 변경 -->
 <div id="search_div" style="background-color:rgba(0,0,0,0.90); position:absolute; top:0px; left:0px; width:100%; height:150%; display:none;"></div>
