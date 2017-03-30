@@ -72,6 +72,16 @@ function checkReviewWrite(){
 	}
 	
 }
+
+function checkReviewWrite(){
+	if(document.reviewWriteForm.content_section.value == ""){
+		alert("내용을 입력하세요")
+	}else{
+		alert("등록되었습니다")
+		document.reviewWriteForm.submit();
+	}
+}
+
 </script>
 </head>
 <body>
