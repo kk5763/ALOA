@@ -22,6 +22,7 @@ public class ReservationController {
 
 	@RequestMapping(value="/reservation",method=RequestMethod.GET)
 	public String reserveView(HttpSession session, Model model){
+	
 		
 		return "reserve/reservation";
 	}

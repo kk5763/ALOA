@@ -29,6 +29,11 @@
 				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
 		
 	}
+	
+	function 11(){
+		
+	
+}
 </script>
 </head>
 <!-- 상단영역 -->
@@ -52,19 +57,20 @@ ${reslist.get(0).reviewlist.image }
 			<div class="restaurant-title">
 				<div class="wannago-wrapper">
 					<button class="wannago-bt"></button>
-					<p class="wannago-txt">가고싶다</p>
+					<p class="wannago-txt">신고하기</p>
 				</div>
 				<h1 class="title">
 					<span class="name" >${resDTO.restaurant.resname}</span> <span class="rate-point">4.6</span>
 				</h1>
+				
+				
 			</div>
 
 			<div class="restaurant-status">
-				<span class="hit"> <span class="hidden">조회수:</span> 24,013
-				</span> <span class="review"> <span class="hidden">리뷰수:</span> 32
-				</span> <span class="favorite"> <span class="hidden">가고싶다수 :
-				</span> 1,477
-				</span>
+					<div class="review-bt-wrap">
+						<a href="#" class="review-bt" onclick="reviewWrite()">예  약</a>
+					</div>			
+								
 			</div>
 
 			<div class="reportRes-button">

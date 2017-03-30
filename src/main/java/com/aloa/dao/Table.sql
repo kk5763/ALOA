@@ -97,7 +97,7 @@ create table reservation(
 				reservedate varchar(50) not null,
 				reservetime varchar(50) not null, 
 				reservenumber varchar(10) not null,
-				reserveaddress varchar(200) not null;
+				reserveaddress varchar(200) not null
 			
 );
                 
