@@ -67,7 +67,6 @@ public class MainController {
 			session.setAttribute("username", name);
 		}*/
 		
-<<<<<<< HEAD
 		List<Restaurant> restaurantlist = resService.findList();
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
 		
@@ -83,26 +82,7 @@ public class MainController {
 			
 			reslist.add(res);
 		}
-=======
-		List<Restaurant> restaurantlist =resService.findList();
-		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
-		
 	
-		
-			for(int i=0;i<restaurantlist.size();i++){
-				//맛집의 이미지 가져오기
-				List<Reviewboard> reviewlist=revService.reviewList(restaurantlist.get(i).getResno());
-				
-				//레스토랑DTO에 넣기
-				RestaurantDTO res = new RestaurantDTO();
-				
-				res.setReviewlist(reviewlist);
-				res.setRestaurant(restaurantlist.get(i));
-				
-				reslist.add(res);
-				
-			}
-<<<<<<< HEAD
             /*
             1.레스토랑 정보에대한 리스트 가져왓어요.
             2.레스토랑DTO에 대한 리스트형태 생성(내용비엇어요),리뷰리스트랑,레스토랑.
@@ -115,10 +95,6 @@ public class MainController {
             
             */
 
-=======
->>>>>>> b69b2aab6346bfbc90ae60859fcd74940dfb1f9d
-		
->>>>>>> 3347a8f2087626f7763eae7ea24f2913c1a133c3
 		model.addAttribute("reslist",reslist);
 		
 		return "main/home";
