@@ -53,35 +53,4 @@ public class AloaApplication {
 	public PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
-	
-	/*@Bean
-	public MultipartConfigElement multipartConfigElement(){
-		
-		
-		return new MultipartConfigElement();
-	}*/
-	
-	@Bean
-	public MultipartConfigElement multipartConfigElement() {
-		 MultipartConfigFactory factory = new MultipartConfigFactory();
-
-		 factory.setMaxFileSize(10000000);
-/*		 factory.setMaxRequestSize(-1);
-*/
-		 return factory.createMultipartConfig();
-	 }
-	
-
-	@Bean
-	public MultipartResolver multipartResolver() {
-	    return new StandardServletMultipartResolver();
-	}
-
-
-
-
-	
-	
-	
-	
 }

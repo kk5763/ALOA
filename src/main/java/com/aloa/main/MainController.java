@@ -84,6 +84,7 @@ public class MainController {
 			reslist.add(res);
 		}
 
+
 	
 		
 			for(int i=0;i<restaurantlist.size();i++){
@@ -99,6 +100,7 @@ public class MainController {
 				reslist.add(res);
 				
 			}
+
 
             /*
             1.레스토랑 정보에대한 리스트 가져왓어요.

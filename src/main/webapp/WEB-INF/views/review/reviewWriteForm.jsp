@@ -85,7 +85,7 @@ function checkReviewWrite(){
 </script>
 </head>
 <body>
-	<form name="reviewWriteForm" method="post" enctype="multipart/form-data" action="/reviewWrite">
+	<form name="reviewWriteForm" method="POST" enctype="multipart/form-data" action="/reviewWrite">
 		<div id="main_section">
 			<input type="hidden" name="resno" value="${resno}">
 			<input type="hidden" name="email" value="<sec:authentication property="principal.email"/>">
