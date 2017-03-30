@@ -18,28 +18,61 @@
 	}
 </script>
 </head>
+<script type="text/javascript">
+	function search(mode) {
+		var grade = document.getElementById('grade');
+		var popularity = document.getElementById('popularity');
+		
+		if(mode == 1) {
+			grade.style['border'] = "2px solid tomato";
+			grade.style['color'] = 'tomato';
+			
+			popularity.style['border'] = "1px solid #CFCFCF";
+			popularity.style['color'] = "#CFCFCF";
+		} else if(mode == 2) {
+			grade.style['border'] = "1px solid #CFCFCF";
+			grade.style['color'] = '#CFCFCF';
+			
+			popularity.style['border'] = "2px solid tomato";
+			popularity.style['color'] = "tomato";
+		}
+	}// search
+	
+	function price(mode){
+		var money = document.getElementsByClassName('money');
+		
+		for(i = 0; i < money.length; i++) {
+			money[i].style['border'] = "3px solid #CFCFCF";
+			money[i].style['color'] = "#CFCFCF";
+		}
+		
+		var selected = document.getElementById(mode);
+		
+		selected.style['border'] = "3px solid tomato";
+		selected.style['color'] = "tomato";
+	}// price
+	
+</script>
 <body>
 	<div id="filter">
 		<!-- 검색 필터 -->
 		<div class="searchFilterText">검색 필터</div>
 		<div class="searchFilter">
-			<div class="grade">평점순</div>
-			<div class="popularity">인기순</div>
+			<div id="grade" onclick="search(1)">평점순</div>
+			<div id="popularity" onclick="search(2)">인기순</div>
 		</div>
 		
 		<!-- 가격/1인당 -->
 		<div class="priceText">가격/1인당</div>
-		<div class="overlapChoice">중복 선택 가능</div>
 		<div class="price">
-			<div class="money">만원미만</div>
-			<div class="money">1만원대</div>
-			<div class="money">2만원대</div>
-			<div class="money">3만원대</div>
+			<div class="money" id="zero" onclick="price('zero')">만원미만</div>
+			<div class="money" id="one" onclick="price('one')">1만원대</div>
+			<div class="money" id="two" onclick="price('two')">2만원대</div>
+			<div class="money" id="three" onclick="price('three')">3만원 이상</div>
 		</div>
-		
+			
 		<!-- 지역 -->
 		<div class="areaText">지역</div>
-		<div class="overlapChoice">중복 선택 가능</div>
 		<div class="area">
 			<div class="areaName">
 			  <div class="areaNameTitle" onclick="openCity('aa')">강남</div>
@@ -117,7 +150,6 @@
 		
 		<!-- 음식종류 -->
 		<div class="foodTypeText">음식종류</div>
-		<div class="overlapChoice">중복 선택 가능</div>
 		<div class="foodType">
 			<div class="foodTypeName" id="koreanFood">
 				<img src="/resources/images/min_image/koreanFood_off.PNG" 

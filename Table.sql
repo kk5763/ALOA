@@ -29,16 +29,16 @@ create table restaurant(
   
   create sequence seq_restaurant nocache nocycle;
   
-    create table reviewBoard(
-                reviewNo number primary key,
-                email varchar(500),
-                resNo number not null,
-                content varchar(100),
-                createDate date default sysdate,
-                grade number not null,
-                constraint reference_resNo foreign key(resNo) references restaurant(resNo),
-                constraint reference_id2 foreign key(email) references account(email)
-                );
+create table reviewBoard(
+    reviewNo number primary key,
+    email varchar(500),
+    resNo number not null,
+    content varchar(100),
+    createDate date default sysdate,
+    grade number not null,
+    constraint reference_resNo foreign key(resNo) references restaurant(resNo),
+    constraint reference_id2 foreign key(email) references account(email)
+);
  
 create sequence seq_reviewNo nocache nocycle;
 

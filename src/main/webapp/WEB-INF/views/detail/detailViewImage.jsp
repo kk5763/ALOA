@@ -13,7 +13,7 @@ window.onload = function() { dudung(1); }
  var bb;
  var num = 1;//사진번호 초기값 전역변수
  function dudung(su) {
-	 num = su;//num값 su로 초기화
+	num = su;//num값 su로 초기화
 	var smallImage = document.getElementsByClassName("smallImage"); //smallImage클래스를 배열로 저장
 	for(i=0; i<smallImage.length; i++){//투명도 초기화
 		smallImage[i].style.opacity="0.5";
@@ -29,8 +29,7 @@ window.onload = function() { dudung(1); }
  }
  
 /* 슬라이드 버튼 이동 */
-function nextGallery()
-{	 
+function nextGallery() {	 
 	num++;//num에서 1씩증가
 	dudung(num);//함수호출
 	
@@ -38,13 +37,9 @@ function nextGallery()
 	
 	var elem01 = document.getElementById("imageCenter_img");//개체설정
 	elem01.src = "/resources/images/detailView_Image/imageCenter_"+num+".jpg";	
-	
-	//document.getElementById("imageBottom").animate({left:-130},500);
-	
 }
 
-function prevGallery()
-{
+function prevGallery() {
 	num--;//num에서 1씩감소
 	dudung(num);//함수호출
 	if(num < 1) num = 30;//num이 1을 넘어가면 30로돌아가~

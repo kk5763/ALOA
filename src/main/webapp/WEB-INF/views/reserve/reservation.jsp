@@ -15,15 +15,16 @@
 <!-- // jQuery UI CSS파일  -->
 <link rel="stylesheet" href="/style/h_style/jquery-ui.css" type="text/css" /> 
 <link rel="" href="/style/h_style/jquery-ui.css" type="text/css" /> 
+<!-- toast 알림창 -->
+<link rel="stylesheet" href="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.css" />
+<script src="//code.jquery.com/jquery-1.6.3.min.js"></script>
+<script src="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.js"></script>
 <!-- // jQuery UI 라이브러리 js파일 -->
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
 <script src="/style/h_style/angular.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 
-<!-- toast 알림창 -->
-<link rel="stylesheet" href="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.css" />
-<script src="//code.jquery.com/jquery-1.6.3.min.js"></script>
-<script src="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.js"></script>
+
 
 <script type="text/javascript">
 

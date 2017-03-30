@@ -7,7 +7,7 @@ body{
 .main_section{
 	float: left;
 	width:800px;
-	margin-left:11.5%;
+	margin-left:24%;
 }
 	
 .subject_filter{
@@ -33,26 +33,6 @@ h2{
 	text-decoration: none;
 	color: #7A7A7A;
 	cursor: pointer;
-}
-
-.list{
-	margin-bottom: 15px;
-	padding:5px;
-	line-height:35px;
-	border:1px solid #CFCFCF;
-	padding-left:15px;
-}
-
-.list a{
-	text-decoration:none;
-	color: #7A7A7A;
-	font-size: 14px;
-}
-
-.list span{
-	text-decoration: none;
-	color: #CFCFCF;
-	font-size:12px;
 }
 
 .content{
@@ -103,6 +83,7 @@ h2{
 
 .pageNumber{
 	margin-top: 50px;
+	margin-bottom: 100px;
 }
 
 .pageNumber .page{
@@ -120,41 +101,4 @@ h2{
 .pageNumber img{
 	width: 50px;
 	height: 50px;
-}
-
-aside{
-	width: 400px;
-	height: 1500px;
-	/* border: 1px solid black; */
-	float: right;
-}
-
-aside #map{
-	width: 400px;
-	height: 500px;
-	border-bottom: 1px solid #CFCFCF;
-}
-
-aside .top_list{
-	background: #F3F3F3;
-	height: 698px;
-	border-bottom: 1px solid #CFCFCF;
-}
-
-aside .surrounding_area{
-	background: #F3F3F3;
-	height: 300px;
-}
-	
-footer{
-	width: 100%;
-	height: 500px;
-	background:#666;
-	margin: auto;
-	clear: both;
-}
-
-#aaa{
-	size:100px;
-	
 }
