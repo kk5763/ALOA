@@ -3,6 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <ul class="nav nav-tabs nav-justified" id="nav_profile_withdrawal">
   <li role="presentation"><a href="/accounts/message" style="cursor:pointer;">메세지</a></li>
+  <li role="presentation"><a href="/accounts/reservation" style="cursor:pointer;">예약 정보</a></li>
   <li role="presentation" id="presen_pro" class="active"><a id="profile_a" style="cursor:pointer;">프로필 / 계정관리</a></li>
   <li role="presentation" id="presen_width"><a href="/accounts/widthdrawalUser" id="widthdrawal_a" style="cursor:pointer;">회원탈퇴</a></li>
 </ul>

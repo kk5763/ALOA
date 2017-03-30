@@ -23,11 +23,12 @@
 	
 	</header>
 	
+	
+	
 	<!-- 본문 -->
 	<section class="main_section">
-		
 		<div class="subject_filter">
-			<h2>이태원 맛집 인기 검색순위</h2>
+			<h2>${searchName } 맛집 인기 검색순위</h2>
 			
 			<span class="filter" onclick="openFilter()">
 				<img src="/resources/images/min_image/filter.PNG"/>
@@ -50,57 +51,44 @@
 		</div>
 		
 		<div class="content">
-		
-			<div class=both_div>
-		<c:if test="${list!=null }">
-			<c:forEach var="RestaurantDTO" items="${list }">
-				<div class="left_div">
-					<img class="main_img" src="/resources/images/min_image/bubbleAndCockles.PNG" />
-					<p class="title">$(RestaurantDTO.resname)&nbsp;&nbsp;<span class="point">4.8</span></p>
-					<p class="info">이태원/한남동 - <span class="keywords">시푸드 요리</span></p>
-					<p class="view_review">
-						<img src="/resources/images/min_image/view.PNG" /><span class="view">12,011</span>&nbsp;&nbsp;
-						<img src="/resources/images/min_image/review.PNG" /><span class="review">16</span>
-					</p>
-				</div>
-				
-				<div class="right_div">
-					<img class="main_img" src="/resources/images/min_image/ryePost.PNG" />
-					<p class="title">라이포스트&nbsp;&nbsp;<span class="point">4.6</span></p>
-					<p class="info">이태원/한남동 - <span class="keywords">브런치 / 버거 / 샌드위치</span></p>
-					<p class="view_review">
-						<img src="/resources/images/min_image/view.PNG" /><span class="view">135,011</span>&nbsp;&nbsp;
-						<img src="/resources/images/min_image/review.PNG" /><span class="review">231</span>
-					</p>
-				</div>
-			
-				</div>
-			</c:forEach>
-		</c:if>
-			
-			<div class=both_div>
-			
-				<div class="left_div">
-					<img class="main_img" src="/resources/images/min_image/downTowner.PNG" />
-					<p class="title">다운타우너&nbsp;&nbsp;<span class="point">4.6</span></p>
-					<p class="info">이태원/한남동 - <span class="keywords">브런치 / 버거 / 샌드위치</span></p>
-					<p class="view_review">
-						<img src="/resources/images/min_image/view.PNG" /><span class="view">64,173</span>&nbsp;&nbsp;
-						<img src="/resources/images/min_image/review.PNG" /><span class="review">126</span>
-					</p>
-				</div>	
-				
-				<div class="right_div">
-					<img class="main_img" src="/resources/images/min_image/manimalSmokeHouse.PNG" />
-					<p class="title">매니멀스모크하우스&nbsp;&nbsp;<span class="point">4.6</span></p>
-					<p class="info">이태원/한남동 - <span class="keywords">스테이크 / 바베큐</span></p>
-					<p class="view_review">
-						<img src="/resources/images/min_image/view.PNG" /><span class="view">101,301</span>&nbsp;&nbsp;
-						<img src="/resources/images/min_image/review.PNG" /><span class="review">88</span>
-					</p>
-				</div>		
-			
-			</div>	
+			<c:if test="${resList != null }">
+				<!-- 검색한 식당의 수 만큼 반복 3 -->
+				<c:forEach var="dto" items="${resList }" varStatus="status">
+					<c:if test="${status.index % 2 == 0}">
+						<div class="left_div">
+							<c:if test="${dto.reviewlist[0].image != null }">
+								<img class="main_img" src="${dto.reviewlist[0].image }" />
+							</c:if>
+							<c:if test="${dto.reviewlist[0].image == null }">
+								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" />
+							</c:if>
+							<p class="title">${dto.restaurant.resname }&nbsp;&nbsp;<span class="point">${dto.reviewlist[0].grade }</span></p>
+							<p class="info">${dto.restaurant.resaddress } - <span class="keywords">${dto.restaurant.reskind }</span></p>
+							<p class="view_review">
+								<img src="/resources/images/min_image/view.PNG" /><span class="view">12,011</span>&nbsp;&nbsp;
+								<img src="/resources/images/min_image/review.PNG" /><span class="review">${resReviewCount }</span>
+							</p>
+						</div>
+					</c:if>
+					
+					<c:if test="${status.index % 2 == 1}">
+						<div class="right_div">
+							<c:if test="${dto.reviewlist[0].image != null }">
+								<img class="main_img" src="${dto.reviewlist[0].image }" />
+							</c:if>
+							<c:if test="${dto.reviewlist[0].image == null }">
+								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" />
+							</c:if>
+							<p class="title">${dto.restaurant.resname }&nbsp;&nbsp;<span class="point">${dto.reviewlist[0].grade }</span></p>
+							<p class="info">${dto.restaurant.resaddress } - <span class="keywords">${dto.restaurant.reskind }</span></p>
+							<p class="view_review">
+								<img src="/resources/images/min_image/view.PNG" /><span class="view">12,011</span>&nbsp;&nbsp;
+								<img src="/resources/images/min_image/review.PNG" /><span class="review">${resReviewCount }</span>
+							</p>
+						</div>
+					</c:if>
+				</c:forEach>
+			</c:if>
 			
 			<div class="pageNumber">
 				<div class="page">1</div>

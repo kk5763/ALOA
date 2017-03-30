@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Hello WebSocket</title>
+    <link rel="stylesheet" href="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.css" />
+    <script src="//rawgit.com/Soldier-B/jquery.toast/master/jquery.toast/jquery.toast.min.js"></script>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/websocket/main.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
