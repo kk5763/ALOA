@@ -21,33 +21,23 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	
-	
-	
-<<<<<<< HEAD
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
 	public String detailView(Model model){
 		
 		/*Restaurant restaurant = service.findOne(resno);
 		List<ReviewBoardDTO> reviewlist = 
-=======
 	@RequestMapping(value="/detailView",method=RequestMethod.POST)
 	public String detailView(int resno,Model model){
 		Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewlist = 
->>>>>>> 33afe946e4c2a77632e99c94d9ccc520243f9cdf
 				reviewService.reviewList(resno);
 		
 		RestaurantDTO resDTO = new RestaurantDTO();
 		resDTO.setReviewlist(reviewlist);
 		resDTO.setRestaurant(restaurant);
 		
-<<<<<<< HEAD
 		model.addAttribute("resDTO",resDTO);*/
 		
-=======
-		model.addAttribute("resDTO",resDTO);
->>>>>>> 33afe946e4c2a77632e99c94d9ccc520243f9cdf
 		return "detail/detailView";
 	}
 	
