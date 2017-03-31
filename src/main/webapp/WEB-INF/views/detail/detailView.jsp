@@ -113,21 +113,20 @@ ${reslist.get(0).reviewlist.image }
 	</div>
 	<div class="review-bt-div">
 		<div class="review-bt-wrap">
-		<c:if test="${resDTO.restaurant.resno!=null }">
-			<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
-		</c:if>
-		<c:if test="${resDTO.restaurant.resno==null }">
-			<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
-		</c:if>
+			<c:if test="${resDTO.restaurant.resno!=null }">
+				<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+			</c:if>
+			<c:if test="${resDTO.restaurant.resno==null }">
+				<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
+			</c:if>	
+		</div><!-- review-bt-wrap -->
 		
-		
-		</div>
 		<div class="restaurant-status" id="detailView">
 			<div class="review-bt-wrap">
 				<a href="#" class="review-bt" onclick="reservation()">예  약</a>
 			</div>							
 		</div>
-	</div>
+	</div><!-- review-bt-div -->
 	
 	
 	<!-- 리뷰 -->
