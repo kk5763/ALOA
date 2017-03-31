@@ -3,35 +3,6 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-<script type="text/javascript">
-function check(){
-	if(document.storejoin.resname.value=="")
-		alert("이름을 입력하세요 ");
-	else if(document.storejoin.resaddress.value=="")
-		alert("주소를 입력하세요");
-	else if(document.storejoin.restel.value=="")
-		alert("전화번호를 입력하세요");
-	else if(document.storejoin.reskind.value=="")
-		alert("음식종류를 입력하세요");
-	else if(document.storejoin.resprice.value=="")
-		alert("평균가격을 입력하세요");
-	else if(document.storejoin.resparking.value=="")
-		alert("주차가능여부를 입력하세요");
-	else if(document.storejoin.ressaletime.value=="")
-		alert("영업시간을 입력하세요 ");
-	else if(document.storejoin.resrest.value=="")
-		alert("쉬는시간을 입력하세요");
-	else if(document.storejoin.resholiday.value=="")
-		alert("휴일을 입력하세요");
-
-	else {
-		alert("가맹점 신청이 완료되었습니다.");
-		document.storejoin.submit();
-			 
-	}
-}
-</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -43,7 +14,7 @@ function check(){
 
 <div id="container">
 
-<div id="header"><h1 align="center" ><br><br><br>가맹점 신청     </h1></div>
+<div id="header"><h1 align="center" ><br><br><br>Ex)가맹점 신청     </h1></div>
 
 <div id="content">
 
@@ -56,8 +27,7 @@ function check(){
 							<h3 class="out_tit">
 							
 							
-								<span> <span >예약</span>자
-									정보
+								<span> <span >가맹점정보입력</span>
 								</span> <span class="help_txt"> <i class="spr_book ico_nessasary" aria-hidden="true"></i> <span>예시사항</span>
 								</span>
 							</h3>
@@ -146,8 +116,9 @@ function check(){
 									</div>
 									<!---->
 									<br>
-									<h3>입점신청은 위와 같은 형식으로 sbxjdnjs10@naver.com으로 문의해주시기 바랍니다.</h3><br>
-									<h3>가게에 관련한 사진 5장을 꼭 첨부해주시기 바랍니다.</h3>
+									<h3>입점신청은 위와 같은 형식으로 sbxjdnjs10@naver.com으로 문의해주시기 바랍니다.</h3>
+									<h5>가게에 관련한 사진 5장을 첨부하셔야 등록이 가능합니다.</h5>
+									<h5>회원가입하신 이메일을 기재하셔야 등록이 가능합니다.</h5>
 							</div>
 							</bk-input-form>
 						</div><!-- section_booking_form -->
