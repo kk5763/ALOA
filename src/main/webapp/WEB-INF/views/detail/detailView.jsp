@@ -30,10 +30,11 @@
 				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
 		
 	}
+	
 	function reservation(){
 		window.open("http://localhost:8000/reservation?resno=${resDTO.restaurant.resno}",
 				"reservation",
-				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=1000, height=700");
 	}
 	
 </script>

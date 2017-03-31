@@ -108,26 +108,32 @@ drop table bookmark purge;
 drop table reservation purge;
 
 
-
-
-
-
-
-
-
-
-
-맛집등록
-	맛집제목	ㅇㄴㄻㄴㄹ
-	ㄴㅇ러	ㄴㅇ러ㅏ
-	ㄴ어란	ㅇㄴ러ㅏ
-	ㄴㅇ러ㅏ	ㄴㅇ러ㅏ
-	
-	image1	맛집이름명_1
-	image2	맛집이름명_2
-	image3	맛집이름명_3
-	image4	맛집이름명_4
-	image5	맛집이름명_5
-	
-
-
+insert into restaurant(resno
+    		,resname
+    		,bossemail
+    		,resaddress
+    		,restel
+    		,reskind
+    		,resprice
+    		,resparking
+    		,ressaletime
+    		,resrest
+    		,resholiday
+    		,request
+    		,createdate)values(seq_restaurant.nextval
+    		,'dhdh'
+    		,'sbxjdnjs10@naver.com'
+    		,'df'
+    		,010
+    		,'sdf'
+    		,'sdf'
+    		,'sdf'
+    		,'zxcv'
+    		,'zxcv'
+    		,'zxv'
+    		,'xcv'
+    		,sysdate
+    	);
+      select * from restaurant;
+      
+      commit;
