@@ -21,16 +21,10 @@ public class RestaurantController {
 	
 	@Autowired
 	private ReviewService reviewService;
-<<<<<<< HEAD
-
-	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(int resno,Model model){
-=======
 	
 	@RequestMapping(value="/detailView/{resno}",method=RequestMethod.GET)
 	public String detailView(@PathVariable int resno,Model model){
 		
->>>>>>> 14e5d6a44486042c4bbfa970c19235bbd4d8fe23
 		Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewlist = 
 				reviewService.reviewList(resno);
@@ -39,17 +33,6 @@ public class RestaurantController {
 		resDTO.setReviewlist(reviewlist);
 		resDTO.setRestaurant(restaurant);
 		
-<<<<<<< HEAD
-		
-
-
-		
-
-
-
-		
-=======
->>>>>>> 14e5d6a44486042c4bbfa970c19235bbd4d8fe23
 		model.addAttribute("resDTO",resDTO);
 
 		return "detail/detailView";

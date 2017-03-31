@@ -35,14 +35,7 @@ public class RestaurantService {
 		List<Restaurant> reslist = repository.findAll();
 			
 		return  reslist;
-<<<<<<< HEAD
-
-
-	} //findList(목록보여줄거)
-=======
 	}
->>>>>>> 14e5d6a44486042c4bbfa970c19235bbd4d8fe23
-	
 	
 	public List<Restaurant> findSearchList(String searchName) {
 		List<Restaurant> reslist = resDAO.resSearch(searchName);

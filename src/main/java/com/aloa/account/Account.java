@@ -25,9 +25,6 @@ public class Account {
 	
 	@NotBlank
 	private String username;
-		
-	@NotBlank
-	private String tel;
 	
 	@Temporal(TemporalType.TIMESTAMP)	
 	private Date joindate;
@@ -35,8 +32,6 @@ public class Account {
 	private String status;
 	
 	private int reportcount;
-	
-	private int server;
 	
 	private int admin;
 	
@@ -98,15 +93,7 @@ public class Account {
 	public void setReportcount(int reportcount) {
 		this.reportcount = reportcount;
 	}
-
-	public int getServer() {
-		return server;
-	}
-
-	public void setServer(int server) {
-		this.server = server;
-	}
-
+	
 	public int getAdmin() {
 		return admin;
 	}
@@ -121,13 +108,5 @@ public class Account {
 
 	public void setEmailauth(int emailauth) {
 		this.emailauth = emailauth;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
 	}
 }
