@@ -1,4 +1,4 @@
-create table account(
+﻿create table account(
   username varchar(500) not null ,
   email varchar(500) primary key,
   password varchar(500) not null,
@@ -89,9 +89,7 @@ create table reservation(
 				reservetel varchar(50) not null,
 				reserveemail varchar(100) not null,
 				reserverequest varchar(1000),
-	            reserverno number not null,
-	
-
+	            		reserverno number not null,
 				reservedate varchar(50) not null,
 				reservetime varchar(50) not null, 
 				reservenumber varchar(10) not null,
