@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aloa.account.Account;
+import com.aloa.account.AccountRepository;
+import com.aloa.account.AccountService;
 import com.aloa.review.Imageboard;
 import com.aloa.review.ReviewService;
 import com.aloa.review.Reviewboard;
@@ -24,6 +27,9 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	@Autowired
+	private  AccountRepository accountRepository;
+	
 	@RequestMapping(value="/detailView/{resno}",method=RequestMethod.GET)
 	public String detailView(@PathVariable int resno,Model model){
 		
@@ -31,11 +37,12 @@ public class RestaurantController {
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		List<Imageboard> imageList = reviewService.imagelist(resno);
 		
-		// 
+		// 리뷰 개수 & 평점
 		int grade_5 = 0;
 		int grade_3 = 0;
 		int grade_1 = 0;
 		
+		int sum = 0;
 		for(int i = 0; i < reviewList.size(); i++) {
 			if(reviewList.get(i).getGrade() == 5) {
 				grade_5++;
@@ -44,7 +51,15 @@ public class RestaurantController {
 			} else if(reviewList.get(i).getGrade() == 1) {
 				grade_1++;
 			}
+			
+			sum += reviewList.get(i).getGrade();
+			
+			//회원 정보 받아오기
+			Account account = accountRepository.findByEmail(reviewList.get(i).getEmail());
+			
+			
 		}
+		double avg = sum / reviewList.size();
 		
 		List<Integer> reviewCount = new ArrayList<Integer>();
 		reviewCount.add(grade_5);
@@ -57,7 +72,8 @@ public class RestaurantController {
 		resDTO.setImageList(imageList);
 		
 		model.addAttribute("reviewCount", reviewCount);
-		model.addAttribute("resDTO",resDTO);
+		model.addAttribute("resDTO", resDTO);
+		model.addAttribute("avg", avg);
 
 		return "detail/detailView";
 	}

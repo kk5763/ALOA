@@ -1,51 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/style/detailViewStyle.css" />
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
 	function reportRes() {
-		if(document.getElementById("loginId")==null){
+		if (document.getElementById("loginId") == null) {
 			alert("로그인후 이용가능합니다.");
-		}else{
-			window.open("http://localhost:8000/reportRes",
-					"reportRes",
-					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+		} else {
+			window
+					.open(
+							"http://localhost:8000/reportRes",
+							"reportRes",
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
 		}
 	}
 	function reportRev() {
-		if(document.getElementById("loginId")==null){
+		if (document.getElementById("loginId") == null) {
 			alert("로그인후 이용가능합니다.");
-		}else{
-			window.open("http://localhost:8000/reportRev",
-					"reportRev",
-					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+		} else {
+			window
+					.open(
+							"http://localhost:8000/reportRev",
+							"reportRev",
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
 		}
 	}
-	
-	function reviewWrite(){
-		if(document.getElementById("loginId")==null)
+
+	function reviewWrite() {
+		if (document.getElementById("loginId") == null)
 			alert("로그인후 이용가능합니다.");
-		else{
-				window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
-				"dataForm",
-				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
+		else {
+			window
+					.open(
+							"http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+							"dataForm",
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
 		}
 	}
-	
-	function reservation(){
-		window.open("http://localhost:8000/reservation?resno=${resDTO.restaurant.resno}",
-				"reservation",
-				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=1000, height=700");
+
+	function reservation() {
+		window
+				.open(
+						"http://localhost:8000/reservation?resno=${resDTO.restaurant.resno}",
+						"reservation",
+						"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=1000, height=700");
 	}
-	
 </script>
 </head>
 <!-- 상단영역 -->
@@ -72,14 +80,15 @@ ${reslist.get(0).reviewlist.image }
 					<p class="wannago-txt">신고하기</p>
 				</div>
 				<h1 class="title">
-					<span class="name" >${resDTO.restaurant.resname}</span> 
-					<span class="rate-point">${resDTO.reviewList[0].grade }</span>
+					<span class="name">${resDTO.restaurant.resname }</span> 
+					<span class="rate-point">${avg }</span>
 				</h1>
-				
-				
+
+
 			</div>
 			<div class="reportRes-button">
-				<img src="/resources/images/min_image/report.PNG" onclick="reportRes()" />
+				<img src="/resources/images/min_image/report.PNG"
+					onclick="reportRes()" />
 			</div>
 		</div>
 		<table class="content-detail">
@@ -127,249 +136,189 @@ ${reslist.get(0).reviewlist.image }
 			</c:if>
 			<c:if test="${resDTO.restaurant.resno==null }">
 				<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
-			</c:if>	
-		</div><!-- review-bt-wrap -->
-		
+			</c:if>
+		</div>
+		<!-- review-bt-wrap -->
 
-			<div class="review-bt-wrap">
-				<a href="#" class="review-bt" onclick="reservation()">예  약</a>
-			</div>							
 
-	</div><!-- review-bt-div -->
-	
-	
+		<div class="review-bt-wrap">
+			<a href="#" class="review-bt" onclick="reservation()">예 약</a>
+		</div>
+
+	</div>
+	<!-- review-bt-div -->
+
+
 	<!-- 리뷰 -->
-<<<<<<< HEAD
-		<div class="title-wrap">
-=======
 	<div class="title-wrap">
-<<<<<<< HEAD
-			<h1 class="review-title">${resDTO.restaurant.resname }의 리뷰 (${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
-=======
->>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
-			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
->>>>>>> 11a08c299f03c3a49bc77533d991fcc083d13085
+		<div class="title-wrap">
+			<h1 class="review-title">${resDTO.restaurant.resname }의리뷰
+				(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
 			<ul class="review-filter-list">
 				<li class="review-filter-item">
-					<button class="review-filter-button">전체 (${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</button>
+					<button class="review-filter-button">전체
+						(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</button>
 				</li>
 				<li class="review-filter-item">
-					<button class="review-filter-button">맛있다 (${reviewCount.get(0) })</button>
+					<button class="review-filter-button">맛있다
+						(${reviewCount.get(0) })</button>
 				</li>
 				<li class="review-filter-item">
-					<button class="review-filter-button">괜찮다 (${reviewCount.get(1) })</button>
+					<button class="review-filter-button">괜찮다
+						(${reviewCount.get(1) })</button>
 				</li>
 				<li class="review-filter-item">
-					<button class="review-filter-button">별로 (${reviewCount.get(2) })</button>
+					<button class="review-filter-button">별로
+						(${reviewCount.get(2) })</button>
 				</li>
 			</ul>
 		</div>
-<<<<<<< HEAD
-	<c:forEach var="i" begin="1" end="2" step="1">
-		<section class="review">
-=======
-<<<<<<< HEAD
-		
-	<c:forEach var="i" begin="1" end="5" step="1">
-		<section class="review">
-		
-=======
-	<c:forEach var="i" begin="1" end="5" step="1">
-		<section class="review" style="border: 1px solid blue;">
->>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
->>>>>>> 11a08c299f03c3a49bc77533d991fcc083d13085
-		<ul class="review-list">
-			<li class="default-review"><section class="review-item">
-				<h1 class="icon">
-					<img src="/resources/images/min_image/good_on.png">
-					<strong class="good">맛있다</strong>
-				</h1>
-				<div class="review-content">
-					<figure class="user">
-					<div class="user-profile">
-						<img class="thumb-image" src="" />
+		<c:forEach var="reviewList" items="${resDTO.reviewList }">
+			<section class="review">
+			<ul class="review-list">
+				<li class="default-review">
+				<section class="review-item">
+					<h1 class="icon">
+						<img src="/resources/images/min_image/good_on.png">
+							<strong class="good">맛있다</strong>
+					</h1>
+					<div class="review-content">
+						<figure class="user">
+						<div class="user-profile">
+							<img class="thumb-image" src="" />
+						</div>
+						<figcaption>회원 이름</figcaption>
+						<div class="reportRev-button">
+							<img src="/resources/images/min_image/report.PNG"
+								onclick="reportRev()" />
+						</div>
+						</figure>
+
+						<p>
+							<span class="review-content-coment">${reviewList.content }</span>
+						</p>
 					</div>
-					<figcaption>쩡.</figcaption>
-					<p class="user-info">
-						<em class="user-review">123</em> <em class="user-hit">64</em>
+					<p class="sub-info">
+						<time>
+						<span class="past-time">${reviewList.createdate }</span></time>
 					</p>
-					<div class="reportRev-button">
-						<img src="/resources/images/min_image/report.PNG"
-							onclick="reportRev()" />
-					</div>
-					</figure>
-					
-					<p>
-						<span class="review-content-coment"></span>
-					</p>
-				</div>
-				<p class="sub-info">
-					<time><span class="past-time">2016-02-04</span></time>
-				</p>
-				</section></li>
-		</ul>
-		</section>
-	</c:forEach>
-	<button class="reviews-more">더보기</button>
-	<!-- 관련식당 -->
-	<section class="related-restaurant">
-	<h1 class="related-title">
-		<a href="#"><span class="title-underline">2017 프렌치 인기 맛집
-				TOP 20</span></a> 에 있는 다른 식당
-	</h1>
-	<ul class="restaurant-list">
-		<c:forEach var="i" begin="1" end="4" step="1">
-			<li><a href="#" style="text-decoration: none;"> 
-				<figure class="restaurant-item">
-					<div class="thumb">
-						<img class="list-image" src="/resources/images/2.jpg">
-					</div>
-					
-					<figcaption class="image-info">
-					<div class="restaurant-info">
-						<span class="title-list">루이쌍크</span> <strong class="point">4.6</strong>
-						<p class="etc">신사/압구정 - 프랑스음식</p>
-					</div>
-					</figcaption>
-				</figure>
-			</a></li>
+					</section></li>
+			</ul>
+			</section>
 		</c:forEach>
-	</ul>
-	</section>
+		<button class="reviews-more">더보기</button>
 
-</div>
-<!-- 사이드영역 -->
-<div class="side-wrap">
-	<div class="side-content">
-		<!-- 지도 -->
-		<div id="map"></div>
-		<!-- 네이버 지도 API -->
-		<script>
-			var address = '${resDTO.restaurant.resaddress}';
-							
-			var MARKER_SPRITE_POSITION = {
-				"A0" : [ 0, 0 ]
-			};
+	</div>
+	<!-- 사이드영역 -->
+	<div class="side-wrap">
+		<div class="side-content">
+			<!-- 지도 -->
+			<div id="map"></div>
+			<!-- 네이버 지도 API -->
+			<script>
+				var address = '${resDTO.restaurant.resaddress}';
 
-			var mapOptions = {
-				/* center: , */
-				zoom : 10,
-				zoomControl : true,
-				zoomControlOptions : {
-					position : naver.maps.Position.TOP_RIGHT
-				}
-			};
+				var MARKER_SPRITE_POSITION = {
+					"A0" : [ 0, 0 ]
+				};
 
-			var map = new naver.maps.Map('map', mapOptions);
+				var mapOptions = {
+					/* center: , */
+					zoom : 10,
+					zoomControl : true,
+					zoomControlOptions : {
+						position : naver.maps.Position.TOP_RIGHT
+					}
+				};
 
-			map.setCursor('pointer');
+				var map = new naver.maps.Map('map', mapOptions);
 
-			var markers = [], infoWindows = [];
+				map.setCursor('pointer');
 
-			function searchAddressToCoordinate(address) {
-				naver.maps.Service
-						.geocode(
-								{
-									address : address
-								},
-								function(status, response) {
-									if (status === naver.maps.Service.Status.ERROR) {
-										return alert('Something Wrong!');
-									}// if
-									var item = response.result.items[0], point = new naver.maps.Point(
-											item.point.x, item.point.y);
+				var markers = [], infoWindows = [];
 
-									var position = new naver.maps.LatLng(
-											item.point.y, item.point.x);
+				function searchAddressToCoordinate(address) {
+					naver.maps.Service
+							.geocode(
+									{
+										address : address
+									},
+									function(status, response) {
+										if (status === naver.maps.Service.Status.ERROR) {
+											return alert('Something Wrong!');
+										}// if
+										var item = response.result.items[0], point = new naver.maps.Point(
+												item.point.x, item.point.y);
 
-									for ( var key in MARKER_SPRITE_POSITION) {
-										var marker = new naver.maps.Marker(
-												{
-													map : map,
-													position : position,
-													title : key,
-													icon : {
-														url : '/resources/images/min_image/marker.png',
-														size : new naver.maps.Size(
-																24, 37),
-														anchor : new naver.maps.Point(
-																12, 37)
-													},
-													zIndex : 100
-												});
+										var position = new naver.maps.LatLng(
+												item.point.y, item.point.x);
 
-										var infoWindow = new naver.maps.InfoWindow(
-												{
-													content : '<div style="position:relative; margin:0 0; padding:0 0; border: 0px solid transparent; display: block; width: 330px; height: 135px;">'
-															+ '<div style="position:absolute; padding: 15px; ">'
-															+ '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
-															+ '</div>'
-															+ '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
-															+ '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">라이포스트</span>&nbsp;&nbsp;'
-															+ '<strong style="color: #FF792A; font-size: 20px;">4.6</strong>'
-															+ '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">이태원/한남동 - 브런치 / 버거 / 샌드위치</p>'
-															+ '<p style=" margin-top:40px;">'
-															+ '<img src="/resources/images/min_image/review.PNG">'
-															+ '<em style="color: #7A7A7A; font-size: 16px">206</em>&nbsp;'
-															+ '<img src="/resources/images/min_image/favorite.png">'
-															+ '<em style="color: #7A7A7A; font-size: 16px">5693</em>'
-															+ '</p>'
-															+ '</div>'
-															+ '</div>'
-												});
+										for ( var key in MARKER_SPRITE_POSITION) {
+											var marker = new naver.maps.Marker(
+													{
+														map : map,
+														position : position,
+														title : key,
+														icon : {
+															url : '/resources/images/min_image/marker.png',
+															size : new naver.maps.Size(
+																	24, 37),
+															anchor : new naver.maps.Point(
+																	12, 37)
+														},
+														zIndex : 100
+													});
 
-										markers.push(marker);
-										infoWindows.push(infoWindow);
-									}// for
+											var infoWindow = new naver.maps.InfoWindow(
+													{
+														content : '<div style="position:relative; margin:0 0; padding:0 0; border: 0px solid transparent; display: block; width: 330px; height: 135px;">'
+																+ '<div style="position:absolute; padding: 15px; ">'
+																+ '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
+																+ '</div>'
+																+ '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
+																+ '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">라이포스트</span>&nbsp;&nbsp;'
+																+ '<strong style="color: #FF792A; font-size: 20px;">4.6</strong>'
+																+ '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">이태원/한남동 - 브런치 / 버거 / 샌드위치</p>'
+																+ '<p style=" margin-top:40px;">'
+																+ '<img src="/resources/images/min_image/review.PNG">'
+																+ '<em style="color: #7A7A7A; font-size: 16px">206</em>&nbsp;'
+																+ '<img src="/resources/images/min_image/favorite.png">'
+																+ '<em style="color: #7A7A7A; font-size: 16px">5693</em>'
+																+ '</p>'
+																+ '</div>'
+																+ '</div>'
+													});
 
-									for (var i = 0, ii = markers.length; i < ii; i++) {
-										naver.maps.Event.addListener(
-												markers[i], 'click',
-												getClickHandler(i));
-									}
+											markers.push(marker);
+											infoWindows.push(infoWindow);
+										}// for
 
-									map.setCenter(point);
-								});
-			}// function
-			
-			naver.maps.onJSContentLoaded = searchAddressToCoordinate(address);
-			
-			function getClickHandler(seq) { // 마커를 클릭 했을 때
-				return function(e) {
-					var marker = markers[seq], infoWindow = infoWindows[seq];
+										for (var i = 0, ii = markers.length; i < ii; i++) {
+											naver.maps.Event.addListener(
+													markers[i], 'click',
+													getClickHandler(i));
+										}
 
-					if (infoWindow.getMap()) {
-						infoWindow.close();
-					} else {
-						infoWindow.open(map, marker);
-					}// if
-				}// return function
-			}// getClickHandler
-		</script>
-		<div class="inner">
-			<div class="near-restaurant">
-				<h1 class="near-title">주변 인기 식당</h1>
-				<ul class="near-restaurant-list">
-					<li class="near-item"><figure class="near-thumb">
-						<div class="near-thumb-item">
-							<img class="thumb-image"
-								src="https://mp-seoul-image-production-s3.mangoplate.com/386/34440_1466003144545_1081557">
-							<a href="#">더키친살바토레쿠오모</a>
-						</div>
-						<figcaption>
-						<div class="near-info">
-							<span class="near-mini-title">더키친살바토레쿠오모</span> <strong
-								class="near-point">4.4</strong>
-							<p class="near-etc">음식종류:이탈리안</p>
-							<p class="near-etc">음식종류:이탈리안</p>
-							<p class="near-etc">음식종류:이탈리안</p>
-						</div>
-						</figcaption> </figure></li>
-				</ul>
-			</div>
+										map.setCenter(point);
+									});
+				}// function
+
+				naver.maps.onJSContentLoaded = searchAddressToCoordinate(address);
+
+				function getClickHandler(seq) { // 마커를 클릭 했을 때
+					return function(e) {
+						var marker = markers[seq], infoWindow = infoWindows[seq];
+
+						if (infoWindow.getMap()) {
+							infoWindow.close();
+						} else {
+							infoWindow.open(map, marker);
+						}// if
+					}// return function
+				}// getClickHandler
+			</script>
 		</div>
 	</div>
-</div>
 </article>
 </body>
 
