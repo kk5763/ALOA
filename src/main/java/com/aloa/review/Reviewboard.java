@@ -3,7 +3,6 @@ package com.aloa.review;
 import java.util.Date;
 
 import javax.persistence.*;
-
 @Entity
 public class Reviewboard {
 	
@@ -21,17 +20,7 @@ public class Reviewboard {
 	private Date createdate;
 	
 	private int grade;
-
-	private String image;
 	
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 	public int getReviewno() {
 		return reviewno;
 	}

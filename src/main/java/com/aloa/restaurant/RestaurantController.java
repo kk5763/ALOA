@@ -30,7 +30,7 @@ public class RestaurantController {
 				reviewService.reviewList(resno);
 		
 		RestaurantDTO resDTO = new RestaurantDTO();
-		resDTO.setReviewlist(reviewlist);
+		resDTO.setReviewList(reviewlist);
 		resDTO.setRestaurant(restaurant);
 		
 		model.addAttribute("resDTO",resDTO);

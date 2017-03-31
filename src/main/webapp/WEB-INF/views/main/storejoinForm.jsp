@@ -132,16 +132,14 @@ function check(){
 											<input type="text" name="resrest" id="resrest" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty" placeholder="15:00~18:00" maxlength="50">
 										</div>
 									</div><!-- resRest -->
-									
-									
+															
 									<div class="inline_form" ng-show="$ctrl.isShowEmailForm" >
 										<label class="label" > <span>휴일</span> <!----></label>
 										<div class="inline_control">
 											<input type="text" name="resholiday" id="resholiday" class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty" placeholder="매주 월요일" maxlength="50">
 										</div>
 									</div><!-- resRest -->
-									
-									
+			
 									<div class="inline_form" >
 										<label class="label" for="request">요청 사항</label>
 										<div class="inline_control">
@@ -149,33 +147,12 @@ function check(){
 										</div>
 									</div>
 									<!---->
-							
+									<h2>입점신청은 위와 같은 형식으로 sbxjdnjs10@naver.com으로 문의해주시기 바랍니다.</h2><br>
+									<h3>가게에 관련한 사진 5장을 꼭 첨부해주시기 바랍니다.</h3>
 							</div>
-							
-							
-							
 							</bk-input-form>
 						</div><!-- section_booking_form -->
-									
-			
-					<div  class="bottom_btn disable" >
-							<button type="button" class="btn" onclick="check()" >
-								<!---->
-								<!---->
-								<i " class="fn fn-nbooking-calender2" ></i>
-								<!---->
-								<span >예약 신청하기</span>
-							</button>
-						</div>
-						
-					</div>
-	
-
 </div><!-- content -->
-
-
-
-
 </div><!-- container -->
 </form>
 </body>
