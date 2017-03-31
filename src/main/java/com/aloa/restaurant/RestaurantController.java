@@ -38,7 +38,7 @@ public class RestaurantController {
 		return "detail/detailView";
 	}
 	
-	
+
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
 	public String detailViewImage(Model model ){
 		

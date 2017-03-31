@@ -113,21 +113,20 @@ ${reslist.get(0).reviewlist.image }
 	</div>
 	<div class="review-bt-div">
 		<div class="review-bt-wrap">
-		<c:if test="${resDTO.restaurant.resno!=null }">
-			<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
-		</c:if>
-		<c:if test="${resDTO.restaurant.resno==null }">
-			<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
-		</c:if>
+			<c:if test="${resDTO.restaurant.resno!=null }">
+				<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+			</c:if>
+			<c:if test="${resDTO.restaurant.resno==null }">
+				<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
+			</c:if>	
+		</div><!-- review-bt-wrap -->
 		
-		
-		</div>
 		<div class="restaurant-status" id="detailView">
 			<div class="review-bt-wrap">
 				<a href="#" class="review-bt" onclick="reservation()">예  약</a>
 			</div>							
 		</div>
-	</div>
+	</div><!-- review-bt-div -->
 	
 	
 	<!-- 리뷰 -->
@@ -181,24 +180,6 @@ ${reslist.get(0).reviewlist.image }
 				<p class="sub-info">
 					<time>
 					<span class="past-time">2016-02-04</span></time>
-				</p>
-				<p class="list-photos">
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
 				</p>
 				</section></li>
 		</ul>
