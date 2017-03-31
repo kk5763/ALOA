@@ -150,10 +150,17 @@ ${reslist.get(0).reviewlist.image }
 
 
 	<!-- 리뷰 -->
+<<<<<<< HEAD
 	<div class="title-wrap">
 		<div class="title-wrap">
 			<h1 class="review-title">${resDTO.restaurant.resname }의리뷰
 				(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
+=======
+
+	<div class="title-wrap">
+
+			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
+>>>>>>> 3ad05ea25b2ab004225433267ba546b88fa58c3c
 			<ul class="review-filter-list">
 				<li class="review-filter-item">
 					<button class="review-filter-button">전체
@@ -173,6 +180,7 @@ ${reslist.get(0).reviewlist.image }
 				</li>
 			</ul>
 		</div>
+<<<<<<< HEAD
 		<c:forEach var="reviewList" items="${resDTO.reviewList }">
 			<section class="review">
 			<ul class="review-list">
@@ -197,6 +205,30 @@ ${reslist.get(0).reviewlist.image }
 						<p>
 							<span class="review-content-coment">${reviewList.content }</span>
 						</p>
+=======
+
+	<c:forEach var="i" begin="1" end="5" step="1">
+		<section class="review" style="border: 1px solid blue;">
+
+		<ul class="review-list">
+			<li class="default-review"><section class="review-item">
+				<h1 class="icon">
+					<img src="/resources/images/min_image/good_on.png">
+					<strong class="good">맛있다</strong>
+				</h1>
+				<div class="review-content">
+					<figure class="user">
+					<div class="user-profile">
+						<img class="thumb-image" src="" />
+					</div>
+					<figcaption>쩡.</figcaption>
+					<p class="user-info">
+						<em class="user-review">123</em> <em class="user-hit">64</em>
+					</p>
+					<div class="reportRev-button">
+						<img src="/resources/images/min_image/report.PNG"
+							onclick="reportRev()" />
+>>>>>>> 3ad05ea25b2ab004225433267ba546b88fa58c3c
 					</div>
 					<p class="sub-info">
 						<time>
