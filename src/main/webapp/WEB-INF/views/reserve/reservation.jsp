@@ -220,7 +220,7 @@ function createToast(t) {
 										 
 										
 										</div>
-									</div>
+									</div> 
 									
 						
 							
