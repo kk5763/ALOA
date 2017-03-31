@@ -76,26 +76,29 @@ $(document).ready(function(){
     });
 });
 
-//체크 버튼 및 삭제
+//체크 버튼 
 $(document).ready(function(){
 	$('.check-all').click(function(){
 		$('.check-each').prop('checked',this.checked);
 	});
 	
-	$('#remove').click(function(){
+ 	$('#remove').click(function(){
 		$('input.check-each:checked').each(function(){
 			$(this).parents('tr').remove();
 		});
-	});
-	
+	});  
 });
 
+function listRemove(){
+	document.memberManage.submit();
+}
 </script>
 
 </head>
 
 <body>
-
+<form name ="memberManage" method = "post" action = "/manager/listRemove">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <div class="container">
     <div class="creatediv1 marginTop30">
     			
@@ -114,7 +117,7 @@ $(document).ready(function(){
 									<th style="width: 1%;">
 										<div class="checkbox radio-margin">
 											<label>
-												<input type="checkbox" class = "check-all" value="">
+												<input type="checkbox" class = "check-all" value="${memberDTO.email }">
 							
 												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 											</label>
@@ -151,7 +154,7 @@ $(document).ready(function(){
 											<td style="width: 1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" class = "check-each" value="">
+														<input type="checkbox" name = "checkEmail" class = "check-each"/>
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>
@@ -207,7 +210,7 @@ $(document).ready(function(){
   
 </nav><!-- 페이징 -->
  <div>
- 	<Button id = "remove">삭제</Button>
+ 	<button id = "remove" value = "삭제" onclick = "listRemove()"/>
  </div>
   <!-- 검색 div 
   <div class="container">
@@ -237,6 +240,6 @@ $(document).ready(function(){
 
 
 
-
+</form>
 </body>
 </html>
