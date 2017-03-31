@@ -130,17 +130,25 @@ ${reslist.get(0).reviewlist.image }
 			</c:if>	
 		</div><!-- review-bt-wrap -->
 		
-		<div class="restaurant-status" id="detailView">
+
 			<div class="review-bt-wrap">
 				<a href="#" class="review-bt" onclick="reservation()">예  약</a>
 			</div>							
-		</div>
+
 	</div><!-- review-bt-div -->
 	
 	
 	<!-- 리뷰 -->
+<<<<<<< HEAD
+		<div class="title-wrap">
+=======
 	<div class="title-wrap">
+<<<<<<< HEAD
 			<h1 class="review-title">${resDTO.restaurant.resname }의 리뷰 (${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
+=======
+>>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
+			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
+>>>>>>> 11a08c299f03c3a49bc77533d991fcc083d13085
 			<ul class="review-filter-list">
 				<li class="review-filter-item">
 					<button class="review-filter-button">전체 (${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</button>
@@ -156,11 +164,24 @@ ${reslist.get(0).reviewlist.image }
 				</li>
 			</ul>
 		</div>
+<<<<<<< HEAD
 	<c:forEach var="i" begin="1" end="2" step="1">
 		<section class="review">
+=======
+<<<<<<< HEAD
+		
+	<c:forEach var="i" begin="1" end="5" step="1">
+		<section class="review">
+		
+=======
+	<c:forEach var="i" begin="1" end="5" step="1">
+		<section class="review" style="border: 1px solid blue;">
+>>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
+>>>>>>> 11a08c299f03c3a49bc77533d991fcc083d13085
 		<ul class="review-list">
 			<li class="default-review"><section class="review-item">
 				<h1 class="icon">
+					<img src="/resources/images/min_image/good_on.png">
 					<strong class="good">맛있다</strong>
 				</h1>
 				<div class="review-content">
