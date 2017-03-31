@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -81,11 +82,6 @@ $(document).ready(function(){
 <body>
 
 <div class="container">
-    <h3>The columns titles are merged with the filters inputs thanks to the placeholders attributes</h3>
-    <hr>
-    <p>Inspired by this <a href="http://bootsnipp.com/snippets/featured/panel-table-with-filters-per-column">snippet1</a></p>
-    <p>Inspired by this <a href="http://bootsnipp.com/snippets/featured/panel-table-with-filters-per-column">snippet2</a></p>
-    
     <div class="creatediv1 marginTop30">
     			
 				<div class="row margin-top-50">
@@ -100,7 +96,7 @@ $(document).ready(function(){
 							<table class="span12">
 								<table>
 									<tr class="filters">
-									<th style="width:0.1%; width:1px;">
+									<th style="width:0.1%;">
 										<div class="checkbox radio-margin">
 											<label>
 												<input type="checkbox" value="">
@@ -135,8 +131,10 @@ $(document).ready(function(){
 								</table>
 								<div class="bg tablescroll">
 									<table class="table table-bordered table-striped">
+										<c:if test = "${list!=null }">
+										<c:forEach var = "memberDTO" items="${list }">
 										<tr>
-											<td style="width: 0.1%; width:1px;">
+											<td style="width: 0.1%;">
 												<div class="checkbox radio-margin">
 													<label>
 														<input type="checkbox" value="">
@@ -144,15 +142,16 @@ $(document).ready(function(){
 													</label>
 												</div>
 											</th>
-											<td style="width: 10%">가맹정</td>	
-											<td style="width: 15%">공호진</td>
-											<td style="width: 17%">khjfdsfa</td>
-											<td style="width: 20%">542584612548</td>
-											<td style="width: 20%">542584612548</td>
-											<td style="width: 10%">54212548</td>
-											<td style="width: 15%">54258461</td>
+											<td style="width: 10%">${memberDTO.status }</td>	
+											<td style="width: 15%">${memberDTO.username }</td>
+											<td style="width: 17%">${memberDTO.email }</td>
+											<td style="width: 20%">${memberDTO.tel }</td>
+											<td style="width: 20%">${memberDTO.joinDate }</td>
+											<td style="width: 10%">${memberDTO.emailauth }</td>
+											<td style="width: 15%"><input type="button" value="삭제"></td>
 										</tr>
-									
+										</c:forEach>
+									</c:if>
 										
 									</table>
 								</div>
@@ -193,6 +192,7 @@ $(document).ready(function(){
   </ul>
 </nav><!-- 페이징 -->
   
+  <!-- 검색 div 
   <div class="container">
     <div class="row">    
         <div class="col-xs-8 col-xs-offset-2">
@@ -215,7 +215,8 @@ $(document).ready(function(){
             </div>
         </div>
 	</div>
-</div><!-- 검색어입력 -->
+</div>
+--><!-- 검색어입력 -->
 
 
 

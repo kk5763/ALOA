@@ -87,7 +87,7 @@ $(document).ready(function(){
 					<div class="col-md-12">
 						<div class="panel panel-primary filterable">
 							<div class="panel-heading">
-								<h3 class="panel-title">맛집승인<span style="color: white; font-weight: bold;"> *</span></h3>
+								<h3 class="panel-title">맛집신고<span style="color: white; font-weight: bold;"> *</span></h3>
 								<div class="pull-right">
 									<button type="button" class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> 검색</button>
 								</div>
@@ -104,18 +104,21 @@ $(document).ready(function(){
 										</div>
 									</th>
 									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="가맹점주" disabled>
+										<input type="text" class="form-control" placeholder="신고자" disabled>
 									</th>
 									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="맛집이름" disabled>
+										<input type="text" class="form-control" placeholder="신고제목" disabled>
 									</th>
 									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="연락처" disabled>
-									<th style="width: 35%">
-										<input type="text" class="form-control" placeholder="주소" disabled>
+										<input type="text" class="form-control" placeholder="신고맛집" disabled>
+									<th style="width: 15%">
+										<input type="text" class="form-control" placeholder="신고대상자" disabled>
 									</th>
 									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="가입날짜" disabled>
+										<input type="text" class="form-control" placeholder="처리여부" disabled>
+									</th>
+									<th style="width: 15%">
+										<input type="text" class="form-control" placeholder="처리상태" disabled>
 									</th>
 									<th style="width: 9%">
 										<input type="text" class="form-control" placeholder="비고" disabled>
@@ -138,9 +141,10 @@ $(document).ready(function(){
 											</th>
 											<td style="width: 10%">공호진</td>	
 											<td style="width: 15%">파스타마마</td>
-											<td style="width: 15%">010-6667-1478</td>
-											<td style="width: 35%">경기도 용인시 죽ㅈㄴ동</td>
-											<td style="width: 15%">1992-02-29</td>
+											<td style="width: 15%">파스타파파</td>
+											<td style="width: 15%">도민준</td>
+											<td style="width: 15%">12</td>
+											<td style="width: 15%">대기중</td>
 											<td style="width: 9%"><input type="button" value="삭제"></td>
 										</tr>
 									
