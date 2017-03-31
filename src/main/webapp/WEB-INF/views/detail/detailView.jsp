@@ -12,23 +12,32 @@
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
 	function reportRes() {
-		
-		window.open("http://localhost:8000/reportRes",
+		if(document.getElementById("loginId")==null){
+			alert("로그인후 이용가능합니다.");
+		}else{
+			window.open("http://localhost:8000/reportRes",
 					"reportRes",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+		}
 	}
-	
 	function reportRev() {
-		window.open("http://localhost:8000/reportRev",
+		if(document.getElementById("loginId")==null){
+			alert("로그인후 이용가능합니다.");
+		}else{
+			window.open("http://localhost:8000/reportRev",
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+		}
 	}
 	
 	function reviewWrite(){
-			window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+		if(document.getElementById("loginId")==null)
+			alert("로그인후 이용가능합니다.");
+		else{
+				window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
 				"dataForm",
-				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
-		
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
+		}
 	}
 	
 	function reservation(){
@@ -340,14 +349,7 @@ ${reslist.get(0).reviewlist.image }
 		</div>
 	</div>
 </div>
-
 </article>
 </body>
-
-<script type="text/javascript">
-
-
-			
-</script>
 
 </html>

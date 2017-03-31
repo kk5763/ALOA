@@ -8,15 +8,13 @@
                 ,resno
                 ,content
                 ,createdate
-                ,grade
-                ,image) 
+                ,grade) 
        	 values(seq_reviewno.nextval
        	 		,#{email}
        	 		,#{resno}
        	 		,#{content}
        	 		,sysdate
-       	 		,#{grade}
-       	 		,#{image})
+       	 		,#{grade})
 	</insert>
 	
 	<select id="reviewList" parameterType="java.lang.Integer" resultType="com.aloa.review.Reviewboard">

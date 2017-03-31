@@ -15,7 +15,7 @@ create table restaurant(
   resName varchar(500) not null ,
   bossEmail varchar(500) not null,
   resAddress varchar(1000), 
-  resTel number ,
+  resTel varchar(500) ,
   resKind varchar(500) ,
   resPrice varchar(500),
   resParking varchar(500) ,

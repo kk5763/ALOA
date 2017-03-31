@@ -32,16 +32,21 @@ function clickImg(mode){
 }
 
 function checkReviewWrite(){
-	if(document.getElementById("grade-score").value=="0"){
-		alert("점수를 등록하세요.");
-	}else if(document.getElementById("content").value=""){
-		alert("내용을 등록하세요.")	
-	}else{
-		alert("리뷰가 등록되었습니다.");
-		document.reviewWriteForm.submit();
-		window.close();
-	}
+		
+		if(document.getElementById("grade-score").value==0){
+			alert("점수를 등록하세요.");
+		}else if(document.getElementById("content_id").value==""){
+			alert("내용을 입력하세요.")
+		}else{
+			document.getElementById("grade-score").value="0";
+			alert("리뷰가 등록되었습니다.");
+			document.reviewWriteForm.submit();
+			window.close();
+		}
 	
+}
+function cancle(){	
+	window.close();
 }
 
 </script>
@@ -65,12 +70,12 @@ function checkReviewWrite(){
 			</div>
 			
 			<div id="content_section">
-				<textarea name="content"rows="10" placeholder="300자 내외로 작성해주세요." maxlength="300" ></textarea>
+				<textarea id="content_id"name="content"rows="10" placeholder="300자 내외로 작성해주세요." maxlength="300" ></textarea>
 			</div>
-		
+			<br><br>
 			<div id="button_section">
 				<div id="write" onclick = "checkReviewWrite()">작성</div>
-				<div id="cancel">취소</div>
+				<div id="cancel" onclick="cancle()">취소</div>
 			
 		</div>
 	</form>
