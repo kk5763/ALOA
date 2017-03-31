@@ -495,12 +495,12 @@
 						</div>
 					</div>
 
-					<div class="wrap_btn">
-						<button type="button" class="link_back">
+					<div class="wrap_btn" >
+						<button type="button" class="link_back" >
 							<span class="ico_back"></span>이전으로
 						</button>
 						<a href="/writeForm" id="nextBtn"
-							class="btn_comm btn_type1 disabled">동의하기</a>
+							class="btn_comm btn_type1 disabled" style="line-height:60px;" ><span >동의하기</span></a>
 						<!-- 전체 동의 체크 후 .disabled 제거 -->
 						<!-- <a
 							href="#"

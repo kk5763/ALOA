@@ -551,6 +551,14 @@ h1,h2,h3,h4,h5,h6,strong,th{
 	height:40px;
 	float:left;
 }
+.review-bt-wrap-reservation{
+	background-color:#ff792a;
+	position:absolute;
+	width:200px;
+	height:40px;
+	float:left;
+	left:300px;
+}
 
 .review-bt{
 	display:inline-block;

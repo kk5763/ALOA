@@ -31,8 +31,8 @@ public class ReservationController {
 	@Autowired
 	ReservationDAO reservationDAO;
 
-	@RequestMapping(value="/reservation/{resno}",method=RequestMethod.GET)
-	public String reserveView(@PathVariable int resno, Model model ){
+	@RequestMapping(value="/reservation",method=RequestMethod.GET)
+	public String reserveView( int resno, Model model ){
 	
 		Restaurant restaurant = service.findOne(resno);
 	
