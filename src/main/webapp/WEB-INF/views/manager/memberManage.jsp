@@ -75,6 +75,21 @@ $(document).ready(function(){
         }
     });
 });
+
+//체크 버튼 및 삭제
+$(document).ready(function(){
+	$('.check-all').click(function(){
+		$('.check-each').prop('checked',this.checked);
+	});
+	
+	$('#remove').click(function(){
+		$('input.check-each:checked').each(function(){
+			$(this).parents('tr').remove();
+		});
+	});
+	
+});
+
 </script>
 
 </head>
@@ -96,10 +111,11 @@ $(document).ready(function(){
 							<table class="span12">
 								<table>
 									<tr class="filters">
-									<th style="width:0.1%;">
+									<th style="width: 1%;">
 										<div class="checkbox radio-margin">
 											<label>
-												<input type="checkbox" value="">
+												<input type="checkbox" class = "check-all" value="">
+							
 												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 											</label>
 										</div>
@@ -110,21 +126,19 @@ $(document).ready(function(){
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="회원이름" disabled>
 									</th>
-									<th style="width: 17%">
+									<th style="width: 20%">
 										<input type="text" class="form-control" placeholder="회원ID" disabled>
 									</th>
 									<th style="width: 20%">
 										<input type="text" class="form-control" placeholder="연락처" disabled>
 									</th>
-									<th style="width: 20%">
+									<th style="width: 25%">
 										<input type="text" class="form-control" placeholder="가입날짜" disabled>
 									</th>
 									<th style="width: 10%">
 										<input type="text" class="form-control" placeholder="권한" disabled>
 									</th>
-									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="비고" disabled>
-									</th>
+								
 									
 									
 									</tr>
@@ -134,21 +148,21 @@ $(document).ready(function(){
 										<c:if test = "${list!=null }">
 										<c:forEach var = "memberDTO" items="${list }">
 										<tr>
-											<td style="width: 0.1%;">
+											<td style="width: 1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" value="">
+														<input type="checkbox" class = "check-each" value="">
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>
 											</th>
 											<td style="width: 10%">${memberDTO.status }</td>	
 											<td style="width: 15%">${memberDTO.username }</td>
-											<td style="width: 17%">${memberDTO.email }</td>
+											<td style="width: 20%">${memberDTO.email }</td>
 											<td style="width: 20%">${memberDTO.tel }</td>
-											<td style="width: 20%">${memberDTO.joinDate }</td>
+											<td style="width: 25%">${memberDTO.joinDate }</td>
 											<td style="width: 10%">${memberDTO.emailauth }</td>
-											<td style="width: 15%"><input type="button" value="삭제"></td>
+											
 										</tr>
 										</c:forEach>
 									</c:if>
@@ -190,8 +204,11 @@ $(document).ready(function(){
       </a>
     </li>
   </ul>
-</nav><!-- 페이징 -->
   
+</nav><!-- 페이징 -->
+ <div>
+ 	<Button id = "remove">삭제</Button>
+ </div>
   <!-- 검색 div 
   <div class="container">
     <div class="row">    
