@@ -22,4 +22,9 @@
 	<select id="reviewList" parameterType="java.lang.Integer" resultType="com.aloa.review.Reviewboard">
 		select * from reviewboard where resno=#{resno} 
 	</select>
+	
+	<select id="imagelist" parameterType="java.lang.Integer" resultType="com.aloa.review.Imageboard">
+		select * from imageboard where resno=#{resno} 
+	</select>
+	
 </mapper>

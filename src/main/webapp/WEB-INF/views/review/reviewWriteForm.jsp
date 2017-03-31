@@ -31,55 +31,17 @@ function clickImg(mode){
 	}
 }
 
-/* 파일추가*/
-var count = 1;
-function addFile(){
-	//count++;
-	if(count<5){
-		var newFile = document.createElement("div");
-		count++;
-		newFile.setAttribute("id","fileItem");
-		alert(count);
-		 
-		var html = '<input type="file" name="imagelist" id="itemList"/>'
-		+'<input type="button" value="-" onclick="removeFile()"/>';
-		
-		newFile.innerHTML = html;
-		
-		var newFileList = document.getElementById('file_section');
-		
-		newFileList.appendChild(newFile); 
-	}else{
-		alert("이미지를 5개 이상 등록하실 수 없습니다.");
-	}
-	
-}
-function removeFile(){
-	var fileItem = document.getElementById("fileItem");
-	count--;
-	if(fileItem !=null){
-		fileItem.parentNode.removeChild(fileItem); 
-	}
-}
-
 function checkReviewWrite(){
 	if(document.getElementById("grade-score").value=="0"){
-		alert("점수를 등록하세요");
+		alert("점수를 등록하세요.");
+	}else if(document.getElementById("content").value=""){
+		alert("내용을 등록하세요.")	
 	}else{
 		alert("리뷰가 등록되었습니다.");
 		document.reviewWriteForm.submit();
 		window.close();
 	}
 	
-}
-
-function checkReviewWrite(){
-	if(document.reviewWriteForm.content_section.value == ""){
-		alert("내용을 입력하세요")
-	}else{
-		alert("등록되었습니다")
-		document.reviewWriteForm.submit();
-	}
 }
 
 </script>
@@ -106,10 +68,6 @@ function checkReviewWrite(){
 				<textarea name="content"rows="10" placeholder="300자 내외로 작성해주세요." maxlength="300" ></textarea>
 			</div>
 		
-			<div id="file_section">		
-				<input type="file" name = "imagelist" id="itemList" /><input type="button" value="+" onclick="addFile()" />
-			</div>
-			
 			<div id="button_section">
 				<div id="write" onclick = "checkReviewWrite()">작성</div>
 				<div id="cancel">취소</div>

@@ -23,4 +23,10 @@ public class ReviewDAO {
 		List<Reviewboard> list = sqlSession.selectList("reviewMapper.reviewList", resno);
 		return list;
 	}
+
+	public List<Imageboard> imagelist(int resno) {
+		
+		List<Imageboard> list = sqlSession.selectList("reviewMapper.imagelist",resno);
+		return list;
+	}
 }

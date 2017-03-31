@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aloa.review.Imageboard;
+
 @Service
 public class ReviewService {
 	
@@ -27,6 +29,13 @@ public class ReviewService {
 	
 	public void reviewWrite(Reviewboard dto){
 		reviewDAO.reviewInsert(dto);
+	}
+
+	public List<Imageboard> imagelist(int resno) {
+		
+		List<Imageboard> list = reviewDAO.imagelist(resno);
+		
+		return null;
 	}
 	
 }
