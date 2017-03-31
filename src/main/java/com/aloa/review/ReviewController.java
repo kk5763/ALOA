@@ -35,16 +35,16 @@ public class ReviewController {
 	public String reviewWrite(int resno
 							,@RequestParam String content
 							,@RequestParam int grade
-							,@RequestParam String email){
-	
-		Reviewboard dto = new Reviewboard();
-		dto.setContent(content);
-		dto.setEmail(email);
-		dto.setGrade(grade);
-		dto.setResno(resno);
-			
-		reviewService.reviewWrite(dto);
-			
+							,@RequestParam(required=false) String email){
+		if(email!=null){
+			Reviewboard dto = new Reviewboard();
+			dto.setContent(content);
+			dto.setEmail(email);
+			dto.setGrade(grade);
+			dto.setResno(resno);
+				
+			reviewService.reviewWrite(dto);
+		}
 		
 		
 		
