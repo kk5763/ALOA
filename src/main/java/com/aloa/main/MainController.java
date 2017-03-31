@@ -138,17 +138,6 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/storejoin", method = RequestMethod.POST)
-	public String storejoin(Restaurant restaurant, @RequestParam String bossemail) {
-
-		System.out.println(restaurant.getBossemail() + restaurant.getResaddress() + bossemail);
-		restaurant.setBossemail(bossemail);
-
-		resService.createRes(restaurant);
-
-		return "redirect:/";
-	}
-
 	@RequestMapping(value = "search", method = RequestMethod.POST)
 	public ModelAndView search() {
 

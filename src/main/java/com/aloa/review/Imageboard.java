@@ -1,10 +1,10 @@
 package com.aloa.review;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Imageboard {
-	
+	@Id
 	private int resno;
 	private String image;
 	public int getResno() {

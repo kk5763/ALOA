@@ -10,11 +10,18 @@ body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input,
 }
 
 input,textarea{
-	readonly:true;
+	readonly:readonly;
 }
 
 h3{
-	text-decoration:underline;
+	font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+		Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, 'ë‚˜ëˆ”ê³ ë”•',
+		'ë§‘ì€ê³ ë”•', MalgunGothic, Dotum, 'ë‹ì›€', Sans-serif;
+	font-size:20px;
+	
+	
+	
+	
 }
 
 h1{  
