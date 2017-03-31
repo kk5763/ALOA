@@ -32,39 +32,20 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.POST)
-	public String reviewWrite(int resno,HttpServletRequest request
+	public String reviewWrite(int resno
 							,@RequestParam String content
 							,@RequestParam int grade
 							,@RequestParam String email){
-		String filePath = "C://Project//ALOA//src//main//webapp//WEB-INF//views//storage";
-		MultipartHttpServletRequest multi=(MultipartHttpServletRequest)request;
-		System.out.println("d");
-		List<MultipartFile> imagelist = multi.getFiles("imagelist");
-		
-		
-		
-		
-		for(int i=0;i<imagelist.size();i++){
-			String uuid = UUID.randomUUID().toString();		
-			String fileName = uuid;
+	
+		Reviewboard dto = new Reviewboard();
+		dto.setContent(content);
+		dto.setEmail(email);
+		dto.setGrade(grade);
+		dto.setResno(resno);
 			
-			try {
-				File file = new File(filePath,fileName);
-				FileCopyUtils.copy(imagelist.get(i).getInputStream(), new FileOutputStream(file));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		reviewService.reviewWrite(dto);
 			
-			Reviewboard dto = new Reviewboard();
-			dto.setContent(content);
-			dto.setEmail(email);
-			dto.setGrade(grade);
-			dto.setImage(fileName);
-			dto.setResno(resno);
-			
-			reviewService.reviewWrite(dto);
-			
-		}
+		
 		
 		
 		return "redirect:/detailView";

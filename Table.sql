@@ -6,9 +6,9 @@ create table account(
   joinDate date default sysdate,
   status varchar(500) default 'plain',
   reportCount number default 0,
-  server number not null,
-  admin number not null,
-  emailauth number not null);
+  server number default 0,
+  admin number default 0,
+  emailauth number default 0);
   
 create table restaurant(
   resNo number primary key,
@@ -72,10 +72,8 @@ create table ReportRes(
   
   create table imageBoard(
                 image varchar(200),
-                reviewNo number not null,
                 resno number not null,
-                constraint reference_resno1 foreign key(resno) references Restaurant(resno),
-                constraint reference_reviewNo1 foreign key(reviewNo) references reviewBoard(reviewNo));
+                constraint reference_resno1 foreign key(resno) references Restaurant(resno));
               
 create table bookMark(
                 resNo number,
@@ -101,3 +99,37 @@ create table reservation(
 			
 );
  
+
+drop table account purge;
+drop table restaurant purge;
+drop table reviewboard purge;
+drop table ReportRev pruge;
+drop table ReportRes purge;
+drop table imageboard purge;
+drop table bookmark purge;
+drop table reservation purge;
+
+
+
+
+
+
+
+
+
+
+
+맛집등록
+	맛집제목	ㅇㄴㄻㄴㄹ
+	ㄴㅇ러	ㄴㅇ러ㅏ
+	ㄴ어란	ㅇㄴ러ㅏ
+	ㄴㅇ러ㅏ	ㄴㅇ러ㅏ
+	
+	image1	맛집이름명_1
+	image2	맛집이름명_2
+	image3	맛집이름명_3
+	image4	맛집이름명_4
+	image5	맛집이름명_5
+	
+
+
