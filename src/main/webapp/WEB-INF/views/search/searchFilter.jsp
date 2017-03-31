@@ -8,12 +8,21 @@
 	<link rel="stylesheet" href="/style/min_style/searchFilter.css" />
 </head>
 <script type="text/javascript">
-	function openCity(cityName) {
-	    var i;
-	    var x = document.getElementsByClassName("city");
+	function openCity(cityName, mode) {
+	    var city = document.getElementsByClassName('city');
+	    var areaNameTitle = document.getElementsByClassName('areaNameTitle');
+	    
 	    for (i = 0; i < x.length; i++) {
-	       x[i].style.display = "none";  
+	   		city[i].style.display = "none";
+	   		
+	   		areaNameTitle[i].style['border-bottom'] = "1px solid #ccc";
+	   		areaNameTitle[i].style['color'] = "#ccc";
 	    }
+	    
+	    var selectedCity = document.getElementById(mode);
+	    selectedCity.style['border-bottom'] = "1px solid tomato";
+	    selectedCity.style['color'] = "tomato";
+	    
 	    document.getElementById(cityName).style.display = "block";  
 	}
 	
@@ -108,12 +117,12 @@
 		<div class="areaText">지역</div>
 		<div class="area">
          <div class="areaName">
-           <div class="areaNameTitle" onclick="openCity('aa')">강남</div>
-           <div class="areaNameTitle" onclick="openCity('bb')">강북</div>
-           <div class="areaNameTitle" onclick="openCity('cc')">경기도</div>
-           <div class="areaNameTitle" onclick="openCity('aa')">인천</div>
-           <div class="areaNameTitle" onclick="openCity('bb')">대구</div>
-           <div class="areaNameTitle" onclick="openCity('cc')">더보기</div>
+           <div id="gang_nam" class="areaNameTitle" onclick="openCity('aa', 'gang_nam')">강남</div>
+           <div id="gang_buk" class="areaNameTitle" onclick="openCity('bb', 'gang_buk')">강북</div>
+           <div id="gyeong_gi_do" class="areaNameTitle" onclick="openCity('cc', 'gyeong_gi_do')">경기도</div>
+           <div class="areaNameTitle">인천</div>
+           <div class="areaNameTitle">대구</div>
+           <div class="areaNameTitle">더보기</div>
          </div>
          
          <div id="aa" class="w3-container w3-display-container city">
@@ -146,22 +155,24 @@
                <div class="zoneName" id="rightZone">명동/남산</div>
                <div class="zoneName" id="rightZone">삼청/인사</div>
                <div class="zoneName" id="rightZone">중구</div>
+               <div class="zoneName" id="leftZone">시청/남대문</div>
             </div>
          </div>
          
          <div id="cc" class="w3-container w3-display-container city" style="display:none">
               <div class="zoneBottom">
-                 <div class="zoneName" id="rightZone">가로수길</div>
-               <div class="zoneName" id="rightZone">신사/압구정</div>
-               <div class="zoneName" id="rightZone">청담동</div>
-               <div class="zoneName" id="leftZone">강남역</div>
-               <div class="zoneName" id="rightZone">가로수길</div>
-               <div class="zoneName" id="rightZone">신사/압구정</div>
-               <div class="zoneName" id="rightZone">청담동</div>
-               <div class="zoneName" id="leftZone">강남역</div>
-               <div class="zoneName" id="rightZone">가로수길</div>
-               <div class="zoneName" id="rightZone">신사/압구정</div>
-               <div class="zoneName" id="rightZone">청담동</div>
+               <div class="zoneName" id="rightZone">성남시</div>
+               <div class="zoneName" id="rightZone">고양시</div>
+               <div class="zoneName" id="rightZone">수원시</div>
+               <div class="zoneName" id="leftZone">용인시</div>
+               <div class="zoneName" id="rightZone">안양시</div>
+               <div class="zoneName" id="rightZone">부천시</div>
+               <div class="zoneName" id="rightZone">광명시</div>
+               <div class="zoneName" id="leftZone">화성시</div>
+               <div class="zoneName" id="rightZone">남양주시</div>
+               <div class="zoneName" id="rightZone">안산시</div>
+               <div class="zoneName" id="rightZone">군포시</div>
+               <div class="zoneName" id="leftZone">구리시</div>
             </div>
          </div>
          </div><!--zoneBottom -->

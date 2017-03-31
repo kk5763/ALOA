@@ -67,9 +67,10 @@
 .areaNameTitle{
 	width:122px;
 	border-bottom: 2px solid #ccc;
-	color:#CFCFCF;
+	color:#ccc;
 	padding-bottom:15px;
 	float:left;
+	cursor: pointer;
 }
 .zoneName{
 	margin-top:20px;
