@@ -102,15 +102,18 @@ public class MainController {
 		int resReviewCount = 0;
 
 		for (int i = 0; i < resSearchList.size(); i++) { // 가져온 식당의 수 만큼 반복
-			// 가져온 식당의 번호를 이용해 모든 리뷰를 가져옴
+			// 가져온 식당의 번호를 이용해 모든 이미지를 가져옴
 			List<Imageboard> image = revService.imagelist(resSearchList.get(i).getResno());
-			resReviewCount = image.size();
+			List<Reviewboard> review = revService.reviewList(resSearchList.get(i).getResno());
+			
+			resReviewCount = review.size();
 
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();
 			// 가져온 0~n번째 식당의 정보와 이미지를 저장
 			resDTO.setRestaurant(resSearchList.get(i));
 			resDTO.setImagelist(image);
+			resDTO.setReviewList(review);
 
 			// 세팅된 resDTO를 resList에 추가하여 searchList.jsp로 넘김
 			resList.add(resDTO);
@@ -137,5 +140,25 @@ public class MainController {
 		mav.setViewName("main/storejoinForm");
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
