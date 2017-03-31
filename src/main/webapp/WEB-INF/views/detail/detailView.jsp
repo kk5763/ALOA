@@ -157,7 +157,7 @@ ${reslist.get(0).reviewlist.image }
 			</ul>
 		</div>
 	<c:forEach var="i" begin="1" end="2" step="1">
-		<section class="review" style="border: 1px solid blue;">
+		<section class="review">
 		<ul class="review-list">
 			<li class="default-review"><section class="review-item">
 				<h1 class="icon">
