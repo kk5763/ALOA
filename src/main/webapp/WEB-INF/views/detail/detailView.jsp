@@ -12,23 +12,32 @@
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
 	function reportRes() {
-		
-		window.open("http://localhost:8000/reportRes",
+		if(document.getElementById("loginId")==null){
+			alert("로그인후 이용가능합니다.");
+		}else{
+			window.open("http://localhost:8000/reportRes",
 					"reportRes",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+		}
 	}
-	
 	function reportRev() {
-		window.open("http://localhost:8000/reportRev",
+		if(document.getElementById("loginId")==null){
+			alert("로그인후 이용가능합니다.");
+		}else{
+			window.open("http://localhost:8000/reportRev",
 					"reportRev",
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+		}
 	}
 	
 	function reviewWrite(){
-			window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+		if(document.getElementById("loginId")==null)
+			alert("로그인후 이용가능합니다.");
+		else{
+				window.open("http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
 				"dataForm",
-				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
-		
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
+		}
 	}
 	
 	function reservation(){
@@ -63,14 +72,14 @@ ${reslist.get(0).reviewlist.image }
 					<p class="wannago-txt">신고하기</p>
 				</div>
 				<h1 class="title">
-					<span class="name" >${resDTO.restaurant.resname}</span> <span class="rate-point">4.6</span>
+					<span class="name" >${resDTO.restaurant.resname}</span> 
+					<span class="rate-point">${resDTO.reviewList[0].grade }</span>
 				</h1>
 				
 				
 			</div>
 			<div class="reportRes-button">
-				<img src="/resources/images/min_image/report.PNG"
-					onclick="reportRes()" />
+				<img src="/resources/images/min_image/report.PNG" onclick="reportRes()" />
 			</div>
 		</div>
 		<table class="content-detail">
@@ -130,7 +139,11 @@ ${reslist.get(0).reviewlist.image }
 	
 	
 	<!-- 리뷰 -->
+<<<<<<< HEAD
 		<div class="title-wrap">
+=======
+	<div class="title-wrap">
+>>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
 			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
 			<ul class="review-filter-list">
 				<li class="review-filter-item">
@@ -147,10 +160,15 @@ ${reslist.get(0).reviewlist.image }
 				</li>
 			</ul>
 		</div>
+<<<<<<< HEAD
 		
 	<c:forEach var="i" begin="1" end="5" step="1">
 		<section class="review">
 		
+=======
+	<c:forEach var="i" begin="1" end="5" step="1">
+		<section class="review" style="border: 1px solid blue;">
+>>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
 		<ul class="review-list">
 			<li class="default-review"><section class="review-item">
 				<h1 class="icon">
@@ -160,8 +178,7 @@ ${reslist.get(0).reviewlist.image }
 				<div class="review-content">
 					<figure class="user">
 					<div class="user-profile">
-						<img class="thumb-image"
-							src="https://mp-seoul-image-production-s3.mangoplate.com/444936_1474722607601?resize=64:64" />
+						<img class="thumb-image" src="" />
 					</div>
 					<figcaption>쩡.</figcaption>
 					<p class="user-info">
@@ -174,33 +191,11 @@ ${reslist.get(0).reviewlist.image }
 					</figure>
 					
 					<p>
-						<span class="review-content-coment">런치 가성비가 엄청납니다(41,800)
-							메뉴는 코스 1가지밖에 없구요 그날그날 조금씩 바뀝니다 육류는 등심 양갈비 오리가슴살 오리다리콩피 중 선택이에요
-							5코스임에도 각 플레이트가 양이 많아서 위장 많이 비우고 가셔야해요 사진 저게 다 1인분 양질의 프렌치를 합리적인
-							가격으로 즐기고 싶다면 강추합니다 특히 해산물 플레이트가 가장 인상깊었네요.</span>
+						<span class="review-content-coment"></span>
 					</p>
 				</div>
 				<p class="sub-info">
-					<time>
-					<span class="past-time">2016-02-04</span></time>
-				</p>
-				<p class="list-photos">
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
+					<time><span class="past-time">2016-02-04</span></time>
 				</p>
 				</section></li>
 		</ul>
@@ -215,17 +210,19 @@ ${reslist.get(0).reviewlist.image }
 	</h1>
 	<ul class="restaurant-list">
 		<c:forEach var="i" begin="1" end="4" step="1">
-			<li><a href="#" style="text-decoration: none;"> <figure
-						class="restaurant-item">
+			<li><a href="#" style="text-decoration: none;"> 
+				<figure class="restaurant-item">
 					<div class="thumb">
 						<img class="list-image" src="/resources/images/2.jpg">
 					</div>
+					
 					<figcaption class="image-info">
 					<div class="restaurant-info">
 						<span class="title-list">루이쌍크</span> <strong class="point">4.6</strong>
 						<p class="etc">신사/압구정 - 프랑스음식</p>
 					</div>
-					</figcaption> </figure>
+					</figcaption>
+				</figure>
 			</a></li>
 		</c:forEach>
 	</ul>
@@ -364,14 +361,7 @@ ${reslist.get(0).reviewlist.image }
 		</div>
 	</div>
 </div>
-
 </article>
 </body>
-
-<script type="text/javascript">
-
-
-			
-</script>
 
 </html>

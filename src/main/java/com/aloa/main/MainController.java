@@ -81,7 +81,7 @@ public class MainController {
 			// 레스토랑DTO에 넣기
 			RestaurantDTO res = new RestaurantDTO();
 
-			res.setImagelist(imagelist);
+			res.setImageList(imagelist);
 			res.setRestaurant(restaurantlist.get(i));
 
 			reslist.add(res);
@@ -112,7 +112,7 @@ public class MainController {
 			RestaurantDTO resDTO = new RestaurantDTO();
 			// 가져온 0~n번째 식당의 정보와 이미지를 저장
 			resDTO.setRestaurant(resSearchList.get(i));
-			resDTO.setImagelist(image);
+			resDTO.setImageList(image);
 			resDTO.setReviewList(review);
 
 			// 세팅된 resDTO를 resList에 추가하여 searchList.jsp로 넘김

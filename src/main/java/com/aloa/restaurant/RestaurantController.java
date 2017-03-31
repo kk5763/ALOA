@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aloa.review.Imageboard;
 import com.aloa.review.ReviewService;
 import com.aloa.review.Reviewboard;
 
@@ -26,19 +27,20 @@ public class RestaurantController {
 	public String detailView(@PathVariable int resno,Model model){
 		
 		Restaurant restaurant = service.findOne(resno);
-		List<Reviewboard> reviewlist = 
-				reviewService.reviewList(resno);
+		List<Reviewboard> reviewList = reviewService.reviewList(resno);
+		List<Imageboard> imageList = reviewService.imagelist(resno);
 		
 		RestaurantDTO resDTO = new RestaurantDTO();
-		resDTO.setReviewList(reviewlist);
 		resDTO.setRestaurant(restaurant);
+		resDTO.setReviewList(reviewList);
+		resDTO.setImageList(imageList);
 		
 		model.addAttribute("resDTO",resDTO);
 
 		return "detail/detailView";
 	}
 	
-	
+
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
 	public String detailViewImage(Model model ){
 		
@@ -47,14 +49,4 @@ public class RestaurantController {
 	
 
 
-	
-	@RequestMapping(value="/reportRes", method=RequestMethod.GET)
-	public String reportRes() {
-		return "detail/reportRes";
-	}
-	
-	@RequestMapping(value="/reportRev", method=RequestMethod.GET)
-	public String reportRev() {
-		return "detail/reportRev";
-	}
 }
