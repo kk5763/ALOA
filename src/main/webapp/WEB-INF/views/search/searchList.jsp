@@ -40,11 +40,11 @@
 				<c:forEach var="dto" items="${resList }" varStatus="status">
 					<c:if test="${status.index % 2 == 0}">
 						<div class="left_div">
-							<c:if test="${dto.imagelist[0].image != null }">
+							<c:if test="${dto.imageList[0].image != null }">
 								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
-								<img class="main_img" src="${dto.imagelist[0].image }" /></a>
+								<img class="main_img" src="${dto.imageList[0].image }" /></a>
 							</c:if>
-							<c:if test="${dto.imagelist[0].image == null }">
+							<c:if test="${dto.imageList[0].image == null }">
 								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
@@ -58,11 +58,11 @@
 					
 					<c:if test="${status.index % 2 == 1}">
 						<div class="right_div">
-							<c:if test="${dto.imagelist[0].image != null }">
+							<c:if test="${dto.imageList[0].image != null }">
 								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
-								<img class="main_img" src="${dto.imagelist[0].image }" /></a>
+								<img class="main_img" src="${dto.imageList[0].image }" /></a>
 							</c:if>
-							<c:if test="${dto.imagelist[0].image == null }">
+							<c:if test="${dto.imageList[0].image == null }">
 								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>

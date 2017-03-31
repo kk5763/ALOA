@@ -1,5 +1,6 @@
 package com.aloa.restaurant;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,11 +31,32 @@ public class RestaurantController {
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		List<Imageboard> imageList = reviewService.imagelist(resno);
 		
+		// 
+		int grade_5 = 0;
+		int grade_3 = 0;
+		int grade_1 = 0;
+		
+		for(int i = 0; i < reviewList.size(); i++) {
+			if(reviewList.get(i).getGrade() == 5) {
+				grade_5++;
+			} else if(reviewList.get(i).getGrade() == 3) {
+				grade_3++;
+			} else if(reviewList.get(i).getGrade() == 1) {
+				grade_1++;
+			}
+		}
+		
+		List<Integer> reviewCount = new ArrayList<Integer>();
+		reviewCount.add(grade_5);
+		reviewCount.add(grade_3);
+		reviewCount.add(grade_1);
+		
 		RestaurantDTO resDTO = new RestaurantDTO();
 		resDTO.setRestaurant(restaurant);
 		resDTO.setReviewList(reviewList);
 		resDTO.setImageList(imageList);
 		
+		model.addAttribute("reviewCount", reviewCount);
 		model.addAttribute("resDTO",resDTO);
 
 		return "detail/detailView";

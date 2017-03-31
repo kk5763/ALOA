@@ -131,23 +131,23 @@ ${reslist.get(0).reviewlist.image }
 	
 	<!-- 리뷰 -->
 	<div class="title-wrap">
-			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
+			<h1 class="review-title">${resDTO.restaurant.resname }의 리뷰 (${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
 			<ul class="review-filter-list">
 				<li class="review-filter-item">
-					<button class="review-filter-button">전체 (32)</button>
+					<button class="review-filter-button">전체 (${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</button>
 				</li>
 				<li class="review-filter-item">
-					<button class="review-filter-button">맛있다 (16)</button>
+					<button class="review-filter-button">맛있다 (${reviewCount.get(0) })</button>
 				</li>
 				<li class="review-filter-item">
-					<button class="review-filter-button">괜찮다 (16)</button>
+					<button class="review-filter-button">괜찮다 (${reviewCount.get(1) })</button>
 				</li>
 				<li class="review-filter-item">
-					<button class="review-filter-button">별로 (0)</button>
+					<button class="review-filter-button">별로 (${reviewCount.get(2) })</button>
 				</li>
 			</ul>
 		</div>
-	<c:forEach var="i" begin="1" end="5" step="1">
+	<c:forEach var="i" begin="1" end="2" step="1">
 		<section class="review" style="border: 1px solid blue;">
 		<ul class="review-list">
 			<li class="default-review"><section class="review-item">
