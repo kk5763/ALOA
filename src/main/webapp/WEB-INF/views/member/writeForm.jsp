@@ -58,7 +58,14 @@
 	               <input type="password" class="form-control" autocomplete="off" id="confirm" placeholder="비밀번호 확인">
 	           </div>
 	       </div>
+	       
 	       <div class="form-group text-center" id="confirm_result">
+	       </div>
+	       <div class="form-group" id="name-group">
+	           <div class="input-group">
+	               <label for="username" class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></label>
+	               <input type="text" class="form-control" id="username" autocomplete="off" name="tel" placeholder="전화번호 입력">
+	           </div>
 	       </div>
 	       <div class="form-group" id="name-group">
 	           <div class="input-group">
@@ -70,10 +77,8 @@
 	           <button type="submit" id="person_info_submit" class="btn btn-danger btn-block" disabled="disabled">회원 가입</button>
 	       </div>
 	       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-	       <input type="hidden" value="44" name="tel">
-	       <input type="hidden" value="44" name="server">
-	       <input type="hidden" value="44" name="admin">
-	       <input type="hidden" value="44" name="emailauth">
+	       
+
 	       
 	    </form>
 	</div>

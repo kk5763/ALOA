@@ -36,6 +36,8 @@ public class Account {
 	private int admin;
 	
 	private int emailauth;
+	
+	private int tel;
 
 	
 	public Long getId() {
@@ -108,5 +110,13 @@ public class Account {
 
 	public void setEmailauth(int emailauth) {
 		this.emailauth = emailauth;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
 	}
 }
