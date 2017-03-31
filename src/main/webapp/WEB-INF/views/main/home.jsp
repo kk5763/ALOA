@@ -59,10 +59,12 @@ $(document).ready(function(e){
 <body>
 	<%@ include file="../include/top_menu.jsp" %>
 
-<div class="jumbotron text-center" style="background-color: white">
-    <h1 style="color:paleturquoise">kgitbank pj</h1>
-    <p style="color:tomato">뭐 이미지나 잡다한거 들어갈 자리</p>
-    <p style="color:black">.....</p>
+<div class="jumbotron text-center" style="background: url('/resources/project_main_image.jpg') no-repeat; background-position: center center; background-size: 100% auto;">
+    <h1 style="color:#fff; opacity:0;"></h1>
+    <p style="color:tomato; opacity:0;">메인</p>
+    <h1 style="color:#fff; opacity:0.5;">웹프로젝트</p>
+    <p style="color:tomato; opacity:0;">메인</p>
+    <p style="color:tomato; opacity:0;">메인</p>
 </div>
 
 <form class="container text-center" id="searchbar" method="get" action="http://localhost:8000/searchList">
