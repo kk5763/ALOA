@@ -61,12 +61,7 @@
 	       
 	       <div class="form-group text-center" id="confirm_result">
 	       </div>
-	       <div class="form-group" id="name-group">
-	           <div class="input-group">
-	               <label for="username" class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></label>
-	               <input type="text" class="form-control" id="username" autocomplete="off" name="tel" placeholder="전화번호 입력">
-	           </div>
-	       </div>
+	      
 	       <div class="form-group" id="name-group">
 	           <div class="input-group">
 	               <label for="username" class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></label>

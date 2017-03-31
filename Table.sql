@@ -2,7 +2,7 @@
   username varchar(500) not null ,
   email varchar(500) primary key,
   password varchar(500) not null,
-  tel varchar(500) not null,
+  tel varchar(500) default 0,
   joinDate date default sysdate,
   status varchar(500) default 'plain',
   reportCount number default 0,
@@ -93,7 +93,7 @@ create table reservation(
 				reservedate varchar(50) not null,
 				reservetime varchar(50) not null, 
 				reservenumber varchar(10) not null,
-				reserveaddress varchar(200) not null;
+				reserveaddress varchar(200) not null
 			
 );
  
@@ -101,7 +101,7 @@ create table reservation(
 drop table account purge;
 drop table restaurant purge;
 drop table reviewboard purge;
-drop table ReportRev pruge;
+drop table ReportRev purge;
 drop table ReportRes purge;
 drop table imageboard purge;
 drop table bookmark purge;

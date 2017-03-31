@@ -37,7 +37,6 @@ public class Account {
 	
 	private int emailauth;
 	
-	private int tel;
 
 	
 	public Long getId() {
@@ -112,11 +111,5 @@ public class Account {
 		this.emailauth = emailauth;
 	}
 
-	public int getTel() {
-		return tel;
-	}
-
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
+	
 }
