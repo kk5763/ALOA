@@ -30,6 +30,11 @@
 				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
 		
 	}
+	function reservation(){
+		window.open("http://localhost:8000/reservation?resno=${resDTO.restaurant.resno}",
+				"reservation",
+				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
+	}
 	
 </script>
 </head>
@@ -116,15 +121,11 @@ ${reslist.get(0).reviewlist.image }
 		
 		
 		</div>
-		<%-- <form id="detailView_form" method="GET" name="detailView">
-			<div class="restaurant-status" id="detailView">
-					<div class="review-bt-wrap">
-						<a href="#" class="review-bt" id="${resDTO.restaurant.resno}">예  약</a>
-						<input type="hidden" name="resno" value="${reslist.restaurant.resno}" id="resn"/>
-					</div>			
-								
-			</div>
-		</form> --%>
+		<div class="restaurant-status" id="detailView">
+			<div class="review-bt-wrap">
+				<a href="#" class="review-bt" onclick="reservation()">예  약</a>
+			</div>							
+		</div>
 	</div>
 	
 	
@@ -365,17 +366,6 @@ ${reslist.get(0).reviewlist.image }
 </body>
 
 <script type="text/javascript">
-
-$(document).ready(function(e){
-	$('body').on('click', 'form div a', function(e){
-		/* var resn = $('#resn').val(); */
-		var tg = e.target.id;
-		
-	$('#detailView_form').attr('action', '/reservation/'+tg);
-		
-	$('#detailView_form').submit(); 
-	})
-})
 
 
 			
