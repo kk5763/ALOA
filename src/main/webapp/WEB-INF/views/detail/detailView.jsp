@@ -349,7 +349,6 @@ ${reslist.get(0).reviewlist.image }
 		</div>
 	</div>
 </div>
-<input type="hidden" id="loginId" value="<sec:authentication property="principal.email"/>"/>
 </article>
 </body>
 

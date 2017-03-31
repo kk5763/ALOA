@@ -32,19 +32,21 @@ function clickImg(mode){
 }
 
 function checkReviewWrite(){
-		document.getElementById("grade-score").value="0";
-		alert("리뷰가 등록되었습니다.");
-		document.reviewWriteForm.submit();
-		window.close();
-	
+		
+		if(document.getElementById("grade-score").value==0){
+			alert("점수를 등록하세요.");
+		}else if(document.getElementById("content_id").value==""){
+			alert("내용을 입력하세요.")
+		}else{
+			document.getElementById("grade-score").value="0";
+			alert("리뷰가 등록되었습니다.");
+			document.reviewWriteForm.submit();
+			window.close();
+		}
 	
 }
-function cancle(){
-	var ob = document.getElementById("grade-scope").value;
-	if(ob=="0"){
-		alert("ㅁㄴㅇㄹ");	
-	}
-		window.close();
+function cancle(){	
+	window.close();
 }
 
 </script>
@@ -68,7 +70,7 @@ function cancle(){
 			</div>
 			
 			<div id="content_section">
-				<textarea name="content"rows="10" placeholder="300자 내외로 작성해주세요." maxlength="300" ></textarea>
+				<textarea id="content_id"name="content"rows="10" placeholder="300자 내외로 작성해주세요." maxlength="300" ></textarea>
 			</div>
 			<br><br>
 			<div id="button_section">
