@@ -21,6 +21,14 @@
 	<!-- 자동완성 -->
 	<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+	<script type="text/javascript">
+		function openStorejoinForm(){
+			window.open("http://localhost:8000/storejoinForm",
+					"storejoinForm",
+					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=400, top=100, width=1100, height=800");
+			
+		}
+	</script>
 
 	<title>ALOA</title>
 	<style>
