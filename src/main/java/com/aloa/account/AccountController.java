@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.aloa.additinfo.AccountAdditInfo;
+import com.aloa.additinfo.AccountAdditInfoRepository;
 import com.aloa.security.UserDetailsImpl;
 
 
@@ -22,6 +24,9 @@ public class AccountController {
 	
 	@Autowired
 	AccountRepository accountRepository;
+	
+	@Autowired
+	AccountAdditInfoRepository accountAdditInfoRepository;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -47,9 +52,11 @@ public class AccountController {
 	
 	@RequestMapping(value="/accounts", method=RequestMethod.POST)
 	public String createAccounts(Account account){
-		
 		accountService.createAccount(account);
-		
+		AccountAdditInfo accountAddit = new AccountAdditInfo();
+		accountAddit.setId(account.getId());
+		accountAddit.setGender(0);
+		accountAdditInfoRepository.save(accountAddit);
 		UserDetailsImpl userDetailsImpl = new UserDetailsImpl(account);
 		Authentication authentication = 
 				new UsernamePasswordAuthenticationToken(userDetailsImpl, null, userDetailsImpl.getAuthorities());

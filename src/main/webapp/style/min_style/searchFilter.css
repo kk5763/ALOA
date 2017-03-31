@@ -70,7 +70,11 @@
 	color:#ccc;
 	padding-bottom:15px;
 	float:left;
+<<<<<<< HEAD
 	cursor: pointer;
+=======
+	cursor:pointer;
+>>>>>>> 6508b2aa5515891c7e026a5d20b1bb7809a51152
 }
 .zoneName{
 	margin-top:20px;

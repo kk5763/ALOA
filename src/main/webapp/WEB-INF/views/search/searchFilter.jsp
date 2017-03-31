@@ -6,6 +6,17 @@
 	<meta charset="UTF-8">
 	<title>검색 필터</title>
 	<link rel="stylesheet" href="/style/min_style/searchFilter.css" />
+	
+	<script>
+	function openCity(cityName) {
+	    var i;
+	    var x = document.getElementsByClassName("city");
+	    for (i = 0; i < x.length; i++) {
+	       x[i].style.display = "none";  
+	    }
+	    document.getElementById(cityName).style.display = "block";  
+	}
+</script>
 </head>
 <script type="text/javascript">
 	function openCity(cityName, mode) {
@@ -116,6 +127,81 @@
 		<!-- 지역 -->
 		<div class="areaText">지역</div>
 		<div class="area">
+<<<<<<< HEAD
+			<div class="areaName">
+			  <div class="areaNameTitle" onclick="openCity('aa')">강남</div>
+			  <div class="areaNameTitle" onclick="openCity('bb')">강북</div>
+			  <div class="areaNameTitle" onclick="openCity('cc')">경기도</div>
+			  <div class="areaNameTitle" onclick="openCity('aa')">인천</div>
+			  <div class="areaNameTitle" onclick="openCity('bb')">대구</div>
+			  <div class="areaNameTitle" onclick="openCity('cc')">더보기</div>
+			</div>
+			
+			<div id="aa" class="w3-container w3-display-container city">
+			  	<div class="zoneBottom">
+		            <div class="zoneName" id="leftZone">강남역</div>
+		            <div class="zoneName" id="rightZone">가로수길</div>
+		            <div class="zoneName" id="rightZone">신사/압구정</div>
+		            <div class="zoneName" id="rightZone">청담동</div>
+		            <div class="zoneName" id="leftZone">신천/잠실</div>
+		            <div class="zoneName" id="rightZone">여의도</div>
+		            <div class="zoneName" id="rightZone">역삼/선릉</div>
+		            <div class="zoneName" id="rightZone">교대/서초</div>
+		            <div class="zoneName" id="leftZone">삼성동</div>
+		            <div class="zoneName" id="rightZone">논현동</div>
+		            <div class="zoneName" id="rightZone">서래마을</div>
+		            <div class="zoneName" id="rightZone">동작/사당</div>
+         		</div>
+			</div>
+			
+			<div id="bb" class="w3-container w3-display-container city" style="display:none">
+			  	<div class="zoneBottom">
+				 	<div class="zoneName" id="rightZone">홍대</div>
+					<div class="zoneName" id="rightZone">이태원/한남동</div>
+					<div class="zoneName" id="rightZone">광화문</div>
+					<div class="zoneName" id="leftZone">신촌/이대</div>
+					<div class="zoneName" id="rightZone">마포</div>
+					<div class="zoneName" id="rightZone">종로</div>
+					<div class="zoneName" id="rightZone">대학로/혜화</div>
+					<div class="zoneName" id="leftZone">건대/군자/광진</div>
+					<div class="zoneName" id="rightZone">명동/남산</div>
+					<div class="zoneName" id="rightZone">삼청/인사</div>
+					<div class="zoneName" id="rightZone">중구</div>
+				</div>
+			</div>
+			
+			<div id="cc" class="w3-container w3-display-container city" style="display:none">
+			  	<div class="zoneBottom">
+				  	<div class="zoneName" id="rightZone">가로수길</div>
+					<div class="zoneName" id="rightZone">신사/압구정</div>
+					<div class="zoneName" id="rightZone">청담동</div>
+					<div class="zoneName" id="leftZone">강남역</div>
+					<div class="zoneName" id="rightZone">가로수길</div>
+					<div class="zoneName" id="rightZone">신사/압구정</div>
+					<div class="zoneName" id="rightZone">청담동</div>
+					<div class="zoneName" id="leftZone">강남역</div>
+					<div class="zoneName" id="rightZone">가로수길</div>
+					<div class="zoneName" id="rightZone">신사/압구정</div>
+					<div class="zoneName" id="rightZone">청담동</div>
+				</div>
+			</div>
+				
+				<!-- <div class="zoneName" id="leftZone">강남역</div>
+				<div class="zoneName" id="rightZone">가로수길</div>
+				<div class="zoneName" id="rightZone">신사/압구정</div>
+				<div class="zoneName" id="rightZone">청담동</div>
+				<div class="zoneName" id="leftZone">강남역</div>
+				<div class="zoneName" id="rightZone">가로수길</div>
+				<div class="zoneName" id="rightZone">신사/압구정</div>
+				<div class="zoneName" id="rightZone">청담동</div>
+				<div class="zoneName" id="leftZone">강남역</div>
+				<div class="zoneName" id="rightZone">가로수길</div>
+				<div class="zoneName" id="rightZone">신사/압구정</div>
+				<div class="zoneName" id="rightZone">청담동</div> -->
+			</div><!--zoneBottom -->
+			
+		</div><!-- area -->
+=======
          <div class="areaName">
            <div id="gang_nam" class="areaNameTitle" onclick="openCity('aa', 'gang_nam')">강남</div>
            <div id="gang_buk" class="areaNameTitle" onclick="openCity('bb', 'gang_buk')">강북</div>
@@ -178,6 +264,7 @@
          </div><!--zoneBottom -->
          
       </div><!-- area -->
+>>>>>>> e8cc524ca3e7e89b456e2123e6fbcc57783a4601
 		
 		<!-- 음식종류 -->
 		<div class="foodTypeText">음식종류</div>

@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.aloa.restaurant.Restaurant;
 import com.aloa.restaurant.RestaurantDTO;
 import com.aloa.restaurant.RestaurantService;
+import com.aloa.review.Imageboard;
 import com.aloa.review.ReviewService;
 import com.aloa.review.Reviewboard;
 import com.aloa.service.MemberService;
@@ -69,36 +70,22 @@ public class MainController {
 			session.setAttribute("username", name);
 		}*/
 		
+
 		List<Restaurant> restaurantlist = resService.findList();
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
 
 		for (int i = 0; i < restaurantlist.size(); i++) {
 			// 맛집의 이미지 가져오기
-			List<Reviewboard> reviewlist = revService.reviewList(restaurantlist.get(i).getResno());
+			List<Imageboard> imagelist = revService.imagelist(restaurantlist.get(i).getResno());
 
 			// 레스토랑DTO에 넣기
 			RestaurantDTO res = new RestaurantDTO();
 
-			res.setReviewlist(reviewlist);
+			res.setImagelist(imagelist);
 			res.setRestaurant(restaurantlist.get(i));
 
 			reslist.add(res);
 		}
-
-		model.addAttribute("reslist", reslist);
-
-            /*
-            1.레스토랑 정보에대한 리스트 가져왓어요.
-            2.레스토랑DTO에 대한 리스트형태 생성(내용비엇어요),리뷰리스트랑,레스토랑.
-            3.레스토랑리스트에대한 만큼 for문도렷음
-                3.1(
-                        DTO.가맹점정보(restaurant,)
-                        DTO.리뷰리스트(restaurant.reviewlist)
-                    )
-                
-            
-            */
-
 		model.addAttribute("reslist",reslist);
 		
 		return "main/home";
@@ -116,14 +103,14 @@ public class MainController {
 
 		for (int i = 0; i < resSearchList.size(); i++) { // 가져온 식당의 수 만큼 반복
 			// 가져온 식당의 번호를 이용해 모든 리뷰를 가져옴
-			List<Reviewboard> reviewImage = revService.reviewList(resSearchList.get(i).getResno());
-			resReviewCount = reviewImage.size();
+			List<Imageboard> image = revService.imagelist(resSearchList.get(i).getResno());
+			resReviewCount = image.size();
 
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();
 			// 가져온 0~n번째 식당의 정보와 이미지를 저장
 			resDTO.setRestaurant(resSearchList.get(i));
-			resDTO.setReviewlist(reviewImage);
+			resDTO.setImagelist(image);
 
 			// 세팅된 resDTO를 resList에 추가하여 searchList.jsp로 넘김
 			resList.add(resDTO);
@@ -149,17 +136,6 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main/storejoinForm");
 		return mav;
-	}
-
-	@RequestMapping(value = "/storejoin", method = RequestMethod.POST)
-	public String storejoin(Restaurant restaurant, @RequestParam String bossemail) {
-
-		System.out.println(restaurant.getBossemail() + restaurant.getResaddress() + bossemail);
-		restaurant.setBossemail(bossemail);
-
-		resService.createRes(restaurant);
-
-		return "redirect:/";
 	}
 
 	@RequestMapping(value = "search", method = RequestMethod.POST)

@@ -23,7 +23,9 @@
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script> 
 <script src="/style/h_style/angular.js"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
-
+<meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
 
 
 <script type="text/javascript">
@@ -216,12 +218,12 @@ function createToast(t) {
 									
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  value="서울시특별시 종로구 돈화문로 26" readonly>
+										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  value="${resDTO.restaurant.resaddress}" readonly>
 										<input type="hidden" id="reserveaddress_hidden"/>
 										 
 										
 										</div>
-									</div>
+									</div> 
 									
 						
 							
@@ -683,7 +685,24 @@ function createToast(t) {
 
 
 
-
+<script>
+	$(document).ready(function(){
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='csrf_header']").attr("content");
+		$.ajax({
+			url: '/accounts/additinfo/'+<sec:authentication property='principal.id'/>,
+			type:'GET',
+			dataType:'json',
+			contentType: "application/json; charset=UTF-8",
+			beforeSend: function(xhr){
+				xhr.setRequestHeader(header, token);
+			},
+			success: function(data, status, xhr){
+				$('#reservetel').val(data.tel);
+			}
+		})
+	})
+</script>
 	
 </body>
 </html>

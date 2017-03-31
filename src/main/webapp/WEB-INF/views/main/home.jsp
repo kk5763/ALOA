@@ -109,9 +109,10 @@ $(document).ready(function(e){
 	</nav>
 </form>
 <br><br>
-<form id="detailList_form" method="GET" name="detailList"><!--  action="/detailView" method="GET" -->
+<form id="detailList_form" method="GET" name="detailList">
 <div class="container">
 	<h3>실시간 추천 맛집 리스트<c:if test="${reslist[0].restaurant.resno!=null}">
+	
 	
 		<%-- 
 		 <c:forEach var="i" begin="1" end="${reslist.size()}" step="1">

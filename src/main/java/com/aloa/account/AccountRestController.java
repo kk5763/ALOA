@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aloa.additinfo.AccountAdditInfoRepository;
+
 
 @RestController
 public class AccountRestController {
@@ -24,6 +26,9 @@ public class AccountRestController {
 	
 	@Autowired
 	AccountRepository accountRepository;
+	
+	@Autowired
+	AccountAdditInfoRepository accountAdditInfoRepository;
 	
 	@Autowired
 	ModelMapper modelMapper;
@@ -59,6 +64,7 @@ public class AccountRestController {
 		account = accountService.passwordUpdate(id, dto);
 		return new ResponseEntity<Account>(HttpStatus.OK);
 	}
+	
 	
 	@RequestMapping(value="/accounts/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Account> deleteGetAccount(@PathVariable Long id,
