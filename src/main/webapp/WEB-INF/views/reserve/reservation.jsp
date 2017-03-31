@@ -216,7 +216,7 @@ function createToast(t) {
 									
 									<div class="select_simple_time">
 										<div class="wrap_select" >
-										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  value="서울시특별시 종로구 돈화문로 26" readonly>
+										<input type="text" name="reserveaddress" id="reserveaddress" class="sc"  value="${resDTO.restaurant.resaddress}" readonly>
 										<input type="hidden" id="reserveaddress_hidden"/>
 										 
 										

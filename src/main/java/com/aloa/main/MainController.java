@@ -86,7 +86,7 @@ public class MainController {
 			reslist.add(res);
 		}
 
-<<<<<<< HEAD
+
 
 	
 		
@@ -104,9 +104,9 @@ public class MainController {
 				
 			}
 
-=======
+
 		model.addAttribute("reslist", reslist);
->>>>>>> 14e5d6a44486042c4bbfa970c19235bbd4d8fe23
+
 
             /*
             1.레스토랑 정보에대한 리스트 가져왓어요.
