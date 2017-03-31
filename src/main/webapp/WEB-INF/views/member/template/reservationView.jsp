@@ -14,7 +14,7 @@ function closeButton(){
 </script>
 </head>
 <body>
-<div id="messageView">
+<div id="reservationView">
 	<div id="reservationConfirmTitle">예약 확인</div>
 	<div id="reservationT">
 		<div id="reservationDate"><b>예약 날짜</b></div><input type="text" value="" size="30" readonly/>
