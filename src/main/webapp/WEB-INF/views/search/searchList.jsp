@@ -36,7 +36,7 @@
 		
 		<div class="content">
 			<c:if test="${resList != null }">
-				<!-- 검색한 식당의 수 만큼 반복 3 -->
+				<!-- 검색한 식당의 수 만큼 반복 -->
 				<c:forEach var="dto" items="${resList }" varStatus="status">
 					<c:if test="${status.index % 2 == 0}">
 						<div class="left_div">
