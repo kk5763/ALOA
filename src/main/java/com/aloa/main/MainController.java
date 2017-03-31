@@ -138,13 +138,4 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value = "search", method = RequestMethod.POST)
-	public ModelAndView search() {
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("search/searchList");
-
-		return mav;
-	}
-
 }

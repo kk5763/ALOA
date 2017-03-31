@@ -11,7 +11,7 @@
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
-	/* function reportRes() {
+	function reportRes() {
 		
 		window.open("http://localhost:8000/reportRes",
 					"reportRes",
@@ -31,10 +31,6 @@
 		
 	}
 	
-	function 11(){
-		
-	
-} */
 </script>
 </head>
 <!-- 상단영역 -->
@@ -66,15 +62,6 @@ ${reslist.get(0).reviewlist.image }
 				
 				
 			</div>
-		<form id="detailView_form" method="GET" name="detailView">
-			<div class="restaurant-status" id="detailView">
-					<div class="review-bt-wrap">
-						<a href="#" class="review-bt" id="${resDTO.restaurant.resno}">예  약</a>
-					<%-- 	<input type="hidden" name="resno" value="${reslist.restaurant.resno}" id="resn"/> --%>
-					</div>			
-								
-			</div>
-		</form>
 			<div class="reportRes-button">
 				<img src="/resources/images/min_image/report.PNG"
 					onclick="reportRes()" />
@@ -129,7 +116,18 @@ ${reslist.get(0).reviewlist.image }
 		
 		
 		</div>
+		<%-- <form id="detailView_form" method="GET" name="detailView">
+			<div class="restaurant-status" id="detailView">
+					<div class="review-bt-wrap">
+						<a href="#" class="review-bt" id="${resDTO.restaurant.resno}">예  약</a>
+						<input type="hidden" name="resno" value="${reslist.restaurant.resno}" id="resn"/>
+					</div>			
+								
+			</div>
+		</form> --%>
 	</div>
+	
+	
 	<!-- 리뷰 -->
 	<c:forEach var="i" begin="1" end="5" step="1">
 		<section class="review">
