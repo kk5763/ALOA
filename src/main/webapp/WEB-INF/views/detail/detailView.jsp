@@ -182,24 +182,6 @@ ${reslist.get(0).reviewlist.image }
 					<time>
 					<span class="past-time">2016-02-04</span></time>
 				</p>
-				<p class="list-photos">
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-					<button class="photo-bt">
-						<img class="photo"
-							src=https://mp-seoul-image-production-s3.mangoplate.com/13936/444936_1456304575639_356921?fit=around|120:120&crop=120:120;*,*&output-format=jpg&output-quality=80>
-					</button>
-				</p>
 				</section></li>
 		</ul>
 		</section>
