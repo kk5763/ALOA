@@ -34,6 +34,7 @@ public class RestaurantController {
 		resDTO.setRestaurant(restaurant);
 		
 		model.addAttribute("resDTO",resDTO);
+
 		return "detail/detailView";
 	}
 	

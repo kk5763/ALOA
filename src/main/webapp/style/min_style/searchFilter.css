@@ -70,6 +70,7 @@
 	color:#CFCFCF;
 	padding-bottom:15px;
 	float:left;
+	cursor:pointer;
 }
 .zoneName{
 	margin-top:20px;
@@ -125,7 +126,7 @@
 .parkingName{
 	margin-top:10px;
 }
-.absence{
+#absence{
 	margin:0 10px;
 	width: 260px;
 	height: 40px;
@@ -137,7 +138,7 @@
 	font-size: 15px;
 	display:inline-block;
 }
-.distantPoints{
+#distantPoints{
 	margin:0 10px;
 	width: 260px;
 	heigth: 40px;

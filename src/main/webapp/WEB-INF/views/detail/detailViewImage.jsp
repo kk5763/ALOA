@@ -24,7 +24,6 @@ window.onload = function() { dudung(1); }
 	bb.style.border = "1px solid yellow";
 	 
 	var aa = document.getElementById("smallImage" + su).getAttribute("src");//작은이미지 경로 가져와서 aa에 저장
-	 
 	document.getElementById("imageCenter_img").setAttribute("src",aa);	//aa경로 큰이미지 경로로 바꿔주기 
  }
  
