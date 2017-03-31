@@ -22,8 +22,8 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	@RequestMapping(value="/detailView/{resno}",method=RequestMethod.GET)
-	public String detailView(@PathVariable int resno,Model model){
+	@RequestMapping(value="/detailView",method=RequestMethod.GET)
+	public String detailView( int resno,Model model){
 		
 		Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewlist = 
@@ -38,7 +38,7 @@ public class RestaurantController {
 		return "detail/detailView";
 	}
 	
-
+	
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
 	public String detailViewImage(Model model ){
 		
