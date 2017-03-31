@@ -66,15 +66,15 @@
 }
 .areaNameTitle{
 	width:122px;
-	border-bottom: 2px solid #ccc;
+	border-bottom: 1px solid #ccc;
 	color:#ccc;
 	padding-bottom:15px;
 	float:left;
-<<<<<<< HEAD
 	cursor: pointer;
-=======
-	cursor:pointer;
->>>>>>> 6508b2aa5515891c7e026a5d20b1bb7809a51152
+}
+#gang_nam {
+	border-bottom: 1px solid tomato;
+	color: tomato;
 }
 .zoneName{
 	margin-top:20px;
@@ -86,12 +86,6 @@
 	color:#CFCFCF;
 	display:inline-block;
 	font-size:16px;
-}
-#leftZone{
-	margin-right:12px;
-}
-#rightZone{
-	margin-left:12px;
 }
 .zoneBottom{
 	/* border:2px solid green;	 */
