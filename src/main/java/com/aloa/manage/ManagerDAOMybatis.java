@@ -26,5 +26,19 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		
 		return list;
 	}
+
+	@Override
+	public List<MemberDTO> memberBlackList() {
+		List<MemberDTO> list = sqlSession.selectList("managerMapper.memberBlackList");
+		
+		return list;
+	}
+
+	@Override
+	public void memberRemove(String[] checkEmail) {
+		for(int i = 0; i < checkEmail.length; i++){
+		sqlSession.delete("managerMapper.memberRemove", checkEmail[i]);
+		}
+	}
 	
 }

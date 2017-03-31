@@ -4,9 +4,15 @@
 	<select id = "memberList" resultType = "com.aloa.manage.MemberDTO">
 		select * from account
 	</select>
-	
+	<delete id = "memberRemove" parameterType = "String">
+		delete from account where email = %{Email};
+	</delete>
 	<select id ="restaurantList" resultType="com.aloa.manage.RestaurantDTO">
 		select * from restaurant
+	</select>
+	
+	<select id = "memberBlackList" resultType = "com.aloa.manage.MemberDTO">
+		select * from account where reportCount >= 3
 	</select>
 
 </mapper>
