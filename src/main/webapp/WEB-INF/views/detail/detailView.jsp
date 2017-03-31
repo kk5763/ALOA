@@ -121,17 +121,15 @@ ${reslist.get(0).reviewlist.image }
 			</c:if>	
 		</div><!-- review-bt-wrap -->
 		
-		<div class="restaurant-status" id="detailView">
+
 			<div class="review-bt-wrap">
 				<a href="#" class="review-bt" onclick="reservation()">예  약</a>
 			</div>							
-		</div>
+
 	</div><!-- review-bt-div -->
 	
 	
 	<!-- 리뷰 -->
-	<c:forEach var="i" begin="1" end="5" step="1">
-		<section class="review">
 		<div class="title-wrap">
 			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
 			<ul class="review-filter-list">
@@ -149,9 +147,14 @@ ${reslist.get(0).reviewlist.image }
 				</li>
 			</ul>
 		</div>
+		
+	<c:forEach var="i" begin="1" end="5" step="1">
+		<section class="review">
+		
 		<ul class="review-list">
 			<li class="default-review"><section class="review-item">
 				<h1 class="icon">
+					<img src="/resources/images/min_image/good_on.png">
 					<strong class="good">맛있다</strong>
 				</h1>
 				<div class="review-content">
