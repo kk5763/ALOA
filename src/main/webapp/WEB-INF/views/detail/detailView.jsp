@@ -6,11 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/style/detailViewStyle.css" />
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
-	function reportRes() {
+	/* function reportRes() {
 		
 		window.open("http://localhost:8000/reportRes",
 					"reportRes",
@@ -29,6 +30,11 @@
 				"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=550");
 		
 	}
+	
+	function 11(){
+		
+	
+} */
 </script>
 </head>
 <!-- 상단영역 -->
@@ -52,21 +58,23 @@ ${reslist.get(0).reviewlist.image }
 			<div class="restaurant-title">
 				<div class="wannago-wrapper">
 					<button class="wannago-bt"></button>
-					<p class="wannago-txt">가고싶다</p>
+					<p class="wannago-txt">신고하기</p>
 				</div>
 				<h1 class="title">
 					<span class="name" >${resDTO.restaurant.resname}</span> <span class="rate-point">4.6</span>
 				</h1>
+				
+				
 			</div>
-
-			<div class="restaurant-status">
-				<span class="hit"> <span class="hidden">조회수:</span> 24,013
-				</span> <span class="review"> <span class="hidden">리뷰수:</span> 32
-				</span> <span class="favorite"> <span class="hidden">가고싶다수 :
-				</span> 1,477
-				</span>
+		<form id="detailView_form" method="GET" name="detailView">
+			<div class="restaurant-status" id="detailView">
+					<div class="review-bt-wrap">
+						<a href="#" class="review-bt" id="${resDTO.restaurant.resno}">예  약</a>
+					<%-- 	<input type="hidden" name="resno" value="${reslist.restaurant.resno}" id="resn"/> --%>
+					</div>			
+								
 			</div>
-
+		</form>
 			<div class="reportRes-button">
 				<img src="/resources/images/min_image/report.PNG"
 					onclick="reportRes()" />
@@ -357,4 +365,22 @@ ${reslist.get(0).reviewlist.image }
 
 </article>
 </body>
+
+<script type="text/javascript">
+
+$(document).ready(function(e){
+	$('body').on('click', 'form div a', function(e){
+		/* var resn = $('#resn').val(); */
+		var tg = e.target.id;
+		
+	$('#detailView_form').attr('action', '/reservation/'+tg);
+		
+	$('#detailView_form').submit(); 
+	})
+})
+
+
+			
+</script>
+
 </html>

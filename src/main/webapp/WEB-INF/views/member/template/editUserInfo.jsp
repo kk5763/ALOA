@@ -11,27 +11,27 @@
 <div id="profile_container">
 	<div class="container">
 		<form class="form-horizontal col-sm-offset-2 col-sm-8">
-			<div style="border-bottom: 1px solid gray;">
+			<div id="alert_div_profile" style="border-bottom: 1px solid gray;">
 			<h4>프로필 관리</h4>
 			</div><br>
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-2 control-label">이름</label>
+				<label for="name" class="col-sm-2 control-label">이름</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" id="inputEmail3" value="<sec:authentication property='principal.fullName'/>">
+					<input type="text" class="form-control" id="name" value="<sec:authentication property='principal.fullName'/>" disabled>
 				</div>
 			</div>
 			<div class="form-group" id="gender">
 				<label for="inputPassword3" class="col-sm-2 control-label">성별</label>
 				<div class="col-sm-10">
-					<select class="form-control"> 
-						<option>선택</option> 
-						<option>남자</option> 
-						<option>여자</option> 
-						<option>기타</option>
+					<select class="form-control" id="gender"> 
+						<option id="gender_0">선택</option> 
+						<option id="gender_1">남자</option> 
+						<option id="gender_2">여자</option> 
+						<option id="gender_3">기타</option>
 					</select>
 				</div>
 			</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label for="inputPassword3" class="col-sm-2 control-label">생년월일</label>
 				<div class="col-sm-10">
 					<div class="container-fluid" style="float:left;">
@@ -58,22 +58,22 @@
 						</select>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">거주도시</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" id="inputEmail3">
+					<input type="text" class="form-control" id="hometown" placeholder="ex: 프랑스/파리, 한국/서울">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-2 control-label">자기소개</label>
+				<label for="tel" class="col-sm-2 control-label">휴대폰번호</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" rows="5"></textarea>
+					<input type="text" class="form-control" id="tel" placeholder="'-' 없이 숫자만 입력해주세요, ex:01087874545">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10 text-right">
-					<button type="submit"  class="btn" style="background-color:tomato; color:white;">변경사항 저장</button>
+					<button type="button" id="additUserInfo" class="btn" style="background-color:tomato; color:white;">변경사항 저장</button>
 				</div>
 			</div>
 		</form>
@@ -113,6 +113,67 @@
 $(document).ready(function(){
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
+	$.ajax({
+		url:'/accounts/additinfo/'+<sec:authentication property='principal.id'/>,
+		type:'GET',
+		dataType:'json',
+		contentType: "application/json; charset=UTF-8",
+		beforeSend: function(xhr){
+			xhr.setRequestHeader(header, token);
+		},
+		success: function(data, status, xhr){
+			console.log(data.gender);
+			switch(data.gender){
+				case 0 : $('#gender_0').attr('selected', 'selected');
+						   break;
+				case 1 : $('#gender_1').attr('selected', 'selected');
+				  		   break;
+				case 2 : $('#gender_2').attr('selected', 'selected');
+				           break;
+				case 3 : $('#gender_3').attr('selected', 'selected');
+				           break;
+			}
+			$('#hometown').val(data.hometown);
+			$('#tel').val(data.tel);
+		}
+	})
+	
+	$('#additUserInfo').click(function(){
+		var name = $('#name').val();
+		var gender;
+		var hometown = $('#hometown').val();
+		var tel = $('#tel').val();
+		if($('#gender option:selected').val()=='남자'){
+			gender = 1;
+		}else if($('#gender option:selected').val()=='여자'){
+			gender = 2;
+		}else if($('#gender option:selected').val()=='기타'){
+			gender = 3;
+		}else{
+			gender = 0;
+		}
+		
+		$.ajax({
+			url:'/accounts/additinfo/'+<sec:authentication property='principal.id'/>,
+			type:'PUT',
+			dataType:'json',
+			data: JSON.stringify({'name':name, 'gender':gender, 'hometown':hometown, 'tel':tel}),
+			contentType: "application/json; charset=UTF-8",
+			beforeSend: function(xhr){
+				xhr.setRequestHeader(header, token);
+			},
+			error: function(xhr, status, err){
+				if(xhr.status == 200){
+					$('#alert_div_profile').html('<h4 style="color:green;">프로필 업데이트 성공!</h4>');
+					setTimeout(function(){
+						$('#alert_div_profile').html('<h4>프로필 관리</h4>');
+					}, 4000)
+				}
+			}
+		})
+	})
+	
+	
 	$('#password_change_button').click(function(){
 		var password = $('#inputPassword').val();
 		var newPassword = $('#inputNewPassword').val();
