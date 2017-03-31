@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -103,22 +104,22 @@ $(document).ready(function(){
 											</label>
 										</div>
 									</th>
-									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="가맹점주" disabled>
+									<th style="width: 8%">
+										<input type="text" class="form-control" placeholder="맛집번호" disabled>
 									</th>
-									<th style="width: 15%">
+									<th style="width: 14%">
+										<input type="text" class="form-control" placeholder="맛집구분" disabled>
+									</th>
+									<th style="width: 14%">
 										<input type="text" class="form-control" placeholder="맛집이름" disabled>
+									<th style="width: 14%">
+										<input type="text" class="form-control" placeholder="점주ID" disabled>
 									</th>
-									<th style="width: 15%">
+									<th style="width: 14%">
 										<input type="text" class="form-control" placeholder="연락처" disabled>
+									</th>
 									<th style="width: 35%">
 										<input type="text" class="form-control" placeholder="주소" disabled>
-									</th>
-									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="가입날짜" disabled>
-									</th>
-									<th style="width: 9%">
-										<input type="text" class="form-control" placeholder="비고" disabled>
 									</th>
 								
 									
@@ -127,23 +128,26 @@ $(document).ready(function(){
 								</table>
 								<div class="bg tablescroll">
 									<table class="table table-bordered table-striped">
-										<tr>
-											<td style= "width:1%;">
-												<div class="checkbox radio-margin">
-													<label>
-														<input type="checkbox" value="">
-														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-													</label>
-												</div>
-											</th>
-											<td style="width: 10%">공호진</td>	
-											<td style="width: 15%">파스타마마</td>
-											<td style="width: 15%">010-6667-1478</td>
-											<td style="width: 35%">경기도 용인시 죽ㅈㄴ동</td>
-											<td style="width: 15%">1992-02-29</td>
-											<td style="width: 9%"><input type="button" value="삭제"></td>
-										</tr>
-									
+										<c:if test="${list!=null }">
+											<c:forEach var="restaurant" items="${list }">
+												<tr>
+													<td style= "width:1%;">
+														<div class="checkbox radio-margin">
+															<label>
+																<input type="checkbox" value="">
+																<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+															</label>
+														</div>
+													</th>
+													<td style="width: 8%">${restaurant.resNo }</td>	
+													<td style="width: 14%">${restaurant.resKind }</td>
+													<td style="width: 14%">${restaurant.resName }</td>
+													<td style="width: 14%">${restaurant.bossEmail }</td>
+													<td style="width: 14%">${restaurant.resTel }</td>
+													<td style="width: 35%">${restaurant.resAddress }</td>
+												</tr>
+											</c:forEach>
+										</c:if>
 										
 									</table>
 								</div>

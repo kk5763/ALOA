@@ -15,7 +15,15 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	
 	@Override
 	public List<MemberDTO> memberList() {
-		List<MemberDTO> list = sqlSession.selectList("memberSQL.memberList");
+		List<MemberDTO> list = sqlSession.selectList("managerMapper.memberList");
+		
+		return list;
+	}
+
+	@Override
+	public List<RestaurantDTO> restaurantList() {
+		List<RestaurantDTO> list = sqlSession.selectList("managerMapper.restaurantList");
+		
 		return list;
 	}
 	
