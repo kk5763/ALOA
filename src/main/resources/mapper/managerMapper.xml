@@ -12,7 +12,10 @@
 	</select>
 	
 	<delete id = "restaurantDelete" parameterType ="int">
-		delete from restaurant where resNo = #{resno}
+		begin
+			update account set server=0 where email=(select bossEmail from restaurant where resNo=#{resno});
+			delete restaurant where resNo = #{resno};
+		end;
 	</delete>
 	
 	<select id="restaurantInfo" parameterType="int" resultType="com.aloa.restaurant.Restaurant">
