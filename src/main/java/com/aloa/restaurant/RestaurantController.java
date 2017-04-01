@@ -28,18 +28,14 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
-<<<<<<< HEAD
-	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(@RequestParam int resno,Model model){
-=======
+
 	@Autowired
 	private  AccountRepository accountRepository;
-	
-	@RequestMapping(value="/detailView/{resno}",method=RequestMethod.GET)
-	public String detailView(@PathVariable int resno,Model model){
->>>>>>> ca1ab2994d85a141ff83f59a2edc34905c862aab
-		
-		Restaurant restaurant = service.findOne(resno);
+
+
+	@RequestMapping(value="/detailView",method=RequestMethod.GET)
+	public String detailView(@RequestParam int resno,Model model){
+	Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		List<Imageboard> imageList = reviewService.imagelist(resno);
 		
