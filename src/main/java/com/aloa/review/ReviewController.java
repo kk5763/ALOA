@@ -48,6 +48,6 @@ public class ReviewController {
 		
 		
 		
-		return "redirect:/detailView";
+		return "redirect:/";
 	}
 }

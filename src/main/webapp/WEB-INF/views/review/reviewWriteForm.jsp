@@ -55,7 +55,7 @@ function cancle(){
 	<form name="reviewWriteForm" method="POST" enctype="multipart/form-data" action="/reviewWrite">
 		<div id="main_section">
 			<input type="hidden" name="resno" value="${resno}">
-			<input type="hidden" name="email" value="<sec:authentication property="principal.email"/>">
+			<input type="hidden" name="email" value="<sec:authentication property='principal.email'/>">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<input type="hidden" id="grade-score" name="grade" value="0">
 			
