@@ -39,13 +39,8 @@ public class ManagerController {
 	@RequestMapping(value = "/manager/listRemove", method = RequestMethod.POST)
 	public ModelAndView listRemove(@RequestParam String[] checkId){
 		
-		
 		managerDAO.memberRemove(checkId);
-	
 		return new ModelAndView("redirect:/manager/memberManage");
-		
-		
-		
 	}
 	@RequestMapping(value = "/manager/blacklistManage")
 	public ModelAndView blacklistManage() {
