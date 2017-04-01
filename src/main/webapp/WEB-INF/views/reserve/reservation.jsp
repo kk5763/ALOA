@@ -465,7 +465,7 @@ function createToast(t) {
 						<bk-submit >
 						<!----> <!---->
 							<div class="bottom_btn disable">
-								<button type="button" class="btn" onclick="sub()">
+								<button type="button" class="btn" id="reservation_button">
 									<!---->
 									<!---->
 									<i class="fn fn-nbooking-calender2"></i>
@@ -510,34 +510,49 @@ function createToast(t) {
 </script>
 
 <script type="text/javascript">
-function sub(){
+$(document).ready(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='csrf_header']").attr("content");
 	
-	var Datepicker  = $('#Datepicker').val();
-	var reservetime = $('#reservetime').val();
-	var reservenumber = $('#reservenumber').val();
-	var reserveaddress = $('#reserveaddress').val();
-	var reservename = $('#reservename').val();
-	var reservetel = $('#reservetel').val();
-	var reserveemail = $('#reserveemail').val();
-	var reserverequest = $('#reserverequest').val();
-	
-	
-	$('#reservationForm').attr('action', '/reservation/'+Datepicker
-														+reservetime
-														+reservenumber
-														+reserveaddress
-														+reservename
-														+reservetel
-														+reserveemail
-														+reserverequest);
-	
-	
-	$('#reservationForm').submit(); 
-	
-	
-}
-
+	$('#reservation_button').click(function(){
+		var Datepicker  = $('#Datepicker').val();
+		var reservetime = $('#reservetime').val();
+		var reservenumber = $('#reservenumber').val();
+		var reserverequest = $('#reserverequest').val();
+		var userId = <sec:authentication property='principal.id'/>;
+		var resno = ${resDTO.restaurant.resno};
+		
+		
+		$.ajax({
+			url: '/restaurantReserve',
+			type:'POST',
+			dataType: 'json',
+			contentType: "application/json; charset=UTF-8",
+			data: JSON.stringify({'resno':resno,'userid':userId,'date':Datepicker,'reservetime':reservetime,'member':reservenumber,'reserverrequest':reserverequest}),
+			beforeSend: function(xhr){
+				xhr.setRequestHeader(header, token);
+			},
+			error: function(xhr, status, err){
+				if(xhr.status == 200){
+					alert('저장성공');
+				}else{
+					alert('실패');
+				}
+			}
+			
+		})
+	})
+})
 </script>
 	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
