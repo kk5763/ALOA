@@ -57,13 +57,12 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
             	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;" onclick="openStorejoinForm()">입점신청</a></li>
-            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">예약정보</a></li>
+            	<li><a href="/accounts/reservation" style="cursor: pointer;">예약정보</a></li>
             	<li><a href="/accounts/message" style="cursor: pointer;">메세지<span class="badge" style="background-color:tomato;">2</span></a></li>
             	<li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><sec:authentication property="principal.fullName"/> <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
 		            <li><a href="#">내가 본 맛집</a></li>
-		            <li><a href="#">내가 한 예약</a></li>
 		            <li class="divider"></li>
 		            <li><a href="/accounts/userInfo">회원정보수정</a></li>
 		            <li>

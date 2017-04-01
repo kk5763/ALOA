@@ -520,7 +520,6 @@ function sub(){
 	var reservetel = $('#reservetel').val();
 	var reserveemail = $('#reserveemail').val();
 	var reserverequest = $('#reserverequest').val();
-
 	
 	
 	$('#reservationForm').attr('action', '/reservation/'+Datepicker
