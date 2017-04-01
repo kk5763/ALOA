@@ -20,7 +20,7 @@
 					.open(
 							"http://localhost:8000/reportResForm?resno=${resDTO.restaurant.resno}",
 							"reportRes",
-							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
 		}
 	}
 	function reportRev() {
@@ -31,7 +31,7 @@
 					.open(
 							"http://localhost:8000/reportRevForm?resno=${resDTO.restaurant.resno}",
 							"reportRev",
-							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=210");
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
 		}
 	}
 

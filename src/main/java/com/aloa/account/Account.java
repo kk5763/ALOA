@@ -37,8 +37,6 @@ public class Account {
 	
 	private int emailauth;
 	
-
-	
 	public Long getId() {
 		return id;
 	}
