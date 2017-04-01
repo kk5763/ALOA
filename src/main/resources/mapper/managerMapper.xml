@@ -56,5 +56,9 @@
 	<select id = "revClaimList" resultType = "com.aloa.manage.ReportRevDTO">
 		select * from ReportRev
 	</select>
+	
+	<select id = "resClaimList" resultType = "com.aloa.manage.ReportResDTO">
+		select * from ReportRes
+	</select>
 
 </mapper>

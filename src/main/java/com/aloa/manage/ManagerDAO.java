@@ -21,4 +21,6 @@ public interface ManagerDAO {
 
 	public List<ReportRevDTO> revClaimList();
 
+	public List<ReportResDTO> resClaimList();
+
 }

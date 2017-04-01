@@ -63,4 +63,11 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		return list;
 	}
 
+	@Override
+	public List<ReportResDTO> resClaimList() {
+		List<ReportResDTO> list = sqlSession.selectList("managerMapper.resClaimList");
+		
+		return list;
+	}
+
 }
