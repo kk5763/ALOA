@@ -36,6 +36,7 @@ create table reviewBoard(
     content varchar(100),
     createDate date default sysdate,
     grade number not null,
+    username varchar2(100),
     constraint reference_resNo foreign key(resNo) references restaurant(resNo),
     constraint reference_id2 foreign key(email) references account(email)
 );
