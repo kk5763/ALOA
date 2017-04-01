@@ -54,6 +54,7 @@
 	<h3>발생한 문제에 대해 알려주세요</h3>
 			<input type="hidden" name="resno" value="${resno}">
 			<input type="hidden" id="report" name="report" value="0">
+			<input type="hidden" name="reviewno" value="${reviewno}">
 			<input type="hidden" name="email" value="<sec:authentication property='principal.email'/>">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	<div id="main">

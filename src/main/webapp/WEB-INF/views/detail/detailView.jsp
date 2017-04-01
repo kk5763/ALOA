@@ -23,13 +23,13 @@
 							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
 		}
 	}
-	function reportRev() {
+	function reportRev(reviewno) {
 		if (document.getElementById("email").value== "") {
 			alert("로그인후 이용가능합니다.");
 		} else {
 			window
 					.open(
-							"http://localhost:8000/reportRevForm?resno=${resDTO.restaurant.resno}",
+							"http://localhost:8000/reportRevForm?resno=${resDTO.restaurant.resno}&reviewno="+reviewno,
 							"reportRev",
 							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
 		}
@@ -190,7 +190,7 @@ ${reslist.get(0).reviewlist.image }
                   <figcaption>회원 이름</figcaption>
                   <div class="reportRev-button">
                      <img src="/resources/images/min_image/report.PNG"
-                        onclick="reportRev()" />
+                        onclick="reportRev(${reviewList.reviewno})" />
                   </div>
                   </figure>
 
