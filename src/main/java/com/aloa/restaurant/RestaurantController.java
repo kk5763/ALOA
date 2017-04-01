@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aloa.review.Imageboard;
 import com.aloa.review.ReviewService;
@@ -23,8 +24,8 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
-	@RequestMapping(value="/detailView/{resno}",method=RequestMethod.GET)
-	public String detailView(@PathVariable int resno,Model model){
+	@RequestMapping(value="/detailView",method=RequestMethod.GET)
+	public String detailView(@RequestParam int resno,Model model){
 		
 		Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);

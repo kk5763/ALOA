@@ -139,11 +139,8 @@ ${reslist.get(0).reviewlist.image }
 	
 	
 	<!-- 리뷰 -->
-<<<<<<< HEAD
 		<div class="title-wrap">
-=======
 	<div class="title-wrap">
->>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
 			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
 			<ul class="review-filter-list">
 				<li class="review-filter-item">
@@ -160,15 +157,10 @@ ${reslist.get(0).reviewlist.image }
 				</li>
 			</ul>
 		</div>
-<<<<<<< HEAD
+
 		
-	<c:forEach var="i" begin="1" end="5" step="1">
-		<section class="review">
-		
-=======
 	<c:forEach var="i" begin="1" end="5" step="1">
 		<section class="review" style="border: 1px solid blue;">
->>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
 		<ul class="review-list">
 			<li class="default-review"><section class="review-item">
 				<h1 class="icon">
