@@ -35,9 +35,10 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	}
 
 	@Override
-	public void memberRemove(String[] checkEmail) {
-		for(int i = 0; i < checkEmail.length; i++){
-		sqlSession.delete("managerMapper.memberRemove", checkEmail[i]);
+	public void memberRemove(String[] checkId) {
+		for(int i = 0; i < checkId.length; i++){
+			
+			sqlSession.delete("managerMapper.memberRemove",Integer.parseInt(checkId[i]));
 		}
 	}
 	
