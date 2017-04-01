@@ -163,17 +163,7 @@ $(document).ready(function(e){
 				 
 			 </c:forEach>
 			 </c:if>
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
+	
 			 
 		</c:if>
 	</div>

@@ -1,5 +1,6 @@
 package com.aloa.restaurant;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,14 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aloa.account.Account;
 import com.aloa.account.AccountRepository;
-import com.aloa.account.AccountService;
 import com.aloa.review.Imageboard;
 import com.aloa.review.ReviewService;
 import com.aloa.review.Reviewboard;
@@ -34,10 +33,11 @@ public class RestaurantController {
 
 
 	@RequestMapping(value="/detailView",method=RequestMethod.GET)
-	public String detailView(@RequestParam int resno,Model model){
+	public String detailView(@RequestParam int resno,Model model,Principal principal){
 	Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		List<Imageboard> imageList = reviewService.imagelist(resno);
+	
 		
 		// 리뷰 개수 & 평점
 		int grade_5 = 0;
@@ -84,7 +84,7 @@ public class RestaurantController {
 		return "detail/detailView";
 	}
 	
-
+	
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
 	public String detailViewImage(Model model ){
 		
