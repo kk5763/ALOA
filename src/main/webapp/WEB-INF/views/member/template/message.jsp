@@ -50,7 +50,7 @@
 					$('#message_tbody').html('');
 					var i = 1;
 					for(var i=0; i<data.length; i++){
-						$('#message_tbody').append('<tr><td>'+(i+1)+'</td><td>'+data[i].sender+'</td><td>'+data[i].contents+'</td></tr>');
+						$('#message_tbody').append('<tr id="message_view_'+i+'"><td>'+(i+1)+'</td><td>'+data[i].sender+'</td><td>'+data[i].contents+'</td></tr>');
 					}
 				}else if(xhr.status==204){
 					$('#message_tbody').html('<tr><td>도착한 메시지가 없습니다.</td></tr>');
