@@ -3,6 +3,7 @@ package com.aloa.manage;
 import java.util.List;
 import java.util.Map;
 
+import com.aloa.account.Account;
 import com.aloa.restaurant.Restaurant;
 
 public interface ManagerDAO {
@@ -14,9 +15,8 @@ public interface ManagerDAO {
 
 	public void memberRemove(String[] checkId);
 
-	public String checkId(String id);
-
-	public void updateServer(String string);
+	public Account checkId(String id);
 
 	public void insertRestaurant(Map<String, String> map);
+
 }

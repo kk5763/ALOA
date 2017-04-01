@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.aloa.account.Account;
 import com.aloa.restaurant.Restaurant;
 
 @Component("ManagerDAO")
@@ -30,22 +31,15 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		return list;
 	}
 	
-	public String checkId(String id) {
-		String name = sqlSession.selectOne("managerMapper.checkId", id);
-		return name;
+	public Account checkId(String id) {
+		Account account = sqlSession.selectOne("managerMapper.checkId", id);
+		return account;
 	}
 
 	@Override
 	public void insertRestaurant(Map<String, String> map) {
 		sqlSession.insert("managerMapper.insertRestaurant", map);
 		
-	}
-
-	@Override
-	public void updateServer(String email) {
-		System.out.println("zzzz"+email);
-		int su = sqlSession.update("managerMapper.updateServer", email);
-		System.out.println("su"+su);
 	}
 
 	@Override
@@ -62,5 +56,5 @@ public class ManagerDAOMybatis implements ManagerDAO {
 			sqlSession.delete("managerMapper.memberRemove",Integer.parseInt(checkId[i]));
 		}
 	}
-	
+
 }

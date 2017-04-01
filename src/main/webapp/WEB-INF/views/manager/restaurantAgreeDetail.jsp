@@ -17,7 +17,10 @@ window.onload = function(){
 	}
 	else if('${checkid}'==2){
 		alert("아이디를 잘못입력하였습니다");
-	}	
+	}
+	else if('${checkid}'==3){
+		alert("해당 아이디로 등록된 맛집이 있습니다");
+	}
 }; 
 
 
@@ -34,7 +37,6 @@ function complete(){
 		alert('아이디 체크를 하세요');
 	}
 	else if(check=='y'){
-		alert("간닷");
 		storejoin.submit();
 	}
 }

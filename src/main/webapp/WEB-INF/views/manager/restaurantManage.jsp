@@ -77,6 +77,14 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript">
+function deletebtn(){
+	var checkbox = document.getElementsByClassName("checkPoint");
+	for(i=0; i<checkbox.length; i++){
+		alert(checkbox[i].checked);
+	}
+}
+</script>
 </head>
 
 <body>
@@ -99,7 +107,7 @@ $(document).ready(function(){
 									<th style= "width:1%;">
 										<div class="checkbox radio-margin">
 											<label>
-												<input type="checkbox" value="">
+												<input type="checkbox" id="allCheck">
 												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 											</label>
 										</div>
@@ -134,7 +142,7 @@ $(document).ready(function(){
 													<td style= "width:1%;">
 														<div class="checkbox radio-margin">
 															<label>
-																<input type="checkbox" value="">
+																<input type="checkbox" class="checkPoint">
 																<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 															</label>
 														</div>
@@ -157,8 +165,10 @@ $(document).ready(function(){
 				</div>
     
 </div><!-- 테이블 -->
+<button type="button" class="btn btn-default" onclick="deletebtn()">삭제</button>
+</div>
 
-	<nav>
+	<!-- <nav>
   <ul class="pagination">
     <li>
       <span>
@@ -186,7 +196,7 @@ $(document).ready(function(){
       </a>
     </li>
   </ul>
-</nav><!-- 페이징 -->
+</nav> --><!-- 페이징 -->
   <!-- 검색 div 
   <div class="container">
     <div class="row">    
