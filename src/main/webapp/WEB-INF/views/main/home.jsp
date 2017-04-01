@@ -28,6 +28,14 @@
 					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=400, top=100, width=1100, height=800");
 			
 		}
+		function godetailView(resno){
+			alert('d');
+			var form = document.getElementById('detailView_form');
+			form.resno.value=resno;
+			form.submit();
+			
+			
+		}
 	</script>
 
 	<title>ALOA</title>
@@ -142,6 +150,52 @@ $(document).ready(function(e){
 		<div class="slide">
 			<img src="https://source.unsplash.com/random" style="height: 300px;"/>
 		</div>
+	<div class="center-block slider1" style="z-index:999;">
+		<c:if test="${reslist!=null }"><!-- 레스토랑정보가잇는경우 -->
+			<c:if test="${reslist.size()<=5 }"><!-- 레스토랑의 갯수가 5개미만 -->
+			<c:forEach var="reslist" items="${reslist}">
+			
+				<form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
+				<input type="hidden" name="resno" value="${reslist.restaurant.resno}">
+				<div class="slide" style="z-index:9990;">
+					<a href="#" onclick="godetailView(${reslist.restaurant.resno})" style="font-color:black;">
+						<img src="https://source.unsplash.com/random" style="height: 300px;">
+						${reslist.restaurant.resname}
+					</a>
+				 </div>
+				 </form>
+				 
+			 </c:forEach>
+			 </c:if>
+			 
+			 <c:if test="${reslist.size()>5 }"><!-- 레스토랑의 갯수가 5개초과 -->
+			<c:forEach var="i" end="5" begin="1" step="1">
+				
+				<form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
+				<input type="hidden" name="resno" value="${reslist[i].restaurant.resno}">
+				<div class="slide" style="z-index:9990;">
+					<a href="#" onclick="godetailView(${reslist[i].restaurant.resno})" style="font-color:black;">
+						<img src="https://source.unsplash.com/random" style="height: 300px;">
+						${reslist[i].restaurant.resname}
+					</a>
+				 </div>
+				 </form>
+				 
+			 </c:forEach>
+			 </c:if>
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		</c:if>
 	</div>
 </div>
 

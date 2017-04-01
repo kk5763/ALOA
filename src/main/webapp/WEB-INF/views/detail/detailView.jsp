@@ -268,6 +268,7 @@ ${reslist.get(0).reviewlist.image }
 		<section class="review" style="border: 1px solid blue;">
 
 		<c:forEach var="reviewList" items="${resDTO.reviewList }"></c:forEach>
+		<c:forEach var="reviewList" items="${resDTO.reviewList }"></c:forEach>
 			<section class="review">
 			<ul class="review-list">
 				<li class="default-review">
@@ -480,8 +481,8 @@ ${reslist.get(0).reviewlist.image }
 							</div>
 							<figcaption>
 							<div class="near-info">
-								<span class="near-mini-title">더키친살바토레쿠오모</span> <strong
-									class="near-point">4.4</strong>
+								<span class="near-mini-title">더키친살바토레쿠오모</span>
+								<strong class="near-point">4.4</strong>
 								<p class="near-etc">음식종류:이탈리안</p>
 								<p class="near-etc">음식종류:이탈리안</p>
 								<p class="near-etc">음식종류:이탈리안</p>
