@@ -12,6 +12,40 @@
 <script type="text/javascript"
    src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
+   function reportRes() {
+      if (document.getElementById("email").value== "") {
+         alert("로그인후 이용가능합니다.");
+      } else {
+         window
+               .open(
+                     "http://localhost:8000/reportResForm?resno=${resDTO.restaurant.resno}",
+                     "reportRes",
+                     "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
+      }
+   }
+   function reportRev() {
+      if (document.getElementById("email").value== "") {
+         alert("로그인후 이용가능합니다.");
+      } else {
+         window
+               .open(
+                     "http://localhost:8000/reportRevForm?resno=${resDTO.restaurant.resno}",
+                     "reportRev",
+                     "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
+      }
+   }
+
+   function reviewWrite() {
+      if (document.getElementById("email").value== "")
+         alert("로그인후 이용가능합니다.");
+      else {
+         window
+               .open(
+                     "http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+                     "dataForm",
+                     "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
+      }
+   }
 	function reportRes() {
 		if (document.getElementById("email").value== "") {
 			alert("로그인후 이용가능합니다.");
@@ -321,6 +355,10 @@ ${reslist.get(0).reviewlist.image }
    </div>
 </article>
 <sec:authorize access="isAnonymous()">
+   <input type="hidden" id="email" value="">
+</sec:authorize>
+<sec:authorize access="isAuthenticated()">
+   <input type="hidden" id="email" value="<sec:authentication property='principal.email'/>">
 	<input type="hidden" id="email" value="">
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
