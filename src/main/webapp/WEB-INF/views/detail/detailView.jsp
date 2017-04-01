@@ -139,228 +139,222 @@ ${reslist.get(0).reviewlist.image }
 	
 	
 	<!-- 리뷰 -->
-<<<<<<< HEAD
 		<div class="title-wrap">
-=======
-	<div class="title-wrap">
->>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
-			<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
-			<ul class="review-filter-list">
-				<li class="review-filter-item">
-					<button class="review-filter-button">전체 (32)</button>
-				</li>
-				<li class="review-filter-item">
-					<button class="review-filter-button">맛있다 (16)</button>
-				</li>
-				<li class="review-filter-item">
-					<button class="review-filter-button">괜찮다 (16)</button>
-				</li>
-				<li class="review-filter-item">
-					<button class="review-filter-button">별로 (0)</button>
-				</li>
-			</ul>
-		</div>
-<<<<<<< HEAD
-		
-	<c:forEach var="i" begin="1" end="5" step="1">
-		<section class="review">
-		
-=======
-	<c:forEach var="i" begin="1" end="5" step="1">
-		<section class="review" style="border: 1px solid blue;">
->>>>>>> 50fed660294e63af2301476c22241ffd7961bb39
-		<ul class="review-list">
-			<li class="default-review"><section class="review-item">
-				<h1 class="icon">
-					<img src="/resources/images/min_image/good_on.png">
-					<strong class="good">맛있다</strong>
-				</h1>
-				<div class="review-content">
-					<figure class="user">
-					<div class="user-profile">
-						<img class="thumb-image" src="" />
-					</div>
-					<figcaption>쩡.</figcaption>
-					<p class="user-info">
-						<em class="user-review">123</em> <em class="user-hit">64</em>
-					</p>
-					<div class="reportRev-button">
-						<img src="/resources/images/min_image/report.PNG"
-							onclick="reportRev()" />
-					</div>
-					</figure>
-					
-					<p>
-						<span class="review-content-coment"></span>
-					</p>
-				</div>
-				<p class="sub-info">
-					<time><span class="past-time">2016-02-04</span></time>
-				</p>
-				</section></li>
-		</ul>
-		</section>
-	</c:forEach>
-	<button class="reviews-more">더보기</button>
-	<!-- 관련식당 -->
-	<section class="related-restaurant">
-	<h1 class="related-title">
-		<a href="#"><span class="title-underline">2017 프렌치 인기 맛집
-				TOP 20</span></a> 에 있는 다른 식당
-	</h1>
-	<ul class="restaurant-list">
-		<c:forEach var="i" begin="1" end="4" step="1">
-			<li><a href="#" style="text-decoration: none;"> 
-				<figure class="restaurant-item">
-					<div class="thumb">
-						<img class="list-image" src="/resources/images/2.jpg">
-					</div>
-					
-					<figcaption class="image-info">
-					<div class="restaurant-info">
-						<span class="title-list">루이쌍크</span> <strong class="point">4.6</strong>
-						<p class="etc">신사/압구정 - 프랑스음식</p>
-					</div>
-					</figcaption>
-				</figure>
-			</a></li>
-		</c:forEach>
-	</ul>
-	</section>
-
-</div>
-<!-- 사이드영역 -->
-<div class="side-wrap">
-	<div class="side-content">
-		<!-- 지도 -->
-		<div id="map"></div>
-		<!-- 네이버 지도 API -->
-		<script>
-			var address = '${resDTO.restaurant.resaddress}';
+			<div class="title-wrap">
+					<h1 class="review-title">파씨오네의 리뷰 (32)</h1>
+					<ul class="review-filter-list">
+						<li class="review-filter-item">
 							
-			var MARKER_SPRITE_POSITION = {
-				"A0" : [ 0, 0 ]
-			};
-
-			var mapOptions = {
-				/* center: , */
-				zoom : 10,
-				zoomControl : true,
-				zoomControlOptions : {
-					position : naver.maps.Position.TOP_RIGHT
-				}
-			};
-
-			var map = new naver.maps.Map('map', mapOptions);
-
-			map.setCursor('pointer');
-
-			var markers = [], infoWindows = [];
-
-			function searchAddressToCoordinate(address) {
-				naver.maps.Service
-						.geocode(
-								{
-									address : address
-								},
-								function(status, response) {
-									if (status === naver.maps.Service.Status.ERROR) {
-										return alert('Something Wrong!');
-									}// if
-									var item = response.result.items[0], point = new naver.maps.Point(
-											item.point.x, item.point.y);
-
-									var position = new naver.maps.LatLng(
-											item.point.y, item.point.x);
-
-									for ( var key in MARKER_SPRITE_POSITION) {
-										var marker = new naver.maps.Marker(
-												{
-													map : map,
-													position : position,
-													title : key,
-													icon : {
-														url : '/resources/images/min_image/marker.png',
-														size : new naver.maps.Size(
-																24, 37),
-														anchor : new naver.maps.Point(
-																12, 37)
-													},
-													zIndex : 100
-												});
-
-										var infoWindow = new naver.maps.InfoWindow(
-												{
-													content : '<div style="position:relative; margin:0 0; padding:0 0; border: 0px solid transparent; display: block; width: 330px; height: 135px;">'
-															+ '<div style="position:absolute; padding: 15px; ">'
-															+ '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
-															+ '</div>'
-															+ '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
-															+ '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">라이포스트</span>&nbsp;&nbsp;'
-															+ '<strong style="color: #FF792A; font-size: 20px;">4.6</strong>'
-															+ '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">이태원/한남동 - 브런치 / 버거 / 샌드위치</p>'
-															+ '<p style=" margin-top:40px;">'
-															+ '<img src="/resources/images/min_image/review.PNG">'
-															+ '<em style="color: #7A7A7A; font-size: 16px">206</em>&nbsp;'
-															+ '<img src="/resources/images/min_image/favorite.png">'
-															+ '<em style="color: #7A7A7A; font-size: 16px">5693</em>'
-															+ '</p>'
-															+ '</div>'
-															+ '</div>'
-												});
-
-										markers.push(marker);
-										infoWindows.push(infoWindow);
-									}// for
-
-									for (var i = 0, ii = markers.length; i < ii; i++) {
-										naver.maps.Event.addListener(
-												markers[i], 'click',
-												getClickHandler(i));
-									}
-
-									map.setCenter(point);
-								});
-			}// function
-			
-			naver.maps.onJSContentLoaded = searchAddressToCoordinate(address);
-			
-			function getClickHandler(seq) { // 마커를 클릭 했을 때
-				return function(e) {
-					var marker = markers[seq], infoWindow = infoWindows[seq];
-
-					if (infoWindow.getMap()) {
-						infoWindow.close();
-					} else {
-						infoWindow.open(map, marker);
-					}// if
-				}// return function
-			}// getClickHandler
-		</script>
-		<div class="inner">
-			<div class="near-restaurant">
-				<h1 class="near-title">주변 인기 식당</h1>
-				<ul class="near-restaurant-list">
-					<li class="near-item"><figure class="near-thumb">
-						<div class="near-thumb-item">
-							<img class="thumb-image"
-								src="https://mp-seoul-image-production-s3.mangoplate.com/386/34440_1466003144545_1081557">
-							<a href="#">더키친살바토레쿠오모</a>
+							<button class="review-filter-button">전체 (32)</button>
+						</li>
+						<li class="review-filter-item">
+							<button class="review-filter-button">맛있다 (16)</button>
+						</li>
+						<li class="review-filter-item">
+							<button class="review-filter-button">괜찮다 (16)</button>
+						</li>
+						<li class="review-filter-item">
+							<button class="review-filter-button">별로 (0)</button>
+						</li>
+					</ul>
+				</div>
+				
+				<section class="review">
+		
+			<c:forEach var="i" begin="1" end="5" step="1">
+				<section class="review" style="border: 1px solid blue;">
+				<ul class="review-list">
+					<li class="default-review"><section class="review-item">
+						<h1 class="icon">
+							<img src="/resources/images/min_image/good_on.png">
+							<strong class="good">맛있다</strong>
+						</h1>
+						<div class="review-content">
+							<figure class="user">
+							<div class="user-profile">
+								<img class="thumb-image" src="" />
+							</div>
+							<figcaption>쩡.</figcaption>
+							<p class="user-info">
+								<em class="user-review">123</em> <em class="user-hit">64</em>
+							</p>
+							<div class="reportRev-button">
+								<img src="/resources/images/min_image/report.PNG"
+									onclick="reportRev()" />
+							</div>
+							</figure>
+							
+							<p>
+								<span class="review-content-coment"></span>
+							</p>
 						</div>
-						<figcaption>
-						<div class="near-info">
-							<span class="near-mini-title">더키친살바토레쿠오모</span> <strong
-								class="near-point">4.4</strong>
-							<p class="near-etc">음식종류:이탈리안</p>
-							<p class="near-etc">음식종류:이탈리안</p>
-							<p class="near-etc">음식종류:이탈리안</p>
-						</div>
-						</figcaption> </figure></li>
+						<p class="sub-info">
+							<time><span class="past-time">2016-02-04</span></time>
+						</p>
+						</section></li>
 				</ul>
+				</section>
+			</c:forEach>
+			<button class="reviews-more">더보기</button>
+			<!-- 관련식당 -->
+			<section class="related-restaurant">
+			<h1 class="related-title">
+				<a href="#"><span class="title-underline">2017 프렌치 인기 맛집
+						TOP 20</span></a> 에 있는 다른 식당
+			</h1>
+			<ul class="restaurant-list">
+				<c:forEach var="i" begin="1" end="4" step="1">
+					<li><a href="#" style="text-decoration: none;"> 
+						<figure class="restaurant-item">
+							<div class="thumb">
+								<img class="list-image" src="/resources/images/2.jpg">
+							</div>
+							
+							<figcaption class="image-info">
+							<div class="restaurant-info">
+								<span class="title-list">루이쌍크</span> <strong class="point">4.6</strong>
+								<p class="etc">신사/압구정 - 프랑스음식</p>
+							</div>
+							</figcaption>
+						</figure>
+					</a></li>
+				</c:forEach>
+			</ul>
+			</section>		
+		</div>
+		
+	<!-- 사이드영역 -->
+	<div class="side-wrap">
+		<div class="side-content">
+			<!-- 지도 -->
+			<div id="map"></div>
+			<!-- 네이버 지도 API -->
+			<script>
+				var address = '${resDTO.restaurant.resaddress}';
+								
+				var MARKER_SPRITE_POSITION = {
+					"A0" : [ 0, 0 ]
+				};
+	
+				var mapOptions = {
+					/* center: , */
+					zoom : 10,
+					zoomControl : true,
+					zoomControlOptions : {
+						position : naver.maps.Position.TOP_RIGHT
+					}
+				};
+	
+				var map = new naver.maps.Map('map', mapOptions);
+	
+				map.setCursor('pointer');
+	
+				var markers = [], infoWindows = [];
+	
+				function searchAddressToCoordinate(address) {
+					naver.maps.Service
+							.geocode(
+									{
+										address : address
+									},
+									function(status, response) {
+										if (status === naver.maps.Service.Status.ERROR) {
+											return alert('Something Wrong!');
+										}// if
+										var item = response.result.items[0], point = new naver.maps.Point(
+												item.point.x, item.point.y);
+	
+										var position = new naver.maps.LatLng(
+												item.point.y, item.point.x);
+	
+										for ( var key in MARKER_SPRITE_POSITION) {
+											var marker = new naver.maps.Marker(
+													{
+														map : map,
+														position : position,
+														title : key,
+														icon : {
+															url : '/resources/images/min_image/marker.png',
+															size : new naver.maps.Size(
+																	24, 37),
+															anchor : new naver.maps.Point(
+																	12, 37)
+														},
+														zIndex : 100
+													});
+	
+											var infoWindow = new naver.maps.InfoWindow(
+													{
+														content : '<div style="position:relative; margin:0 0; padding:0 0; border: 0px solid transparent; display: block; width: 330px; height: 135px;">'
+																+ '<div style="position:absolute; padding: 15px; ">'
+																+ '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
+																+ '</div>'
+																+ '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
+																+ '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">라이포스트</span>&nbsp;&nbsp;'
+																+ '<strong style="color: #FF792A; font-size: 20px;">4.6</strong>'
+																+ '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">이태원/한남동 - 브런치 / 버거 / 샌드위치</p>'
+																+ '<p style=" margin-top:40px;">'
+																+ '<img src="/resources/images/min_image/review.PNG">'
+																+ '<em style="color: #7A7A7A; font-size: 16px">206</em>&nbsp;'
+																+ '<img src="/resources/images/min_image/favorite.png">'
+																+ '<em style="color: #7A7A7A; font-size: 16px">5693</em>'
+																+ '</p>'
+																+ '</div>'
+																+ '</div>'
+													});
+	
+											markers.push(marker);
+											infoWindows.push(infoWindow);
+										}// for
+	
+										for (var i = 0, ii = markers.length; i < ii; i++) {
+											naver.maps.Event.addListener(
+													markers[i], 'click',
+													getClickHandler(i));
+										}
+	
+										map.setCenter(point);
+									});
+				}// function
+				
+				naver.maps.onJSContentLoaded = searchAddressToCoordinate(address);
+				
+				function getClickHandler(seq) { // 마커를 클릭 했을 때
+					return function(e) {
+						var marker = markers[seq], infoWindow = infoWindows[seq];
+	
+						if (infoWindow.getMap()) {
+							infoWindow.close();
+						} else {
+							infoWindow.open(map, marker);
+						}// if
+					}// return function
+				}// getClickHandler
+			</script>
+			<div class="inner">
+				<div class="near-restaurant">
+					<h1 class="near-title">주변 인기 식당</h1>
+					<ul class="near-restaurant-list">
+						<li class="near-item"><figure class="near-thumb">
+							<div class="near-thumb-item">
+								<img class="thumb-image"
+									src="https://mp-seoul-image-production-s3.mangoplate.com/386/34440_1466003144545_1081557">
+								<a href="#">더키친살바토레쿠오모</a>
+							</div>
+							<figcaption>
+							<div class="near-info">
+								<span class="near-mini-title">더키친살바토레쿠오모</span> <strong
+									class="near-point">4.4</strong>
+								<p class="near-etc">음식종류:이탈리안</p>
+								<p class="near-etc">음식종류:이탈리안</p>
+								<p class="near-etc">음식종류:이탈리안</p>
+							</div>
+							</figcaption> </figure></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </article>
 </body>
 
