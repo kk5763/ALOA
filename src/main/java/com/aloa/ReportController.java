@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ReportController {
 	
+	
+	
+	
 	@RequestMapping(value="/reportResForm",method=RequestMethod.GET)
 	public String reportResForm(Model model
 								,@RequestParam int resno){
@@ -26,6 +29,17 @@ public class ReportController {
 		model.addAttribute("resno",resno);
 		
 		return "detail/reportRev";
+	}
+	
+	@RequestMapping(value="/reportRes",method=RequestMethod.GET)
+	public String reportRes(Model model
+						,int resno
+						,String email
+						,int bt){
+		
+		
+		
+		return null;
 	}
 	
 	
