@@ -1,25 +1,17 @@
 package com.aloa.reservation;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.connect.ConnectionRepository;
-import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aloa.restaurant.Restaurant;
 import com.aloa.restaurant.RestaurantDTO;
 import com.aloa.restaurant.RestaurantService;
-import com.aloa.review.Reviewboard;
 
 @Controller
 public class ReservationController {
@@ -27,6 +19,8 @@ public class ReservationController {
 	@Autowired
 	private RestaurantService service;
 	
+	@Autowired
+	ReservationRepository reservationRepository;
 	
 	@Autowired
 	ReservationDAO reservationDAO;
@@ -47,11 +41,11 @@ public class ReservationController {
 	}
 	
 	@RequestMapping(value="/restaurantReserve", method=RequestMethod.POST)
-	public String addReservation(@RequestParam Map<String, String> map, Model model){
+	public ResponseEntity addReservation(@RequestBody Reservation dto){
 		
-		reservationDAO.insertResevation(map);
-
-		return "main/home";
+		reservationRepository.save(dto);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	/*//메시지함에서 예약 불러오는 곳(일반 사용자)
