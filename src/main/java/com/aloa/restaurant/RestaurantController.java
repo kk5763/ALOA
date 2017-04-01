@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aloa.account.Account;
 import com.aloa.account.AccountRepository;
@@ -27,13 +28,14 @@ public class RestaurantController {
 	@Autowired
 	private ReviewService reviewService;
 	
+
 	@Autowired
 	private  AccountRepository accountRepository;
-	
-	@RequestMapping(value="/detailView/{resno}",method=RequestMethod.GET)
-	public String detailView(@PathVariable int resno,Model model){
-		
-		Restaurant restaurant = service.findOne(resno);
+
+
+	@RequestMapping(value="/detailView",method=RequestMethod.GET)
+	public String detailView(@RequestParam int resno,Model model){
+	Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		List<Imageboard> imageList = reviewService.imagelist(resno);
 		
@@ -59,8 +61,12 @@ public class RestaurantController {
 			
 			
 		}
-		double avg = sum / reviewList.size();
-		
+		double avg=0;
+		try{
+			avg = sum / reviewList.size();
+		}catch(java.lang.ArithmeticException e){
+			avg=0;
+		}
 		List<Integer> reviewCount = new ArrayList<Integer>();
 		reviewCount.add(grade_5);
 		reviewCount.add(grade_3);
