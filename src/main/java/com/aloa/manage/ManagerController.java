@@ -133,8 +133,17 @@ public class ManagerController {
 	}
 
 	@RequestMapping(value = "manager/reviewClaim", method = RequestMethod.GET)
-	public String reviewClaim() {
-		return "manager/reviewClaim";
+	public ModelAndView reviewClaim() {
+		
+		List<ReportRevDTO> list = null;
+		if(managerDAO.revClaimList() != null){
+			list = managerDAO.revClaimList();
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("manager/reviewClaim");
+		return mav;
 	}
 
 	@RequestMapping(value = "manager/restaurantClaim", method = RequestMethod.GET)

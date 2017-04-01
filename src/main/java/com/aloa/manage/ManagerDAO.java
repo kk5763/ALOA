@@ -19,4 +19,6 @@ public interface ManagerDAO {
 
 	public void insertRestaurant(Map<String, String> map);
 
+	public List<ReportRevDTO> revClaimList();
+
 }

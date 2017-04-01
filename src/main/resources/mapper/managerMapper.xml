@@ -52,5 +52,9 @@
 	<select id = "memberBlackList" resultType = "com.aloa.manage.MemberDTO">
 		select * from account where reportCount >= 3
 	</select>
+	
+	<select id = "revClaimList" resultType = "com.aloa.manage.ReportRevDTO">
+		select * from ReportRev
+	</select>
 
 </mapper>

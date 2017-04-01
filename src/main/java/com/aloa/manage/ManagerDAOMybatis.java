@@ -57,4 +57,10 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		}
 	}
 
+	@Override
+	public List<ReportRevDTO> revClaimList() {
+		List<ReportRevDTO> list = sqlSession.selectList("managerMapper.revClaimList");
+		return list;
+	}
+
 }
