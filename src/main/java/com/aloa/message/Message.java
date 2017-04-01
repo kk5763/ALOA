@@ -1,8 +1,13 @@
 package com.aloa.message;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @Entity
 public class Message {
@@ -13,6 +18,8 @@ public class Message {
 	
 	private Long receiver;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date sendtime;
 	
 	private Long sender;
 	
@@ -20,6 +27,23 @@ public class Message {
 	private String title;
 	
 	private String contents;
+	
+	
+	public Long getMessageNo() {
+		return messageNo;
+	}
+
+	public void setMessageNo(Long messageNo) {
+		this.messageNo = messageNo;
+	}
+
+	public Date getSendtime() {
+		return sendtime;
+	}
+
+	public void setSendtime(Date sendtime) {
+		this.sendtime = sendtime;
+	}
 
 	public Long getSender() {
 		return sender;
