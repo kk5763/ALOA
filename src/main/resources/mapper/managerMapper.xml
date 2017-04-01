@@ -11,8 +11,8 @@
 		select * from restaurant
 	</select>
 	
-	<select id= "checkId" parameterType="String" resultType="String">
-		select email from account where email=#{id}
+	<select id= "checkId" parameterType="String" resultType="com.aloa.account.Account">
+		select server, email from account where email=#{id}
 	</select>
 	
 	<insert id="insertRestaurant" parameterType="java.util.Map">
@@ -41,12 +41,13 @@
 									  	,#{resrest}
 									  	,#{resholiday});
 			update account set server=1 where email=#{bossemail};
+			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_1');
+			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_2');
+			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_3');
+			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_4');
+			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_5');
 		end;
 	</insert>
-	
-	<update id="updateServer" parameterType="String">
-		update account set server=1 where email=#{email}
-	</update>
 	
 	<select id = "memberBlackList" resultType = "com.aloa.manage.MemberDTO">
 		select * from account where reportCount >= 3
