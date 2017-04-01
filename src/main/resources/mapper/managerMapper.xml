@@ -7,9 +7,46 @@
 	<delete id = "memberRemove" parameterType = "int">
 		delete from account where id = #{id}
 	</delete>
-	<select id ="restaurantList" resultType="com.aloa.manage.RestaurantDTO">
+	<select id ="restaurantList" resultType="com.aloa.restaurant.Restaurant">
 		select * from restaurant
 	</select>
+	
+	<select id= "checkId" parameterType="String" resultType="String">
+		select email from account where email=#{id}
+	</select>
+	
+	<insert id="insertRestaurant" parameterType="java.util.Map">
+		begin
+			insert into restaurant (resNo,
+									  resName ,
+									  bossEmail ,
+									  resAddress , 
+									  resTel ,
+									  resKind ,
+									  resPrice ,
+									  resParking ,
+									  resSaletime , 
+									  resRest , 
+									  resHoliday)
+									  values(
+									  	seq_restaurant.nextval
+									  	,#{resname}
+									  	,#{bossemail}
+									  	,#{resaddress}
+									  	,#{restel}
+									  	,#{reskind}
+									  	,#{resprice}
+									  	,#{resparking}
+									  	,#{ressaletime}
+									  	,#{resrest}
+									  	,#{resholiday});
+			update account set server=1 where email=#{bossemail};
+		end;
+	</insert>
+	
+	<update id="updateServer" parameterType="String">
+		update account set server=1 where email=#{email}
+	</update>
 	
 	<select id = "memberBlackList" resultType = "com.aloa.manage.MemberDTO">
 		select * from account where reportCount >= 3

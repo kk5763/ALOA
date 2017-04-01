@@ -1,6 +1,7 @@
 package com.aloa.manage;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.aloa.restaurant.Restaurant;
 
 @Controller
 public class ManagerController {
@@ -65,33 +68,64 @@ public class ManagerController {
 	}
 
 	@RequestMapping(value = "manager/restaurantManage", method = RequestMethod.GET)
-	public String restaurantManage(Model model) {
+	public ModelAndView restaurantManage(){
+		
+		List<Restaurant> list =null;
+		if(managerDAO.memberList() != null){
+			list = managerDAO.restaurantList();
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("list", list);
+		mav.setViewName("manager/restaurantManage");
 
-		List<RestaurantDTO> list = managerDAO.restaurantList();
-
-		model.addAttribute("list", list);
-
-		System.out.println("size=" + list.size());
-		System.out.println("name=" + list.get(0).getResno());
-		System.out.println("name=" + list.get(0).getResname());
-		System.out.println(list.get(0).getBossemail());
-		System.out.println(list.get(0).getRequest());
-		System.out.println(list.get(0).getResaddress());
-		System.out.println(list.get(0).getResholiday());
-		System.out.println(list.get(0).getReskind());
-
-		System.out.println(list.get(0).getResparking());
-		System.out.println(list.get(0).getResprice());
-		System.out.println(list.get(0).getResrest());
-		System.out.println(list.get(0).getRessaletime());
-		System.out.println(list.get(0).getRestel());
-
-		return "manager/restaurantManage";
+		return mav;
 	}
 
 	@RequestMapping(value = "/manager/restaurantAgree", method = RequestMethod.GET)
 	public String restaurantAgree() {
 		return "manager/restaurantAgree";
+	}
+	
+
+	@RequestMapping(value = "manager/restaurantAgreeDetail", method = RequestMethod.GET)
+	public String restaurantAgreeDetail(){
+		return "manager/restaurantAgreeDetail";
+	}
+	
+	@RequestMapping(value = "manager/restaurantAgreeDetailCheckId", method = RequestMethod.GET)
+	public ModelAndView restaurantAgreeDetailCheckId(@RequestParam String id){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		String check = managerDAO.checkId(id);
+		//System.out.println("check="+check);
+		
+		if(check!=null){
+			mav.addObject("checkid", 1);
+			mav.addObject("checkokId", id);
+			//System.out.println("성공");
+		}
+		else {
+			mav.addObject("checkid", 2);
+			//System.out.println("실패");
+		}
+		
+		mav.setViewName("manager/restaurantAgreeDetail");
+		return mav;
+	}
+	
+	@RequestMapping(value = "manager/restaurantAgreeOk", method = RequestMethod.POST)
+	public ModelAndView restaurantAgreeOk(@RequestParam Map<String, String> map){
+			
+		managerDAO.insertRestaurant(map);
+
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("manager/restaurantAgreeDetail");
+
+		return null;
 	}
 
 	@RequestMapping(value = "manager/reviewClaim", method = RequestMethod.GET)
@@ -103,5 +137,7 @@ public class ManagerController {
 	public String restaurantClaim() {
 		return "manager/restaurantClaim";
 	}
+	
+	
 
 }

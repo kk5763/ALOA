@@ -139,12 +139,12 @@ $(document).ready(function(){
 															</label>
 														</div>
 													</th>
-													<td style="width: 8%">${restaurant.resNo }</td>	
-													<td style="width: 14%">${restaurant.resKind }</td>
-													<td style="width: 14%">${restaurant.resName }</td>
-													<td style="width: 14%">${restaurant.bossEmail }</td>
-													<td style="width: 14%">${restaurant.resTel }</td>
-													<td style="width: 35%">${restaurant.resAddress }</td>
+													<td style="width: 8%">${restaurant.resno }</td>	
+													<td style="width: 14%">${restaurant.reskind }</td>
+													<td style="width: 14%">${restaurant.resname }</td>
+													<td style="width: 14%">${restaurant.bossemail }</td>
+													<td style="width: 14%">${restaurant.restel }</td>
+													<td style="width: 35%">${restaurant.resaddress }</td>
 												</tr>
 											</c:forEach>
 										</c:if>
