@@ -76,5 +76,17 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	public void restaurantUpdate(Restaurant restaurant) {
 		sqlSession.update("managerMapper.restaurantUpdate", restaurant);
 	}
+	
+	public List<ReportRevDTO> revClaimList() {
+		List<ReportRevDTO> list = sqlSession.selectList("managerMapper.revClaimList");
+		return list;
+	}
+
+	@Override
+	public List<ReportResDTO> resClaimList() {
+		List<ReportResDTO> list = sqlSession.selectList("managerMapper.resClaimList");
+		
+		return list;
+	}
 
 }

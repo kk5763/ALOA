@@ -25,4 +25,9 @@ public interface ManagerDAO {
 
 	public void restaurantUpdate(Restaurant restaurant);
 
+	public List<ReportRevDTO> revClaimList();
+
+	public List<ReportResDTO> resClaimList();
+
+
 }

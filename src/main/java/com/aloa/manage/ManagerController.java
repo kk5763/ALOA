@@ -168,15 +168,36 @@ public class ManagerController {
 
 		return null;//아직 관리자 메인페이지를 안만듦
 	}
-
+	
+	//리뷰신고 db받기 기본틀(추후 수정 필요)
 	@RequestMapping(value = "manager/reviewClaim", method = RequestMethod.GET)
-	public String reviewClaim() {
-		return "manager/reviewClaim";
+	public ModelAndView reviewClaim() {
+		
+		List<ReportRevDTO> list = null;
+		if(managerDAO.revClaimList() != null){
+			list = managerDAO.revClaimList();
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("manager/reviewClaim");
+		return mav;
 	}
-
+	
+	//맛집신고 db받기 기본틀(추후 수정 필요)--restaurantClaim.jsp파일에서 처리여부, 처리상태 차이? 몰라서 jsp에는 값 안 뿌렸음 db에서 오는 것만 확인
 	@RequestMapping(value = "manager/restaurantClaim", method = RequestMethod.GET)
-	public String restaurantClaim() {
-		return "manager/restaurantClaim";
+	public ModelAndView restaurantClaim() {
+		List<ReportResDTO> list = null;
+		
+		if(managerDAO.resClaimList()!= null){
+			list = managerDAO.resClaimList();
+		}
+		
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("manager/restaurantClaim");
+		return mav;
 	}
 	
 	
