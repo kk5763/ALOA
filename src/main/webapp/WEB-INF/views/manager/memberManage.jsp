@@ -117,7 +117,7 @@ function listRemove(){
 									<th style="width: 1%;">
 										<div class="checkbox radio-margin">
 											<label>
-												<input type="checkbox" class = "check-all" value="${memberDTO.email }">
+												<input type="checkbox" class = "check-all">
 							
 												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 											</label>
@@ -154,7 +154,7 @@ function listRemove(){
 											<td style="width: 1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" name = "checkEmail" class = "check-each"/>
+														<input type="checkbox" name = "checkId" class = "check-each" value="${memberDTO.id }"/>
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>

@@ -1,6 +1,8 @@
 package com.aloa.manage;
 
 public class MemberDTO {
+		private int id;
+		
 		private String username;
 		private String email;
 		private String password;
@@ -11,6 +13,14 @@ public class MemberDTO {
 		private int server;
 		private int admin;
 		private int emailauth;
+		
+		
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
 		public String getUsername() {
 			return username;
 		}

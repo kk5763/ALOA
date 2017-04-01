@@ -9,5 +9,5 @@ public interface ManagerDAO {
 
 	public List<MemberDTO> memberBlackList();
 
-	public void memberRemove(String[] checkEmail);
+	public void memberRemove(String[] checkId);
 }

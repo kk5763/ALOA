@@ -29,7 +29,7 @@ public class ManagerController {
 		if (managerDAO.memberList() != null) {
 			list = managerDAO.memberList();
 		}
-
+		System.out.println(list.get(0).getId());
 		mav.addObject("list", list);
 		mav.setViewName("manager/memberManage");
 
@@ -37,8 +37,10 @@ public class ManagerController {
 	}
 	//회원관리-삭제
 	@RequestMapping(value = "/manager/listRemove", method = RequestMethod.POST)
-	public ModelAndView listRemove(@RequestParam String[] checkEmail){
-		managerDAO.memberRemove(checkEmail);
+	public ModelAndView listRemove(@RequestParam String[] checkId){
+		
+		
+		managerDAO.memberRemove(checkId);
 	
 		return new ModelAndView("redirect:/manager/memberManage");
 		
@@ -92,7 +94,7 @@ public class ManagerController {
 		return "manager/restaurantManage";
 	}
 
-	@RequestMapping(value = "manager/restaurantAgree", method = RequestMethod.GET)
+	@RequestMapping(value = "/manager/restaurantAgree", method = RequestMethod.GET)
 	public String restaurantAgree() {
 		return "manager/restaurantAgree";
 	}
