@@ -61,8 +61,12 @@ public class RestaurantController {
 			
 			
 		}
-		double avg = sum / reviewList.size();
-		
+		double avg=0;
+		try{
+			avg = sum / reviewList.size();
+		}catch(java.lang.ArithmeticException e){
+			avg=0;
+		}
 		List<Integer> reviewCount = new ArrayList<Integer>();
 		reviewCount.add(grade_5);
 		reviewCount.add(grade_3);
