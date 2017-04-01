@@ -129,7 +129,6 @@ $(document).ready(function(e){
 <br><br>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <div class="container">
-<<<<<<< HEAD
    <h3>실시간 추천 맛집 리스트</h3>
    <div class="center-block slider1" style="z-index:999;">
       <c:if test="${reslist!=null }"><!-- 레스토랑정보가잇는경우 -->
@@ -168,7 +167,6 @@ $(document).ready(function(e){
           
       </c:if>
    </div>
-=======
 	<h3>실시간 추천 맛집 리스트</h3>
 	<div class="center-block slider1" style="z-index:999;">
 		<c:if test="${reslist!=null }"><!-- 레스토랑정보가잇는경우 -->
@@ -195,7 +193,7 @@ $(document).ready(function(e){
 				<input type="hidden" name="resno" value="${reslist[i].restaurant.resno}">
 				<div class="slide" style="z-index:9990;">
 					<a href="#" onclick="godetailView(${reslist[i].restaurant.resno})" style="font-color:black;">
-						<img src="https://source.unsplash.com/random" style="height: 300px;">
+						<img src="/resources/project_main_image.jpg" style="height: 300px; width:100%;">
 						${reslist[i].restaurant.resname}
 					</a>
 				 </div>
@@ -207,7 +205,6 @@ $(document).ready(function(e){
 			 
 		</c:if>
 	</div>
->>>>>>> 4fe04a6f9934b28df630369356290ac91aacbb69
 </div>
 
 <!-- 검색창 포커스(블러)시 배경화면 변경 -->
