@@ -57,4 +57,24 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		}
 	}
 
+	@Override
+	public void restaurantDelete(int[] checkResno) {
+		for(int i = 0; i < checkResno.length; i++){
+			
+			sqlSession.delete("managerMapper.restaurantDelete",checkResno[i]);
+		}
+		
+	}
+
+	@Override
+	public Restaurant restaurantInfo(String resno) {
+		Restaurant restaurant = sqlSession.selectOne("managerMapper.restaurantInfo", Integer.parseInt(resno));
+		return restaurant;
+	}
+
+	@Override
+	public void restaurantUpdate(Restaurant restaurant) {
+		sqlSession.update("managerMapper.restaurantUpdate", restaurant);
+	}
+
 }

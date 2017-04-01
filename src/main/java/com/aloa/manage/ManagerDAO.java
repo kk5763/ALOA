@@ -19,4 +19,10 @@ public interface ManagerDAO {
 
 	public void insertRestaurant(Map<String, String> map);
 
+	public void restaurantDelete(int[] checkResno);
+
+	public Restaurant restaurantInfo(String resno);
+
+	public void restaurantUpdate(Restaurant restaurant);
+
 }

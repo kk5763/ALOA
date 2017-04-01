@@ -11,6 +11,28 @@
 		select * from restaurant
 	</select>
 	
+	<delete id = "restaurantDelete" parameterType ="int">
+		delete from restaurant where resNo = #{resno}
+	</delete>
+	
+	<select id="restaurantInfo" parameterType="int" resultType="com.aloa.restaurant.Restaurant">
+		select * from restaurant where resNo = #{resno}
+	</select>
+	
+	<update id="restaurantUpdate" parameterType="com.aloa.restaurant.Restaurant">
+		update restaurant set resName = #{resname} ,
+							  bossEmail = #{bossemail},
+							  resAddress = #{resaddress}, 
+							  resTel = #{restel},
+							  resKind = #{reskind},
+							  resPrice = #{resprice},
+							  resParking = #{resparking},
+							  resSaletime = #{ressaletime}, 
+							  resRest = #{resrest}, 
+							  resHoliday = #{resholiday}
+								where resNo = #{resno}
+	</update>
+	
 	<select id= "checkId" parameterType="String" resultType="com.aloa.account.Account">
 		select server, email from account where email=#{id}
 	</select>
@@ -27,7 +49,8 @@
 									  resParking ,
 									  resSaletime , 
 									  resRest , 
-									  resHoliday)
+									  resHoliday,
+									  createdate)
 									  values(
 									  	seq_restaurant.nextval
 									  	,#{resname}
@@ -39,7 +62,8 @@
 									  	,#{resparking}
 									  	,#{ressaletime}
 									  	,#{resrest}
-									  	,#{resholiday});
+									  	,#{resholiday}
+									  	,sysdate);
 			update account set server=1 where email=#{bossemail};
 			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_1');
 			insert into imageboard (resno, image) values(seq_restaurant.currval  , #{bossemail}||'_image_2');

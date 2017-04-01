@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,6 +46,7 @@ public class ManagerController {
 		managerDAO.memberRemove(checkId);
 		return new ModelAndView("redirect:/manager/memberManage");
 	}
+	
 	@RequestMapping(value = "/manager/blacklistManage")
 	public ModelAndView blacklistManage() {
 		ModelAndView mav = new ModelAndView();
@@ -67,6 +69,7 @@ public class ManagerController {
 		return "manager/usingRejectedlistManage";
 	}
 
+	//맛집관리
 	@RequestMapping(value = "manager/restaurantManage", method = RequestMethod.GET)
 	public ModelAndView restaurantManage(){
 		
@@ -82,18 +85,51 @@ public class ManagerController {
 
 		return mav;
 	}
+	
+	//맛집관리삭제
+	@RequestMapping(value = "/manager/restaurantRemove", method = RequestMethod.POST)
+	public ModelAndView restaurantRemove(@RequestParam int[] checkResno) {
+		
+		managerDAO.restaurantDelete(checkResno);
+	
+		return (ModelAndView)new ModelAndView("redirect:/manager/restaurantManage");
 
+	}
+	
+	//맛집관리수정뷰
+	@RequestMapping(value = "/manager/restaurantUpdateView", method = RequestMethod.POST)
+	public ModelAndView restaurantUpdateView(@RequestParam String findresno) {
+		Restaurant restaurant = managerDAO.restaurantInfo(findresno);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("restaurant", restaurant);
+		mav.setViewName("manager/restaurantUpdate");
+		
+		return mav;
+	}
+	
+	//맛집관리수정
+		@RequestMapping(value = "/manager/restaurantUpdate", method = RequestMethod.POST)
+		public ModelAndView restaurantUpdate(@ModelAttribute Restaurant restaurant) {
+			managerDAO.restaurantUpdate(restaurant);
+			
+			return (ModelAndView)new ModelAndView("redirect:/manager/restaurantManage");
+		}
+
+	
 	@RequestMapping(value = "/manager/restaurantAgree", method = RequestMethod.GET)
 	public String restaurantAgree() {
 		return "manager/restaurantAgree";
 	}
 	
-
+	//맛집신청승인페이지
 	@RequestMapping(value = "manager/restaurantAgreeDetail", method = RequestMethod.GET)
 	public String restaurantAgreeDetail(){
 		return "manager/restaurantAgreeDetail";
 	}
 	
+	//맛집신청페이지 id체크
 	@RequestMapping(value = "manager/restaurantAgreeDetailCheckId", method = RequestMethod.GET)
 	public ModelAndView restaurantAgreeDetailCheckId(@RequestParam String id){
 		
@@ -119,6 +155,7 @@ public class ManagerController {
 		return mav;
 	}
 	
+	//맛집신청승인완료
 	@RequestMapping(value = "manager/restaurantAgreeOk", method = RequestMethod.POST)
 	public ModelAndView restaurantAgreeOk(@RequestParam Map<String, String> map){
 			

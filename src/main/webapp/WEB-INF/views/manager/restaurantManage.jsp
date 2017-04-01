@@ -30,8 +30,9 @@ $(document).ready(function(e){
 		var concept = $(this).text();
 		$('.search-panel span#search_concept').text(concept);
 		$('.input-group #search_param').val(param);
-	});
-});//검색어 분류 지정시 항목으로 이름변경
+	});//검색어 분류 지정시 항목으로 이름변경
+    
+});
 
 $(document).ready(function(){
     $('.filterable .btn-filter').click(function(){
@@ -78,16 +79,29 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-function deletebtn(){
-	var checkbox = document.getElementsByClassName("checkPoint");
-	for(i=0; i<checkbox.length; i++){
-		alert(checkbox[i].checked);
-	}
+function restaurantUpdate(resno){
+	var myForm = document.restaurantManage;
+
+	var url = "/manager/restaurantUpdateView";
+	window.open("" ,"viewer", 
+	      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+	myForm.action =url; 
+	myForm.method="post";
+	myForm.target="viewer";
+	myForm.findresno.value = resno;
+	myForm.submit(); 
 }
+
+
+
 </script>
 </head>
 
 <body>
+
+<form name ="restaurantManage" method = "post" action ="/manager/restaurantRemove">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+<input type="hidden" name="findresno" />
 
 <div class="container">
     <div class="creatediv1 marginTop30">
@@ -142,14 +156,14 @@ function deletebtn(){
 													<td style= "width:1%;">
 														<div class="checkbox radio-margin">
 															<label>
-																<input type="checkbox" class="checkPoint">
+																<input type="checkbox" name="checkResno" class="checkPoint" value="${restaurant.resno }">
 																<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 															</label>
 														</div>
 													</th>
-													<td style="width: 8%">${restaurant.resno }</td>	
+													<td class="spanValue" style="width: 8%">${restaurant.resno }</td>	
 													<td style="width: 14%">${restaurant.reskind }</td>
-													<td style="width: 14%">${restaurant.resname }</td>
+													<td style="width: 14%"><span onclick="restaurantUpdate(${restaurant.resno })">${restaurant.resname }</span></td>
 													<td style="width: 14%">${restaurant.bossemail }</td>
 													<td style="width: 14%">${restaurant.restel }</td>
 													<td style="width: 35%">${restaurant.resaddress }</td>
@@ -165,8 +179,9 @@ function deletebtn(){
 				</div>
     
 </div><!-- 테이블 -->
-<button type="button" class="btn btn-default" onclick="deletebtn()">삭제</button>
+<button type="submit" class="btn btn-default" onclick="deletebtn()">삭제</button>
 </div>
+</form>
 
 	<!-- <nav>
   <ul class="pagination">
