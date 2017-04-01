@@ -6,41 +6,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="/resources/jquery.bxslider.min.js"></script>
-	<link href="/resources/jquery.bxslider.min.css" rel="stylesheet">
-	<!-- 자동완성 -->
-	<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   <script src="/resources/jquery.bxslider.min.js"></script>
+   <link href="/resources/jquery.bxslider.min.css" rel="stylesheet">
+   <!-- 자동완성 -->
+   <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-	<script type="text/javascript">
-		function openStorejoinForm(){
-			window.open("http://localhost:8000/storejoinForm",
-					"storejoinForm",
-					"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=400, top=100, width=1100, height=800");
-			
-		}
-		function godetailView(resno){
-			alert('d');
-			var form = document.getElementById('detailView_form');
-			form.resno.value=resno;
-			form.submit();
-			
-			
-		}
-	</script>
+   <script type="text/javascript">
+      function openStorejoinForm(){
+         window.open("http://localhost:8000/storejoinForm",
+               "storejoinForm",
+               "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=400, top=100, width=1100, height=800");
+         
+      }
+      function godetailView(resno){
+         alert('d');
+         var form = document.getElementById('detailView_form');
+         form.resno.value=resno;
+         form.submit();
+         
+         
+      }
+   </script>
 
-	<title>ALOA</title>
-	<style>
-		.container-fluid{
+   <title>ALOA</title>
+   <style>
+      .container-fluid{
             background-color: white;
         }
         #nav_searchBar{
@@ -51,29 +51,29 @@
             z-index: 9999999;
         }
         .sui-autocomplete,ul.sui-autocomplete,.sui-autocomplete-loading{
-        	z-index:99999999;
+           z-index:99999999;
         }
         .slider1{
-        	z-index: -1;
+           z-index: -1;
         }
-	</style>
-	
+   </style>
+   
 <script type="text/javascript">
 
 $(document).ready(function(e){
-	$('body').on('click', '#img_div img', function(e){
-		var tg = e.target.id;
-		
-		$('#detailList_form').attr('action', '/detailView/'+tg);
-		
-		$('#detailList_form').submit();
-	})
+   $('body').on('click', '#img_div img', function(e){
+      var tg = e.target.id;
+      
+      $('#detailList_form').attr('action', '/detailView/'+tg);
+      
+      $('#detailList_form').submit();
+   })
 })
 </script>
 
 </head>
 <body>
-	<%@ include file="../include/top_menu.jsp" %>
+   <%@ include file="../include/top_menu.jsp" %>
 
 <div class="jumbotron text-center" style="background: url('/resources/project_main_image.jpg') no-repeat; background-position: center center; background-size: 100% auto;">
     <h1 style="color:#fff; opacity:0;"></h1>
@@ -85,7 +85,7 @@ $(document).ready(function(e){
 
 <form class="container text-center" id="searchbar" method="get" action="http://localhost:8000/searchList">
     <div class="input-group">
-        <input type="text" class="form-control input-lg" placeholder="search" id="search_record" name="searchName">	
+        <input type="text" class="form-control input-lg" placeholder="search" id="search_record" name="searchName">   
         <div class="input-group-btn">
             <button type="submit" class="btn btn-lg btn-danger">검색</button>
         </div>
@@ -94,109 +94,79 @@ $(document).ready(function(e){
 
 <form id="nav_searchBar">
     <nav class="navbar navbar-default">
-	    <div class="container-fluid">
-	        <div class="navbar-header">
-	            <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
-	             <form id="nav_searchBar">
-				    <div class="input-group" >
-			             
-				        <input type="text" class="form-control input-lg" placeholder="search" id="search_record2">
-				        <div class="input-group-btn">
-				            <button type="submit" class="btn btn-lg btn-danger" style="height:100%;"><i class="fa fa-search" aria-hidden="true"></i></button>
-				        </div>
-				        
-				        <button type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target="#myNavbar2">
-			                <span class="icon-bar"></span>
-			                <span class="icon-bar"></span>
-			                <span class="icon-bar"></span>
-			            </button>    
-				        
-		        	</div>
-		        	
-		        	<div class="collapse navbar-collapse" id="myNavbar2">
-				            <ul class="nav navbar-nav navbar-right" >
-				            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">예약</a></li>
-				            	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">맛집리스트</a></li>
-				                <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
-				                <li><a data-toggle="modal" data-target="#ModalLogin" style="cursor: pointer;">로그인</a></li>
-				            </ul>
-				        </div>
-				</form>
-	        </div>
-	    </div>
-	</nav>
+       <div class="container-fluid">
+           <div class="navbar-header">
+               <a id="nav_mainImg" class="navbar-brand" href="#"><i class="fa fa-home fa-2x" aria-hidden="true" style="color:lightcoral;"></i></a>
+                <form id="nav_searchBar">
+                <div class="input-group" >
+                      
+                    <input type="text" class="form-control input-lg" placeholder="search" id="search_record2">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-lg btn-danger" style="height:100%;"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                    
+                    <button type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target="#myNavbar2">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                     </button>    
+                    
+                 </div>
+                 
+                 <div class="collapse navbar-collapse" id="myNavbar2">
+                        <ul class="nav navbar-nav navbar-right" >
+                           <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">예약</a></li>
+                           <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">맛집리스트</a></li>
+                            <li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;">회원가입</a></li>
+                            <li><a data-toggle="modal" data-target="#ModalLogin" style="cursor: pointer;">로그인</a></li>
+                        </ul>
+                    </div>
+            </form>
+           </div>
+       </div>
+   </nav>
 </form>
 <br><br>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <div class="container">
-	<h3>실시간 추천 맛집 리스트</h3>
-	<div class="center-block slider1" style=" z-index:999;">
-		<div class="slide" style="z-index:9990;">
-			<a href="#">
-				<img src="https://source.unsplash.com/random" style="height: 300px;"/>
-				가게 이름 설명<br>
-				별점
-			</a>
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;"/>
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;"/>
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;"/>
-		</div>
-		<div class="slide">
-			<img src="https://source.unsplash.com/random" style="height: 300px;"/>
-		</div>
-	<div class="center-block slider1" style="z-index:999;">
-		<c:if test="${reslist!=null }"><!-- 레스토랑정보가잇는경우 -->
-			<c:if test="${reslist.size()<=5 }"><!-- 레스토랑의 갯수가 5개미만 -->
-			<c:forEach var="reslist" items="${reslist}">
-			
-				<form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
-				<input type="hidden" name="resno" value="${reslist.restaurant.resno}">
-				<div class="slide" style="z-index:9990;">
-					<a href="#" onclick="godetailView(${reslist.restaurant.resno})" style="font-color:black;">
-						<img src="https://source.unsplash.com/random" style="height: 300px;">
-						${reslist.restaurant.resname}
-					</a>
-				 </div>
-				 </form>
-				 
-			 </c:forEach>
-			 </c:if>
-			 
-			 <c:if test="${reslist.size()>5 }"><!-- 레스토랑의 갯수가 5개초과 -->
-			<c:forEach var="i" end="5" begin="1" step="1">
-				
-				<form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
-				<input type="hidden" name="resno" value="${reslist[i].restaurant.resno}">
-				<div class="slide" style="z-index:9990;">
-					<a href="#" onclick="godetailView(${reslist[i].restaurant.resno})" style="font-color:black;">
-						<img src="https://source.unsplash.com/random" style="height: 300px;">
-						${reslist[i].restaurant.resname}
-					</a>
-				 </div>
-				 </form>
-				 
-			 </c:forEach>
-			 </c:if>
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-		</c:if>
-	</div>
+   <h3>실시간 추천 맛집 리스트</h3>
+   <div class="center-block slider1" style="z-index:999;">
+      <c:if test="${reslist!=null }"><!-- 레스토랑정보가잇는경우 -->
+         <c:if test="${reslist.size()<=5 }"><!-- 레스토랑의 갯수가 5개미만 -->
+         <c:forEach var="reslist" items="${reslist}">
+         
+            <form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
+            <input type="hidden" name="resno" value="${reslist.restaurant.resno}">
+            <div class="slide" style="z-index:9990;">
+               <a href="#" onclick="godetailView(${reslist.restaurant.resno})" style="font-color:black;">
+                  <img src="https://source.unsplash.com/random" style="height: 300px;">
+                  ${reslist.restaurant.resname}
+               </a>
+             </div>
+             </form>
+             
+          </c:forEach>
+          </c:if>
+          
+          <c:if test="${reslist.size()>5 }"><!-- 레스토랑의 갯수가 5개초과 -->
+         <c:forEach var="i" end="5" begin="1" step="1">
+            
+            <form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
+            <input type="hidden" name="resno" value="${reslist[i].restaurant.resno}">
+            <div class="slide" style="z-index:9990;">
+               <a href="#" onclick="godetailView(${reslist[i].restaurant.resno})" style="font-color:black;">
+                  <img src="https://source.unsplash.com/random" style="height: 300px;">
+                  ${reslist[i].restaurant.resname}
+               </a>
+             </div>
+             </form>
+             
+          </c:forEach>
+          </c:if>
+   
+          
+      </c:if>
+   </div>
 </div>
 
 <!-- 검색창 포커스(블러)시 배경화면 변경 -->
@@ -257,14 +227,14 @@ $(document).ready(function(e){
         });
     });
     $('#search_record, #search_record2').focus(function(){
-    	$('#search_div').show();
+       $('#search_div').show();
     });
-	$('#search_record, #search_record2').blur(function(){
-		$('#search_div').hide();
+   $('#search_record, #search_record2').blur(function(){
+      $('#search_div').hide();
     });
-	$('ul.sui-autocomplete').click(function(){
-		$('#search_div').show();
-	});
+   $('ul.sui-autocomplete').click(function(){
+      $('#search_div').show();
+   });
 </script>
 
 </body>
