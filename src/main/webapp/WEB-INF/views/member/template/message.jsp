@@ -8,29 +8,32 @@
   <li role="presentation" id="presen_width"><a href="/accounts/widthdrawalUser" id="widthdrawal_a" style="cursor:pointer;">회원탈퇴</a></li>
 </ul>
 <br><br><br>
-<div class="container">
-	<div class="col-sm-3">
-	<select class="form-control"> 
-		<option>전체 메세지</option> 
-		<option>예약 확인</option> 
-		<option>수락 신청</option> 
-	</select>
+<div id="" style="border:1px solid #ccc; width:90%; height:500px; margin:0 auto; padding-top:20px;">
+	<div class="container" >
+		<div class="col-sm-3">
+		<select class="form-control"> 
+			<option>전체 메세지</option> 
+			<option>예약 확인</option> 
+			<option>수락 신청</option> 
+		</select>
+		</div>
 	</div>
-</div>
-<br>
-<div class="container">
-<table class="table table-hover"> 
-<thead> 
-<tr>
-<th>#</th> 
-<th>보낸이</th> 
-<th>제목</th> 
-</tr> 
-</thead> 
-<tbody id="message_tbody"> 
-</tbody> 
-</table> 
-</div>
+	
+	<br>
+	
+	<div class="container">
+		<table class="table table-hover"> 
+			<thead> 
+				<tr>
+					<th>제목</th> 
+					<th>보낸이</th> 
+					<th>도착시간</th> 
+				</tr> 
+			</thead> 
+			<tbody id="message_tbody"></tbody> 
+		</table> 
+	</div>
+</div> 
 <script>
 	$(document).ready(function(){
 		var token = $("meta[name='_csrf']").attr("content");
