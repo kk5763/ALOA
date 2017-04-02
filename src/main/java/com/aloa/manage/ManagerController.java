@@ -42,9 +42,14 @@ public class ManagerController {
 	}
 	//회원관리-삭제
 	@RequestMapping(value = "/manager/listRemove", method = RequestMethod.POST)
-	public ModelAndView listRemove(@RequestParam String[] checkId){
+	public ModelAndView listRemove(@RequestParam String[] checkEmail){
 		
-		managerDAO.memberRemove(checkId);
+		for(int i=0; i<checkEmail.length; i++){
+			System.out.println(checkEmail[i]);
+		}
+		
+		managerDAO.memberRemove(checkEmail);
+		
 		return new ModelAndView("redirect:/manager/memberManage");
 	}
 	
@@ -62,7 +67,7 @@ public class ManagerController {
 	
 	//회원관리 - 수정
 	@RequestMapping(value = "/manager/memberUpdate", method = RequestMethod.POST)
-	public ModelAndView memberUpdate(@ModelAttribute MemberDTO memberDTO){
+	public ModelAndView memberUpdate(@ModelAttribute MemberDTO memberDTO){		
 		managerDAO.memberUpdate(memberDTO);
 		
 		return new ModelAndView("redirect:/manager/memberManage");
