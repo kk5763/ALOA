@@ -23,6 +23,8 @@ public class Reservation {
 	private String member;
 	
 	private String reserverrequest;
+	
+	private int resercancle;
 
 	public Long getId() {
 		return id;
@@ -79,6 +81,15 @@ public class Reservation {
 	public void setReserverrequest(String reserverrequest) {
 		this.reserverrequest = reserverrequest;
 	}
+
+	public int getResercancle() {
+		return resercancle;
+	}
+
+	public void setResercancle(int resercancle) {
+		this.resercancle = resercancle;
+	}
+	
 	
 	
 }

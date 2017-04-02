@@ -70,7 +70,7 @@
 						<textarea id="request_reserve" class="form-control" rows="3"></textarea>
 					</label>
 				</div>
-				<div class="form-group">
+				<div id="modal_reserve_alert" class="form-group">
 					예약시 회원정보에 저장되어있는 정보들이 예약자의 정보로 저장됩니다.
 				</div>
             </div>
@@ -95,7 +95,7 @@
             <div class="modal-footer">
                 <div class="container-fluid">
                     <div class="row">
-       					<button id="reserve_button" type="button" class="btn btn-primary">예약 확인</button>
+       					<a href="accounts/reservation" id="reserve_button" type="button" class="btn btn-primary">예약 확인</a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -123,23 +123,26 @@
 		  		var reserveTime = $('#reserveTime').val();
 		  		var reserveNumber = $('#reservenumber').val();
 		  		var request = $('#request_reserve').val();
-		  		
-		  		$.ajax({
-		  			url:'/reservation/khk',
-		  			type:'post',
-		  			dataType:'json',
-		  			data: JSON.stringify({'userid':<sec:authentication property='principal.id'/>,'reservedate':date, 'reservetime':reserveTime, 'member':reserveNumber, 'reserverrequest':request}),
-		  			contentType: "application/json; charset=UTF-8",
-		  			beforeSend: function(xhr){
-						xhr.setRequestHeader(header, token);
-					},
-					error: function(xhr, status, err){
-						if(xhr.status == 200){
-							$('#ModalReserve').modal('hide');
-							$('#modalReserveConfrim').modal('show');
+		  		if(date == "" || reserveTime == "" || reserveNumber == ""){
+		  			$('#modal_reserve_alert').html('날짜, 시간, 인원은 필수 기입사항입니다.').css('color','red');
+		  		}else{
+			  		$.ajax({
+			  			url:'/reservation/khk',
+			  			type:'post',
+			  			dataType:'json',
+			  			data: JSON.stringify({'userid':<sec:authentication property='principal.id'/>,'reservedate':date, 'reservetime':reserveTime, 'member':reserveNumber, 'reserverrequest':request}),
+			  			contentType: "application/json; charset=UTF-8",
+			  			beforeSend: function(xhr){
+							xhr.setRequestHeader(header, token);
+						},
+						error: function(xhr, status, err){
+							if(xhr.status == 200){
+								$('#ModalReserve').modal('hide');
+								$('#modalReserveConfrim').modal('show');
+							}
 						}
-					}
-		  		})
+			  		})
+		  		}
 		  	})
 		  	
 		})

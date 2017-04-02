@@ -17,6 +17,9 @@ public class ReservationRestController {
 	@Autowired
 	ReservationRepository reservationRepository;
 	
+	@Autowired
+	ReservationService reservationService;
+	
 	@RequestMapping(value="/reservation/khk", method=RequestMethod.POST)
 	public ResponseEntity saveReservation(@RequestBody Reservation reservation){
 		
@@ -39,6 +42,16 @@ public class ReservationRestController {
 		
 		Reservation reservation = reservationRepository.findOne(id);
 		
+		
+		return new ResponseEntity<>(reservation, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/reservationCancle/{id}", method=RequestMethod.PATCH)
+	public ResponseEntity cancleReservation(@PathVariable Long id){
+		
+		
+		//TODO 예약 취소 서버사이드벨리데이션
+		Reservation reservation = reservationService.cancleReservation(id);
 		
 		return new ResponseEntity<>(reservation, HttpStatus.OK);
 	}

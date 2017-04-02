@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<link rel="stylesheet" type="text/css" href="/style/reservation_Style/reservationViewStyle.css" />
 <ul class="nav nav-tabs nav-justified" id="nav_profile_withdrawal">
   <li role="presentation"><a href="/accounts/message" style="cursor:pointer;">메세지</a></li>
   <li role="presentation" class="active"><a href="#" style="cursor:pointer;">예약 정보</a></li>
@@ -46,21 +45,77 @@
 </div>
 <div class="modal fade" id="modalReservationConfirm" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true" style="top:80px;">
 <div class="modal-dialog" id="reservationView">
-<div class="modal-content">
-	<div class="modal-header" id="reservationConfirmTitle">예약 확인</div><br>
-	<form>
-	<div id="reservationT">
-		<label for="reservationDate"><b>예약 날짜</b><input id="reservationDate" type="text" class="form-control" size="30" readonly/></label>
-		<label for="reservationTime"><b>예약 시간</b><input id="reservationTime" type="text" class="form-control" size="30" readonly/></label>
-		<label for="reservationName"><b>인원</b><input id="reservationName" type="text" class="form-control" size="30" readonly/></label>
-		<label for="reservationStore"><b>식당 이름</b><input id="reservationStore" type="text" class="form-control" size="30" readonly/></label>
-		<label for="reservationRequest"><b>추가 요청 사항</b><textarea id="reservationRequest" rows="10" class="form-control" cols="32" readonly resize="none"></textarea></label>
+<div class="modal-content text-center">
+	<div class="modal-header" id="reservationConfirmTitle">
+		예약 확인
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	</div><br>
+	<div class="modal-body">
+		<div class="container-fluid">
+			<div class="row">
+				<input type="hidden" id="hidden_reservNo">
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading"><b>예약 날짜</b></div>
+						<div id="reservationDate" class="panel-body">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading"><b>예약 시간</b></div>
+						<div id="reservationTime" class="panel-body">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading"><b>인원</b></div>
+						<div id="reservationMember" class="panel-body">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading"><b>식당 이름</b></div>
+						<div id="reservationStore" class="panel-body">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading"><b>추가 요청사항</b></div>
+				<div id="reservationRequest" class="panel-body">
+				</div>
+			</div>
+		</div>
 	</div>
-	</form>
-	<div id="reservationCancell">예약 취소</div>
-	<div id="close" onclick="closeButton()">닫기</div>
+	<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="reserv_cancle_btn">예약 취소하기</button>
+    </div>
 </div>
 </div>
+</div>
+
+<div class="modal fade" id="model_cancle_alert">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">예약 취소</h4>
+      </div>
+      <div class="modal-body">
+        <p>예약이 취소되었습니다!&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
 	$(document).ready(function(){
@@ -76,13 +131,14 @@
 			},
 			success: function(data, status, xhr){
 				if(xhr.status==200){
-					console.log('success');
-					console.log(data[0]);
-					console.log(data.length)
 					$('#message_tbody').html('');
 					var i = 1;
 					for(var i=0; i<data.length; i++){
-						$('#message_tbody').append('<tr data-toggle="modal" data-target="#modalReservationConfirm" style="cursor:pointer;"><td id="'+data[i].id+'">'+data[i].reservedate+'</td><td id="'+data[i].id+'">'+data[i].reservetime+'</td><td id="'+data[i].id+'">'+data[i].member+'</td></tr>');
+						if(data[i].resercancle==1){
+							$('#message_tbody').append('<tr class="danger"style="cursor:pointer;"><td id="'+data[i].id+'">'+data[i].reservedate+'</td><td id="'+data[i].id+'">'+data[i].reservetime+'</td><td id="'+data[i].id+'">'+data[i].member+'</td></tr>');
+						}else{
+							$('#message_tbody').append('<tr id="'+data[i].id+'" data-toggle="modal" data-target="#modalReservationConfirm" style="cursor:pointer;"><td id="'+data[i].id+'">'+data[i].reservedate+'</td><td id="'+data[i].id+'">'+data[i].reservetime+'</td><td id="'+data[i].id+'">'+data[i].member+'</td></tr>');
+						}
 					}
 				}else if(xhr.status==204){
 					$('#message_tbody').html('<br><div><strong>신청한 예약이 없습니다.</strong></div>');
@@ -104,10 +160,29 @@
 				},
 				success: function(data, status, xhr){
 					if(xhr.status == 200){
-						$('#reservationDate').val(data.reservedate);
-						$('#reservationTime').val(data.reservetime);
-						$('#reservationName').val(data.member);
-						$('#reservationRequest').val(data.reserverrequest);
+						$('#hidden_reservNo').val(data.id);
+						$('#reservationDate').html(data.reservedate);
+						$('#reservationTime').html(data.reservetime);
+						$('#reservationMember').html(data.member);
+						$('#reservationRequest').html(data.reserverrequest);
+					}
+				}
+			})
+		})
+		$('#reserv_cancle_btn').click(function(){
+			var tg = $('#hidden_reservNo').val();
+			$.ajax({
+				url:'/reservationCancle/'+tg,
+				type: 'patch',
+				dataType: 'json',
+				beforeSend: function(xhr){
+					xhr.setRequestHeader(header, token);
+				},
+				success: function(data, status, xhr){
+					if(xhr.status == 200){
+						$('#'+data.id).attr('class','danger').removeAttr('data-toggle').removeAttr('data-target');
+						$('#modalReservationConfirm').modal('hide');
+						$('#model_cancle_alert').modal('show');
 					}
 				}
 			})
