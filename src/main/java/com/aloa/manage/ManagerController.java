@@ -19,9 +19,9 @@ public class ManagerController {
 	@Autowired
 	ManagerDAO managerDAO;
 
-	@RequestMapping(value = "manager/test", method = RequestMethod.GET)
+	@RequestMapping(value = "manager/index", method = RequestMethod.GET)
 	public String test() {
-		return "manager/test";
+		return "manager/index";
 	}
 
 	// 회원관리
