@@ -33,7 +33,7 @@ public class ManagerController {
 		if (managerDAO.memberList() != null) {
 			list = managerDAO.memberList();
 		}
-		System.out.println(list.get(0).getId());
+		
 		mav.addObject("list", list);
 		mav.setViewName("manager/memberManage");
 
@@ -44,6 +44,26 @@ public class ManagerController {
 	public ModelAndView listRemove(@RequestParam String[] checkId){
 		
 		managerDAO.memberRemove(checkId);
+		return new ModelAndView("redirect:/manager/memberManage");
+	}
+	
+	//회원관리- 수정 뷰
+	@RequestMapping(value = "/manager/memberUpdateView", method = RequestMethod.POST)
+	public ModelAndView memberUpdateView(@RequestParam String findId ){
+		MemberDTO memberDTO = managerDAO.sepcificMember(findId);
+	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memberDTO", memberDTO);
+		mav.setViewName("manager/memberUpdate");
+		
+		return mav;
+	}
+	
+	//회원관리 - 수정
+	@RequestMapping(value = "/manager/memberUpdate", method = RequestMethod.POST)
+	public ModelAndView memberUpdate(@ModelAttribute MemberDTO memberDTO){
+		managerDAO.memberUpdate(memberDTO);
+		
 		return new ModelAndView("redirect:/manager/memberManage");
 	}
 	

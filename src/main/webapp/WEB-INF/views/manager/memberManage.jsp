@@ -92,6 +92,18 @@ $(document).ready(function(){
 function listRemove(){
 	document.memberManage.submit();
 }
+
+function memberUpdate(id){
+	var myForm = document.memberManage;
+	var url = "/manager/memberUpdateView";
+	window.open("", "viewer", "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no");
+	myForm.action = url;
+	myForm.action =url; 
+	myForm.method="post";
+	myForm.target="viewer";
+	myForm.findId.value = id;
+	myForm.submit(); 
+}
 </script>
 
 </head>
@@ -99,6 +111,7 @@ function listRemove(){
 <body>
 <form name ="memberManage" method = "post" action = "/manager/listRemove">
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+<input type = "hidden" name = "findId"/>
 <div class="container">
     <div class="creatediv1 marginTop30">
     			
@@ -160,7 +173,7 @@ function listRemove(){
 												</div>
 											</th>
 											<td style="width: 10%">${memberDTO.status }</td>	
-											<td style="width: 15%">${memberDTO.username }</td>
+											<td style="width: 15%"><span onclick = "memberUpdate(${memberDTO.id })">${memberDTO.username }</span></td>
 											<td style="width: 20%">${memberDTO.email }</td>
 											<td style="width: 20%">${memberDTO.tel }</td>
 											<td style="width: 25%">${memberDTO.joinDate }</td>
