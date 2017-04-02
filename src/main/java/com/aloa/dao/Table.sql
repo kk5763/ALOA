@@ -1,14 +1,15 @@
 create table account(
+  id number primary key,
   username varchar(500) not null ,
-  email varchar(500) primary key,
+  email varchar(500) unique,
   password varchar(500) not null,
-  tel varchar(500) not null,
+  tel varchar(500) ,
   joinDate date default sysdate,
   status varchar(500) default 'plain',
   reportCount number default 0,
-  server number not null,
-  admin number not null,
-  emailauth number not null);
+  server number default 0,
+  admin number default 0,
+  emailauth number default 0);
   
 create table restaurant(
   resNo number primary key,
@@ -100,4 +101,15 @@ create table reservation(
 				reserveaddress varchar(200) not null
 			
 );
-                
+
+drop table account purge;
+drop table restaurant purge;
+drop table reviewboard purge;
+drop table ReportRev purge;
+drop table ReportRes purge;
+drop table imageboard purge;
+drop table bookmark purge;
+drop table reservation purge;
+
+drop sequence seq_reviewno ;
+drop sequence  seq_restaurant;

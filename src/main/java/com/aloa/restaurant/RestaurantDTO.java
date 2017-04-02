@@ -9,7 +9,7 @@ import com.aloa.review.Reviewboard;
 public class RestaurantDTO {
 	
 	private Restaurant restaurant; // Restaurant - DTO
-	private List<Imageboard> imageList; // Restaurant - Image
+	private List<Imageboard> imagelist; // Restaurant - Image
 	private List<Reviewboard> reviewList;
 	private List<Integer> resReviewCount;
 	
@@ -26,11 +26,11 @@ public class RestaurantDTO {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	public List<Imageboard> getImageList() {
-		return imageList;
+	public List<Imageboard> getImagelist() {
+		return imagelist;
 	}
-	public void setImageList(List<Imageboard> imagelist) {
-		this.imageList = imagelist;
+	public void setImagelist(List<Imageboard> imagelist) {
+		this.imagelist = imagelist;
 	}
 	public List<Reviewboard> getReviewList() {
 		return reviewList;
