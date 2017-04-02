@@ -75,12 +75,24 @@ $(document).ready(function(){
         }
     });
 });
+
+//체크버튼
+$(document).ready(function(){
+	$('.check-all').click(function(){
+		$('.check-each').prop('checked', this.checked);
+	});
+});
+
+function reviewRemove(){
+	document.reviewClaim.submit();
+}
+
 </script>
 
 </head>
 
 <body>
-
+<form id = "reviewClaim" method = "post" action = "/manager/reviewRemove">
 <div class="container">
     <div class="creatediv1 marginTop30">
     			
@@ -99,13 +111,13 @@ $(document).ready(function(){
 									<th style= "width:1%;">
 										<div class="checkbox radio-margin">
 											<label>
-												<input type="checkbox" value="">
+												<input type="checkbox" class = "check-all">
 												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 											</label>
 										</div>
 									</th>
 									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="신고자" disabled>
+										<input type="text" class="form-control" placeholder="신고인" disabled>
 									</th>
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="신고제목" disabled>
@@ -113,14 +125,12 @@ $(document).ready(function(){
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="리뷰넘버" disabled>
 									<th style="width: 35%">
-										<input type="text" class="form-control" placeholder="신고대상자" disabled>
+										<input type="text" class="form-control" placeholder="피신고인" disabled>
 									</th>
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="처리상태" disabled>
 									</th>
-									<th style="width: 9%">
-										<input type="text" class="form-control" placeholder="비고" disabled>
-									</th>
+									
 								
 									
 			
@@ -135,17 +145,17 @@ $(document).ready(function(){
 											<td style= "width:1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" value="">
+														<input type="checkbox" class = "check-each" value = "${reportRevDTO.resNo }">
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>
 											</th>
 											<td style="width: 10%">${reportRevDTO.reEmail }</td>	
 											<td style="width: 15%">${reportRevDTO.reportName }</td>
-											<td style="width: 15%">${reportRevDTO.resNo }</td>
+											<td style="width: 15%">${reportRevDTO.reviewNo }</td>
 											<td style="width: 35%">${reportRevDTO.deEmail }</td>
 											<td style="width: 15%">${reportRevDTO.reStatus }</td>
-											<td style="width: 9%"><input type="button" value="삭제"></td>
+											
 										</tr>
 										</c:forEach>
 										</c:if>
@@ -158,7 +168,9 @@ $(document).ready(function(){
 				</div>
     
 </div><!-- 테이블 -->
-
+	<div align = "right">
+ 	<button id = "remove" value = "삭제" onclick = "listRemove()">삭제</button>
+ 	</div>
 	<nav>
   <ul class="pagination">
     <li>
@@ -216,7 +228,7 @@ $(document).ready(function(){
 <!-- 검색어입력 -->
 
 
-
+</form>
 
 </body>
 </html>

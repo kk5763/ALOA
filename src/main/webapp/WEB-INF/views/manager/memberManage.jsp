@@ -191,7 +191,7 @@ function memberUpdate(id){
 				</div>
     
 </div><!-- 테이블 -->
-	 <div>
+	 <div align = "right">
  	<button id = "remove" value = "삭제" onclick = "listRemove()">삭제</button>
  	</div>
 	<nav>

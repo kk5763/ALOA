@@ -139,7 +139,7 @@ $(document).ready(function(){
 											<td style= "width:1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" value="">
+														<input type="checkbox" value="${reportResDTO }">
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>

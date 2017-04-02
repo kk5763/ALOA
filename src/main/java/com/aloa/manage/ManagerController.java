@@ -189,7 +189,7 @@ public class ManagerController {
 		return null;//아직 관리자 메인페이지를 안만듦
 	}
 	
-	//리뷰신고 db받기 기본틀(추후 수정 필요)
+	//리뷰신고
 	@RequestMapping(value = "manager/reviewClaim", method = RequestMethod.GET)
 	public ModelAndView reviewClaim() {
 		
@@ -203,6 +203,14 @@ public class ManagerController {
 		mav.setViewName("manager/reviewClaim");
 		return mav;
 	}
+	
+	//리뷰 신고글 삭제
+		@RequestMapping(value = "/manager/reviewRemove", method = RequestMethod.POST)
+		public ModelAndView reviewClaim(@RequestParam String[] checkId){
+			
+			managerDAO.memberRemove(checkId);
+			return new ModelAndView("redirect:/manager/memberManage");
+		}
 	
 	//맛집신고 완료( 확인부탁요)
 	@RequestMapping(value = "manager/restaurantClaim", method = RequestMethod.GET)

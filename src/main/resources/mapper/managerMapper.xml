@@ -96,7 +96,7 @@
 	</select>
 	
 	<select id = "resClaimList" resultType = "com.aloa.manage.ReportResDTO">
-	select a.reEmail, a.reportname, a.reportcontent, b.resname, a.deemail, a.restatus 
+	select a.reEmail, a.reportname, a.reportcontent, a.resno, b.resname, a.deemail, a.restatus 
 		from ReportRes a , restaurant b 
 		where a.resno = b.resno 
 		
