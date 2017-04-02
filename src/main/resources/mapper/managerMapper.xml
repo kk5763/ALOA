@@ -4,9 +4,21 @@
 	<select id = "memberList" resultType = "com.aloa.manage.MemberDTO">
 		select * from account
 	</select>
-	<delete id = "memberRemove" parameterType = "int">
-		delete from account where id = #{id}
+	<delete id = "memberRemove" parameterType = "String">
+		begin
+			delete imageboard where resNo = (select resNo from restaurant where bossEmail=#{email});
+			delete restaurant where bossEmail = #{email};
+			delete account where email = #{email};
+		end;
 	</delete>
+	<select	id = "sepcificMember" parameterType = "int" resultType = "com.aloa.manage.MemberDTO">
+		select * from account where id = #{id}
+	</select>
+	
+	<update id = "memberUpdate" parameterType = "com.aloa.manage.MemberDTO">
+			update account set reportcount = 3, status =?? where id = #{id};
+	</update>
+	
 	<select id ="restaurantList" resultType="com.aloa.restaurant.Restaurant">
 		select * from restaurant
 	</select>
@@ -14,6 +26,7 @@
 	<delete id = "restaurantDelete" parameterType ="int">
 		begin
 			update account set server=0 where email=(select bossEmail from restaurant where resNo=#{resno});
+			delete imageboard where resno = #{resno};
 			delete restaurant where resNo = #{resno};
 		end;
 	</delete>
@@ -53,7 +66,7 @@
 									  resSaletime , 
 									  resRest , 
 									  resHoliday,
-									  createdate)
+									  createDate)
 									  values(
 									  	seq_restaurant.nextval
 									  	,#{resname}
@@ -84,8 +97,19 @@
 		select * from ReportRev
 	</select>
 	
+	<delete id = "reviewRemove" parameterType = "int">
+		begin
+		delete from  reviewboard where reviewno = #{reviewno};
+		update reportrev set restatus = 'process' where reviewno = #{reviewno};
+		end;
+	</delete>
+	
 	<select id = "resClaimList" resultType = "com.aloa.manage.ReportResDTO">
-		select * from ReportRes
+	select a.reEmail, a.reportname, a.reportcontent, a.resno, b.resname, a.deemail, a.restatus 
+		from ReportRes a , restaurant b 
+		where a.resno = b.resno 
+		
+		
 	</select>
 
 </mapper>

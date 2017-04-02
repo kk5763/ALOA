@@ -35,7 +35,7 @@ public class ReviewService {
 		
 		List<Imageboard> list = reviewDAO.imagelist(resno);
 		
-		return null;
+		return list;
 	}
 	
 }

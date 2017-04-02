@@ -50,13 +50,26 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	}
 
 	@Override
-	public void memberRemove(String[] checkId) {
-		for(int i = 0; i < checkId.length; i++){
+	public void memberRemove(String[] checkEmail) {
+		for(int i = 0; i < checkEmail.length; i++){
 			
-			sqlSession.delete("managerMapper.memberRemove",Integer.parseInt(checkId[i]));
+			sqlSession.delete("managerMapper.memberRemove",checkEmail[i]);
 		}
 	}
-
+	
+	@Override
+	public MemberDTO sepcificMember(String findId) {
+		
+		MemberDTO memberDTO = sqlSession.selectOne("managerMapper.sepcificMember", Integer.parseInt(findId));
+		return memberDTO;
+	}
+	
+	@Override
+	public void memberUpdate(MemberDTO memberDTO) {
+		sqlSession.update("managerMapper.memberUpdate", memberDTO);
+		
+	}
+	
 	@Override
 	public void restaurantDelete(int[] checkResno) {
 		for(int i = 0; i < checkResno.length; i++){
@@ -81,12 +94,25 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		List<ReportRevDTO> list = sqlSession.selectList("managerMapper.revClaimList");
 		return list;
 	}
+	
+	@Override
+	public void reviewRemove(String[] checkNo) {
+		for(int i = 0 ; i < checkNo.length; i++ ){
+			sqlSession.delete("managerMapper.reviewRemove", Integer.parseInt(checkNo[i]));
+		}
+	}
 
 	@Override
 	public List<ReportResDTO> resClaimList() {
 		List<ReportResDTO> list = sqlSession.selectList("managerMapper.resClaimList");
-		
+	
 		return list;
 	}
+
+
+
+	
+
+	
 
 }

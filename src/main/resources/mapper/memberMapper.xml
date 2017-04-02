@@ -38,7 +38,7 @@
     <select id="resSearch" parameterType="java.lang.String" resultType="com.aloa.restaurant.Restaurant">
 		select * 
 		from restaurant 
-		where resaddress 	like '%'||#{searchName}||'%' or resname like '%'||#{searchName}||'%' or reskind like '%'||#{searchName}||'%'
+		where resaddress like '%'||#{searchName}||'%' or resname like '%'||#{searchName}||'%' or reskind like '%'||#{searchName}||'%'
     </select>
  
 </mapper>

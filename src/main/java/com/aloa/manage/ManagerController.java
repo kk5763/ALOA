@@ -19,9 +19,10 @@ public class ManagerController {
 	@Autowired
 	ManagerDAO managerDAO;
 
-	@RequestMapping(value = "manager/test", method = RequestMethod.GET)
+	//관리자 메인
+	@RequestMapping(value = "manager/index", method = RequestMethod.GET)
 	public String test() {
-		return "manager/test";
+		return "manager/index";
 	}
 
 	// 회원관리
@@ -33,7 +34,7 @@ public class ManagerController {
 		if (managerDAO.memberList() != null) {
 			list = managerDAO.memberList();
 		}
-		System.out.println(list.get(0).getId());
+		
 		mav.addObject("list", list);
 		mav.setViewName("manager/memberManage");
 
@@ -41,9 +42,34 @@ public class ManagerController {
 	}
 	//회원관리-삭제
 	@RequestMapping(value = "/manager/listRemove", method = RequestMethod.POST)
-	public ModelAndView listRemove(@RequestParam String[] checkId){
+	public ModelAndView listRemove(@RequestParam String[] checkEmail){
 		
-		managerDAO.memberRemove(checkId);
+		for(int i=0; i<checkEmail.length; i++){
+			System.out.println(checkEmail[i]);
+		}
+		
+		managerDAO.memberRemove(checkEmail);
+		
+		return new ModelAndView("redirect:/manager/memberManage");
+	}
+	
+	//회원관리- 수정 뷰
+	@RequestMapping(value = "/manager/memberUpdateView", method = RequestMethod.POST)
+	public ModelAndView memberUpdateView(@RequestParam String findId ){
+		MemberDTO memberDTO = managerDAO.sepcificMember(findId);
+	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memberDTO", memberDTO);
+		mav.setViewName("manager/memberUpdate");
+		
+		return mav;
+	}
+	
+	//회원관리 - 수정
+	@RequestMapping(value = "/manager/memberUpdate", method = RequestMethod.POST)
+	public ModelAndView memberUpdate(@ModelAttribute MemberDTO memberDTO){		
+		managerDAO.memberUpdate(memberDTO);
+		
 		return new ModelAndView("redirect:/manager/memberManage");
 	}
 	
@@ -162,29 +188,32 @@ public class ManagerController {
 		//맛집등록(이미지도)
 		managerDAO.insertRestaurant(map);
 
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("manager/restaurantAgreeDetail");
-
-		return null;//아직 관리자 메인페이지를 안만듦
+		return (ModelAndView)new ModelAndView("redirect:/manager/restaurantManage");
 	}
 	
-	//리뷰신고 db받기 기본틀(추후 수정 필요)
-	@RequestMapping(value = "manager/reviewClaim", method = RequestMethod.GET)
+	//리뷰신고
+	@RequestMapping(value = "/manager/reviewClaim", method = RequestMethod.GET)
 	public ModelAndView reviewClaim() {
 		
 		List<ReportRevDTO> list = null;
 		if(managerDAO.revClaimList() != null){
 			list = managerDAO.revClaimList();
 		}
-		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("manager/reviewClaim");
 		return mav;
 	}
 	
-	//맛집신고 db받기 기본틀(추후 수정 필요)--restaurantClaim.jsp파일에서 처리여부, 처리상태 차이? 몰라서 jsp에는 값 안 뿌렸음 db에서 오는 것만 확인
+	//리뷰 신고글 삭제
+		@RequestMapping(value = "/manager/reviewRemove", method = RequestMethod.POST)
+		public ModelAndView reviewRemove(@RequestParam String[] checkNo){
+			
+			managerDAO.reviewRemove(checkNo);
+			return new ModelAndView("redirect:/manager/reviewClaim");
+		}
+	
+	//맛집신고 완료( 확인부탁요)
 	@RequestMapping(value = "manager/restaurantClaim", method = RequestMethod.GET)
 	public ModelAndView restaurantClaim() {
 		List<ReportResDTO> list = null;
@@ -193,7 +222,7 @@ public class ManagerController {
 			list = managerDAO.resClaimList();
 		}
 		
-		
+	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("manager/restaurantClaim");

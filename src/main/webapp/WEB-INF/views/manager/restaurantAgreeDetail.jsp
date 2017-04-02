@@ -27,12 +27,20 @@ window.onload = function(){
 function checkId(){
 	 var email = document.getElementById("bossemail").value;
 	 
+   /* alert(email);
+	email.replace( / /g, "");
+	 alert(email); */
+	   // 위와 같이 모든 공백을 제거
+	 if(email==""){
+		 alert("아이디를 입력해주세요.");
+		 return;
+	 }
+	 
 	location.href="/manager/restaurantAgreeDetailCheckId?id="+email;
+	 
 }
 
 function complete(){
-	var email = document.getElementById("bossemail").value;
-	
 	if(check=='x'){
 		alert('아이디 체크를 하세요');
 	}
@@ -42,6 +50,8 @@ function complete(){
 }
 
 </script>
+
+
 </head>
 <body>
 
