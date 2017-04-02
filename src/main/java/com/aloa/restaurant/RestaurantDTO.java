@@ -12,8 +12,15 @@ public class RestaurantDTO {
 	private List<Imageboard> imageList; // Restaurant - Image
 	private List<Reviewboard> reviewList;
 	private List<Integer> resReviewCount;
+	private List<Double> resGrade;
 	
 	
+	public List<Double> getResGrade() {
+		return resGrade;
+	}
+	public void setResGrade(List<Double> resGrade) {
+		this.resGrade = resGrade;
+	}
 	public List<Integer> getResReviewCount() {
 		return resReviewCount;
 	}
