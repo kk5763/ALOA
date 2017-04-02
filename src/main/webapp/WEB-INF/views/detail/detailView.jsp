@@ -55,11 +55,9 @@
    }
    
 window.onload = function(){
-	
 	var reviewCount = ${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2) };
-	
 	for(i = 0; i < reviewCount; i++) {
-		var userImage = document.getElementById('userImage_' + i);
+		var userImage = document.getElementById('userImage' + i);
 		var random = (Math.floor(Math.random() * 12) + 1);
 		userImage.setAttribute("src", "/resources/images/min_image/userImage_" + random + ".PNG");
 	}
@@ -80,13 +78,7 @@ $(function() {
 }); 
 
 function openImageView(su) {
-	window.open("http://localhost:8000/detailViewImage?imageNo="+su, "ImageView", "width=1000 height=700 left=250 top=50");
-}
-
-function userImage(imageNumber){
-	var random = (Math.floor(Math.random() * 12) + 1);
-	var userImage = document.getElementById('userImage' + imageNumber);
-	userImage.setAttribute("src", "/resources/images/min_image/userImage" + random + ".png");
+	window.open("http://localhost:8000/detailViewImage?imageNo="+su+"&resNo=${resDTO.restaurant.resno }", "ImageView", "width=820 height=730 left=250 top=50");
 }
 </script>
 </head>
@@ -94,11 +86,11 @@ function userImage(imageNumber){
 <header> </header>
 
 <!-- 메인영역 -->
-<article class="main-scope"> <!-- 상단 이미지 슬라이더 -->
+<article class="main-scope"> <!-- 상단 이미지 -->
 <div class="image-slider-div">
 	<c:forEach var="i" begin="1" end="5" step="1">
 		<a onclick="openImageView(${i })"> <img class="images"
-			src="/resources/images/restaurant_image/lala@naver.com_image_${i }.jpg" />
+			src="/resources/images/${resDTO.imagelist[i-1].image }.jpg" />
 		</a>
 	</c:forEach>
 </div>
@@ -232,7 +224,7 @@ function userImage(imageNumber){
 							<figure class="user">
 							<div class="user-profile">
 								<img id="userImage${status.index - 1 }" class="thumb-image"
-									src="userImage(${status.index - 1 })" />
+									src="" />
 							</div>
 							<figcaption>${revDTO.accountList[status.index - 1].username }</figcaption>
 
@@ -326,14 +318,12 @@ function userImage(imageNumber){
                                                 + '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
                                                 + '</div>'
                                                 + '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
-                                                + '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">라이포스트</span>&nbsp;&nbsp;'
+                                                + '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">${resDTO.restaurant.resname }</span>&nbsp;&nbsp;'
                                                 + '<strong style="color: #FF792A; font-size: 20px;">4.6</strong>'
-                                                + '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">이태원/한남동 - 브런치 / 버거 / 샌드위치</p>'
+                                                + '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">${resDTO.restaurant.resaddress } - ${resDTO.restaurant.reskind }</p>'
                                                 + '<p style=" margin-top:40px;">'
                                                 + '<img src="/resources/images/min_image/review.PNG">'
-                                                + '<em style="color: #7A7A7A; font-size: 16px">206</em>&nbsp;'
-                                                + '<img src="/resources/images/min_image/favorite.png">'
-                                                + '<em style="color: #7A7A7A; font-size: 16px">5693</em>'
+                                                + '<em style="color: #7A7A7A; font-size: 16px">${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2) }</em>&nbsp;'
                                                 + '</p>'
                                                 + '</div>'
                                                 + '</div>'

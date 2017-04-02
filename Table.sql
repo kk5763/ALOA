@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-create table account(
-username varchar(500) not null ,
-email varchar(500) primary key,
-password varchar(500) not null,
-tel varchar(500) default 0,
-joinDate date default sysdate,
-status varchar(500) default 'plain',
-reportCount number default 0,
-server number default 0,
-admin number default 0,
-emailauth number default 0
-);
-
-=======
 ﻿create table account(
   id number primary key,
   username varchar(500) not null ,
@@ -26,7 +11,6 @@ emailauth number default 0
   admin number default 0,
   emailauth number default 0);
   
->>>>>>> b7519831037b9d1f503fbdd688ed384afc87d658
 create table restaurant(
 resNo number primary key,
 resName varchar(500) not null ,
