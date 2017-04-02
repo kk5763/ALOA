@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="/style/min_style/reviewWrite.css">
 <script>
 /* 평점 */
+ 
+window.onload=function(){
+	if(${check==1}){
+		alert("해당게시물에 이미 리뷰를 작성하였습니다.")
+		window.close();
+	}
+	
+} 
+ 
 function clickImg(mode){
 	var gg = document.getElementById('good');
 	var ss = document.getElementById('soso');
