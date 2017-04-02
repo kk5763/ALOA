@@ -70,5 +70,8 @@ public class ReservationController {
 		return "member/template/reservationView";
 	}
 	
-	
+	@RequestMapping(value="/kk")
+	public String kkreserve(){
+		return "reserve/kkreserve";
+	}
 }
