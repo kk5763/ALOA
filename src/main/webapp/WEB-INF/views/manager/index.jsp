@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -97,36 +96,24 @@
 	
 	</script>
 	
-<script type="text/javascript">
-//체크 버튼 
-$(document).ready(function(){
-	$('.check-all').click(function(){
-		$('.check-each').prop('checked',this.checked);
-	});
 	
- 	$('#remove').click(function(){
-		$('input.check-each:checked').each(function(){
-			$(this).parents('tr').remove();
-		});
-	});  
-});
-
-function listRemove(){
-	document.memberManage.submit();
-}
-
-function memberUpdate(id){
-	var myForm = document.memberManage;
-	var url = "/manager/memberUpdateView";
-	window.open("", "viewer", "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no");
-	myForm.action = url;
-	myForm.action =url; 
-	myForm.method="post";
-	myForm.target="viewer";
-	myForm.findId.value = id;
-	myForm.submit(); 
-}
-</script>
+	<!-- 여
+			기
+				에
+					스
+						크
+							립
+								트
+									추
+										가 -->
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	</head>
 			
@@ -295,96 +282,26 @@ function memberUpdate(id){
 			            <!-- /.navbar-collapse -->
 			        </nav>
 			
-			        <div id="page-wrapper" style="background-color:rgb(34,34,34);">
-						
-						<form name ="memberManage" method = "post" action = "/manager/listRemove">
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-<input type = "hidden" name = "findId"/>
-<div class="container">
-    <div class="creatediv1 marginTop30">
-    			
-				<div class="row margin-top-50">
-					<div class="col-md-12">
-						<div class="panel panel-primary filterable">
-							<div class="panel-heading">
-								<h3 class="panel-title">회원관리<span style="color: white; font-weight: bold;"> *</span></h3>
-								<div class="pull-right">
-									<button type="button" class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> 검색</button>
-								</div>
-							</div>
-							<table class="span12">
-								<table>
-									<tr class="filters">
-									<th style="width: 1%;">
-										<div class="checkbox radio-margin">
-											<label>
-												<input type="checkbox" class = "check-all">
-							
-												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-											</label>
-										</div>
-									</th>
-									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="상태" disabled>
-									</th>
-									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="회원이름" disabled>
-									</th>
-									<th style="width: 20%">
-										<input type="text" class="form-control" placeholder="회원ID" disabled>
-									</th>
-									<th style="width: 20%">
-										<input type="text" class="form-control" placeholder="연락처" disabled>
-									</th>
-									<th style="width: 25%">
-										<input type="text" class="form-control" placeholder="가입날짜" disabled>
-									</th>
-									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="권한" disabled>
-									</th>
-								
-									
-									
-									</tr>
-								</table>
-								<div class="bg tablescroll">
-									<table class="table table-bordered table-striped">
-										<c:if test = "${list!=null }">
-										<c:forEach var = "memberDTO" items="${list }">
-										<tr>
-											<td style="width: 1%;">
-												<div class="checkbox radio-margin">
-													<label>
-														<input type="checkbox" name = "checkId" class = "check-each" value="${memberDTO.id }"/>
-														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-													</label>
-												</div>
-											</th>
-											<td style="width: 10%">${memberDTO.status }</td>	
-											<td style="width: 15%"><span onclick = "memberUpdate(${memberDTO.id })">${memberDTO.username }</span></td>
-											<td style="width: 20%">${memberDTO.email }</td>
-											<td style="width: 20%">${memberDTO.tel }</td>
-											<td style="width: 25%">${memberDTO.joinDate }</td>
-											<td style="width: 10%">${memberDTO.emailauth }</td>
-											
-										</tr>
-										</c:forEach>
-									</c:if>
-										
-									</table>
-								</div>
-							</table>
-						</div>
-					</div>
-				</div>
-    
-</div><!-- 테이블 -->
-	 <div align = "right">
- 	<button id = "remove" value = "삭제" onclick = "listRemove()">삭제</button>
- 	</div>
+			        <div id="page-wrapper"  style="background-color:rgb(34,34,34);">
 
-
-</form>
+           
+           
+          <!-- 여
+	          	  기
+	          		에
+	          			본
+	          				문
+	          					내
+	          						용
+	          							추
+	          								가  -->
+           
+           
+           
+           
+           
+           
+           
            
 
 
