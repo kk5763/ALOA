@@ -14,7 +14,11 @@ public interface ManagerDAO {
 	public List<MemberDTO> memberBlackList();
 
 	public void memberRemove(String[] checkId);
-
+	
+	public MemberDTO sepcificMember(String findId);
+	
+	public void memberUpdate(MemberDTO memberDTO);
+	
 	public Account checkId(String id);
 
 	public void insertRestaurant(Map<String, String> map);
@@ -28,6 +32,10 @@ public interface ManagerDAO {
 	public List<ReportRevDTO> revClaimList();
 
 	public List<ReportResDTO> resClaimList();
+
+	
+
+	
 
 
 }

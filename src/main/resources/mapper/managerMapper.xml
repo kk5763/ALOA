@@ -7,6 +7,16 @@
 	<delete id = "memberRemove" parameterType = "int">
 		delete from account where id = #{id}
 	</delete>
+	<select	id = "sepcificMember" parameterType = "int" resultType = "com.aloa.manage.MemberDTO">
+		select * from account where id = #{id}
+	</select>
+	
+	<update id = "memberUpdate" parameterType = "com.aloa.manage.MemberDTO">
+		update account set email = #{email},
+						 username = #{username}
+						 where id = #{id}
+	</update>
+	
 	<select id ="restaurantList" resultType="com.aloa.restaurant.Restaurant">
 		select * from restaurant
 	</select>
