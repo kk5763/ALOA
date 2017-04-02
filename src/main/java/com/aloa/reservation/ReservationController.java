@@ -12,6 +12,7 @@ import org.springframework.social.facebook.api.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,11 +46,11 @@ public class ReservationController {
 		
 		return "reserve/reservation";
 	}
-	
+	//addReservation() 변경함 - by 고현규
 	@RequestMapping(value="/restaurantReserve", method=RequestMethod.POST)
-	public String addReservation(@RequestParam Map<String, String> map, Model model){
+	public String addReservation(@RequestBody ReservationDTO dto){
 		
-		reservationDAO.insertResevation(map);
+		reservationDAO.insertResevation(dto);
 
 		return "main/home";
 	}
