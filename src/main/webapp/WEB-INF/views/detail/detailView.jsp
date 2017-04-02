@@ -46,41 +46,6 @@
                      "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
       }
    }
-	function reportRes() {
-		if (document.getElementById("email").value== "") {
-			alert("로그인후 이용가능합니다.");
-		} else {
-			window
-					.open(
-							"http://localhost:8000/reportResForm?resno=${resDTO.restaurant.resno}",
-							"reportRes",
-							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
-		}
-	}
-	function reportRev(reviewno) {
-		if (document.getElementById("email").value== "") {
-			alert("로그인후 이용가능합니다.");
-		} else {
-			window
-					.open(
-							"http://localhost:8000/reportRevForm?resno=${resDTO.restaurant.resno}&reviewno="+reviewno,
-							"reportRev",
-							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
-		}
-	}
-
-	function reviewWrite() {
-		if (document.getElementById("email").value== "")
-			alert("로그인후 이용가능합니다.");
-		else {
-			window
-					.open(
-							"http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}&email="+document.getElementById('email').value,
-							"dataForm",
-							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
-		}
-	}
-
    function reservation() {
       window
             .open(
@@ -89,7 +54,6 @@
                   "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=1000, height=700");
    }
    
-<<<<<<< HEAD
 window.onload = function(){
 	
 	var reviewCount = ${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2) };
@@ -119,7 +83,6 @@ function openImageView(su) {
 	window.open("http://localhost:8000/detailViewImage?imageNo="+su, "ImageView", "width=1000 height=700 left=250 top=50");
 }
 
-=======
    function userImage(imageNumber){
 	   var random = (Math.floor(Math.random() * 2) + 1);
 	   var userImage = document.getElementById('userImage' + imageNumber);
@@ -127,7 +90,6 @@ function openImageView(su) {
 	   
 	   alert(userImage.getArribute("src"));
    }
->>>>>>> 8901486bfe730850459a6e869aaf3efe0f47bcd9
 </script>
 </head>
 <!-- 상단영역 -->
@@ -407,12 +369,6 @@ function openImageView(su) {
 	
 </article>
 <sec:authorize access="isAnonymous()">
-	<input type="hidden" id="email" value="">
-</sec:authorize>
-<sec:authorize access="isAuthenticated()">
-   <input type="hidden" id="email" value="<sec:authentication property='principal.email'/>">
-	<input type="hidden" id="email"
-		value="<sec:authentication property='principal.email'/>">
 	<input type="hidden" id="email" value="">
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
