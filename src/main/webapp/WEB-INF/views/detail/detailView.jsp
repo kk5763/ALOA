@@ -99,6 +99,21 @@ window.onload = function(){
 		userImage.setAttribute("src", "/resources/images/min_image/userImage_" + random + ".PNG");
 	}
 }
+
+$(function() {
+	$(".review").slice(0, 2).show();
+	$(".reviews-more").on('click', function(e) {
+		e.preventDefault();
+		$(".review:hidden").slice(0, 2).slideDown();
+		if ($(".review:hidden").length == 0) {
+			$(".reviews-more").fadeOut('slow');
+		}
+		$('html,body').animate({
+			scrollTop : $(this).offset().top
+		}, 1500);
+	});
+});
+
 </script>
 </head>
 <!-- 상단영역 -->
@@ -219,7 +234,7 @@ window.onload = function(){
 		</div>
 		<c:forEach begin="1" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
 			varStatus="status">
-			<section class="review">
+			<div class="review" style="border: 1px solid blue;">
 			<ul class="review-list">
 				<li class="default-review"><section class="review-item">
 					<h1 class="icon">
@@ -257,7 +272,7 @@ window.onload = function(){
 					</p>
 					</section></li>
 			</ul>
-			</section>
+			</div>
 		</c:forEach>
 		<button class="reviews-more">더보기</button>
 

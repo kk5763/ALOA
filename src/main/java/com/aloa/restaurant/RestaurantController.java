@@ -95,7 +95,11 @@ public class RestaurantController {
 		
 		return "detail/detailViewImage";
 	}
-	
+	@RequestMapping(value="/NewFile",method=RequestMethod.GET)
+	public String NewFile(Model model ){
+		
+		return "search/NewFile";
+	}
 
 
 }
