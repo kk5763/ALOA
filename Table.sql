@@ -1,6 +1,7 @@
 ﻿create table account(
+  id number primary key,
   username varchar(500) not null ,
-  email varchar(500) primary key,
+  email varchar(500) unique,
   password varchar(500) not null,
   tel varchar(500) default 0,
   joinDate date default sysdate,
