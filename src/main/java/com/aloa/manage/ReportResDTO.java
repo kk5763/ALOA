@@ -4,7 +4,8 @@ public class ReportResDTO {
 	private String reEmail;
 	private String reportName;
 	private String reportContent;
-	private int resNo;
+	//private int resNo;
+	private String resname;
 	private String deEmail;
 	private String reStatus;
 	public String getReEmail() {
@@ -25,14 +26,22 @@ public class ReportResDTO {
 	public void setReportContent(String reportContent) {
 		this.reportContent = reportContent;
 	}
-	public int getResNo() {
+/*	public int getResNo() {
 		return resNo;
 	}
 	public void setResNo(int resNo) {
 		this.resNo = resNo;
-	}
+	}*/
+	
+	
 	public String getDeEmail() {
 		return deEmail;
+	}
+	public String getResname() {
+		return resname;
+	}
+	public void setResname(String resname) {
+		this.resname = resname;
 	}
 	public void setDeEmail(String deEmail) {
 		this.deEmail = deEmail;
