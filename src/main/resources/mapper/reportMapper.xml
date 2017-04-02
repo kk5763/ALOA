@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reportMapper">
+	
+	<insert id="reportresInsert" parameterType="com.aloa.report.Reportres" >
+    	insert into reportres(reemail
+    		,reportname
+    		,reportcontent
+    		,resno
+    		,deemail
+    		)values(#{reemail}
+    		,#{reportname}
+    		,#{reportcontent}
+    		,#{resno}
+    		,#{deemail})
+    </insert>
+    
+    <insert id="reportrevInsert" parameterType="com.aloa.report.Reportrev" >
+    	insert into reportrev(reemail
+    		,reportname
+    		,reportcontent
+    		,resno
+    		,reviewno
+    		,deemail
+    		)values(#{reemail}
+    		,#{reportname}
+    		,#{reportcontent}
+    		,#{resno}
+    		,#{reviewno}
+    		,#{deemail})
+    </insert>
+</mapper>

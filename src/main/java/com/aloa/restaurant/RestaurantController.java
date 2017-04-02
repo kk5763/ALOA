@@ -17,6 +17,7 @@ import com.aloa.account.AccountRepository;
 import com.aloa.review.Imageboard;
 import com.aloa.review.ReviewService;
 import com.aloa.review.Reviewboard;
+import com.aloa.review.ReviewbordDTO;
 
 @Controller
 public class RestaurantController {
@@ -37,7 +38,7 @@ public class RestaurantController {
 	Restaurant restaurant = service.findOne(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		List<Imageboard> imageList = reviewService.imagelist(resno);
-	
+		List<Account> accountList = new ArrayList<Account>();
 		
 		// 리뷰 개수 & 평점
 		int grade_5 = 0;
@@ -58,15 +59,15 @@ public class RestaurantController {
 			
 			//회원 정보 받아오기
 			Account account = accountRepository.findByEmail(reviewList.get(i).getEmail());
-			
-			
+			accountList.add(account);
 		}
-		double avg=0;
+		double avg = 0;
 		try{
 			avg = sum / reviewList.size();
 		}catch(java.lang.ArithmeticException e){
-			avg=0;
+			avg = 0;
 		}
+		
 		List<Integer> reviewCount = new ArrayList<Integer>();
 		reviewCount.add(grade_5);
 		reviewCount.add(grade_3);
@@ -74,11 +75,15 @@ public class RestaurantController {
 		
 		RestaurantDTO resDTO = new RestaurantDTO();
 		resDTO.setRestaurant(restaurant);
-		resDTO.setReviewList(reviewList);
 		resDTO.setImageList(imageList);
 		
-		model.addAttribute("reviewCount", reviewCount);
+		ReviewbordDTO revDTO = new ReviewbordDTO();
+		revDTO.setAccountList(accountList);
+		revDTO.setReviewBoardList(reviewList);
+		
 		model.addAttribute("resDTO", resDTO);
+		model.addAttribute("revDTO", revDTO);
+		model.addAttribute("reviewCount", reviewCount);
 		model.addAttribute("avg", avg);
 
 		return "detail/detailView";

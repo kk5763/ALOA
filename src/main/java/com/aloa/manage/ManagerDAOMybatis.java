@@ -1,11 +1,15 @@
 package com.aloa.manage;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.aloa.account.Account;
+import com.aloa.restaurant.Restaurant;
 
 @Component("ManagerDAO")
 @Transactional
@@ -21,10 +25,21 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	}
 
 	@Override
-	public List<RestaurantDTO> restaurantList() {
-		List<RestaurantDTO> list = sqlSession.selectList("managerMapper.restaurantList");
+	public List<Restaurant> restaurantList() {
+		List<Restaurant> list = sqlSession.selectList("managerMapper.restaurantList");
 		
 		return list;
+	}
+	
+	public Account checkId(String id) {
+		Account account = sqlSession.selectOne("managerMapper.checkId", id);
+		return account;
+	}
+
+	@Override
+	public void insertRestaurant(Map<String, String> map) {
+		sqlSession.insert("managerMapper.insertRestaurant", map);
+		
 	}
 
 	@Override
@@ -42,4 +57,53 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		}
 	}
 	
+	@Override
+	public MemberDTO sepcificMember(String findId) {
+		
+		MemberDTO memberDTO = sqlSession.selectOne("managerMapper.sepcificMember", Integer.parseInt(findId));
+		return memberDTO;
+	}
+	
+	@Override
+	public void memberUpdate(MemberDTO memberDTO) {
+		sqlSession.update("managerMapper.memberUpdate", memberDTO);
+		
+	}
+	
+	@Override
+	public void restaurantDelete(int[] checkResno) {
+		for(int i = 0; i < checkResno.length; i++){
+			
+			sqlSession.delete("managerMapper.restaurantDelete",checkResno[i]);
+		}
+		
+	}
+
+	@Override
+	public Restaurant restaurantInfo(String resno) {
+		Restaurant restaurant = sqlSession.selectOne("managerMapper.restaurantInfo", Integer.parseInt(resno));
+		return restaurant;
+	}
+
+	@Override
+	public void restaurantUpdate(Restaurant restaurant) {
+		sqlSession.update("managerMapper.restaurantUpdate", restaurant);
+	}
+	
+	public List<ReportRevDTO> revClaimList() {
+		List<ReportRevDTO> list = sqlSession.selectList("managerMapper.revClaimList");
+		return list;
+	}
+
+	@Override
+	public List<ReportResDTO> resClaimList() {
+		List<ReportResDTO> list = sqlSession.selectList("managerMapper.resClaimList");
+		
+		return list;
+	}
+
+	
+
+	
+
 }
