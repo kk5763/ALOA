@@ -33,7 +33,6 @@ public class ReviewController {
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		int checking =0;
 		
-		System.out.println(email);
 		for(int i=0; i<reviewList.size();i++){
 			if(reviewList.get(i).getEmail().equals(email)){
 				checking=1;
@@ -57,7 +56,7 @@ public class ReviewController {
 							,Model model){
 
 		if(email!=null){
-		
+				
 				Reviewboard dto = new Reviewboard();
 				dto.setContent(content);
 				dto.setEmail(email);
