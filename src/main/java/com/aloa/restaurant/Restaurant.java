@@ -17,7 +17,7 @@ public class Restaurant {
 	private String resname;
 	private String bossemail;
 	private String resaddress;
-	private int restel;
+	private String restel;
 	private String reskind;
 	private String resprice;
 	private String resparking;
@@ -51,10 +51,10 @@ public class Restaurant {
 	public void setResaddress(String resaddress) {
 		this.resaddress = resaddress;
 	}
-	public int getRestel() {
+	public String getRestel() {
 		return restel;
 	}
-	public void setRestel(int restel) {
+	public void setRestel(String restel) {
 		this.restel = restel;
 	}
 	public String getReskind() {

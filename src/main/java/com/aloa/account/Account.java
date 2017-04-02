@@ -33,6 +33,8 @@ public class Account {
 	
 	private int reportcount;
 	
+	private int server;
+	
 	private int admin;
 	
 	private int emailauth;
@@ -109,5 +111,14 @@ public class Account {
 		this.emailauth = emailauth;
 	}
 
+	public int getServer() {
+		return server;
+	}
+
+	public void setServer(int server) {
+		this.server = server;
+	}
+
+	
 	
 }

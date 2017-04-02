@@ -178,7 +178,9 @@ function listRemove(){
 				</div>
     
 </div><!-- 테이블 -->
-
+	 <div>
+ 	<button id = "remove" value = "삭제" onclick = "listRemove()">삭제</button>
+ 	</div>
 	<nav>
   <ul class="pagination">
     <li>
@@ -209,9 +211,7 @@ function listRemove(){
   </ul>
   
 </nav><!-- 페이징 -->
- <div>
- 	<button id = "remove" value = "삭제" onclick = "listRemove()"/>
- </div>
+
   <!-- 검색 div 
   <div class="container">
     <div class="row">    
