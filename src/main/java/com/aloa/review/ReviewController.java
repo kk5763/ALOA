@@ -24,9 +24,17 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	@Autowired
+	private ReviewRepository repository;
+	
 	
 	@RequestMapping(value = "/reviewWriteForm", method = RequestMethod.GET)
 	public String reviewWriteForm(@RequestParam int resno,Model model) {
+		
+		
+		
+		
+		
 		model.addAttribute("resno",resno);
 		return "review/reviewWriteForm";
 	}
@@ -35,19 +43,25 @@ public class ReviewController {
 	public String reviewWrite(int resno
 							,@RequestParam String content
 							,@RequestParam int grade
-							,@RequestParam(required=false) String email){
+							,@RequestParam(required=false) String email
+							,Model model){
+
 		if(email!=null){
-			Reviewboard dto = new Reviewboard();
-			dto.setContent(content);
-			dto.setEmail(email);
-			dto.setGrade(grade);
-			dto.setResno(resno);
+		
+				Reviewboard dto = new Reviewboard();
+				dto.setContent(content);
+				dto.setEmail(email);
+				dto.setGrade(grade);
+				dto.setResno(resno);
 				
-			reviewService.reviewWrite(dto);
+				reviewService.reviewWrite(dto);
+				
+			
+			
 		}
 		
 		
 		
-		return "redirect:/";
+		return "redirect:/reviewWriteForm";
 	}
 }

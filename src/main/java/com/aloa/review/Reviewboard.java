@@ -20,7 +20,6 @@ public class Reviewboard {
 	private Date createdate;
 	
 	private int grade;
-	
 	public int getReviewno() {
 		return reviewno;
 	}
