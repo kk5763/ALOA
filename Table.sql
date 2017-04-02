@@ -44,17 +44,17 @@ create sequence seq_reviewNo nocache nocycle;
 
   
 create table ReportRev(
-  reEmail varchar(500) not null,
-  reportName varchar(100) not null,
-  reportContent varchar(1000) not null,
-  resNo number not null,
-  reviewNo number not null,
-  deEmail varchar(50) not null,
+  reEmail varchar(500) ,
+  reportName varchar(100) ,
+  reportContent varchar(1000) ,
+  resNo number ,
+  reviewNo number ,
+  deEmail varchar(50) ,
   reStatus varchar(20) default 'unprocess',
   constraint reference_reviewNo foreign key(reviewNo) references reviewboard(reviewNo),
   CONSTRAINT reference_reId foreign key(reEmail) references account(email),
   CONSTRAINT reference_deId foreign key(deEmail) references account(email)
-  );
+ );
   
 create table ReportRes(
   reEmail varchar(500) not null,
@@ -107,33 +107,8 @@ drop table imageboard purge;
 drop table bookmark purge;
 drop table reservation purge;
 
+drop sequence seq_reviewno ;
+drop sequence  seq_restaurant;
 
-insert into restaurant(resno
-    		,resname
-    		,bossemail
-    		,resaddress
-    		,restel
-    		,reskind
-    		,resprice
-    		,resparking
-    		,ressaletime
-    		,resrest
-    		,resholiday
-    		,request
-    		,createdate)values(seq_restaurant.nextval
-    		,'dhdh'
-    		,'sbxjdnjs10@naver.com'
-    		,'df'
-    		,010
-    		,'sdf'
-    		,'sdf'
-    		,'sdf'
-    		,'zxcv'
-    		,'zxcv'
-    		,'zxv'
-    		,'xcv'
-    		,sysdate
-    	);
-      select * from restaurant;
-      
+
       commit;

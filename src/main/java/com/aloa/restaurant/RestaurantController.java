@@ -74,7 +74,7 @@ public class RestaurantController {
 		
 		RestaurantDTO resDTO = new RestaurantDTO();
 		resDTO.setRestaurant(restaurant);
-		resDTO.setImageList(imageList);
+		resDTO.setImagelist(imageList);
 		
 		ReviewbordDTO revDTO = new ReviewbordDTO();
 		revDTO.setAccountList(accountList);
