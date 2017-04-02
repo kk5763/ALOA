@@ -19,9 +19,9 @@ public class ManagerController {
 	@Autowired
 	ManagerDAO managerDAO;
 
-	@RequestMapping(value = "manager/test", method = RequestMethod.GET)
+	@RequestMapping(value = "manager/index", method = RequestMethod.GET)
 	public String test() {
-		return "manager/test";
+		return "manager/index";
 	}
 
 	// 회원관리
@@ -204,7 +204,7 @@ public class ManagerController {
 		return mav;
 	}
 	
-	//맛집신고 db받기 기본틀(추후 수정 필요)--restaurantClaim.jsp파일에서 처리여부, 처리상태 차이? 몰라서 jsp에는 값 안 뿌렸음 db에서 오는 것만 확인
+	//맛집신고 완료( 확인부탁요)
 	@RequestMapping(value = "manager/restaurantClaim", method = RequestMethod.GET)
 	public ModelAndView restaurantClaim() {
 		List<ReportResDTO> list = null;
@@ -213,7 +213,7 @@ public class ManagerController {
 			list = managerDAO.resClaimList();
 		}
 		
-		
+	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("manager/restaurantClaim");
