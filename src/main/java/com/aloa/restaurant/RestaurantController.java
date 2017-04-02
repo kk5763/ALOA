@@ -90,15 +90,11 @@ public class RestaurantController {
 	
 	
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
-	public String detailViewImage(Model model ){
+	public String detailViewImage(@RequestParam int imageNo, Model model ){
+		
+		model.addAttribute("imageNo", imageNo);
 		
 		return "detail/detailViewImage";
 	}
-	@RequestMapping(value="/NewFile",method=RequestMethod.GET)
-	public String NewFile(Model model ){
-		
-		return "search/NewFile";
-	}
-
 
 }

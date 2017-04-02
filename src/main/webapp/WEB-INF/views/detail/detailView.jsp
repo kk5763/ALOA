@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/style/detailViewStyle.css" />
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
@@ -78,7 +78,11 @@ $(function() {
 			scrollTop : $(this).offset().top
 		}, 1500);
 	});
-});
+}); 
+
+function openImageView(su) {
+	window.open("http://localhost:8000/detailViewImage?imageNo="+su, "ImageView", "width=1000 height=700 left=250 top=50");
+}
 
 </script>
 </head>
@@ -89,8 +93,8 @@ $(function() {
 <article class="main-scope"> <!-- 상단 이미지 슬라이더 -->
 <div class="image-slider-div">
 	<c:forEach var="i" begin="1" end="5" step="1">
-		<a href="/resources/images/${i }.jpg"> <img class="images"
-			src="/resources/images/${i }.jpg" height="100px" />
+		<a onclick="openImageView(${i })"> 
+		<img class="images" src="/resources/images/restaurant_image/lala@naver.com_image_${i }.jpg" />
 		</a>
 	</c:forEach>
 </div>
