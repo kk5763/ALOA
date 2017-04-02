@@ -138,8 +138,9 @@ $(document).ready(function(e){
             <input type="hidden" name="resno" value="${reslist.restaurant.resno}">
             <div class="slide" style="z-index:9990;">
                <a href="#" onclick="godetailView(${reslist.restaurant.resno})" style="font-color:black;">
-                  <img src="https://source.unsplash.com/random" style="height: 300px;">
+                  <img src="/resources/images/${reslist.imagelist[0].image}.jpg" style="height: 300px;">
                   ${reslist.restaurant.resname}
+           
                </a>
              </div>
              </form>
@@ -154,7 +155,7 @@ $(document).ready(function(e){
             <input type="hidden" name="resno" value="${reslist[i].restaurant.resno}">
             <div class="slide" style="z-index:9990;">
                <a href="#" onclick="godetailView(${reslist[i].restaurant.resno})" style="font-color:black;">
-                  <img src="https://source.unsplash.com/random" style="height: 300px;">
+                  <img src="/resources/images/${reslist[i].imagelist[0].image}.jpg" style="height: 300px;">
                   ${reslist[i].restaurant.resname}
                </a>
              </div>
