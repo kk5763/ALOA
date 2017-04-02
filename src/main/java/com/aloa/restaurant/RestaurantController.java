@@ -90,8 +90,12 @@ public class RestaurantController {
 	
 	
 	@RequestMapping(value="/detailViewImage",method=RequestMethod.GET)
-	public String detailViewImage(@RequestParam int imageNo, Model model ){
+	public String detailViewImage(@RequestParam int imageNo,
+								  @RequestParam int resNo,
+								  Model model ){
+		List<Imageboard> image = reviewService.imagelist(resNo);
 		
+		model.addAttribute("image", image);
 		model.addAttribute("imageNo", imageNo);
 		
 		return "detail/detailViewImage";
