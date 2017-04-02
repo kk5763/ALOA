@@ -103,12 +103,6 @@ $(document).ready(function(){
 	$('.check-all').click(function(){
 		$('.check-each').prop('checked',this.checked);
 	});
-	
- 	$('#remove').click(function(){
-		$('input.check-each:checked').each(function(){
-			$(this).parents('tr').remove();
-		});
-	});  
 });
 
 function listRemove(){
@@ -355,7 +349,7 @@ function memberUpdate(id){
 											<td style="width: 1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" name = "checkId" class = "check-each" value="${memberDTO.id }"/>
+														<input type="checkbox" name = "checkEmail" class = "check-each" value="${memberDTO.email }"/>
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>

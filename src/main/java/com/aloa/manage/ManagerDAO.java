@@ -13,7 +13,7 @@ public interface ManagerDAO {
 
 	public List<MemberDTO> memberBlackList();
 
-	public void memberRemove(String[] checkId);
+	public void memberRemove(String[] checkEmail);
 	
 	public MemberDTO sepcificMember(String findId);
 	

@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/style/h_style/storejoin.css" />
 
+
 <script type="text/javascript">
 function modify(){
 	window.opener.name = "parentPage"; // 부모창의 이름 설정
@@ -17,7 +18,16 @@ function modify(){
     document.memberModify.submit();
     self.close();
 }
+function cancle(){
+	self.close();
+}
 </script>
+<style type="text/css">
+	.btn1{
+		width:100px;
+		height:30px;
+	}
+</style>
 </head>
 <body>
 
@@ -76,25 +86,18 @@ function modify(){
 
 
 								<div class="inline_control">
-									<input type="text" name="userName" id="userName"
+									<input type="text" name="username" id="username"
 										class="text ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-not-empty"
-										maxlength="17" value="${memberDTO.username}" />
-								</div>
-							</div>
-							<!-- tel -->
-							<div class="inline_form" ng-show="$ctrl.isShowEmailForm">
-								<label class="label"> <span>연락처</span> <!----></label>
-								<div class="inline_control">
-									<input type="text" name="restel" id="restel"
-										class="email text ng-pristine ng-untouched ng-valid ng-valid-email ng-valid-maxlength ng-not-empty"
-										value="${memberDTO.tel}" maxlength="50">
+										maxlength="17" value="${memberDTO.username}" readonly />
 								</div>
 							</div>
 							
 
 					
-
-							<input type="button" value="수정" onclick="modify()">
+							<div style="text-align:center; margin-top:40px;">
+								<input type="button" value="블랙 등록" onclick="modify()" class="btn1">
+								<input type="button" value="취소" onclick="cancle()" class="btn1">
+							</div>
 							<!---->
 							<br>
 

@@ -4,17 +4,19 @@
 	<select id = "memberList" resultType = "com.aloa.manage.MemberDTO">
 		select * from account
 	</select>
-	<delete id = "memberRemove" parameterType = "int">
-		delete from account where id = #{id}
+	<delete id = "memberRemove" parameterType = "String">
+		begin
+			delete imageboard where resNo = (select resNo from restaurant where bossEmail=#{email});
+			delete restaurant where bossEmail = #{email};
+			delete account where email = #{email};
+		end;
 	</delete>
 	<select	id = "sepcificMember" parameterType = "int" resultType = "com.aloa.manage.MemberDTO">
 		select * from account where id = #{id}
 	</select>
 	
 	<update id = "memberUpdate" parameterType = "com.aloa.manage.MemberDTO">
-		update account set email = #{email},
-						 userName = #{username}
-						 where id = #{id}
+			update account set reportcount = 3, status =?? where id = #{id};
 	</update>
 	
 	<select id ="restaurantList" resultType="com.aloa.restaurant.Restaurant">
