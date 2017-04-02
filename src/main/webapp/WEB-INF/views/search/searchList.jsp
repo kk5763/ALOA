@@ -77,10 +77,6 @@
 					</c:if>
 				</c:forEach>
 			</c:if>
-			
-			<div class="pageNumber">
-				<div class="page">1</div>
-			</div>
 		</div>
 	</section>
 </body>

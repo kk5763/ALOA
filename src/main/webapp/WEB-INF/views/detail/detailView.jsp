@@ -83,13 +83,11 @@ function openImageView(su) {
 	window.open("http://localhost:8000/detailViewImage?imageNo="+su, "ImageView", "width=1000 height=700 left=250 top=50");
 }
 
-   function userImage(imageNumber){
-	   var random = (Math.floor(Math.random() * 2) + 1);
-	   var userImage = document.getElementById('userImage' + imageNumber);
-	   userImage.setAttribute("src", "/resources/images/min_image/userImage" + random + ".png");
-	   
-	   alert(userImage.getArribute("src"));
-   }
+function userImage(imageNumber){
+	var random = (Math.floor(Math.random() * 12) + 1);
+	var userImage = document.getElementById('userImage' + imageNumber);
+	userImage.setAttribute("src", "/resources/images/min_image/userImage" + random + ".png");
+}
 </script>
 </head>
 <!-- 상단영역 -->
@@ -99,8 +97,8 @@ function openImageView(su) {
 <article class="main-scope"> <!-- 상단 이미지 슬라이더 -->
 <div class="image-slider-div">
 	<c:forEach var="i" begin="1" end="5" step="1">
-		<a onclick="openImageView(${i })"> 
-		<img class="images" src="/resources/images/restaurant_image/lala@naver.com_image_${i }.jpg" />
+		<a onclick="openImageView(${i })"> <img class="images"
+			src="/resources/images/restaurant_image/lala@naver.com_image_${i }.jpg" />
 		</a>
 	</c:forEach>
 </div>
@@ -109,7 +107,7 @@ function openImageView(su) {
 	<div class="content-all">
 		<div class="content">
 			<div class="content-header">
-	
+
 				<div class="restaurant-title">
 					<div class="wannago-wrapper">
 						<button class="wannago-bt"></button>
@@ -119,8 +117,8 @@ function openImageView(su) {
 						<span class="name">${resDTO.restaurant.resname }</span> <span
 							class="rate-point">${avg }</span>
 					</h1>
-	
-	
+
+
 				</div>
 				<div class="reportRes-button">
 					<img src="/resources/images/min_image/report.PNG"
@@ -175,13 +173,14 @@ function openImageView(su) {
 				</c:if>
 			</div>
 			<!-- review-bt-wrap -->
-	
+
 			<div class="review-bt-wrap">
 				<a href="#" class="review-bt" onclick="reservation()">예 약</a>
 			</div>
-		</div><!-- review-bt-div -->
-	
-	
+		</div>
+		<!-- review-bt-div -->
+
+
 		<!-- 리뷰 -->
 		<div class="title-wrap">
 			<div class="title-wrap">
@@ -206,21 +205,25 @@ function openImageView(su) {
 					</li>
 				</ul>
 			</div>
-			<c:forEach begin="0" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
+			<c:forEach begin="1"
+				end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
 				varStatus="status">
 				<section class="review">
 				<ul class="review-list">
 					<li class="default-review"><section class="review-item">
 						<h1 class="icon">
-							<c:if test="${revDTO.reviewBoardList[status.index].grade == 5 }">
+							<c:if
+								test="${revDTO.reviewBoardList[status.index - 1].grade == 5 }">
 								<img src="/resources/images/min_image/good_on.png">
 								<strong class="good">맛있다</strong>
 							</c:if>
-							<c:if test="${revDTO.reviewBoardList[status.index].grade == 3 }">
+							<c:if
+								test="${revDTO.reviewBoardList[status.index - 1].grade == 3 }">
 								<img src="/resources/images/min_image/soso_on.png">
 								<strong class="good">괜찮다</strong>
 							</c:if>
-							<c:if test="${revDTO.reviewBoardList[status.index].grade == 1 }">
+							<c:if
+								test="${revDTO.reviewBoardList[status.index - 1].grade == 1 }">
 								<img src="/resources/images/min_image/bad_on.png">
 								<strong class="good">별로</strong>
 							</c:if>
@@ -228,33 +231,34 @@ function openImageView(su) {
 						<div class="review-content">
 							<figure class="user">
 							<div class="user-profile">
-								<img id="userImage${status.index }" class="thumb-image" src="userImage(${status.index })" />
+								<img id="userImage${status.index - 1 }" class="thumb-image"
+									src="userImage(${status.index - 1 })" />
 							</div>
-							<figcaption>${revDTO.accountList[status.index].username }</figcaption>
-							
+							<figcaption>${revDTO.accountList[status.index - 1].username }</figcaption>
+
 							<div class="reportRev-button">
 								<img src="/resources/images/min_image/report.PNG"
-									onclick="reportRev(${revDTO.reviewBoardList[status.index].reviewno })" />
+									onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />
 							</div>
 							</figure>
-	
+
 							<p>
-								<span class="review-content-coment">${revDTO.reviewBoardList[status.index].content }</span>
+								<span class="review-content-coment">${revDTO.reviewBoardList[status.index - 1].content }</span>
 							</p>
 						</div>
 						<p class="sub-info">
-							<time> <span class="past-time">${revDTO.reviewBoardList[status.index].createdate }</span></time>
+							<time> <span class="past-time">${revDTO.reviewBoardList[status.index - 1].createdate }</span></time>
 						</p>
 						</section></li>
 				</ul>
 				</section>
 			</c:forEach>
 			<button class="reviews-more">더보기</button>
-	
+
 		</div>
-	</div>	
-	
-	
+	</div>
+
+
 	<!-- 사이드영역 -->
 	<div class="side-wrap">
 		<div class="side-content">
@@ -365,8 +369,8 @@ function openImageView(su) {
          </script>
 		</div>
 	</div>
-</div>	
-	
+</div>
+
 </article>
 <sec:authorize access="isAnonymous()">
 	<input type="hidden" id="email" value="">
