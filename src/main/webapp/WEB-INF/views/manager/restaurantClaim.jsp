@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ taglib prefix = "c" url = "http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -105,18 +106,18 @@ $(document).ready(function(){
 										</div>
 									</th>
 									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="신고자" disabled>
+										<input type="text" class="form-control" placeholder="신고인" disabled>
 									</th>
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="신고제목" disabled>
 									</th>
 									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="신고맛집" disabled>
+										<input type="text" class="form-control" placeholder="신고내용" disabled>
 									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="신고대상자" disabled>
+										<input type="text" class="form-control" placeholder="신고맛집" disabled>
 									</th>
 									<th style="width: 15%">
-										<input type="text" class="form-control" placeholder="처리여부" disabled>
+										<input type="text" class="form-control" placeholder="피신고인" disabled>
 									</th>
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="처리상태" disabled>
@@ -130,7 +131,10 @@ $(document).ready(function(){
 									</tr>
 								</table>
 								<div class="bg tablescroll">
+									
 									<table class="table table-bordered table-striped">
+										<c:if test = "${list!=null }">
+									<c:forEach var = "reportResDTO" items = "${list }">
 										<tr>
 											<td style= "width:1%;">
 												<div class="checkbox radio-margin">
@@ -140,17 +144,18 @@ $(document).ready(function(){
 													</label>
 												</div>
 											</th>
-											<td style="width: 10%">공호진</td>	
-											<td style="width: 15%">파스타마마</td>
-											<td style="width: 15%">파스타파파</td>
-											<td style="width: 15%">도민준</td>
-											<td style="width: 15%">12</td>
-											<td style="width: 15%">대기중</td>
+											<td style="width: 10%">${reportResDTO.reEmail }</td>	
+											<td style="width: 15%">${reportResDTO.reportName }</td>
+											<td style="width: 15%">${reportResDTO.reportContent }</td>
+											<td style="width: 15%">${reportResDTO.resname }</td>
+											<td style="width: 15%">${reportResDTO.deEmail }</td>
+											<td style="width: 15%">${reportResDTO.reStatus }</td>
 											<td style="width: 9%"><input type="button" value="삭제"></td>
 										</tr>
-									
-										
+									</c:forEach>
+									</c:if>
 									</table>
+									
 								</div>
 							</table>
 						</div>

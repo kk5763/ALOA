@@ -47,7 +47,6 @@ function checkReviewWrite(){
 		}else if(document.getElementById("content_id").value==""){
 			alert("내용을 입력하세요.")
 		}else{
-			document.getElementById("grade-score").value="0";
 			alert("리뷰가 등록되었습니다.");
 			document.reviewWriteForm.submit();
 			window.close();
