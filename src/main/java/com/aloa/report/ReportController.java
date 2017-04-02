@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aloa.restaurant.Restaurant;
 import com.aloa.restaurant.RestaurantRepository;
+import com.aloa.review.ReviewRepository;
+import com.aloa.review.Reviewboard;
 
 @Controller
 public class ReportController {
@@ -16,6 +18,9 @@ public class ReportController {
 	
 	@Autowired
 	private RestaurantRepository resRepository;
+	
+	@Autowired
+	private ReviewRepository reviewRepository;
 	
 	@Autowired
 	private ReportDAO reportDAO;
@@ -68,7 +73,7 @@ public class ReportController {
 			content="해당 사항 없음";
 		}
 		
-		System.out.println(reemail+"//"+deemail+"//"+resno);
+		
 		Reportres reportres = new Reportres();
 		reportres.setDeemail(deemail);
 		reportres.setReemail(reemail);
@@ -81,14 +86,46 @@ public class ReportController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/reportRev",method=RequestMethod.GET)
+	@RequestMapping(value="/reportRev",method=RequestMethod.POST)
 	public String reportRev(Model model
 						,int resno
 						,String email
 						,int report
-						,int reviewno){
+						,int reviewno
+						,String content){
 		
 		
+		Reviewboard reviewBoard= reviewRepository.findByReviewno(reviewno);
+		
+		
+		String deemail =reviewBoard.getEmail();
+		String reportname = null;
+		
+		if(report==1){ 
+			reportname="욕설 등 부적절한 언어가 포함되어 있습니다";
+		}else if(report==2){
+			reportname="맛집 리뷰에 게시되기 적절하지 않습니다";
+		}else if(report==3){
+			reportname="사행성 광고가 포함되어 있습니다.";
+		}else if(report==4){
+			reportname="기타";
+		}
+		
+		if(content.equals("")){
+			content="해당 사항 없음";
+		}
+		
+		
+		
+		Reportrev reportRev = new Reportrev();
+		reportRev.setDeemail(deemail);
+		reportRev.setReemail(email);
+		reportRev.setReportname(reportname);
+		reportRev.setReportcontent(content);
+		reportRev.setResno(resno);
+		reportRev.setReviewno(reviewno);
+		
+		reportDAO.reportRevInsert(reportRev);
 		
 		return "redirect:/";
 	}

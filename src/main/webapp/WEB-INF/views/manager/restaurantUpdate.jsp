@@ -26,7 +26,7 @@ function aa(){
 
 <div id="container">
 
-<div id="header"><h1 align="center" ><br><br><br>가맹점 신청     </h1></div>
+<div id="header"><h1 align="center" ><br><br><br>가맹점 정보 수정     </h1></div>
 
 <div id="content">
 

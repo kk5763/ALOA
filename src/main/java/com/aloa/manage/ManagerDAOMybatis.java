@@ -56,7 +56,20 @@ public class ManagerDAOMybatis implements ManagerDAO {
 			sqlSession.delete("managerMapper.memberRemove",Integer.parseInt(checkId[i]));
 		}
 	}
-
+	
+	@Override
+	public MemberDTO sepcificMember(String findId) {
+		
+		MemberDTO memberDTO = sqlSession.selectOne("managerMapper.sepcificMember", Integer.parseInt(findId));
+		return memberDTO;
+	}
+	
+	@Override
+	public void memberUpdate(MemberDTO memberDTO) {
+		sqlSession.update("managerMapper.memberUpdate", memberDTO);
+		
+	}
+	
 	@Override
 	public void restaurantDelete(int[] checkResno) {
 		for(int i = 0; i < checkResno.length; i++){
@@ -88,5 +101,9 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		
 		return list;
 	}
+
+	
+
+	
 
 }

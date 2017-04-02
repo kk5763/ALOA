@@ -7,6 +7,16 @@
 	<delete id = "memberRemove" parameterType = "int">
 		delete from account where id = #{id}
 	</delete>
+	<select	id = "sepcificMember" parameterType = "int" resultType = "com.aloa.manage.MemberDTO">
+		select * from account where id = #{id}
+	</select>
+	
+	<update id = "memberUpdate" parameterType = "com.aloa.manage.MemberDTO">
+		update account set email = #{email},
+						 username = #{username}
+						 where id = #{id}
+	</update>
+	
 	<select id ="restaurantList" resultType="com.aloa.restaurant.Restaurant">
 		select * from restaurant
 	</select>
@@ -14,6 +24,7 @@
 	<delete id = "restaurantDelete" parameterType ="int">
 		begin
 			update account set server=0 where email=(select bossEmail from restaurant where resNo=#{resno});
+			delete imageboard where resno = #{resno};
 			delete restaurant where resNo = #{resno};
 		end;
 	</delete>
@@ -53,7 +64,7 @@
 									  resSaletime , 
 									  resRest , 
 									  resHoliday,
-									  createdate)
+									  createDate)
 									  values(
 									  	seq_restaurant.nextval
 									  	,#{resname}

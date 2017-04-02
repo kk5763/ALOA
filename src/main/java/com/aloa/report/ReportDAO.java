@@ -15,10 +15,14 @@ public class ReportDAO {
 
 	public void reportResInsert(Reportres reportres) {
 		// TODO Auto-generated method stub
-		System.out.println(reportres.getDeemail()+"//"+reportres.getReemail()+"//"+reportres.getResno());
 		
 		sqlSession.insert("reportMapper.reportresInsert",reportres);
 		
+	}
+
+	public void reportRevInsert(Reportrev reportRev) {
+		// TODO Auto-generated method stub
+		sqlSession.insert("reportMapper.reportrevInsert",reportRev);
 	}
 	
 	
