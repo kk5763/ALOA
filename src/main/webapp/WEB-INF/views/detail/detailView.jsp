@@ -46,6 +46,40 @@
                      "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
       }
    }
+	function reportRes() {
+		if (document.getElementById("email").value== "") {
+			alert("로그인후 이용가능합니다.");
+		} else {
+			window
+					.open(
+							"http://localhost:8000/reportResForm?resno=${resDTO.restaurant.resno}",
+							"reportRes",
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
+		}
+	}
+	function reportRev(reviewno) {
+		if (document.getElementById("email").value== "") {
+			alert("로그인후 이용가능합니다.");
+		} else {
+			window
+					.open(
+							"http://localhost:8000/reportRevForm?resno=${resDTO.restaurant.resno}&reviewno="+reviewno,
+							"reportRev",
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=500, height=300");
+		}
+	}
+
+	function reviewWrite() {
+		if (document.getElementById("email").value== "")
+			alert("로그인후 이용가능합니다.");
+		else {
+			window
+					.open(
+							"http://localhost:8000/reviewWriteForm?resno=${resDTO.restaurant.resno}",
+							"dataForm",
+							"toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
+		}
+	}
 
    function reservation() {
       window

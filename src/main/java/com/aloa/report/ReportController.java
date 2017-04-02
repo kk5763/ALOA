@@ -1,4 +1,4 @@
-package com.aloa;
+package com.aloa.report;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +24,10 @@ public class ReportController {
 	
 	@RequestMapping(value="/reportRevForm",method=RequestMethod.GET)
 	public String reportRevForm(Model model
-								,@RequestParam int resno){
+								,@RequestParam int resno
+								,@RequestParam int reviewno){
 		
+		model.addAttribute("reviewno",reviewno);
 		model.addAttribute("resno",resno);
 		
 		return "detail/reportRev";
@@ -35,7 +37,19 @@ public class ReportController {
 	public String reportRes(Model model
 						,int resno
 						,String email
-						,int bt){
+						,int report){
+		
+		
+		
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/reportRev",method=RequestMethod.GET)
+	public String reportRev(Model model
+						,int resno
+						,String email
+						,int report){
 		
 		
 		
