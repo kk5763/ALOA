@@ -29,7 +29,6 @@
          
       }
       function godetailView(resno){
-         alert('d');
          var form = document.getElementById('detailView_form');
          form.resno.value=resno;
          form.submit();
@@ -167,44 +166,6 @@ $(document).ready(function(e){
           
       </c:if>
    </div>
-	<h3>실시간 추천 맛집 리스트</h3>
-	<div class="center-block slider1" style="z-index:999;">
-		<c:if test="${reslist!=null }"><!-- 레스토랑정보가잇는경우 -->
-			<c:if test="${reslist.size()<=5 }"><!-- 레스토랑의 갯수가 5개미만 -->
-			<c:forEach var="reslist" items="${reslist}">
-			
-				<form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
-				<input type="hidden" name="resno" value="${reslist.restaurant.resno}">
-				<div class="slide" style="z-index:9990;">
-					<a href="#" onclick="godetailView(${reslist.restaurant.resno})" style="font-color:black;">
-						<img src="https://source.unsplash.com/random" style="height: 300px;">
-						${reslist.restaurant.resname}
-					</a>
-				 </div>
-				 </form>
-				 
-			 </c:forEach>
-			 </c:if>
-			 
-			 <c:if test="${reslist.size()>5 }"><!-- 레스토랑의 갯수가 5개초과 -->
-			<c:forEach var="i" end="5" begin="1" step="1">
-				
-				<form id="detailView_form" action="http://localhost:8000/detailView" method="GET">
-				<input type="hidden" name="resno" value="${reslist[i].restaurant.resno}">
-				<div class="slide" style="z-index:9990;">
-					<a href="#" onclick="godetailView(${reslist[i].restaurant.resno})" style="font-color:black;">
-						<img src="/resources/project_main_image.jpg" style="height: 300px; width:100%;">
-						${reslist[i].restaurant.resname}
-					</a>
-				 </div>
-				 </form>
-				 
-			 </c:forEach>
-			 </c:if>
-	
-			 
-		</c:if>
-	</div>
 </div>
 
 <!-- 검색창 포커스(블러)시 배경화면 변경 -->

@@ -1,62 +1,232 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
+    
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- ºÎ°¡ÀûÀÎ Å×¸¶ -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<link rel = "stylesheet" type = "text/css" href = "/style/h_style/manageMain.css"/>
+
+<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å ÀÚ¹Ù½ºÅ©¸³Æ® -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
-	function agreeDetail(){
-		window.open("restaurantAgreeDetail.jsp","","width=1100,height=870,resizable=no");
-	}
-</script>
-</head>
-<body>
-<div style="margin-bottom:20px; margin-top:50px;">
-	<table border="1" width="90%" cellspacing="0" align="center" >
-	<tr>
-	<td width="50"></td>
-	<td colspan="8" align="center"><h3>ë§›ì§‘ìŠ¹ì¸</h3></td>
-	</tr>
-	<tr height="50">
-		<td align="center"><input type="checkbox"></td>
-		<th width="10%">ê°€ë§¹ì ì£¼</th>
-		<th width="15%">ë§›ì§‘ì´ë¦„</th>
-		<th width="15%">ì—°ë½ì²˜</th>
-		<th width="40%">ì£¼ì†Œ</th>
-		<th width="15%">ìŠ¹ì¸ìš”ì²­</th>
-		<th width="10%">ìŠ¹ì¸ì²˜ë¦¬</th>
-		<th colspan="2">ë¹„ê³ </th>
-	</tr>
-<%-- <c:if test="${list!=null }"> --%>
-<%--	<c:forEach var="" items="${list }"> --%>
-	<tr height="50" align="center">
-		<td><input type="checkbox"></td>
-		<td>ê°€ë§¹ì </td>
-		<td>ë„ë¯¼ì¤€</td>
-		<td>DoMJ</td>
-		<td>2017-03-05</td>
-		<td>11</td>
-		<td><span style="cursor:pointer; color:blue;" onclick="agreeDetail()"><strong>ì²˜ë¦¬ì¤‘</strong></span></td>
-		<td><input type="button" value="ì‚­ì œ"></td>
-		<td><input type="button" value="ìˆ˜ì •"></td>
-	</tr>
-<!-- 	</c:forEach>-->
-<!-- </c:if>  -->
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
+});//°Ë»ö¾î ºĞ·ù ÁöÁ¤½Ã Ç×¸ñÀ¸·Î ÀÌ¸§º¯°æ
+
+$(document).ready(function(){
+    $('.filterable .btn-filter').click(function(){
+        var $panel = $(this).parents('.filterable'),
+        $filters = $panel.find('.filters input'),
+        $tbody = $panel.find('.table tbody');
+        if ($filters.prop('disabled') == true) {
+            $filters.prop('disabled', false);
+            $filters.first().focus();
+        } else {
+            $filters.val('').prop('disabled', true);
+            $tbody.find('.no-result').remove();
+            $tbody.find('tr').show();
+        }
+    });
+
+    $('.filterable .filters input').keyup(function(e){
+        /* Ignore tab key */
+        var code = e.keyCode || e.which;
+        if (code == '9') return;
+        /* Useful DOM data and selectors */
+        var $input = $(this),
+        inputContent = $input.val().toLowerCase(),
+        $panel = $input.parents('.filterable'),
+        column = $panel.find('.filters th').index($input.parents('th')),
+        $table = $panel.find('.table'),
+        $rows = $table.find('tbody tr');
+        /* Dirtiest filter function ever ;) */
+        var $filteredRows = $rows.filter(function(){
+            var value = $(this).find('td').eq(column).text().toLowerCase();
+            return value.indexOf(inputContent) === -1;
+        });
+        /* Clean previous no-result if exist */
+        $table.find('tbody .no-result').remove();
+        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        $rows.show();
+        $filteredRows.hide();
+        /* Prepend no-result row if all rows are filtered */
+        if ($filteredRows.length === $rows.length) {
+            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+        }
+    });
+});
+
+//Ã¼Å© ¹öÆ° ¹× »èÁ¦
+$(document).ready(function(){
+	$('.check-all').click(function(){
+		$('.check-each').prop('checked',this.checked);
+	});
 	
-	</table>
+	$('#remove').click(function(){
+		$('input.check-each:checked').each(function(){
+			$(this).parents('tr').remove();
+		});
+	});
+	
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="creatediv1 marginTop30">
+    			
+				<div class="row margin-top-50">
+					<div class="col-md-12">
+						<div class="panel panel-primary filterable">
+							<div class="panel-heading">
+								<h3 class="panel-title">¸ÀÁı½ÅÃ»½ÂÀÎ<span style="color: white; font-weight: bold;"> *</span></h3>
+								<div class="pull-right">
+									<button type="button" class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> °Ë»ö</button>
+								</div>
+							</div>
+							<table class="span12">
+								<table>
+									<tr class="filters">
+									<th style="width: 1%;">
+										<div class="checkbox radio-margin">
+											<label>
+												<input type="checkbox" class = "check-all" value="">
+							
+												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+											</label>
+										</div>
+									</th>
+									<th style="width: 20%">
+										<input type="text" class="form-control" placeholder="°¡¸ÍÁ¡ÁÖ" disabled>
+									</th>
+									<th style="width: 20%">
+										<input type="text" class="form-control" placeholder="¸ÀÁıÀÌ¸§" disabled>
+									</th>
+									<th style="width: 25%">
+										<input type="text" class="form-control" placeholder="¿¬¶ôÃ³" disabled>
+									</th>
+									<th style="width: 35%">
+										<input type="text" class="form-control" placeholder="ÁÖ¼Ò" disabled>
+									</th>
+																
+									</tr>
+								</table>
+								<div class="bg tablescroll">
+									<table class="table table-bordered table-striped">
+										<%-- <c:if test = "${list!=null }">
+										<c:forEach var = "memberDTO" items="${list }"> --%>
+										<tr>
+											<td style="width: 1%;">
+												<div class="checkbox radio-margin">
+													<label>
+														<input type="checkbox" class = "check-each" value="">
+														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+													</label>
+												</div>
+											</th>
+											<td style="width: 20%"></td>	
+											<td style="width: 20%"></td>
+											<td style="width: 25%"></td>
+											<td style="width: 35%"></td>
+											
+										</tr>
+										<%-- </c:forEach>
+									</c:if> --%>
+										
+									</table>
+								</div>
+							</table>
+						</div>
+					</div>
+				</div>
+    
+</div><!-- Å×ÀÌºí -->
+
+	<nav>
+  <ul class="pagination">
+    <li>
+      <span>
+        <span aria-hidden="true">&laquo;</span>
+      </span>
+    </li>
+    <li class="active">
+      <span>1 <span class="sr-only">(current)</span></span>
+    </li>
+    <li>
+      <span>2 </span>
+    </li>
+    <li class="active">
+      <span>3 <span class="sr-only">(current)</span></span>
+    </li>
+    <li>
+      <span>4 <span class="sr-only">(current)</span></span>
+    </li>
+    <li class="active">
+      <span>5 <span class="sr-only">(current)</span></span>
+    </li>
+   <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  
+</nav><!-- ÆäÀÌÂ¡ -->
+ <div>
+ 	<Button id = "remove">»èÁ¦</Button>
+ </div>
+  <!-- °Ë»ö div 
+  <div class="container">
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">°Ë»ö Á¶°Ç</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#contains">ÀÌ¸§</a></li>
+                      <li><a href="#its_equal">Á¦¸ñ</a></li>
+                      <li><a href="#greather_than">³»¿ë</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+	</div>
 </div>
-<div style="left:25%; position:relative; width:50%; text-align:center; valgin:top;">
-	<select style="top:-35px; height:25px;">
-		<option>ë¶„ë¥˜</option>
-		<option>ë“±ê¸‰</option>
-		<option>ì´ë¦„</option>
-		<option>ì•„ì´ë””</option>
-	</select>
-	<input type="text" id="search" style="height:20px;">
-	<!-- <div style="position:relative; "> -->
-	<img height="30" style="top-margin:10px; left:74%;"src="../image/search.png" onclick="">
-	<!-- </div> -->
-</div>
+--><!-- °Ë»ö¾îÀÔ·Â -->
+
+
+
+
 </body>
 </html>
