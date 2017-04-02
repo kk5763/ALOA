@@ -105,8 +105,10 @@ $(function() {
 					<p class="wannago-txt">신고하기</p>
 				</div>
 				<h1 class="title">
-					<span class="name">${resDTO.restaurant.resname }</span> <span
-						class="rate-point">${avg }</span>
+					<span class="name">${resDTO.restaurant.resname }</span>
+					<c:if test="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2) > 0 }">
+						<span class="rate-point">${avg }</span>
+					</c:if>
 				</h1>
 
 
@@ -200,7 +202,7 @@ $(function() {
 		</div>
 		<c:forEach begin="1" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
 			varStatus="status">
-			<div class="review" style="border: 1px solid blue;">
+			<div class="review">
 			<ul class="review-list">
 				<li class="default-review"><section class="review-item">
 					<h1 class="icon">
@@ -222,12 +224,8 @@ $(function() {
 						<div class="user-profile">
 							<img id="userImage_${status.index - 1 }" class="thumb-image" src="" />
 						</div>
-<<<<<<< HEAD
 						<figcaption>${revDTO.accountList[status.index - 1].username }</figcaption>
-=======
-						<figcaption>${revDTO.accountList[status.index].username }</figcaption>
 						
->>>>>>> befa66914c8d17d1266fcc7c68453b91ac814a65
 						<div class="reportRev-button">
 							<img src="/resources/images/min_image/report.PNG"
 								onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />

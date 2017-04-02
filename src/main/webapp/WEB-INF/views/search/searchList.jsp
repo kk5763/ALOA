@@ -49,10 +49,10 @@
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
 							<p class="title" onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">${dto.restaurant.resname }&nbsp;&nbsp;
-							<span class="point">${dto.resGrade[status.index] }</span></p>
+							<span class="point">${dto.resGrade[0] }</span></p>
 							<p class="info">${dto.restaurant.resaddress } - <span class="keywords">${dto.restaurant.reskind }</span></p>
 							<p class="view_review">
-								<img src="/resources/images/min_image/review.PNG" /><span class="review">${dto.resReviewCount[status.index] }</span>
+								<img src="/resources/images/min_image/review.PNG" /><span class="review">${dto.resReviewCount[0] }</span>
 							</p>
 						</div>
 					</c:if>
@@ -68,10 +68,10 @@
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
 							<p class="title" onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">${dto.restaurant.resname }&nbsp;&nbsp;
-							<span class="point">${dto.resGrade[status.index] }</span></p>
+							<span class="point">${dto.resGrade[0] }</span></p>
 							<p class="info">${dto.restaurant.resaddress } - <span class="keywords">${dto.restaurant.reskind }</span></p>
 							<p class="view_review">
-								<img src="/resources/images/min_image/review.PNG" /><span class="review">${dto.resReviewCount[status.index] }</span>
+								<img src="/resources/images/min_image/review.PNG" /><span class="review">${dto.resReviewCount[0] }</span>
 							</p>
 						</div>
 					</c:if>

@@ -62,11 +62,10 @@ public class RestaurantController {
 			accountList.add(account);
 		}
 		double avg = 0;
-		try{
-			avg = sum / reviewList.size();
-		}catch(java.lang.ArithmeticException e){
+		if(sum == 0)
 			avg = 0;
-		}
+		else 
+			avg = (double)sum / reviewList.size();
 		
 		List<Integer> reviewCount = new ArrayList<Integer>();
 		reviewCount.add(grade_5);

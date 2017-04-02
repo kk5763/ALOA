@@ -102,13 +102,16 @@ public class MainController {
 		for (int i = 0; i < resSearchList.size(); i++) { // 가져온 식당의 수 만큼 반복
 			// 가져온 식당의 번호를 이용해 모든 이미지를 가져옴
 			List<Imageboard> image = revService.imagelist(resSearchList.get(i).getResno());
+			// 가져온 식당의 번호를 이용해 모든 리뷰를 가져옴
 			List<Reviewboard> review = revService.reviewList(resSearchList.get(i).getResno());
+			
 			// 리뷰 개수
 			List<Integer> resReviewCount = new ArrayList<Integer>();
 			if(review.size() <= 0)
 				resReviewCount.add(0);
 			else 
 				resReviewCount.add(review.size());
+			
 			// 식당 평점
 			List<Double> resGrade = new ArrayList<Double>();
 			int sum = 0;
@@ -116,12 +119,14 @@ public class MainController {
 				sum += review.get(j).getGrade();
 			}
 			double avg = 0;
-			try{
-				avg = sum / review.size();
-			}catch(java.lang.ArithmeticException e){
+			if(sum == 0)
 				avg = 0;
-			}
+			else 
+				avg = (double)sum / review.size();
 			resGrade.add(avg);
+			for(double data : resGrade) {
+				System.out.println("avg=" + data);
+			}
 			
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();
