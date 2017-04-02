@@ -2,6 +2,7 @@ package com.aloa.restaurant;
 
 import java.util.List;
 
+import com.aloa.account.Account;
 import com.aloa.review.Imageboard;
 import com.aloa.review.Reviewboard;
 

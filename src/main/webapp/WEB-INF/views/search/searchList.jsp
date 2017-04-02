@@ -41,14 +41,14 @@
 					<c:if test="${status.index % 2 == 0}">
 						<div class="left_div">
 							<c:if test="${dto.imageList[0].image != null }">
-								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
+								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
 								<img class="main_img" src="${dto.imageList[0].image }" /></a>
 							</c:if>
 							<c:if test="${dto.imageList[0].image == null }">
-								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
+								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
-							<p class="title" onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">${dto.restaurant.resname }&nbsp;&nbsp;<span class="point">${dto.reviewList[0].grade }</span></p>
+							<p class="title" onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">${dto.restaurant.resname }&nbsp;&nbsp;<span class="point">${dto.reviewList[0].grade }</span></p>
 							<p class="info">${dto.restaurant.resaddress } - <span class="keywords">${dto.restaurant.reskind }</span></p>
 							<p class="view_review">
 								<img src="/resources/images/min_image/review.PNG" /><span class="review">${resReviewCount }</span>
@@ -59,14 +59,14 @@
 					<c:if test="${status.index % 2 == 1}">
 						<div class="right_div">
 							<c:if test="${dto.imageList[0].image != null }">
-								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
+								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
 								<img class="main_img" src="${dto.imageList[0].image }" /></a>
 							</c:if>
 							<c:if test="${dto.imageList[0].image == null }">
-								<a onclick="location.href='http://localhost:8000/detailView/${dto.restaurant.resno}'">
+								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
-							<p class="title">${dto.restaurant.resname }&nbsp;&nbsp;<span class="point">${dto.reviewList[0].grade }</span></p>
+							<p class="title" onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">${dto.restaurant.resname }&nbsp;&nbsp;<span class="point">${dto.reviewList[0].grade }</span></p>
 							<p class="info">${dto.restaurant.resaddress } - <span class="keywords">${dto.restaurant.reskind }</span></p>
 							<p class="view_review">
 								<img src="/resources/images/min_image/review.PNG" /><span class="review">${resReviewCount }</span>
