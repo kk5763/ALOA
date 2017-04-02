@@ -30,8 +30,11 @@ public interface ManagerDAO {
 	public void restaurantUpdate(Restaurant restaurant);
 
 	public List<ReportRevDTO> revClaimList();
+	
+	public void reviewRemove(String[] checkNo);
 
 	public List<ReportResDTO> resClaimList();
+
 
 	
 
