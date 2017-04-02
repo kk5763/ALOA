@@ -77,7 +77,6 @@ public class MainController {
 		for (int i = 0; i < restaurantlist.size(); i++) {
 			// 맛집의 이미지 가져오기
 			List<Imageboard> imagelist = revService.imagelist(restaurantlist.get(i).getResno());
-
 			// 레스토랑DTO에 넣기
 			RestaurantDTO res = new RestaurantDTO();
 

@@ -140,6 +140,7 @@ $(document).ready(function(e){
                <a href="#" onclick="godetailView(${reslist.restaurant.resno})" style="font-color:black;">
                   <img src="/resources/images/${reslist.imagelist[0].image}.jpg" style="height: 300px;">
                   ${reslist.restaurant.resname}
+           
                </a>
              </div>
              </form>
