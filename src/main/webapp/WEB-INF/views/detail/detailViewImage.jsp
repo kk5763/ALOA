@@ -70,20 +70,6 @@ $(function(){
 				</c:forEach>
 			</div>
 		</div><!--imageMoveMain-->
-		<div id="ReviewMain">
-			<div id="ReviewName">루이쌍끄</div>
-			<div id="ReviewId">
-				<div id="ReivewIcon"><span id="ReviewIconText">맛있다</span></div>
-				<div style="float:left;"><img id="ReviewIdImage" src="/resources/images/detailView_Image/moamoa.jpg"></div>
-				<div id ="ReviewIdName">모이모이짱</div>
-				<div style="position:relative; margin-top:2px;">
-					<div id="ReviewNum"><span style="margin-left:10px; line-height: 8px;" >12</span></div>
-					<div id="FollowerCount"><span style="margin-left:10px; line-height: 8px;">0</span></div>
-				</div>
-			</div>
-			<div id="ReviewContent">기대하지 않았던 테린이 매우 맛있었다. 평소보다 푸아그라가 큰게 들어가서 운이 좋았던 것도 있지만, 전체적으로 안 짜고 맛도 조화롭고 좋았다. 콜드컷 같은걸 잘 먹지 않는 편인데도 맛있게 먹었다. 글라스로 주문한 쉬라와 잘 어울렸다. 양갈비는 좀 짜고 고기의 겉과 속의 발란스가 생각보단 별로였다. 양파수프는 수프 색이 꽤 진해서 된장찌개 색깔ㅎㅎ 그런데 풍미는 색에 비해 약한것 같다. </div>
-			<div id="ReviewDate">2015-11-18</div>
-		</div><!--ReviewMain-->
 	</div><!--imageReviewMain-->
 </body>
 </html>

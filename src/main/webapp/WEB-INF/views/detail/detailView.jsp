@@ -12,7 +12,6 @@
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=2ZKlolf32e3C26nU6SA4&amp;submodules=geocoder"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
    function reportRes() {
       if (document.getElementById("email").value== "") {
          alert("로그인후 이용가능합니다.");
@@ -47,8 +46,6 @@
                      "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=600, height=430");
       }
    }
-=======
->>>>>>> befa66914c8d17d1266fcc7c68453b91ac814a65
 	function reportRes() {
 		if (document.getElementById("email").value== "") {
 			alert("로그인후 이용가능합니다.");
@@ -115,154 +112,155 @@
 </div>
 <!-- 본문 내용  -->
 <div class="content-wrapper">
-	<div class="content">
-		<div class="content-header">
-
-			<div class="restaurant-title">
-				<div class="wannago-wrapper">
-					<button class="wannago-bt"></button>
-					<p class="wannago-txt">신고하기</p>
-				</div>
-				<h1 class="title">
-					<span class="name">${resDTO.restaurant.resname }</span> <span
-						class="rate-point">${avg }</span>
-				</h1>
-
-
-			</div>
-			<div class="reportRes-button">
-				<img src="/resources/images/min_image/report.PNG"
-					onclick="reportRes()" />
-			</div>
-		</div>
-		<table class="content-detail">
-			<!-- 레스토랑 상세 정보 -->
-			<tbody>
-				<tr>
-					<th class="show">주소:</th>
-					<td>${resDTO.restaurant.resaddress}</td>
-				</tr>
-				<tr>
-					<th class="show">전화번호:</th>
-					<td>${resDTO.restaurant.restel}</td>
-				</tr>
-				<tr>
-					<th class="show">음식 종류:</th>
-					<td>${resDTO.restaurant.reskind}</td>
-				</tr>
-				<tr>
-					<th class="show">가격대:</th>
-					<td>${resDTO.restaurant.resprice}</td>
-				</tr>
-				<tr>
-					<th class="show">주차:</th>
-					<td>${resDTO.restaurant.resparking}</td>
-				</tr>
-				<tr>
-					<th class="show">영업시간:</th>
-					<td>${resDTO.restaurant.ressaletime}</td>
-				</tr>
-				<tr>
-					<th class="show">쉬는시간:</th>
-					<td>${resDTO.restaurant.resrest}</td>
-				</tr>
-				<tr>
-					<th class="show">휴일:</th>
-					<td>${resDTO.restaurant.resholiday}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="review-bt-div">
-		<div class="review-bt-wrap">
-			<c:if test="${resDTO.restaurant.resno!=null }">
-				<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
-			</c:if>
-			<c:if test="${resDTO.restaurant.resno==null }">
-				<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
-			</c:if>
-		</div>
-		<!-- review-bt-wrap -->
-
-
-		<div class="review-bt-wrap">
-			<a href="#" class="review-bt" onclick="reservation()">예 약</a>
-		</div>
-
-	</div>
-	<!-- review-bt-div -->
-
-
-	<!-- 리뷰 -->
-	<div class="title-wrap">
-		<div class="title-wrap">
-			<h1 class="review-title">${resDTO.restaurant.resname }의리뷰
-				(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
-			<ul class="review-filter-list">
-				<li class="review-filter-item">
-					<button class="review-filter-button">전체
-						(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</button>
-				</li>
-				<li class="review-filter-item">
-					<button class="review-filter-button">맛있다
-						(${reviewCount.get(0) })</button>
-				</li>
-				<li class="review-filter-item">
-					<button class="review-filter-button">괜찮다
-						(${reviewCount.get(1) })</button>
-				</li>
-				<li class="review-filter-item">
-					<button class="review-filter-button">별로
-						(${reviewCount.get(2) })</button>
-				</li>
-			</ul>
-		</div>
-		<c:forEach begin="0" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
-			varStatus="status">
-			<section class="review">
-			<ul class="review-list">
-				<li class="default-review"><section class="review-item">
-					<h1 class="icon">
-						<c:if test="${revDTO.reviewBoardList[status.index].grade == 5 }">
-							<img src="/resources/images/min_image/good_on.png">
-							<strong class="good">맛있다</strong>
-						</c:if>
-						<c:if test="${revDTO.reviewBoardList[status.index].grade == 3 }">
-							<img src="/resources/images/min_image/soso_on.png">
-							<strong class="good">괜찮다</strong>
-						</c:if>
-						<c:if test="${revDTO.reviewBoardList[status.index].grade == 1 }">
-							<img src="/resources/images/min_image/bad_on.png">
-							<strong class="good">별로</strong>
-						</c:if>
-					</h1>
-					<div class="review-content">
-						<figure class="user">
-						<div class="user-profile">
-							<img id="userImage${status.index }" class="thumb-image" src="userImage(${status.index })" />
-						</div>
-						<figcaption>${revDTO.accountList[status.index].username }</figcaption>
-						
-						<div class="reportRev-button">
-							<img src="/resources/images/min_image/report.PNG"
-								onclick="reportRev(${revDTO.reviewBoardList[status.index].reviewno })" />
-						</div>
-						</figure>
-
-						<p>
-							<span class="review-content-coment">${revDTO.reviewBoardList[status.index].content }</span>
-						</p>
+	<div class="content-all">
+		<div class="content">
+			<div class="content-header">
+	
+				<div class="restaurant-title">
+					<div class="wannago-wrapper">
+						<button class="wannago-bt"></button>
+						<p class="wannago-txt">신고하기</p>
 					</div>
-					<p class="sub-info">
-						<time> <span class="past-time">${revDTO.reviewBoardList[status.index].createdate }</span></time>
-					</p>
-					</section></li>
-			</ul>
-			</section>
-		</c:forEach>
-		<button class="reviews-more">더보기</button>
-
-	</div>
+					<h1 class="title">
+						<span class="name">${resDTO.restaurant.resname }</span> <span
+							class="rate-point">${avg }</span>
+					</h1>
+	
+	
+				</div>
+				<div class="reportRes-button">
+					<img src="/resources/images/min_image/report.PNG"
+						onclick="reportRes()" />
+				</div>
+			</div>
+			<table class="content-detail">
+				<!-- 레스토랑 상세 정보 -->
+				<tbody>
+					<tr>
+						<th class="show">주소:</th>
+						<td>${resDTO.restaurant.resaddress}</td>
+					</tr>
+					<tr>
+						<th class="show">전화번호:</th>
+						<td>${resDTO.restaurant.restel}</td>
+					</tr>
+					<tr>
+						<th class="show">음식 종류:</th>
+						<td>${resDTO.restaurant.reskind}</td>
+					</tr>
+					<tr>
+						<th class="show">가격대:</th>
+						<td>${resDTO.restaurant.resprice}</td>
+					</tr>
+					<tr>
+						<th class="show">주차:</th>
+						<td>${resDTO.restaurant.resparking}</td>
+					</tr>
+					<tr>
+						<th class="show">영업시간:</th>
+						<td>${resDTO.restaurant.ressaletime}</td>
+					</tr>
+					<tr>
+						<th class="show">쉬는시간:</th>
+						<td>${resDTO.restaurant.resrest}</td>
+					</tr>
+					<tr>
+						<th class="show">휴일:</th>
+						<td>${resDTO.restaurant.resholiday}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="review-bt-div">
+			<div class="review-bt-wrap">
+				<c:if test="${resDTO.restaurant.resno!=null }">
+					<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+				</c:if>
+				<c:if test="${resDTO.restaurant.resno==null }">
+					<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
+				</c:if>
+			</div>
+			<!-- review-bt-wrap -->
+	
+			<div class="review-bt-wrap">
+				<a href="#" class="review-bt" onclick="reservation()">예 약</a>
+			</div>
+		</div><!-- review-bt-div -->
+	
+	
+		<!-- 리뷰 -->
+		<div class="title-wrap">
+			<div class="title-wrap">
+				<h1 class="review-title">${resDTO.restaurant.resname }의리뷰
+					(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</h1>
+				<ul class="review-filter-list">
+					<li class="review-filter-item">
+						<button class="review-filter-button">전체
+							(${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)})</button>
+					</li>
+					<li class="review-filter-item">
+						<button class="review-filter-button">맛있다
+							(${reviewCount.get(0) })</button>
+					</li>
+					<li class="review-filter-item">
+						<button class="review-filter-button">괜찮다
+							(${reviewCount.get(1) })</button>
+					</li>
+					<li class="review-filter-item">
+						<button class="review-filter-button">별로
+							(${reviewCount.get(2) })</button>
+					</li>
+				</ul>
+			</div>
+			<c:forEach begin="0" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
+				varStatus="status">
+				<section class="review">
+				<ul class="review-list">
+					<li class="default-review"><section class="review-item">
+						<h1 class="icon">
+							<c:if test="${revDTO.reviewBoardList[status.index].grade == 5 }">
+								<img src="/resources/images/min_image/good_on.png">
+								<strong class="good">맛있다</strong>
+							</c:if>
+							<c:if test="${revDTO.reviewBoardList[status.index].grade == 3 }">
+								<img src="/resources/images/min_image/soso_on.png">
+								<strong class="good">괜찮다</strong>
+							</c:if>
+							<c:if test="${revDTO.reviewBoardList[status.index].grade == 1 }">
+								<img src="/resources/images/min_image/bad_on.png">
+								<strong class="good">별로</strong>
+							</c:if>
+						</h1>
+						<div class="review-content">
+							<figure class="user">
+							<div class="user-profile">
+								<img id="userImage${status.index }" class="thumb-image" src="userImage(${status.index })" />
+							</div>
+							<figcaption>${revDTO.accountList[status.index].username }</figcaption>
+							
+							<div class="reportRev-button">
+								<img src="/resources/images/min_image/report.PNG"
+									onclick="reportRev(${revDTO.reviewBoardList[status.index].reviewno })" />
+							</div>
+							</figure>
+	
+							<p>
+								<span class="review-content-coment">${revDTO.reviewBoardList[status.index].content }</span>
+							</p>
+						</div>
+						<p class="sub-info">
+							<time> <span class="past-time">${revDTO.reviewBoardList[status.index].createdate }</span></time>
+						</p>
+						</section></li>
+				</ul>
+				</section>
+			</c:forEach>
+			<button class="reviews-more">더보기</button>
+	
+		</div>
+	</div>	
+	
+	
 	<!-- 사이드영역 -->
 	<div class="side-wrap">
 		<div class="side-content">
@@ -373,14 +371,14 @@
          </script>
 		</div>
 	</div>
+</div>	
+	
 </article>
 <sec:authorize access="isAnonymous()">
 	<input type="hidden" id="email" value="">
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
-<<<<<<< HEAD
    <input type="hidden" id="email" value="<sec:authentication property='principal.email'/>">
-=======
 	<input type="hidden" id="email"
 		value="<sec:authentication property='principal.email'/>">
 	<input type="hidden" id="email" value="">
@@ -388,7 +386,6 @@
 <sec:authorize access="isAuthenticated()">
 	<input type="hidden" id="email"
 		value="<sec:authentication property='principal.email'/>">
->>>>>>> befa66914c8d17d1266fcc7c68453b91ac814a65
 </sec:authorize>
 
 </body>
