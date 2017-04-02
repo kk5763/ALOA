@@ -63,16 +63,16 @@
 	<div id="main">
 		<p id="main_head">무슨 문제가 있나요?</p>
 		<div id="main_section">
-			<input type="radio" id="1" name="bt" value="1">욕설 등 부적절한 언어가 포함되어 있습니다<br>
-			<input type="radio" id="2" name="bt" value="2">맛집 리뷰에 게시되기 적절하지 않습니다<br>
-			<input type="radio" id="3" name="bt" value="3">사행성 광고가 포함되어 있습니다.<br>
-			<input type="radio" id="4" name="bt" value="4">기타
+			<input type="radio" id="1" name="bt" value="1" onclick="change()">욕설 등 부적절한 언어가 포함되어 있습니다<br>
+			<input type="radio" id="2" name="bt" value="2" onclick="change()">맛집 리뷰에 게시되기 적절하지 않습니다<br>
+			<input type="radio" id="3" name="bt" value="3" onclick="change()">사행성 광고가 포함되어 있습니다.<br>
+			<input type="radio" id="4" name="bt" value="4" onclick="change()">기타
 		</div>
 		<textarea id="content1" name="content" cols="20" style="width:500px; height:60px;" ></textarea>
 	</div>
 	
 	<div id="footer">
-		<input type="button" value="확인">
+		<input type="button" value="확인" onclick="check()">
 	</div>
 	</form>
 </body>

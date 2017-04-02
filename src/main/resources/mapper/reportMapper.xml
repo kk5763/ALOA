@@ -14,5 +14,19 @@
     		,#{resno}
     		,#{deemail})
     </insert>
-	
+    
+    <insert id="reportrevInsert" parameterType="com.aloa.report.Reportrev" >
+    	insert into reportrev(reemail
+    		,reportname
+    		,reportcontent
+    		,resno
+    		,reviewno
+    		,deemail
+    		)values(#{reemail}
+    		,#{reportname}
+    		,#{reportcontent}
+    		,#{resno}
+    		,#{reviewno}
+    		,#{deemail})
+    </insert>
 </mapper>
