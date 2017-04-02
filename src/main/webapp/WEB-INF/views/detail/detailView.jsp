@@ -89,13 +89,16 @@
                   "toolbar=no, status=no, menubar=no, scrollbar=no, resizable=no, left=500, top=200, width=1000, height=700");
    }
    
-   function userImage(imageNumber){
-	   var random = (Math.floor(Math.random() * 2) + 1);
-	   var userImage = document.getElementById('userImage' + imageNumber);
-	   userImage.setAttribute("src", "/resources/images/min_image/userImage" + random + ".png");
-	   
-	   alert(userImage.getArribute("src"));
-   }
+window.onload = function(){
+	
+	var reviewCount = ${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2) };
+	
+	for(i = 0; i < reviewCount; i++) {
+		var userImage = document.getElementById('userImage_' + i);
+		var random = (Math.floor(Math.random() * 12) + 1);
+		userImage.setAttribute("src", "/resources/images/min_image/userImage_" + random + ".PNG");
+	}
+}
 </script>
 </head>
 <!-- 상단영역 -->
@@ -214,21 +217,21 @@
 				</li>
 			</ul>
 		</div>
-		<c:forEach begin="0" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
+		<c:forEach begin="1" end="${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2)}"
 			varStatus="status">
 			<section class="review">
 			<ul class="review-list">
 				<li class="default-review"><section class="review-item">
 					<h1 class="icon">
-						<c:if test="${revDTO.reviewBoardList[status.index].grade == 5 }">
+						<c:if test="${revDTO.reviewBoardList[status.index - 1].grade == 5 }">
 							<img src="/resources/images/min_image/good_on.png">
 							<strong class="good">맛있다</strong>
 						</c:if>
-						<c:if test="${revDTO.reviewBoardList[status.index].grade == 3 }">
+						<c:if test="${revDTO.reviewBoardList[status.index - 1].grade == 3 }">
 							<img src="/resources/images/min_image/soso_on.png">
 							<strong class="good">괜찮다</strong>
 						</c:if>
-						<c:if test="${revDTO.reviewBoardList[status.index].grade == 1 }">
+						<c:if test="${revDTO.reviewBoardList[status.index - 1].grade == 1 }">
 							<img src="/resources/images/min_image/bad_on.png">
 							<strong class="good">별로</strong>
 						</c:if>
@@ -236,21 +239,21 @@
 					<div class="review-content">
 						<figure class="user">
 						<div class="user-profile">
-							<img id="userImage${status.index }" class="thumb-image" src="userImage(${status.index })" />
+							<img id="userImage_${status.index - 1 }" class="thumb-image" src="" />
 						</div>
-						<figcaption>${revDTO.accountList[status.index].username }</figcaption>
+						<figcaption>${revDTO.accountList[status.index - 1].username }</figcaption>
 						<div class="reportRev-button">
 							<img src="/resources/images/min_image/report.PNG"
-								onclick="reportRev(${revDTO.reviewBoardList[status.index].reviewno })" />
+								onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />
 						</div>
 						</figure>
 
 						<p>
-							<span class="review-content-coment">${revDTO.reviewBoardList[status.index].content }</span>
+							<span class="review-content-coment">${revDTO.reviewBoardList[status.index - 1].content }</span>
 						</p>
 					</div>
 					<p class="sub-info">
-						<time> <span class="past-time">${revDTO.reviewBoardList[status.index].createdate }</span></time>
+						<time> <span class="past-time">${revDTO.reviewBoardList[status.index - 1].createdate }</span></time>
 					</p>
 					</section></li>
 			</ul>
@@ -326,14 +329,12 @@
                                                 + '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
                                                 + '</div>'
                                                 + '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
-                                                + '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">라이포스트</span>&nbsp;&nbsp;'
-                                                + '<strong style="color: #FF792A; font-size: 20px;">4.6</strong>'
-                                                + '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">이태원/한남동 - 브런치 / 버거 / 샌드위치</p>'
+                                                + '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">${resDTO.restaurant.resname }</span>&nbsp;&nbsp;'
+                                                + '<strong style="color: #FF792A; font-size: 20px;">${avg }</strong>'
+                                                + '<p style="width:180px; color: #7A7A7A; font-size: 15px; margin-top:7px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;">${resDTO.restaurant.resaddress } - ${resDTO.restaurant.reskind }</p>'
                                                 + '<p style=" margin-top:40px;">'
                                                 + '<img src="/resources/images/min_image/review.PNG">'
-                                                + '<em style="color: #7A7A7A; font-size: 16px">206</em>&nbsp;'
-                                                + '<img src="/resources/images/min_image/favorite.png">'
-                                                + '<em style="color: #7A7A7A; font-size: 16px">5693</em>'
+                                                + '<em style="color: #7A7A7A; font-size: 16px">${reviewCount.get(0) + reviewCount.get(1) + reviewCount.get(2) }</em>&nbsp;'
                                                 + '</p>'
                                                 + '</div>'
                                                 + '</div>'

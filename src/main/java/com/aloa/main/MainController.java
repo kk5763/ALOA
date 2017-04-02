@@ -98,16 +98,31 @@ public class MainController {
 		List<Restaurant> resSearchList = resService.findSearchList(searchName);
 		// 식당의 정보와 리뷰 이미지를 세트로 묶을 List 생성
 		List<RestaurantDTO> resList = new ArrayList<RestaurantDTO>();
-		// 리뷰 개수
-		List<Integer> resReviewCount = new ArrayList<Integer>();
-
+		
 		for (int i = 0; i < resSearchList.size(); i++) { // 가져온 식당의 수 만큼 반복
 			// 가져온 식당의 번호를 이용해 모든 이미지를 가져옴
 			List<Imageboard> image = revService.imagelist(resSearchList.get(i).getResno());
 			List<Reviewboard> review = revService.reviewList(resSearchList.get(i).getResno());
+			// 리뷰 개수
+			List<Integer> resReviewCount = new ArrayList<Integer>();
+			if(review.size() <= 0)
+				resReviewCount.add(0);
+			else 
+				resReviewCount.add(review.size());
+			// 식당 평점
+			List<Double> resGrade = new ArrayList<Double>();
+			int sum = 0;
+			for(int j = 0; j < review.size(); j++) {
+				sum += review.get(j).getGrade();
+			}
+			double avg = 0;
+			try{
+				avg = sum / review.size();
+			}catch(java.lang.ArithmeticException e){
+				avg = 0;
+			}
+			resGrade.add(avg);
 			
-			resReviewCount.add(review.size());
-
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();
 			// 가져온 0~n번째 식당의 정보와 이미지를 저장
@@ -115,14 +130,13 @@ public class MainController {
 			resDTO.setImageList(image);
 			resDTO.setReviewList(review);
 			resDTO.setResReviewCount(resReviewCount);
-
+			resDTO.setResGrade(resGrade);
 			// 세팅된 resDTO를 resList에 추가하여 searchList.jsp로 넘김
 			resList.add(resDTO);
 		} // for
 
 		model.addAttribute("searchName", searchName);
 		model.addAttribute("resList", resList);
-		model.addAttribute("resReviewCount", resReviewCount);
 		
 		return "search/searchList";
 	}// searchList
