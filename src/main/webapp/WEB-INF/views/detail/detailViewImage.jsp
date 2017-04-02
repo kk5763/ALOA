@@ -70,9 +70,14 @@ $(function(){
 						height="100px" />
 				</c:forEach>
 			</div>
+<<<<<<< HEAD
 		</div>
 		<!--imageMoveMain-->
 	</div>
 	<!--imageReviewMain-->
+=======
+		</div><!--imageMoveMain-->
+	</div><!--imageReviewMain-->
+>>>>>>> 8901486bfe730850459a6e869aaf3efe0f47bcd9
 </body>
 </html>
