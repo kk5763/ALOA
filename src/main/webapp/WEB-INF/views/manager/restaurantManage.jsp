@@ -113,6 +113,14 @@
 	
 	</script>
 	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#allCheck').click(function(){
+				$('.checkPoint').prop('checked',this.checked);
+			}); 
+		});
+	</script>
+	
 	</head>
 			
 			<body>
@@ -243,10 +251,10 @@
 			                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> 雀盔 <i class="fa fa-fw fa-caret-down"></i></a>
 			                        <ul id="demo" class="collapse">
 			                            <li>
-			                                <a href="#">雀盔 包府</a>
+			                                <a href="/manager/memberManage">雀盔 包府</a>
 			                            </li>
 			                            <li>
-			                                <a href="#">喉发府胶飘 包府</a>
+			                                <a href="/manager/blacklistManage">喉发府胶飘 包府</a>
 			                            </li>
 			                        </ul>
 			                    </li>
@@ -345,7 +353,7 @@
 																</th>
 																<td class="spanValue" style="width: 8%">${restaurant.resno }</td>	
 																<td style="width: 14%">${restaurant.reskind }</td>
-																<td style="width: 14%"><span onclick="restaurantUpdate(${restaurant.resno })">${restaurant.resname }</span></td>
+																<td style="width: 14%"><span style="cursor:pointer; color:blue; font-weight:bold;" onclick="restaurantUpdate(${restaurant.resno })">${restaurant.resname }</span></td>
 																<td style="width: 14%">${restaurant.bossemail }</td>
 																<td style="width: 14%">${restaurant.restel }</td>
 																<td style="width: 35%">${restaurant.resaddress }</td>

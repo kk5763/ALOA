@@ -95,6 +95,12 @@
 
 	}
 	
+	$(document).ready(function(){
+		$('#allCheck').click(function(){
+			$('.checkPoint').prop('checked',this.checked);
+		}); 
+	});
+	
 	</script>
 	
 	</head>
@@ -284,7 +290,7 @@
 									<th style= "width:1px;">
 										<div class="checkbox radio-margin">
 											<label>
-												<input type="checkbox" value="">
+												<input type="checkbox" id="allCheck">
 												<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 											</label>
 										</div>
@@ -317,7 +323,7 @@
 											<td style= "width:1px;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" value="">
+														<input type="checkbox" class="checkPoint">
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>

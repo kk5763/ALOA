@@ -19,6 +19,7 @@ public class ManagerController {
 	@Autowired
 	ManagerDAO managerDAO;
 
+	//관리자 메인
 	@RequestMapping(value = "manager/index", method = RequestMethod.GET)
 	public String test() {
 		return "manager/index";
@@ -182,11 +183,7 @@ public class ManagerController {
 		//맛집등록(이미지도)
 		managerDAO.insertRestaurant(map);
 
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("manager/restaurantAgreeDetail");
-
-		return null;//아직 관리자 메인페이지를 안만듦
+		return (ModelAndView)new ModelAndView("redirect:/manager/restaurantManage");
 	}
 	
 	//리뷰신고 db받기 기본틀(추후 수정 필요)

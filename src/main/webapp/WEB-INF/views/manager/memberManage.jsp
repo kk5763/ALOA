@@ -361,7 +361,7 @@ function memberUpdate(id){
 												</div>
 											</th>
 											<td style="width: 10%">${memberDTO.status }</td>	
-											<td style="width: 15%"><span onclick = "memberUpdate(${memberDTO.id })">${memberDTO.username }</span></td>
+											<td style="width: 15%"><span onclick = "memberUpdate(${memberDTO.id })" style="cursor:pointer; color:blue; font-weight:bold;">${memberDTO.username }</span></td>
 											<td style="width: 20%">${memberDTO.email }</td>
 											<td style="width: 20%">${memberDTO.tel }</td>
 											<td style="width: 25%">${memberDTO.joinDate }</td>
