@@ -92,7 +92,8 @@ function reviewRemove(){
 </head>
 
 <body>
-<form id = "reviewClaim" method = "post" action = "/manager/reviewRemove">
+<form name = "reviewClaim" method = "post" action = "/manager/reviewRemove">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <div class="container">
     <div class="creatediv1 marginTop30">
     			
@@ -145,7 +146,7 @@ function reviewRemove(){
 											<td style= "width:1%;">
 												<div class="checkbox radio-margin">
 													<label>
-														<input type="checkbox" class = "check-each" value = "${reportRevDTO.resNo }">
+														<input type="checkbox" class = "check-each" name = "checkNo" value = "${reportRevDTO.reviewNo }"/>
 														<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 													</label>
 												</div>
@@ -169,7 +170,7 @@ function reviewRemove(){
     
 </div><!-- 테이블 -->
 	<div align = "right">
- 	<button id = "remove" value = "삭제" onclick = "listRemove()">삭제</button>
+ 	<button id = "remove" value = "삭제" onclick = "reviewRemove()">삭제</button>
  	</div>
 	<nav>
   <ul class="pagination">

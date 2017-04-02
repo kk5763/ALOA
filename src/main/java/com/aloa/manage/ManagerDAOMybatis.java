@@ -94,6 +94,13 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		List<ReportRevDTO> list = sqlSession.selectList("managerMapper.revClaimList");
 		return list;
 	}
+	
+	@Override
+	public void reviewRemove(String[] checkNo) {
+		for(int i = 0 ; i < checkNo.length; i++ ){
+		sqlSession.delete("managerMapper.reviewRemove", Integer.parseInt(checkNo[i]));
+		}
+	}
 
 	@Override
 	public List<ReportResDTO> resClaimList() {
@@ -101,6 +108,8 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	
 		return list;
 	}
+
+
 
 	
 
