@@ -8,7 +8,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/style/detailViewImage.css" />
 <script>
-window.onload = function() { dudung(${imageNo }); }
+window.onload = function() { 
+	
+	dudung(${imageNo }); 
+}
 /* 작은이미지 클릭하면 큰이미지로 띄우기 */
  var bb;
  var num = 0;//사진번호 초기값 전역변수
@@ -32,9 +35,14 @@ function nextGallery() {
    num++;//num에서 1씩증가
    if(num > 5) num = 1;//num이 5를 넘어가면 1로돌아감
    dudung(num);//함수호출
-   
    var elem01 = document.getElementById("imageCenter_img");//개체설정
-   elem01.src = "/resources/images/restaurant_image/lala@naver.com_image_"+num+".jpg";   
+   
+   var imageList = new Array();
+   for(i = 0; i < 5; i++) {
+	   imageList[i] = '${image[i].image }';
+   }
+   
+   elem01.src = "/resources/images/"+image[num-1]+".jpg";   
 }
 
 function prevGallery() {
@@ -43,14 +51,13 @@ function prevGallery() {
    dudung(num);//함수호출
    
    var elem01 = document.getElementById("imageCenter_img");//개체설정
-   elem01.src = "/resources/images/restaurant_image/lala@naver.com_image_"+num+".jpg";   
-
-$(function(){
-   $("#imageReviewButtonleft").click(function(){
-      $("#imageBottom").animate({left:-130},500);
-   });
-});   
    
+   var imageList = new Array();
+   for(i = 0; i < 5; i++) {
+	   imageList[i] = '${image[i].image }';
+   }
+   
+   elem01.src = "/resources/images/"+image[num-1]+".jpg"; // image[0~4].image
 }
 </script>
 </head>
@@ -66,18 +73,13 @@ $(function(){
 			<div id="imageBottom">
 				<c:forEach var="i" begin="1" end="5" step="1">
 					<img id="smallImage${i}" class="smallImage" onclick="dudung(${i})"
-						src="/resources/images/restaurant_image/lala@naver.com_image_${i }.jpg"
-						height="100px" />
+						src="/resources/images/${image[i-1].image }.jpg" height="100px" />
+
 				</c:forEach>
 			</div>
-<<<<<<< HEAD
 		</div>
 		<!--imageMoveMain-->
 	</div>
 	<!--imageReviewMain-->
-=======
-		</div><!--imageMoveMain-->
-	</div><!--imageReviewMain-->
->>>>>>> 8901486bfe730850459a6e869aaf3efe0f47bcd9
 </body>
 </html>

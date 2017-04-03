@@ -14,8 +14,8 @@ public class ReservationDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public void insertResevation(Map<String, String> map){
-		sqlSession.insert("reservationMapper.insertResevation", map);
+	public void insertResevation(ReservationDTO dto){
+		sqlSession.insert("reservationMapper.insertResevation", dto);
 	}
 	
 	public void showReservation(String email){

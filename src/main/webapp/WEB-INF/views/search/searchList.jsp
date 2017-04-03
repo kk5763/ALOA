@@ -40,11 +40,11 @@
 				<c:forEach var="dto" items="${resList }" varStatus="status">
 					<c:if test="${status.index % 2 == 0}">
 						<div class="left_div">
-							<c:if test="${dto.imageList[0].image != null }">
+							<c:if test="${dto.imagelist[0].image != null }">
 								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
-								<img class="main_img" src="${dto.imageList[0].image }" /></a>
+								<img class="main_img" src="/resources/images/${dto.imagelist[0].image }.jpg" /></a>
 							</c:if>
-							<c:if test="${dto.imageList[0].image == null }">
+							<c:if test="${dto.imagelist[0].image == null }">
 								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
@@ -59,11 +59,11 @@
 					
 					<c:if test="${status.index % 2 == 1}">
 						<div class="right_div">
-							<c:if test="${dto.imageList[0].image != null }">
+							<c:if test="${dto.imagelist[0].image != null }">
 								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
-								<img class="main_img" src="${dto.imageList[0].image }" /></a>
+								<img class="main_img" src="/resources/images/${dto.imagelist[0].image }.jpg" /></a>
 							</c:if>
-							<c:if test="${dto.imageList[0].image == null }">
+							<c:if test="${dto.imagelist[0].image == null }">
 								<a onclick="location.href='http://localhost:8000/detailView?resno=${dto.restaurant.resno}'">
 								<img class="main_img" src="/resources/images/min_image/noneImage.PNG" /></a>
 							</c:if>
@@ -77,10 +77,6 @@
 					</c:if>
 				</c:forEach>
 			</c:if>
-			
-			<div class="pageNumber">
-				<div class="page">1</div>
-			</div>
 		</div>
 	</section>
 </body>

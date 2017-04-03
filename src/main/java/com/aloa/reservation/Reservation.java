@@ -1,12 +1,12 @@
 package com.aloa.reservation;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="reservation")
 public class Reservation {
 	@Id
 	@GeneratedValue
@@ -14,15 +14,17 @@ public class Reservation {
 	
 	private int resno;
 	
-	private int userid;
+	private Long userid;
 	
-	private String date;
+	private String reservedate;
 	
 	private String reservetime;
 	
-	private int member;
+	private String member;
 	
 	private String reserverrequest;
+	
+	private int resercancle;
 
 	public Long getId() {
 		return id;
@@ -40,20 +42,20 @@ public class Reservation {
 		this.resno = resno;
 	}
 
-	public int getUserid() {
+	public Long getUserid() {
 		return userid;
 	}
 
-	public void setUserid(int userid) {
+	public void setUserid(Long userid) {
 		this.userid = userid;
 	}
 
-	public String getDate() {
-		return date;
+	public String getReservedate() {
+		return reservedate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setReservedate(String reservedate) {
+		this.reservedate = reservedate;
 	}
 
 	public String getReservetime() {
@@ -64,11 +66,11 @@ public class Reservation {
 		this.reservetime = reservetime;
 	}
 
-	public int getMember() {
+	public String getMember() {
 		return member;
 	}
 
-	public void setMember(int member) {
+	public void setMember(String member) {
 		this.member = member;
 	}
 
@@ -79,6 +81,15 @@ public class Reservation {
 	public void setReserverrequest(String reserverrequest) {
 		this.reserverrequest = reserverrequest;
 	}
+
+	public int getResercancle() {
+		return resercancle;
+	}
+
+	public void setResercancle(int resercancle) {
+		this.resercancle = resercancle;
+	}
+	
 	
 	
 }

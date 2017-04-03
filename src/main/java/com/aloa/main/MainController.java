@@ -92,7 +92,6 @@ public class MainController {
 
 	@RequestMapping(value = "/searchList", method = RequestMethod.GET)
 	public String searchList(@RequestParam String searchName, Model model) {
-
 		// 식당명에 검색어가 포함된 식당들의 정보를 List로 가져옴
 		List<Restaurant> resSearchList = resService.findSearchList(searchName);
 		// 식당의 정보와 리뷰 이미지를 세트로 묶을 List 생성
@@ -123,9 +122,6 @@ public class MainController {
 			else 
 				avg = (double)sum / review.size();
 			resGrade.add(avg);
-			for(double data : resGrade) {
-				System.out.println("avg=" + data);
-			}
 			
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();

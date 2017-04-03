@@ -50,10 +50,10 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	}
 
 	@Override
-	public void memberRemove(String[] checkId) {
-		for(int i = 0; i < checkId.length; i++){
+	public void memberRemove(String[] checkEmail) {
+		for(int i = 0; i < checkEmail.length; i++){
 			
-			sqlSession.delete("managerMapper.memberRemove",Integer.parseInt(checkId[i]));
+			sqlSession.delete("managerMapper.memberRemove",checkEmail[i]);
 		}
 	}
 	
@@ -98,7 +98,7 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	@Override
 	public void reviewRemove(String[] checkNo) {
 		for(int i = 0 ; i < checkNo.length; i++ ){
-		sqlSession.delete("managerMapper.reviewRemove", Integer.parseInt(checkNo[i]));
+			sqlSession.delete("managerMapper.reviewRemove", Integer.parseInt(checkNo[i]));
 		}
 	}
 

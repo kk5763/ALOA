@@ -39,7 +39,7 @@ public class AccountRestController {
 	@RequestMapping(value="/inspect", method=RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	public boolean inspect(@RequestParam String email){
-		
+		System.out.println("일단 오냐");
 		Account account = accountRepository.findByEmail(email);
 		if(account != null){
 			return false;
