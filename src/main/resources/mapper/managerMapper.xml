@@ -100,7 +100,7 @@
 	<delete id = "reviewRemove" parameterType = "int">
 		begin
 		delete from  reviewboard where reviewno = #{reviewno};
-		update reportrev set restatus = 'process' where reviewno = #{reviewno};
+		update reportrev set restatus = '처리' where reviewno = #{reviewno};
 		end;
 	</delete>
 	
@@ -111,5 +111,20 @@
 		
 		
 	</select>
-
+	<select id = "restaurantClaimDetail" parameterType = "int" resultType = "com.aloa.manage.ReportResDTO">
+		
+		select * from ReportRes where resNo = #{resNo}
+		<!-- select  reEmail, reportname, reportcontent, resno, deemail, restatus  from ReportRes  join imageboard using(resNo) where resno = #{resNo} -->
+	</select>
+	
+	<update id = "restaurantClaimRefuse" parameterType = "int">
+		update ReportRes set restatus = '처리(거절)' where resNo = #{resNo}
+	</update>
+	
+	<delete id = "restaurantClaimUnused" parameterType = "int">
+		begin 
+			delete from restaurant where resNo = #{resNo};
+			update reportRes set restatus = '처리(맛집제재)' where resNo = #{resNo};
+		end;
+	</delete>
 </mapper>

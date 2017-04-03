@@ -76,6 +76,11 @@ $(document).ready(function(){
         }
     });
 });
+
+function resRemove(resNo){
+	location.href = "/manager/restaurantClaimDetail?resNo="+resNo;
+	
+}
 </script>
 
 </head>
@@ -145,7 +150,7 @@ $(document).ready(function(){
 												</div>
 											</th>
 											<td style="width: 10%">${reportResDTO.reEmail }</td>	
-											<td style="width: 15%">${reportResDTO.reportName }</td>
+											<td style="width: 15%"><span onclick = "resRemove(${reportResDTO.resNo })" style = "cursor:pointer; color:blue; font-weight:bold;">${reportResDTO.reportName }</span></td>
 											<td style="width: 15%">${reportResDTO.reportContent }</td>
 											<td style="width: 15%">${reportResDTO.resname }</td>
 											<td style="width: 15%">${reportResDTO.deEmail }</td>
@@ -219,6 +224,7 @@ $(document).ready(function(){
 </div>
 -->
 <!-- 검색어입력 -->
+
 
 
 

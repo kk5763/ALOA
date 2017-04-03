@@ -35,6 +35,12 @@ public interface ManagerDAO {
 
 	public List<ReportResDTO> resClaimList();
 
+	public ReportResDTO restaurantClaimDetail(String resNo);
+
+	public void restaurantClaimRefuse(String resNo);
+
+	public void restaurantClaimUnused(String resNo);
+
 
 	
 

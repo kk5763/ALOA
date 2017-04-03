@@ -205,6 +205,15 @@ public class ManagerController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/manager/reviewClaimDetail", method = RequestMethod.GET)
+	public ModelAndView reviewClaimDetail(/*@RequestParam String reviewNo*/){
+		//System.out.println("리뷰넘버 = "+ reviewNo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("manager/reviewClaimDetail");
+		return mav;
+	}
+	
 	//리뷰 신고글 삭제
 		@RequestMapping(value = "/manager/reviewRemove", method = RequestMethod.POST)
 		public ModelAndView reviewRemove(@RequestParam String[] checkNo){
@@ -214,7 +223,7 @@ public class ManagerController {
 		}
 	
 	//맛집신고 완료( 확인부탁요)
-	@RequestMapping(value = "manager/restaurantClaim", method = RequestMethod.GET)
+	@RequestMapping(value = "/manager/restaurantClaim", method = RequestMethod.GET)
 	public ModelAndView restaurantClaim() {
 		List<ReportResDTO> list = null;
 		
@@ -229,6 +238,29 @@ public class ManagerController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/manager/restaurantClaimDetail", method = RequestMethod.GET)
+	public ModelAndView restaurantClaimDetail(@RequestParam String resNo){
+		
+		//<form name = "restaurantClaim" method = "post" action = "/manager/restaurantClaimDetail">
+
+		ReportResDTO reportResDTO = managerDAO.restaurantClaimDetail(resNo);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("reportResDTO", reportResDTO);
+		mav.setViewName("manager/restaurantClaimDetail");
+		return mav;
+	}
 	
+	@RequestMapping(value = "/manager/restaurantClaimRefuse")
+	public ModelAndView restaurantClaimRefuse(@RequestParam String resNo){
+		managerDAO.restaurantClaimRefuse(resNo);
+		return new ModelAndView("redirect:/manager/restaurantClaim");
+	}
+	
+	@RequestMapping(value = "/manager/restaurantClaimUnused")
+	public ModelAndView restaurantClaimUnused(@RequestParam String resNo){
+		managerDAO.restaurantClaimUnused(resNo);
+		
+		return new ModelAndView("redirect:/manager/restaurantClaim");
+	} 
 
 }
