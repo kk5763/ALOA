@@ -91,7 +91,7 @@
 	function restaurantAgreeDetail(){
 		var url = "/manager/restaurantAgreeDetail";
 		window.open(url ,"", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 
 	}
 	

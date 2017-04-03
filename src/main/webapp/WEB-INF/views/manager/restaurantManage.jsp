@@ -93,7 +93,7 @@
 	
 		var url = "/manager/restaurantUpdateView";
 		window.open("" ,"viewer", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 		myForm.action =url; 
 		myForm.method="post";
 		myForm.target="viewer";
@@ -107,7 +107,7 @@
 	function restaurantAgreeDetail(){
 		var url = "/manager/restaurantAgreeDetail";
 		window.open(url ,"", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 
 	}
 	
