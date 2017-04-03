@@ -335,7 +335,7 @@ function openImageView(su) {
                                        {
                                           content : '<div style="position:relative; margin:0 0; padding:0 0; border: 0px solid transparent; display: block; width: 330px; height: 135px;">'
                                                 + '<div style="position:absolute; padding: 15px; ">'
-                                                + '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
+                                                + '<img src="/resources/images/${resDTO.imagelist[0].image }.jpg" style="width:100px; height: 100px;">'
                                                 + '</div>'
                                                 + '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
                                                 + '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">${resDTO.restaurant.resname }</span>&nbsp;&nbsp;'
