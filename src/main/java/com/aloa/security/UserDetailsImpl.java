@@ -16,6 +16,8 @@ public class UserDetailsImpl extends User{
 	private String fullName;
 	private String email;
 	
+	private String state;
+	
 	public Long getId() {
 		return id;
 	}
@@ -34,13 +36,18 @@ public class UserDetailsImpl extends User{
 	public void setFullName(String fullName){
 		this.fullName = fullName;
 	}
-	
-	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public UserDetailsImpl(Account account) {
 		super(account.getEmail(), account.getPassword(), authorities(account));
 		this.id = account.getId();
 		this.fullName = account.getUsername();
 		this.email = account.getEmail();
+		this.state = account.getStatus();
 	}
 	
 	private static Collection<? extends GrantedAuthority> authorities(Account account) {
