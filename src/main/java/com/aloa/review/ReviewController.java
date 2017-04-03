@@ -29,7 +29,7 @@ public class ReviewController {
 	
 	
 	@RequestMapping(value = "/reviewWriteForm", method = RequestMethod.GET)
-	public String reviewWriteForm(@RequestParam int resno,Model model,String email) {
+	public String reviewWriteForm(@RequestParam int resno,Model model,@RequestParam String email) {
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		int checking =0;
 		
@@ -49,7 +49,7 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.POST)
-	public String reviewWrite(int resno
+	public String reviewWrite(@RequestParam int resno
 							,@RequestParam String content
 							,@RequestParam int grade
 							,@RequestParam(required=false) String email
@@ -62,15 +62,13 @@ public class ReviewController {
 				dto.setEmail(email);
 				dto.setGrade(grade);
 				dto.setResno(resno);
-				
 				reviewService.reviewWrite(dto);
-				
 			
 			
 		}
 		
 		
 		
-		return "redirect:/reviewWriteForm";
+		return "redirect:/";
 	}
 }

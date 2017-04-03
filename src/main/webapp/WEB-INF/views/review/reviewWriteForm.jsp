@@ -47,8 +47,9 @@ function checkReviewWrite(){
 		}else if(document.getElementById("content_id").value==""){
 			alert("내용을 입력하세요.")
 		}else{
-			alert("리뷰가 등록되었습니다.");
+			document.reviewWriteForm.target="temp";
 			document.reviewWriteForm.submit();
+			alert("리뷰가 등록되었습니다.");
 			window.close();
 		}
 	
@@ -60,7 +61,7 @@ function cancle(){
 </script>
 </head>
 <body>
-	<form name="reviewWriteForm" method="POST" enctype="multipart/form-data" action="/reviewWrite">
+	<form name="reviewWriteForm" method="POST" action="/reviewWrite">
 		<div id="main_section">
 			<input type="hidden" name="resno" value="${resno}">
 			<input type="hidden" name="email" value="<sec:authentication property='principal.email'/>">
