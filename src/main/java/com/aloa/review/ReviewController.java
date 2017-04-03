@@ -19,6 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.aloa.restaurant.Restaurant;
+import com.aloa.restaurant.RestaurantRepository;
+
 @Controller
 public class ReviewController {
 	@Autowired
@@ -27,9 +30,13 @@ public class ReviewController {
 	@Autowired
 	private ReviewRepository repository;
 	
+	@Autowired
+	private RestaurantRepository resRepository;
+	
 	
 	@RequestMapping(value = "/reviewWriteForm", method = RequestMethod.GET)
 	public String reviewWriteForm(@RequestParam int resno,Model model,@RequestParam String email) {
+		Restaurant restaurant = resRepository.findByResno(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		int checking =0;
 		
@@ -44,6 +51,7 @@ public class ReviewController {
 			model.addAttribute("check",0);
 		}
 		model.addAttribute("resno",resno);
+		model.addAttribute("restaurant", restaurant);
 		
 		return "review/reviewWriteForm";
 	}
@@ -54,6 +62,8 @@ public class ReviewController {
 							,@RequestParam int grade
 							,@RequestParam(required=false) String email
 							,Model model){
+		Restaurant restaurant = resRepository.findByResno(resno);
+		model.addAttribute("restaurant", restaurant);
 
 		if(email!=null){
 				
