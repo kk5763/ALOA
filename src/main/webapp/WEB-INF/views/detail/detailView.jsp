@@ -108,7 +108,7 @@ function openImageView(su) {
 				<div class="restaurant-title">
 					<div class="wannago-wrapper">
 						<button class="wannago-bt"></button>
-						<p class="wannago-txt">신고하기</p>
+						<p class="wannago-txt1">신고하기</p>
 					</div>
 					<h1 class="title">
 						<span class="name">${resDTO.restaurant.resname }</span> <span
@@ -266,10 +266,7 @@ function openImageView(su) {
 							</div>
 							<figcaption>${revDTO.accountList[status.index - 1].username }</figcaption>
 
-							<div class="reportRev-button">
-								<img src="/resources/images/min_image/report.PNG"
-									onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />
-							</div>
+							
 							</figure>
 
 							<p>
@@ -277,7 +274,14 @@ function openImageView(su) {
 							</p>
 						</div>
 						<p class="sub-info">
-							<time> <span class="past-time">${revDTO.reviewBoardList[status.index - 1].createdate }</span></time>
+							<time>
+								<span class="past-time">${revDTO.reviewBoardList[status.index - 1].createdate }</span>
+								
+							</time>
+							<span class="reportRev-button" >
+									<img src="/resources/images/min_image/report.PNG"
+										onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />
+							</span>
 						</p>
 						</section></li>
 				</ul>
@@ -351,7 +355,7 @@ function openImageView(su) {
                                        {
                                           content : '<div style="position:relative; margin:0 0; padding:0 0; border: 0px solid transparent; display: block; width: 330px; height: 135px;">'
                                                 + '<div style="position:absolute; padding: 15px; ">'
-                                                + '<img src="https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/47875_145576688554827.jpg?fit=around|105:105&amp;crop=105:105;*,*&amp;output-format=jpg&amp;output-quality=80">'
+                                                + '<img src="/resources/images/${resDTO.imagelist[0].image }.jpg" style="width:100px; height: 100px;">'
                                                 + '</div>'
                                                 + '<div style="position:absolute; margin-left:135px; margin-top:8px;">'
                                                 + '<span style="cursor: pointer; font-szie: 20px; font-weight: bold; ">${resDTO.restaurant.resname }</span>&nbsp;&nbsp;'

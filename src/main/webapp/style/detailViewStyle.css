@@ -76,7 +76,6 @@ body{
 .title{
 	padding-right:50px;
 	max-width:75%;
-	font-size:1.8rem;
 	line-height:46px;
 	overflow:hidden;
 	position:relative;
@@ -90,9 +89,12 @@ body{
 	margin-bottom:2px;
 	margin-top:3px;
 }
-.wannago-txt{
+.wannago-txt1{
 	font-color:#9b9b9b;
+<<<<<<< HEAD
+=======
 	font-size:0.9rem;
+>>>>>>> cccb0089e8e565dd502e8a357b43d2f4086f73cc
 	margin-top:12px;
 }
 
@@ -137,7 +139,6 @@ body{
 }
 .show{
 	width:105px;
-	font-size:0.9rem;
 	color:#9b9b9b;
 	line-height:20px;
 	text-align:left;
@@ -146,7 +147,6 @@ body{
 	padding-bottom:5px;
 }
 .content-detail td{
-	font-size:0.9rem;
 	color:#000000;
 	line-height:20px;
 	text-align:left;
@@ -154,7 +154,6 @@ body{
 	padding-bottom:5px;
 }
 .review-content{
-	font-size:0.95rem;
 	line-height:1.6rem;
 	color:#333;
 	margin:0;
@@ -174,8 +173,8 @@ body{
 	
 }
 .review-title{
+	font-size: 1.6rem;
 	color:#ff792a;
-	font-size:1.12rem;
 	line-height:1.2em;
 	text-align:left;
 	display:inline-block;
@@ -270,7 +269,7 @@ h1,h2,h3,h4,h5,h6,strong,th{
 	border-radius:30px;
 }
 .user figcaption{
-	font-size:0.8rem;
+	font-size:1.0rem;
 	color:#555;
 	line-height:1.2em;
 	font-weight:normal;

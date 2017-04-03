@@ -43,6 +43,10 @@ public interface ManagerDAO {
 
 	public ReportRevDTO reviewClaimDetail(String reviewNo);
 
+	public void reviewClaimRefuse(String reviewNo);
+
+	public void reviewClaimUnused(String reviewNo);
+
 
 	
 
