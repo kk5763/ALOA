@@ -124,6 +124,11 @@
 		begin 
 			delete from restaurant where resNo = #{resNo};
 			update reportRes set restatus = '처리(맛집제재)' where resNo = #{resNo};
+			update account set reportcount = reportcount + 1 where resNo = #{resNo};
+	
 		end;
 	</delete>
+	<update id = "reviewClaimRefuse" parameterType = "int">
+		update Reportrev set restatus = '처리(거절)' where reviewNo = #{reviewNo}
+	</update>
 </mapper>

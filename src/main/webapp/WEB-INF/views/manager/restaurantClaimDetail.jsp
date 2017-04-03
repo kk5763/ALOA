@@ -67,17 +67,17 @@
 		<col width="20%" />
 	</colgroup>
 	<tr>
-		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.reEmail}_image_1.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.reEmail}_image_2.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.reEmail}_image_3.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.reEmail}_image_4.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.reEmail}_image_5.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.deEmail}_image_1.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.deEmail}_image_2.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.deEmail}_image_3.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.deEmail}_image_4.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportResDTO.deEmail}_image_5.jpg"></td>
 	</tr>
 </table>
 
 <div>
-<input type="button" value="블랙">
-<input type="button" value="이용불가" onclick = "location.href='/manager/restaurantClaimUnused?resNo=${reportResDTO.resNo}'">
+
+<input type="button" value="승인" onclick = "location.href='/manager/restaurantClaimUnused?resNo=${reportResDTO.resNo}'">
 <input type="button" value="거절" onclick = "location.href='/manager/restaurantClaimRefuse?resNo=${reportResDTO.resNo}'">
 </div>
 </body>

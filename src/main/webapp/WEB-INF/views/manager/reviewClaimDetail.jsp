@@ -51,7 +51,7 @@
 						
 						<tr>
 							<th class="show">신고리뷰내용:</th>
-							<td><textarea rows="10" cols="50" resize="none" readonly>이 맛집은 쥰나 맛없습니다.
+							<td><textarea rows="10" cols="50" resize="none" readonly>
 						${reportRevDTO.reportContent }
 							</textarea></td>
 						</tr>
@@ -78,7 +78,7 @@
 <div>
 <input type="button" value="블랙">
 <input type="button" value="이용불가">
-<input type="button" value="거절">
+<input type="button" value="거절" onclick = "location.href='/manager/reviewClaimRefuse?reviewNo=${reportRevDTO.reviewNo}'">
 </div>
 </body>
 </html>
