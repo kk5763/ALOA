@@ -270,5 +270,11 @@ public class ManagerController {
 		
 		return new ModelAndView("redirect:/manager/restaurantClaim");
 	} 
-
+	
+	@RequestMapping(value = "/manager/reviewClaimUnused")
+	public ModelAndView reviewClaimUnused(@RequestParam String reviewNo){
+		managerDAO.reviewClaimUnused(reviewNo);
+		
+		return new ModelAndView("redirect:/manager/restaurantClaim");
+	} 
 }

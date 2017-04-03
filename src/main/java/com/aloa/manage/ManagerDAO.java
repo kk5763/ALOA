@@ -45,6 +45,8 @@ public interface ManagerDAO {
 
 	public void reviewClaimRefuse(String reviewNo);
 
+	public void reviewClaimUnused(String reviewNo);
+
 
 	
 

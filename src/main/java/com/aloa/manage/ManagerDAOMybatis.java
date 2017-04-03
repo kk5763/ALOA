@@ -142,8 +142,14 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		
 	}
 
+	@Override
+	public void reviewClaimUnused(String reviewNo) {
+		sqlSession.delete("managerMapper.reviewClaimUnused", Integer.parseInt(reviewNo));
+		
+	}
 
 
+	
 	
 
 	

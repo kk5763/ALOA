@@ -76,8 +76,8 @@
 </table>
 
 <div>
-<input type="button" value="블랙">
-<input type="button" value="이용불가">
+
+<input type="button" value="승인" onclick = "location.href='/manager/reviewClaimUnused?reviewNo=${reportRevDTO.reviewNo}'">
 <input type="button" value="거절" onclick = "location.href='/manager/reviewClaimRefuse?reviewNo=${reportRevDTO.reviewNo}'">
 </div>
 </body>
