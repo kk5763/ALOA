@@ -109,7 +109,7 @@ function openImageView(su) {
 				<div class="restaurant-title">
 					<div class="wannago-wrapper">
 						<button class="wannago-bt"></button>
-						<p class="wannago-txt">신고하기</p>
+						<p class="wannago-txt1">신고하기</p>
 					</div>
 					<h1 class="title">
 						<span class="name">${resDTO.restaurant.resname }</span> <span
@@ -246,10 +246,7 @@ function openImageView(su) {
 							</div>
 							<figcaption>${revDTO.accountList[status.index - 1].username }</figcaption>
 
-							<div class="reportRev-button">
-								<img src="/resources/images/min_image/report.PNG"
-									onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />
-							</div>
+							
 							</figure>
 
 							<p>
@@ -257,7 +254,14 @@ function openImageView(su) {
 							</p>
 						</div>
 						<p class="sub-info">
-							<time> <span class="past-time">${revDTO.reviewBoardList[status.index - 1].createdate }</span></time>
+							<time>
+								<span class="past-time">${revDTO.reviewBoardList[status.index - 1].createdate }</span>
+								
+							</time>
+							<span class="reportRev-button" >
+									<img src="/resources/images/min_image/report.PNG"
+										onclick="reportRev(${revDTO.reviewBoardList[status.index - 1].reviewno })" />
+							</span>
 						</p>
 						</section></li>
 				</ul>
