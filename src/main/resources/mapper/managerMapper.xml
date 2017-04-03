@@ -2,21 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="managerMapper">
 	<select id = "memberList" resultType = "com.aloa.manage.MemberDTO">
-		select * from account
+		select * from account where admin=0
 	</select>
-	<delete id = "memberRemove" parameterType = "String">
-		begin
-			delete imageboard where resNo = (select resNo from restaurant where bossEmail=#{email});
-			delete restaurant where bossEmail = #{email};
-			delete account where email = #{email};
-		end;
-	</delete>
+	<update id = "blacklistAdd" parameterType = "String">
+		update account set reportCount=3, status='블랙' where email=#{email}
+	</update>
 	<select	id = "sepcificMember" parameterType = "int" resultType = "com.aloa.manage.MemberDTO">
 		select * from account where id = #{id}
 	</select>
 	
 	<update id = "memberUpdate" parameterType = "com.aloa.manage.MemberDTO">
-			update account set reportcount = 3, status =?? where id = #{id};
+			update account set reportCount = 3, status =?? where id = #{id};
 	</update>
 	
 	<select id ="restaurantList" resultType="com.aloa.restaurant.Restaurant">
@@ -100,9 +96,12 @@
 	<delete id = "reviewRemove" parameterType = "int">
 		begin
 		delete from  reviewboard where reviewno = #{reviewno};
-		update reportrev set restatus = 'process' where reviewno = #{reviewno};
+		update reportrev set restatus = '처리' where reviewno = #{reviewno};
 		end;
 	</delete>
+	<select id = "reviewClaimDetail" parameterType = "int" resultType = "com.aloa.manage.ReportRevDTO">
+		select * from ReportRev where reviewNo = #{reviewNo}
+	</select>
 	
 	<select id = "resClaimList" resultType = "com.aloa.manage.ReportResDTO">
 	select a.reEmail, a.reportname, a.reportcontent, a.resno, b.resname, a.deemail, a.restatus 
@@ -111,5 +110,20 @@
 		
 		
 	</select>
-
+	<select id = "restaurantClaimDetail" parameterType = "int" resultType = "com.aloa.manage.ReportResDTO">
+		
+		select * from ReportRes where resNo = #{resNo}
+		<!-- select  reEmail, reportname, reportcontent, resno, deemail, restatus  from ReportRes  join imageboard using(resNo) where resno = #{resNo} -->
+	</select>
+	
+	<update id = "restaurantClaimRefuse" parameterType = "int">
+		update ReportRes set restatus = '처리(거절)' where resNo = #{resNo}
+	</update>
+	
+	<delete id = "restaurantClaimUnused" parameterType = "int">
+		begin 
+			delete from restaurant where resNo = #{resNo};
+			update reportRes set restatus = '처리(맛집제재)' where resNo = #{resNo};
+		end;
+	</delete>
 </mapper>

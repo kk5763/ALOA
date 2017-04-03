@@ -24,7 +24,7 @@ create table restaurant(
   resRest varchar(500) , 
   resHoliday varchar(200) ,
   request varchar(1000) , 
-  createDate date default sysdate,
+  createDate date default sysdate
 );모든 보고서/Data Modeler Reports
   
   create sequence seq_restaurant nocache nocycle;
@@ -35,7 +35,7 @@ create table reviewBoard(
     resNo number not null,
     content varchar(100),
     createDate date default sysdate,
-    grade number not null,
+    grade number not null
 );
  
 create sequence seq_reviewNo nocache nocycle;
@@ -48,7 +48,7 @@ create table ReportRev(
   resNo number ,
   reviewNo number ,
   deEmail varchar(50) ,
-  reStatus varchar(20) default 'unprocess',
+  reStatus varchar(20) default 'unprocess'
   );
   
 create table ReportRes(
@@ -57,19 +57,19 @@ create table ReportRes(
   reportContent varchar(1000) not null,
   resNo number not null,
   deEmail varchar(500) not null,
-  reStatus varchar(200) default 'unprocess',
+  reStatus varchar(200) default 'unprocess'
   
   );
   
   
   create table imageBoard(
                 image varchar(200),
-                resno number not null,
+                resno number not null
             );
               
 create table bookMark(
                 resNo number,
-                member varchar(50),
+                member varchar(50)
             
 );
 
@@ -106,6 +106,9 @@ drop table reservation purge;
 
 drop sequence seq_reviewno ;
 drop sequence  seq_restaurant;
+
+
+select * from account;
 
 
       commit;

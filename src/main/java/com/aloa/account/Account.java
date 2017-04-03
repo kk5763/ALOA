@@ -26,7 +26,6 @@ public class Account {
 	@NotBlank
 	private String username;
 	
-	@Temporal(TemporalType.TIMESTAMP)	
 	private Date joindate;
 	
 	private String status;

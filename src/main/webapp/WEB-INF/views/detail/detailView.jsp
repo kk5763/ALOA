@@ -81,20 +81,6 @@ window.onload = function(){
 	}
 }
 
-$(function() {
-	$(".review").slice(0, 2).show();
-	$(".reviews-more").on('click', function(e) {
-		e.preventDefault();
-		$(".review:hidden").slice(0, 2).slideDown();
-		if ($(".review:hidden").length == 0) {
-			$(".reviews-more").fadeOut('slow');
-		}
-		$('html,body').animate({
-			scrollTop : $(this).offset().top
-		}, 1500);
-	});
-}); 
-
 function openImageView(su) {
 	window.open("http://localhost:8000/detailViewImage?imageNo="+su+"&resNo=${resDTO.restaurant.resno }", "ImageView", "width=820 height=730 left=250 top=50");
 }
@@ -104,7 +90,7 @@ function openImageView(su) {
 <%@ include file="../include/top_menu.jsp" %>
 <!-- 상단영역 -->
 <header> </header>
-
+<c:set var="status" value="<sec:authentication property='principal.status'/>"/>
 <!-- 메인영역 -->
 <article class="main-scope"> <!-- 상단 이미지 -->
 <div class="image-slider-div">
@@ -180,14 +166,26 @@ function openImageView(su) {
 				<c:if test="${resDTO.restaurant.resno!=null }">
 					<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
 				</c:if>
-				<c:if test="${resDTO.restaurant.resno==null }">
+				<c:if test="${resDTO.restaurant.resno==null}">
 					<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
 				</c:if>
 			</div>
 			<!-- review-bt-wrap -->
-
+		
 			<div class="review-bt-wrap">
-				<a type="button" class="review-bt" data-toggle="modal" data-target="#ModalReserve">예약하기</a>
+				<sec:authorize access="isAnonymous()">
+					<a type="button" class="review-bt" id="reserve_alert">예약하기</a>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<c:choose>
+						<c:when test="${status == '블랙' }">
+							<a type="button" class="review-bt" id="reserve_black">예약하기</a>
+						</c:when>
+						<c:otherwise>
+							<a type="button" class="review-bt" data-toggle="modal" data-target="#ModalReserve">예약하기</a>
+						</c:otherwise>
+					</c:choose>
+				</sec:authorize>
 			</div>
 		</div>
 		<!-- review-bt-div -->
@@ -265,8 +263,6 @@ function openImageView(su) {
 				</ul>
 				</section>
 			</c:forEach>
-			<button class="reviews-more">더보기</button>
-
 		</div>
 	</div>
 
@@ -392,6 +388,18 @@ function openImageView(su) {
 <iframe name="temp" style="display:none;"></iframe>
 
 <%@ include file="../reserve/kkreserve.jsp" %>
+
+<script>
+	$(document).ready(function(){
+		$('#reserve_alert').click(function(){
+			alert("먼저 로그인해 주세요!");
+		})
+		$('#reserve_black').click(function(){
+			alert("제제된 사용자입니다. 관리자에게 문의하세요")
+		})
+	})
+</script>
+
 </body>
 
 </html>

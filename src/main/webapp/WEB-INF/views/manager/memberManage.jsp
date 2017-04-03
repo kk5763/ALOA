@@ -91,7 +91,7 @@
 	function restaurantAgreeDetail(){
 		var url = "/manager/restaurantAgreeDetail";
 		window.open(url ,"", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 
 	}
 	
@@ -112,7 +112,7 @@ function listRemove(){
 function memberUpdate(id){
 	var myForm = document.memberManage;
 	var url = "/manager/memberUpdateView";
-	window.open("", "viewer", "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no");
+	window.open("", "viewer", "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no");
 	myForm.action = url;
 	myForm.action =url; 
 	myForm.method="post";
@@ -138,7 +138,7 @@ function memberUpdate(id){
 			                    <span class="icon-bar"></span>
 			                    <span class="icon-bar"></span>
 			                </button>
-			                <a class="navbar-brand" href="/manager/index">관리자 페이지</a>
+			                <a class="navbar-brand" href="/">메인페이지 이동</a>
 			            </div>
 			            <!-- Top Menu Items -->
 			            <ul class="nav navbar-right top-nav">
@@ -291,7 +291,7 @@ function memberUpdate(id){
 			
 			        <div id="page-wrapper" style="background-color:rgb(34,34,34);">
 						
-						<form name ="memberManage" method = "post" action = "/manager/listRemove">
+						<form name ="memberManage" method = "post" action = "/manager/blacklistAdd">
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <input type = "hidden" name = "findId"/>
 <div class="container">
@@ -318,30 +318,23 @@ function memberUpdate(id){
 											</label>
 										</div>
 									</th>
-									<th style="width: 10%">
+									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="상태" disabled>
 									</th>
-									<th style="width: 15%">
+									<th style="width: 25%">
 										<input type="text" class="form-control" placeholder="회원이름" disabled>
 									</th>
-									<th style="width: 20%">
+									<th style="width: 30%">
 										<input type="text" class="form-control" placeholder="회원ID" disabled>
 									</th>
-									<th style="width: 20%">
+									<th style="width: 30%">
 										<input type="text" class="form-control" placeholder="연락처" disabled>
 									</th>
-									<th style="width: 25%">
-										<input type="text" class="form-control" placeholder="가입날짜" disabled>
-									</th>
-									<th style="width: 10%">
-										<input type="text" class="form-control" placeholder="권한" disabled>
-									</th>
 								
-									
-									
+														
 									</tr>
 								</table>
-								<div class="bg tablescroll">
+								<div class="bg tablescroll" style="height:400px;">
 									<table class="table table-bordered table-striped">
 										<c:if test = "${list!=null }">
 										<c:forEach var = "memberDTO" items="${list }">
@@ -354,12 +347,11 @@ function memberUpdate(id){
 													</label>
 												</div>
 											</th>
-											<td style="width: 10%">${memberDTO.status }</td>	
-											<td style="width: 15%"><span onclick = "memberUpdate(${memberDTO.id })" style="cursor:pointer; color:blue; font-weight:bold;">${memberDTO.username }</span></td>
-											<td style="width: 20%">${memberDTO.email }</td>
-											<td style="width: 20%">${memberDTO.tel }</td>
-											<td style="width: 25%">${memberDTO.joinDate }</td>
-											<td style="width: 10%">${memberDTO.emailauth }</td>
+											<td style="width: 15%;">${memberDTO.status }</td>	
+											<td style="width: 25%"><span onclick = "memberUpdate(${memberDTO.id })" style="cursor:pointer; color:blue; font-weight:bold;">${memberDTO.username }</span></td>
+											<td style="width: 30%">${memberDTO.email }</td>
+											<td style="width: 30%">${memberDTO.tel }</td>
+
 											
 										</tr>
 										</c:forEach>
@@ -374,7 +366,7 @@ function memberUpdate(id){
     
 </div><!-- 테이블 -->
 	 <div align = "right">
- 	<button id = "remove" value = "삭제" onclick = "listRemove()">삭제</button>
+ 	<button id = "remove" value = "삭제" onclick = "listRemove()">블랙리스트 등록</button>
  	</div>
 
 

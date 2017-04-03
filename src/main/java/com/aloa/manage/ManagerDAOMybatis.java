@@ -50,10 +50,10 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	}
 
 	@Override
-	public void memberRemove(String[] checkEmail) {
+	public void blacklistAdd(String[] checkEmail) {
 		for(int i = 0; i < checkEmail.length; i++){
 			
-			sqlSession.delete("managerMapper.memberRemove",checkEmail[i]);
+			sqlSession.update("managerMapper.blacklistAdd",checkEmail[i]);
 		}
 	}
 	
@@ -107,6 +107,32 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		List<ReportResDTO> list = sqlSession.selectList("managerMapper.resClaimList");
 	
 		return list;
+	}
+
+	@Override
+	public ReportResDTO restaurantClaimDetail(String resNo) {
+		ReportResDTO reportResDTO = sqlSession.selectOne("managerMapper.restaurantClaimDetail",Integer.parseInt(resNo));
+		System.out.println(reportResDTO.getResNo());
+		return reportResDTO;
+	}
+
+	@Override
+	public void restaurantClaimRefuse(String resNo) {
+		sqlSession.update("managerMapper.restaurantClaimRefuse", Integer.parseInt(resNo));
+		
+	}
+
+	@Override
+	public void restaurantClaimUnused(String resNo) {
+		sqlSession.delete("managerMapper.restaurantClaimUnused", Integer.parseInt(resNo));
+		
+	}
+
+	@Override
+	public ReportRevDTO reviewClaimDetail(String reviewNo) {
+		ReportRevDTO reportRevDTO = sqlSession.selectOne("managerMapper.reviewClaimDetail", Integer.parseInt(reviewNo));
+		
+		return reportRevDTO;
 	}
 
 

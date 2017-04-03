@@ -13,7 +13,7 @@ public interface ManagerDAO {
 
 	public List<MemberDTO> memberBlackList();
 
-	public void memberRemove(String[] checkEmail);
+	public void blacklistAdd(String[] checkEmail);
 	
 	public MemberDTO sepcificMember(String findId);
 	
@@ -34,6 +34,14 @@ public interface ManagerDAO {
 	public void reviewRemove(String[] checkNo);
 
 	public List<ReportResDTO> resClaimList();
+
+	public ReportResDTO restaurantClaimDetail(String resNo);
+
+	public void restaurantClaimRefuse(String resNo);
+
+	public void restaurantClaimUnused(String resNo);
+
+	public ReportRevDTO reviewClaimDetail(String reviewNo);
 
 
 	
