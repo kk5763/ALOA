@@ -69,9 +69,9 @@ function cancle(){
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<input type="hidden" id="grade-score" name="grade" value="0">
 			
-			<div id="name">파씨오네에 대한 리뷰를 작성해주세요 !</div>
+			<div id="name">${restaurant.resname}에 대한 리뷰를 작성해주세요 !</div>
 			<div id="grade">
-				<div id="grade_text">파씨오네를 다녀온 당신의 점수는 ?</div>
+				<div id="grade_text">${restaurant.resname}를 다녀온 당신의 점수는 ?</div>
 				<div id="grade_img">
 					<div id="good" onclick="clickImg(1)"></div>
 					<div id="soso" onclick="clickImg(2)"></div>
