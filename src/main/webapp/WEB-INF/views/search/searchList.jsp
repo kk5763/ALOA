@@ -31,11 +31,18 @@
 <%@ include file="../include/top_menu.jsp" %>
 	<!-- 상단 -->
 	<header>
-		
+		<form class="container text-center" id="searchbar" method="get" action="http://localhost:8000/searchList">
+		    <div class="input-group">
+		        <input type="text" class="form-control input-lg" placeholder="search" id="search_record" name="searchName">   
+		        <div class="input-group-btn">
+		            <button type="submit" class="btn btn-lg btn-danger">검색</button>
+		        </div>
+		    </div>
+		</form>
 	</header>
 	
 	<!-- 본문 -->
-	<section class="main_section">
+	<section class="main_section" >
 		<div class="subject_filter">
 			<h2>${searchName } 맛집 인기 검색순위</h2>
 		</div>
