@@ -8,6 +8,7 @@ public class ReportResDTO {
 	private String resname;
 	private String deEmail;
 	private String reStatus;
+	//private String image;
 
 	public String getReEmail() {
 		return reEmail;
@@ -65,5 +66,10 @@ public class ReportResDTO {
 	public void setReStatus(String reStatus) {
 		this.reStatus = reStatus;
 	}
-
+/*	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}*/
 }

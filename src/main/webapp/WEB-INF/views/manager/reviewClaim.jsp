@@ -83,8 +83,8 @@ $(document).ready(function(){
 	});
 });
 
-function reviewRemove(){
-	document.reviewClaim.submit();
+function reviewClaimDetail(reviewNo){
+	location.href = "/manager/reviewClaimDetail?reviewNo="+reviewNo;
 }
 
 </script>
@@ -124,6 +124,9 @@ function reviewRemove(){
 										<input type="text" class="form-control" placeholder="신고제목" disabled>
 									</th>
 									<th style="width: 15%">
+										<input type="text" class="form-control" placeholder="신고내용" disabled>
+									</th>
+									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="리뷰넘버" disabled>
 									<th style="width: 35%">
 										<input type="text" class="form-control" placeholder="피신고인" disabled>
@@ -152,7 +155,8 @@ function reviewRemove(){
 												</div>
 											</th>
 											<td style="width: 10%">${reportRevDTO.reEmail }</td>	
-											<td style="width: 15%">${reportRevDTO.reportName }</td>
+											<td style="width: 15%"><span onclick = "reviewClaimDetail(${reportResDTO.reviewNo })" style = "cursor:pointer; color:blue; font-weight:bold;">${reportRevDTO.reportName }</span></td>
+											<td style="width: 15%">${reportRevDTO.reportContent }</td>
 											<td style="width: 15%">${reportRevDTO.reviewNo }</td>
 											<td style="width: 35%">${reportRevDTO.deEmail }</td>
 											<td style="width: 15%">${reportRevDTO.reStatus }</td>
@@ -170,8 +174,8 @@ function reviewRemove(){
     
 </div><!-- 테이블 -->
 	<div align = "right">
- 	<button id = "remove" value = "삭제" onclick = "reviewRemove()">삭제</button>
- 	</div>
+ 	<!-- <button id = "remove" value = "삭제" onclick = "reviewRemove()">삭제</button>
+ --> 	</div>
 	<nav>
   <ul class="pagination">
     <li>

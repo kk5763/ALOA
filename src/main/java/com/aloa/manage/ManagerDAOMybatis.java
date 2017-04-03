@@ -109,6 +109,25 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		return list;
 	}
 
+	@Override
+	public ReportResDTO restaurantClaimDetail(String resNo) {
+		ReportResDTO reportResDTO = sqlSession.selectOne("managerMapper.restaurantClaimDetail",Integer.parseInt(resNo));
+		System.out.println(reportResDTO.getResNo());
+		return reportResDTO;
+	}
+
+	@Override
+	public void restaurantClaimRefuse(String resNo) {
+		sqlSession.update("managerMapper.restaurantClaimRefuse", Integer.parseInt(resNo));
+		
+	}
+
+	@Override
+	public void restaurantClaimUnused(String resNo) {
+		sqlSession.delete("managerMapper.restaurantClaimUnused", Integer.parseInt(resNo));
+		
+	}
+
 
 
 	
