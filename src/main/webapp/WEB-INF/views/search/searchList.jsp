@@ -28,7 +28,7 @@
 	
 	<script type="text/javascript">
 		function openFilter() {
-			window.open("http://localhost:8000/searchFilter", "filter", "width=830 height=750 left=300 menubar=yes location=no");
+			window.open("http://localhost:8000/searchFilter?searchName=${searchName }", "filter", "width=830 height=750 left=300 menubar=yes location=no");
 		}
 	</script>
 	

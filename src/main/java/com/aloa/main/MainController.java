@@ -3,6 +3,7 @@ package com.aloa.main;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -47,29 +48,25 @@ public class MainController {
 		this.cr = cr;
 	}
 
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String home(Model model, HttpSession session){
-		
-		/*if(cr.findPrimaryConnection(Facebook.class)!=null){
-			String[] fields={"id","name","birthday","email","gender"};
-			User user = facebook.fetchObject("me", User.class,fields);  //me 는 로그인한 사용자의 정보. me/friends 하면 친구정보가 나옴
-			String name = user.getName();
-			String id = user.getId();
-			String birthday = user.getBirthday();
-			String email = user.getEmail();
-			String gender = user.getGender();
-	  		
-			
-			model.addAttribute("name", name);
-			model.addAttribute("id", id);
-			model.addAttribute("birthday", birthday);
-			model.addAttribute("email", email);
-			model.addAttribute("gender", gender);
-			
-			
-			session.setAttribute("username", name);
-		}*/
-		
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Model model, HttpSession session) {
+
+		/*
+		 * if(cr.findPrimaryConnection(Facebook.class)!=null){ String[]
+		 * fields={"id","name","birthday","email","gender"}; User user =
+		 * facebook.fetchObject("me", User.class,fields); //me 는 로그인한 사용자의 정보.
+		 * me/friends 하면 친구정보가 나옴 String name = user.getName(); String id =
+		 * user.getId(); String birthday = user.getBirthday(); String email =
+		 * user.getEmail(); String gender = user.getGender();
+		 * 
+		 * 
+		 * model.addAttribute("name", name); model.addAttribute("id", id);
+		 * model.addAttribute("birthday", birthday); model.addAttribute("email",
+		 * email); model.addAttribute("gender", gender);
+		 * 
+		 * 
+		 * session.setAttribute("username", name); }
+		 */
 
 		List<Restaurant> restaurantlist = resService.findList();
 		List<RestaurantDTO> reslist = new ArrayList<RestaurantDTO>();
@@ -85,8 +82,8 @@ public class MainController {
 
 			reslist.add(res);
 		}
-		model.addAttribute("reslist",reslist);
-		
+		model.addAttribute("reslist", reslist);
+
 		return "main/home";
 	}
 
@@ -96,33 +93,33 @@ public class MainController {
 		List<Restaurant> resSearchList = resService.findSearchList(searchName);
 		// 식당의 정보와 리뷰 이미지를 세트로 묶을 List 생성
 		List<RestaurantDTO> resList = new ArrayList<RestaurantDTO>();
-		
+
 		for (int i = 0; i < resSearchList.size(); i++) { // 가져온 식당의 수 만큼 반복
 			// 가져온 식당의 번호를 이용해 모든 이미지를 가져옴
 			List<Imageboard> image = revService.imagelist(resSearchList.get(i).getResno());
 			// 가져온 식당의 번호를 이용해 모든 리뷰를 가져옴
 			List<Reviewboard> review = revService.reviewList(resSearchList.get(i).getResno());
-			
+
 			// 리뷰 개수
 			List<Integer> resReviewCount = new ArrayList<Integer>();
-			if(review.size() <= 0)
+			if (review.size() <= 0)
 				resReviewCount.add(0);
-			else 
+			else
 				resReviewCount.add(review.size());
-			
+
 			// 식당 평점
 			List<Double> resGrade = new ArrayList<Double>();
 			int sum = 0;
-			for(int j = 0; j < review.size(); j++) {
+			for (int j = 0; j < review.size(); j++) {
 				sum += review.get(j).getGrade();
 			}
 			double avg = 0;
-			if(sum == 0)
+			if (sum == 0)
 				avg = 0;
-			else 
-				avg = (double)sum / review.size();
+			else
+				avg = (double) sum / review.size();
 			resGrade.add(avg);
-			
+
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();
 			// 가져온 0~n번째 식당의 정보와 이미지를 저장
@@ -137,16 +134,9 @@ public class MainController {
 
 		model.addAttribute("searchName", searchName);
 		model.addAttribute("resList", resList);
-		
+
 		return "search/searchList";
 	}// searchList
-
-	@RequestMapping(value = "/searchFilter", method = RequestMethod.GET)
-	public String searchFilter() {
-		
-		
-		return "search/searchFilter";
-	}
 
 	@RequestMapping(value = "/storejoinForm", method = RequestMethod.GET)
 	public ModelAndView storejoinForm() {
@@ -155,25 +145,5 @@ public class MainController {
 		mav.setViewName("main/storejoinForm");
 		return mav;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
