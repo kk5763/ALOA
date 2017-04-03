@@ -128,6 +128,13 @@ public class ManagerDAOMybatis implements ManagerDAO {
 		
 	}
 
+	@Override
+	public ReportRevDTO reviewClaimDetail(String reviewNo) {
+		ReportRevDTO reportRevDTO = sqlSession.selectOne("managerMapper.reviewClaimDetail", Integer.parseInt(reviewNo));
+		
+		return reportRevDTO;
+	}
+
 
 
 	

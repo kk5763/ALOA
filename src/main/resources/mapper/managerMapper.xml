@@ -103,6 +103,9 @@
 		update reportrev set restatus = '처리' where reviewno = #{reviewno};
 		end;
 	</delete>
+	<select id = "reviewClaimDetail" parameterType = "int" resultType = "com.aloa.manage.ReportRevDTO">
+		select * from ReportRev where reviewNo = #{reviewNo}
+	</select>
 	
 	<select id = "resClaimList" resultType = "com.aloa.manage.ReportResDTO">
 	select a.reEmail, a.reportname, a.reportcontent, a.resno, b.resname, a.deemail, a.restatus 

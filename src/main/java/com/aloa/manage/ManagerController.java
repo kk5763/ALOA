@@ -199,6 +199,7 @@ public class ManagerController {
 		if(managerDAO.revClaimList() != null){
 			list = managerDAO.revClaimList();
 		}
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("manager/reviewClaim");
@@ -206,10 +207,11 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value = "/manager/reviewClaimDetail", method = RequestMethod.GET)
-	public ModelAndView reviewClaimDetail(/*@RequestParam String reviewNo*/){
-		//System.out.println("리뷰넘버 = "+ reviewNo);
+	public ModelAndView reviewClaimDetail(@RequestParam String reviewNo){
+		ReportRevDTO reportRevDTO = managerDAO.reviewClaimDetail(reviewNo);
 		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("reportRevDTO", reportRevDTO);
 		mav.setViewName("manager/reviewClaimDetail");
 		return mav;
 	}
