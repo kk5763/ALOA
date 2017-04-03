@@ -137,7 +137,7 @@
 			                    <span class="icon-bar"></span>
 			                    <span class="icon-bar"></span>
 			                </button>
-			                <a class="navbar-brand" href="/manager/index">관리자 페이지</a>
+			                <a class="navbar-brand" href="/">메인페이지 이동</a>
 			            </div>
 			            <!-- Top Menu Items -->
 			            <ul class="nav navbar-right top-nav">
@@ -275,10 +275,10 @@
 			                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i> 신고 <i class="fa fa-fw fa-caret-down"></i></a>
 			                        <ul id="demo2" class="collapse">
 			                            <li>
-			                                <a href="#">리뷰 신고</a>
+			                                <a href="/manager/reviewClaim">리뷰 신고</a>
 			                            </li>
 			                            <li>
-			                                <a href="#">맛집 신고</a>
+			                                <a href="/manager/restaurantClaim">맛집 신고</a>
 			                            </li>
 			                        </ul>
 			                    </li>
