@@ -19,6 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.aloa.restaurant.Restaurant;
+import com.aloa.restaurant.RestaurantRepository;
+
 @Controller
 public class ReviewController {
 	@Autowired
@@ -27,9 +30,13 @@ public class ReviewController {
 	@Autowired
 	private ReviewRepository repository;
 	
+	@Autowired
+	private RestaurantRepository resRepository;
+	
 	
 	@RequestMapping(value = "/reviewWriteForm", method = RequestMethod.GET)
-	public String reviewWriteForm(@RequestParam int resno,Model model,String email) {
+	public String reviewWriteForm(@RequestParam int resno,Model model,@RequestParam String email) {
+		Restaurant restaurant = resRepository.findByResno(resno);
 		List<Reviewboard> reviewList = reviewService.reviewList(resno);
 		int checking =0;
 		
@@ -44,16 +51,19 @@ public class ReviewController {
 			model.addAttribute("check",0);
 		}
 		model.addAttribute("resno",resno);
+		model.addAttribute("restaurant", restaurant);
 		
 		return "review/reviewWriteForm";
 	}
 	
 	@RequestMapping(value = "/reviewWrite", method = RequestMethod.POST)
-	public String reviewWrite(int resno
+	public String reviewWrite(@RequestParam int resno
 							,@RequestParam String content
 							,@RequestParam int grade
 							,@RequestParam(required=false) String email
 							,Model model){
+		Restaurant restaurant = resRepository.findByResno(resno);
+		model.addAttribute("restaurant", restaurant);
 
 		if(email!=null){
 				
@@ -62,15 +72,13 @@ public class ReviewController {
 				dto.setEmail(email);
 				dto.setGrade(grade);
 				dto.setResno(resno);
-				
 				reviewService.reviewWrite(dto);
-				
 			
 			
 		}
 		
 		
 		
-		return "redirect:/reviewWriteForm";
+		return "redirect:/";
 	}
 }
