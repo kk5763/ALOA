@@ -223,7 +223,13 @@ public class ManagerController {
 			managerDAO.reviewRemove(checkNo);
 			return new ModelAndView("redirect:/manager/reviewClaim");
 		}
-	
+	@RequestMapping(value = "/manager/reviewClaimRefuse")
+	public ModelAndView reviewClaimRefuse(@RequestParam String reviewNo){
+		managerDAO.reviewClaimRefuse(reviewNo);
+		System.out.println("컨트롤러 " + reviewNo);
+		return new ModelAndView("redirect:/manager/reviewClaim");
+	}	
+
 	//맛집신고 완료( 확인부탁요)
 	@RequestMapping(value = "/manager/restaurantClaim", method = RequestMethod.GET)
 	public ModelAndView restaurantClaim() {
@@ -264,5 +270,11 @@ public class ManagerController {
 		
 		return new ModelAndView("redirect:/manager/restaurantClaim");
 	} 
-
+	
+	@RequestMapping(value = "/manager/reviewClaimUnused")
+	public ModelAndView reviewClaimUnused(@RequestParam String reviewNo){
+		managerDAO.reviewClaimUnused(reviewNo);
+		
+		return new ModelAndView("redirect:/manager/restaurantClaim");
+	} 
 }

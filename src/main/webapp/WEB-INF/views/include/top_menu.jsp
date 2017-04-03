@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <sec:authorize access="isAnonymous()">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -55,7 +56,11 @@
         </div>
 
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">	
+            	<sec:authentication property="principal.email" var="userEmail"/>
+				<c:if test="${userEmail eq 'itbank@naver.com'}">
+            		<li><a data-toggle="modal" style="cursor: pointer;" onclick="location.href='/manager/index'">Admin</a></li>
+            	</c:if>
             	<li><a data-toggle="modal" data-target="#ModalSignUp" style="cursor: pointer;" onclick="openStorejoinForm()">입점신청</a></li>
             	<li><a href="/accounts/reservation" style="cursor: pointer;">예약정보</a></li>
             	<li><a href="/accounts/message" style="cursor: pointer;">메세지<span class="badge" style="background-color:tomato;">2</span></a></li>

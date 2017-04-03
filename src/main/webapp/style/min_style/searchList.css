@@ -5,6 +5,7 @@ body{
 }
 
 .main_section{
+	margin-top:20px;
 	float: left;
 	width:800px;
 	margin-left:24%;
