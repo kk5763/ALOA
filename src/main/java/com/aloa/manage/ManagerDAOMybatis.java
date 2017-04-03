@@ -50,10 +50,10 @@ public class ManagerDAOMybatis implements ManagerDAO {
 	}
 
 	@Override
-	public void memberRemove(String[] checkEmail) {
+	public void blacklistAdd(String[] checkEmail) {
 		for(int i = 0; i < checkEmail.length; i++){
 			
-			sqlSession.delete("managerMapper.memberRemove",checkEmail[i]);
+			sqlSession.update("managerMapper.blacklistAdd",checkEmail[i]);
 		}
 	}
 	

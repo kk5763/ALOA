@@ -41,14 +41,14 @@ public class ManagerController {
 		return mav;
 	}
 	//회원관리-삭제
-	@RequestMapping(value = "/manager/listRemove", method = RequestMethod.POST)
+	@RequestMapping(value = "/manager/blacklistAdd", method = RequestMethod.POST)
 	public ModelAndView listRemove(@RequestParam String[] checkEmail){
 		
 		for(int i=0; i<checkEmail.length; i++){
 			System.out.println(checkEmail[i]);
 		}
 		
-		managerDAO.memberRemove(checkEmail);
+		managerDAO.blacklistAdd(checkEmail);
 		
 		return new ModelAndView("redirect:/manager/memberManage");
 	}

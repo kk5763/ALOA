@@ -45,7 +45,10 @@ function complete(){
 		alert('아이디 체크를 하세요');
 	}
 	else if(check=='y'){
-		storejoin.submit();
+		window.opener.name = "parentPage"; // 부모창의 이름 설정
+	    document.storejoin.target = "parentPage"; // 타켓을 부모창으로 설정
+	    storejoin.submit();
+	    self.close();
 	}
 }
 
