@@ -314,10 +314,7 @@
 									<th style="width: 15%">
 										<input type="text" class="form-control" placeholder="처리상태" disabled>
 									</th>
-									<th style="width: 9%">
-										<input type="text" class="form-control" placeholder="비고" disabled>
-									</th>
-								
+									
 									
 			
 									</tr>
@@ -342,7 +339,7 @@
 											<td style="width: 15%">${reportResDTO.resname }</td>
 											<td style="width: 15%">${reportResDTO.deEmail }</td>
 											<td style="width: 15%">${reportResDTO.reStatus }</td>
-											<td style="width: 9%"><input type="button" value="삭제"></td>
+											
 										</tr>
 									</c:forEach>
 									</c:if>
