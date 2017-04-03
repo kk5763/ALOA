@@ -198,7 +198,7 @@ $(document).ready(function(e){
     var keywords = [
         "홍대", "강남", "이태원", "신촌", "이대", "건대", "Blackberry",
         "홍대입구", "강남 파스타", "강남 레스토랑", "홍대 돈가스", "Currant",
-        "Cherry", "Cherimoya", "Cloudberry", "Coconut", "Cranberry", "Cucumber",
+        "서울", "서울시 강남", "서울시 종로", "서울시", "Cranberry", "Cucumber",
         "Damson", "Date", "Dragonfruit", "Durian", "Eggplant", "Elderberry",
         "Feijoa", "Fig", "Goji berry", "Gooseberry", "Grape", "Grapefruit",
         "Guava", "Huckleberry", "Honeydew", "Jackfruit", "Jambul", "Jujube",

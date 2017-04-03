@@ -66,7 +66,7 @@ public class RestaurantController {
 			avg = 0;
 		else 
 			avg = (double)sum / reviewList.size();
-		
+		avg = Math.round(avg*10)/10.0;
 		List<Integer> reviewCount = new ArrayList<Integer>();
 		reviewCount.add(grade_5);
 		reviewCount.add(grade_3);

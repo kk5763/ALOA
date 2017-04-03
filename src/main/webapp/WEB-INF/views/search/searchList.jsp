@@ -26,12 +26,6 @@
     
 	<link rel="stylesheet" href="/style/min_style/searchList.css" />
 	
-	<script type="text/javascript">
-		function openFilter() {
-			window.open("http://localhost:8000/searchFilter?searchName=${searchName }", "filter", "width=830 height=750 left=300 menubar=yes location=no");
-		}
-	</script>
-	
 </head>
 <body>
 <%@ include file="../include/top_menu.jsp" %>
@@ -44,11 +38,6 @@
 	<section class="main_section">
 		<div class="subject_filter">
 			<h2>${searchName } 맛집 인기 검색순위</h2>
-			
-			<span class="filter" onclick="openFilter()">
-				<img src="/resources/images/min_image/filter.PNG"/>
-				<span>필터</span>
-			</span>
 		</div>
 		
 		<div class="content">
