@@ -435,7 +435,10 @@ h1,h2,h3,h4,h5,h6,strong,th{
 	white-space:nowrap;
 }
 @media screen and (max-width: 1330px) {
-	.side-wrap {opacity:0; } 
+	.side-wrap {opacity:0; 
+		-webkit-opacity:0;
+	} 
+	
 }
 
 .side-wrap{
