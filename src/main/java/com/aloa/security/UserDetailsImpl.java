@@ -53,7 +53,6 @@ public class UserDetailsImpl extends User{
 	private static Collection<? extends GrantedAuthority> authorities(Account account) {
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-		System.out.println(account.getAdmin());
 		if(account.getAdmin()==1){
 			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		}

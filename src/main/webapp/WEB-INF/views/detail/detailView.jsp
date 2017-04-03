@@ -88,8 +88,7 @@ function openImageView(su) {
 </head>
 <body>
 <%@ include file="../include/top_menu.jsp" %>
-<!-- 상단영역 -->
-<header> </header>
+
 <c:set var="status" value="<sec:authentication property='principal.status'/>"/>
 <!-- 메인영역 -->
 <article class="main-scope"> <!-- 상단 이미지 -->
@@ -119,8 +118,21 @@ function openImageView(su) {
 
 				</div>
 				<div class="reportRes-button">
-					<img src="/resources/images/min_image/report.PNG"
-						onclick="reportRes()" />
+						<sec:authorize access="isAnonymous()">
+							<img src="/resources/images/min_image/report.PNG"
+								onclick="reportRes()" />
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<c:choose>
+								<c:when test="${status != '블랙' }">
+									<img src="/resources/images/min_image/report.PNG"
+								onclick="reportRes()" />
+								</c:when>
+								<c:otherwise>
+									
+								</c:otherwise>
+							</c:choose>
+						</sec:authorize>
 				</div>
 			</div>
 			<table class="content-detail">
@@ -163,12 +175,20 @@ function openImageView(su) {
 		</div>
 		<div class="review-bt-div">
 			<div class="review-bt-wrap">
-				<c:if test="${resDTO.restaurant.resno!=null }">
+				<sec:authorize access="isAnonymous()">
 					<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
-				</c:if>
-				<c:if test="${resDTO.restaurant.resno==null}">
-					<a href="#" class="review-bt" onclick="reviewWrite(0)">리뷰작성</a>
-				</c:if>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<c:choose>
+						<c:when test="${status != '블랙' }">
+							<a href="#" class="review-bt" onclick="reviewWrite()">리뷰작성</a>
+						</c:when>
+						<c:otherwise>
+							<a type="button" class="review-bt" data-toggle="modal" data-target="#ModalReserve">리뷰작성</a>
+						</c:otherwise>
+					</c:choose>
+				</sec:authorize>				
+				
 			</div>
 			<!-- review-bt-wrap -->
 		
@@ -178,7 +198,7 @@ function openImageView(su) {
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<c:choose>
-						<c:when test="${status == '블랙' }">
+						<c:when test="${status != '블랙' }">
 							<a type="button" class="review-bt" id="reserve_black">예약하기</a>
 						</c:when>
 						<c:otherwise>
