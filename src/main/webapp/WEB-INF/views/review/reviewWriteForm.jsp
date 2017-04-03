@@ -50,6 +50,7 @@ function checkReviewWrite(){
 			document.reviewWriteForm.target="temp";
 			document.reviewWriteForm.submit();
 			alert("리뷰가 등록되었습니다.");
+			opener.parent.location.reload();
 			window.close();
 		}
 	

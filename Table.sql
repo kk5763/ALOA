@@ -25,7 +25,6 @@ create table restaurant(
   resHoliday varchar(200) ,
   request varchar(1000) , 
   createDate date default sysdate,
-  CONSTRAINT reference_id foreign key(bossEmail) references account(email)
 );모든 보고서/Data Modeler Reports
   
   create sequence seq_restaurant nocache nocycle;
@@ -37,8 +36,6 @@ create table reviewBoard(
     content varchar(100),
     createDate date default sysdate,
     grade number not null,
-    constraint reference_resNo foreign key(resNo) references restaurant(resNo),
-    constraint reference_id2 foreign key(email) references account(email)
 );
  
 create sequence seq_reviewNo nocache nocycle;
@@ -52,10 +49,7 @@ create table ReportRev(
   reviewNo number ,
   deEmail varchar(50) ,
   reStatus varchar(20) default 'unprocess',
-  constraint reference_reviewNo foreign key(reviewNo) references reviewboard(reviewNo),
-  CONSTRAINT reference_reId foreign key(reEmail) references account(email),
-  CONSTRAINT reference_deId foreign key(deEmail) references account(email)
- );
+  );
   
 create table ReportRes(
   reEmail varchar(500) not null,
@@ -65,21 +59,18 @@ create table ReportRes(
   deEmail varchar(500) not null,
   reStatus varchar(200) default 'unprocess',
   
-  constraint reference_reviewNo2 foreign key(resNo) references restaurant(resNo),
-  CONSTRAINT reference_reId1 foreign key(reEmail) references account(email),
-  CONSTRAINT reference_deId1 foreign key(deEmail) references account(email)
   );
   
   
   create table imageBoard(
                 image varchar(200),
                 resno number not null,
-                constraint reference_resno1 foreign key(resno) references Restaurant(resno));
+            );
               
 create table bookMark(
                 resNo number,
                 member varchar(50),
-                constraint reference_member foreign key(member) references account(email)
+            
 );
 
 

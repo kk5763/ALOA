@@ -27,6 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf();
+		
+		
 		http
 		.authorizeRequests()   
 			.antMatchers(HttpMethod.GET, "/accounts/**").hasRole("USER")
@@ -34,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers(HttpMethod.PATCH, "/accounts/**").hasRole("USER")
 			.antMatchers(HttpMethod.DELETE, "/accounts/**").hasRole("USER") 
 			/*.antMatchers("/manager/**").hasRole("ADMIN")
-			*/.antMatchers("/**").permitAll()
+			*/
 			.and()
 		.formLogin()
 			.loginPage("/login").permitAll() 

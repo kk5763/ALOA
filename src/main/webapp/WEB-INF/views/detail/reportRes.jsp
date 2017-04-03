@@ -46,6 +46,7 @@
 				alert("내용을 입력하세요");
 			}else {
 				alert("신고가 정상적으로 접수되었습니다.");
+				document.reportRes.target="temp";
 				document.reportRes.submit();
 				window.close();
 			}
