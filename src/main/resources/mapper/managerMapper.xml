@@ -135,10 +135,11 @@
 	
 	<delete id = "reviewClaimUnused" parameterType = "int">
 		begin 
-			
+			update account set reportcount = reportcount + 1 where email = (select deemail from reportRev where reviewNo = #{reviewNo});
+			update reportRev set restatus = '처리(리뷰제재)' where reviewNo = #{reviewNo};
 			delete from reviewboard where reviewNo = #{reviewNo};
-			update reportRev set restatus = '처리(맛집제재)' where reviewNo = #{reviewNo};
-			update account set reportcount = reportcount + 1 where reviewNo = #{reviewNo};
+			
+			
 	
 		end;
 	</delete>
