@@ -91,7 +91,7 @@
 	function restaurantAgreeDetail(){
 		var url = "/manager/restaurantAgreeDetail";
 		window.open(url ,"", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 
 	}
 	
@@ -119,7 +119,7 @@
 			                    <span class="icon-bar"></span>
 			                    <span class="icon-bar"></span>
 			                </button>
-			                <a class="navbar-brand" href="/manager/index">관리자 페이지</a>
+			                <a class="navbar-brand" href="/">메인페이지 이동</a>
 			            </div>
 			            <!-- Top Menu Items -->
 			            <ul class="nav navbar-right top-nav">
@@ -315,7 +315,7 @@
 			
 									</tr>
 								</table>
-								<div class="bg tablescroll">
+								<div class="bg tablescroll" style="height:400px;">
 									<table class="table table-bordered table-striped">
 										<c:if test = "${list!=null }">
 										<c:forEach var = "memberDTO" items = "${list }">

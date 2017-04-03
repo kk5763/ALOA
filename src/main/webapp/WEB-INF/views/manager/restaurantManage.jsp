@@ -93,7 +93,7 @@
 	
 		var url = "/manager/restaurantUpdateView";
 		window.open("" ,"viewer", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 		myForm.action =url; 
 		myForm.method="post";
 		myForm.target="viewer";
@@ -107,7 +107,7 @@
 	function restaurantAgreeDetail(){
 		var url = "/manager/restaurantAgreeDetail";
 		window.open(url ,"", 
-		      "toolbar=no, width=840, height=667,  scrollorbars=no, resizable=no"); 
+		      "toolbar=no, width=1140, height=810,  scrollorbars=no, resizable=no"); 
 
 	}
 	
@@ -137,7 +137,7 @@
 			                    <span class="icon-bar"></span>
 			                    <span class="icon-bar"></span>
 			                </button>
-			                <a class="navbar-brand" href="/manager/index">관리자 페이지</a>
+			                <a class="navbar-brand" href="/">메인페이지 이동</a>
 			            </div>
 			            <!-- Top Menu Items -->
 			            <ul class="nav navbar-right top-nav">
@@ -275,10 +275,10 @@
 			                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i> 신고 <i class="fa fa-fw fa-caret-down"></i></a>
 			                        <ul id="demo2" class="collapse">
 			                            <li>
-			                                <a href="#">리뷰 신고</a>
+			                                <a href="/manager/reviewClaim">리뷰 신고</a>
 			                            </li>
 			                            <li>
-			                                <a href="#">맛집 신고</a>
+			                                <a href="/manager/restaurantClaim">맛집 신고</a>
 			                            </li>
 			                        </ul>
 			                    </li>
@@ -305,7 +305,7 @@
 												<button type="button" class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> 검색</button>
 											</div>
 										</div>
-										<table class="span12">
+										<table class="span12" >
 											<table>
 												<tr class="filters">
 												<th style= "width:1%;">
@@ -338,7 +338,7 @@
 						
 												</tr>
 											</table>
-											<div class="bg tablescroll">
+											<div class="bg tablescroll" style="height:400px;">
 												<table class="table table-bordered table-striped">
 													<c:if test="${list!=null }">
 														<c:forEach var="restaurant" items="${list }">

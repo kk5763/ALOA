@@ -41,14 +41,14 @@ public class ManagerController {
 		return mav;
 	}
 	//회원관리-삭제
-	@RequestMapping(value = "/manager/listRemove", method = RequestMethod.POST)
+	@RequestMapping(value = "/manager/blacklistAdd", method = RequestMethod.POST)
 	public ModelAndView listRemove(@RequestParam String[] checkEmail){
 		
 		for(int i=0; i<checkEmail.length; i++){
 			System.out.println(checkEmail[i]);
 		}
 		
-		managerDAO.memberRemove(checkEmail);
+		managerDAO.blacklistAdd(checkEmail);
 		
 		return new ModelAndView("redirect:/manager/memberManage");
 	}
@@ -199,6 +199,7 @@ public class ManagerController {
 		if(managerDAO.revClaimList() != null){
 			list = managerDAO.revClaimList();
 		}
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("manager/reviewClaim");
@@ -206,10 +207,11 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value = "/manager/reviewClaimDetail", method = RequestMethod.GET)
-	public ModelAndView reviewClaimDetail(/*@RequestParam String reviewNo*/){
-		//System.out.println("리뷰넘버 = "+ reviewNo);
+	public ModelAndView reviewClaimDetail(@RequestParam String reviewNo){
+		ReportRevDTO reportRevDTO = managerDAO.reviewClaimDetail(reviewNo);
 		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("reportRevDTO", reportRevDTO);
 		mav.setViewName("manager/reviewClaimDetail");
 		return mav;
 	}

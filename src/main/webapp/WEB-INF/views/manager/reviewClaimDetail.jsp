@@ -30,33 +30,29 @@
 					<tbody>
 						<tr>
 							<th class="show">신고자:</th>
-							<td>아무무</td>
+							<td>${reportRevDTO.reEmail }</td>
 						</tr>
 						<tr>
 							<th class="show">신고제목:</th>
-							<td>똥맛납니다</td>
+							<td>${reportRevDTO.reportName }</td>
 						</tr>
 						<tr>
 							<th class="show">리뷰넘버:</th>
-							<td>121</td>
+							<td>${reportRevDTO.reviewNo }</td>
 						</tr>
 						<tr>
 							<th class="show">신고대상자:</th>
-							<td>리신</td>
+							<td>${reportRevDTO.deEmail }</td>
 						</tr>
 						<tr>
 							<th class="show">처리상태:</th>
-							<td>처리완료</td>
+							<td>${reportRevDTO.reStatus }</td>
 						</tr>
-						<tr>
-							<th class="show">신고경로:</th>
-							<td>www.naver.com</td>
-						</tr>
+						
 						<tr>
 							<th class="show">신고리뷰내용:</th>
 							<td><textarea rows="10" cols="50" resize="none" readonly>이 맛집은 쥰나 맛없습니다.
-							밥에서 쉰내가나고 후식으로 똥이 나옵니다
-							슈발!!
+						${reportRevDTO.reportContent }
 							</textarea></td>
 						</tr>
 					</tbody>
@@ -71,11 +67,11 @@
 		<col width="20%" />
 	</colgroup>
 	<tr>
-		<td border="1"><image width="100%" height="300" src="../image/1.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="../image/2.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="../image/3.jpg"></td>
-		<td border="1"><image width="100%" height="300" src="../image/4.gif"></td>
-		<td border="1"><image width="100%" height="300" src="../image/5.jpg"></td>
+<td border="1"><image width="100%" height="300" src="/resources/images/${reportRevDTO.deEmail}_image_1.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportRevDTO.deEmail}_image_2.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportRevDTO.deEmail}_image_3.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportRevDTO.deEmail}_image_4.jpg"></td>
+		<td border="1"><image width="100%" height="300" src="/resources/images/${reportRevDTO.deEmail}_image_5.jpg"></td>
 	</tr>
 </table>
 
