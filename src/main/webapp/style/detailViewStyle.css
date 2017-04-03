@@ -2,7 +2,7 @@
 
 body{
 	margin:0 0;
-	font-family:"SpoqaHanSans-Regular", sans-serif;
+	/* font-family:"SpoqaHanSans-Regular", sans-serif; */
 }
 
 .main-scope{
@@ -33,7 +33,9 @@ body{
 	display:block;
 	float:left;
 }
-
+.show{
+	font-size:16px;
+}
 /* @media screen and (min-width: 1600px) {
 	.content-wrapper {margin-left:100px;} 
 } */
@@ -43,13 +45,13 @@ body{
 	background-color:#fff;
 	flex:1;
 	height:100%;
-/* 	border:1px solid green; */
+/*  	border:1px solid green;  */
 	overflow:hidden;
 	display:inline-block;
 	margin-left:100px;
 }
 .content-all{
-/* 	border:3px solid red; */
+/*  	border:3px solid red;  */
 	display:inline-block;
 }
 .content{
@@ -90,7 +92,7 @@ body{
 }
 .wannago-txt{
 	font-color:#9b9b9b;
-	font-size:0.8rem;
+	font-size:0.9rem;
 	margin-top:12px;
 }
 
@@ -237,7 +239,6 @@ h1,h2,h3,h4,h5,h6,strong,th{
 }
 
 .user{
-	
 	position:absolute;
 	top:22px;
 	left:0px;
@@ -442,12 +443,13 @@ h1,h2,h3,h4,h5,h6,strong,th{
 
 .side-wrap{
 	position:absolute;
-	margin:20px;
+	top:350px;
+	left:920px;
 	width:400px;
 	background-color:#f6f6f6;
 	word-break:keep all;
 	overflow:hidden;
-/* 	border:2px solid blue; */
+/* 	border:2px solid blue;  */
 	display:inline-block;
 		
 }
