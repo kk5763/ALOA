@@ -305,7 +305,7 @@
 												<button type="button" class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> °Ë»ö</button>
 											</div>
 										</div>
-										<table class="span12">
+										<table class="span12" >
 											<table>
 												<tr class="filters">
 												<th style= "width:1%;">
@@ -338,7 +338,7 @@
 						
 												</tr>
 											</table>
-											<div class="bg tablescroll">
+											<div class="bg tablescroll" style="height:400px;">
 												<table class="table table-bordered table-striped">
 													<c:if test="${list!=null }">
 														<c:forEach var="restaurant" items="${list }">

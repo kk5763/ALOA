@@ -315,7 +315,7 @@
 			
 									</tr>
 								</table>
-								<div class="bg tablescroll">
+								<div class="bg tablescroll" style="height:400px;">
 									<table class="table table-bordered table-striped">
 										<c:if test = "${list!=null }">
 										<c:forEach var = "memberDTO" items = "${list }">
