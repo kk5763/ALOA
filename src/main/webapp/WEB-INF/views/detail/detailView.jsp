@@ -81,20 +81,6 @@ window.onload = function(){
 	}
 }
 
-$(function() {
-	$(".review").slice(0, 2).show();
-	$(".reviews-more").on('click', function(e) {
-		e.preventDefault();
-		$(".review:hidden").slice(0, 2).slideDown();
-		if ($(".review:hidden").length == 0) {
-			$(".reviews-more").fadeOut('slow');
-		}
-		$('html,body').animate({
-			scrollTop : $(this).offset().top
-		}, 1500);
-	});
-}); 
-
 function openImageView(su) {
 	window.open("http://localhost:8000/detailViewImage?imageNo="+su+"&resNo=${resDTO.restaurant.resno }", "ImageView", "width=820 height=730 left=250 top=50");
 }
@@ -265,8 +251,6 @@ function openImageView(su) {
 				</ul>
 				</section>
 			</c:forEach>
-			<button class="reviews-more">더보기</button>
-
 		</div>
 	</div>
 
