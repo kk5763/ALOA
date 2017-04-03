@@ -199,6 +199,7 @@ public class ManagerController {
 		if(managerDAO.revClaimList() != null){
 			list = managerDAO.revClaimList();
 		}
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("manager/reviewClaim");
@@ -206,10 +207,11 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value = "/manager/reviewClaimDetail", method = RequestMethod.GET)
-	public ModelAndView reviewClaimDetail(/*@RequestParam String reviewNo*/){
-		//System.out.println("리뷰넘버 = "+ reviewNo);
+	public ModelAndView reviewClaimDetail(@RequestParam String reviewNo){
+		ReportRevDTO reportRevDTO = managerDAO.reviewClaimDetail(reviewNo);
 		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("reportRevDTO", reportRevDTO);
 		mav.setViewName("manager/reviewClaimDetail");
 		return mav;
 	}
@@ -221,7 +223,13 @@ public class ManagerController {
 			managerDAO.reviewRemove(checkNo);
 			return new ModelAndView("redirect:/manager/reviewClaim");
 		}
-	
+	@RequestMapping(value = "/manager/reviewClaimRefuse")
+	public ModelAndView reviewClaimRefuse(@RequestParam String reviewNo){
+		managerDAO.reviewClaimRefuse(reviewNo);
+		System.out.println("컨트롤러 " + reviewNo);
+		return new ModelAndView("redirect:/manager/reviewClaim");
+	}	
+
 	//맛집신고 완료( 확인부탁요)
 	@RequestMapping(value = "/manager/restaurantClaim", method = RequestMethod.GET)
 	public ModelAndView restaurantClaim() {

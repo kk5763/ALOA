@@ -41,6 +41,10 @@ public interface ManagerDAO {
 
 	public void restaurantClaimUnused(String resNo);
 
+	public ReportRevDTO reviewClaimDetail(String reviewNo);
+
+	public void reviewClaimRefuse(String reviewNo);
+
 
 	
 

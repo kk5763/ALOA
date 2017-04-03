@@ -118,7 +118,7 @@ public class MainController {
 				avg = 0;
 			else
 				avg = (double) sum / review.size();
-			resGrade.add(avg);
+			resGrade.add(Math.round(avg*10)/10.0);
 
 			// resList에 추가하기 위해 RestaurantDTO 타입의 객체 생성
 			RestaurantDTO resDTO = new RestaurantDTO();

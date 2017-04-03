@@ -339,7 +339,7 @@
 												</div>
 											</th>
 											<td style="width: 10%">${reportRevDTO.reEmail }</td>	
-											<td style="width: 15%"><span onclick = "reviewClaimDetail(${reportResDTO.reviewNo })" style = "cursor:pointer; color:blue; font-weight:bold;">${reportRevDTO.reportName }</span></td>
+											<td style="width: 15%"><span onclick = "reviewClaimDetail(${reportRevDTO.reviewNo })" style = "cursor:pointer; color:blue; font-weight:bold;">${reportRevDTO.reportName }</span></td>
 											<td style="width: 15%">${reportRevDTO.reportContent }</td>
 											<td style="width: 15%">${reportRevDTO.reviewNo }</td>
 											<td style="width: 35%">${reportRevDTO.deEmail }</td>
