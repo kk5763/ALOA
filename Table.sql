@@ -108,4 +108,7 @@ drop sequence seq_reviewno ;
 drop sequence  seq_restaurant;
 
 
+select * from account;
+
+
       commit;
